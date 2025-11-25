@@ -7,6 +7,9 @@
 #show image: img => {
   align(center, scale(50%, reflow: true)[#img])
 }
+#show table: t => {
+  align(center, t)
+}
 
 #let title-page(title:[], subtitle:[], name:[], email:[], body) = {
   align(center + horizon)[
@@ -62,13 +65,47 @@
 
 == Bewegungsgleichung schiefer Wurf
 
-Wie lautet die Bewegungsgleichung für den schiefen Wurf im Erdschwerefeld?
++ Wie lautet die Bewegungsgleichung für den schiefen Wurf im Erdschwerefeld?
++ Leiten Sie Formeln für die Höhe des Scheitels, den Auftreffpunkt (wenn Start- und Endpunkt auf gleicher Höhe sind), sowie die Bahnkurve ab.
 
-Leiten Sie Formeln für die Höhe des Scheitels, den Auftreffpunkt (wenn Start- und Endpunkt auf gleicher Höhe sind), sowie die Bahnkurve ab.
+#line(length: 100%)
+
+a)
+Zuerst muss die Geschwindigkeit auf die zwei Achsen aufgeteilt werden (wenn Wurfwinkel $alpha$, Anfangsgeschwindigkeit $attach(v, b: 0)$):
+
+$ attach(v, b: x) = attach(v, b: 0) * cos(alpha) $
+$ attach(v, b: y) = attach(v, b: 0) * sin(alpha) $
+
+Bewegungsgleichung in $x$-Richtung: $x(t) = attach(v, b: x) * t$
+
+Bewegungsgleichung in $y$-Richtung: $y(t) = -1/2 * g * t^2 + attach(v, b: y) * t$
+
+b)
+Am Scheitelpunkt ist $attach(v, b: y) = 0$:
+$ attach(v, b: 0) = (\dy)/(\dt)y(t) = -g*attach(t, b: S) + attach(v, b: 0) * sin(alpha) = 0 arrow.double attach(t, b: S) = (attach(v, b: 0) * sin(alpha))/g $
+
+Einsetzen in $y(t)$:
+$ attach(y, b: S) = -1/2 * g * ((attach(v, b: 0) * sin(alpha))/g)^2 + attach(v, b: 0) * sin(alpha) * (attach(v, b: 0) * sin(alpha))/g $
+$ attach(y, b: S) = (attach(v, b: 0)^2 * sin^2(alpha))/g - 1/2 * (attach(v, b: 0)^2 * sin^2(alpha))/g = (attach(v, b: 0)^2 * sin^2(alpha))/(2g) $
+
+Am Auftreffpunkt ist $y(t) = 0$ mit $t eq.not 0$:
+$ y(t) = -1/2 * g * attach(t, b: A)^2 + attach(v, b: 0) * sin(alpha) * attach(t, b: A) = 0 $
+$ attach(t, b: A) * (-1/2 * g * attach(t, b: A) + attach(v, b: 0) * sin(alpha)) arrow.double 1/2 * g * attach(t, b: A) = attach(v, b: 0) * sin(alpha) arrow.double attach(t, b: A) = (2 * attach(v, b: 0) * sin(alpha)) / g $
+
+Einsetzen in $x(t)$:
+$ attach(x, b: A) = attach(v, b: 0) * cos(alpha) * (2 * attach(v, b: 0) * sin(alpha)) / g = (attach(v, b: 0)^2 * sin(2*alpha)) / g $
+
+Für die Bahnkurve folgt aus $x(t) = attach(v, b: x)*t$:
+$ x(t) = attach(v, b: 0) * cos(alpha) arrow.double t = x/(attach(v, b: 0) * cos(alpha)) $
+
+Einsetzen in $y(t)$:
+$ y = -1/2*g*(x^2)/(attach(v, b: 0)^2 * cos^2(alpha)) + attach(v, b: 0) * sin(alpha) * x/(attach(v, b: 0) * cos(alpha)) = -g/(2*attach(v, b: 0)^2*cos^2(alpha)) * x^2 + x*tan(alpha) $
 
 == Allg. krummlinige Bewegung
 
 Man diskutiere die allgemeine krummlinige Bewegung im Falle nicht konstanter Beschleunigung.
+
+???
 
 == Gradlinig-gleichförmige Bewegung Punktmasse
 
@@ -79,6 +116,19 @@ Eine Masse m bewege sich gradlinig-gleichförmig vom Punkt P#sub("1")\($attach(x
 + Wie ist die momentane Geschwindigkeit definiert?
 + Geben Sie den Vektor der Geschwindigkeit in kartesischen Koordinaten an.
 + Wie lautet der Betrag der Geschwindigkeit in kartesischen Koordinaten?
+
+#line(length: 100%)
+
+a) TODO
+
+b) 
+$ arrow(overline(v)) = (Delta arrow(r))/(Delta t) = (arrow(attach(r, b: 2)) - arrow(attach(r, b: 1)))/(attach(t, b: 2) - attach(t, b: 1)) $
+
+c) $ arrow(v) = (Delta arrow(r))/(Delta t) "mit" Delta t arrow 0 = (dif arrow(r))/(dif t) $
+
+d) $ arrow(v) = vec(attach(v, b: x), attach(v, b: y)) = vec((attach(x, b: 2) - attach(x, b: 1))/(attach(t, b: 2) - attach(t, b: 1)), (attach(y, b: 2) - attach(y, b: 1))/(attach(t, b: 2) - attach(t, b: 1))) $
+
+e) $ v = abs(arrow(v)) = sqrt(attach(v, b: x)^2 + attach(v, b: y)^2) = sqrt((attach(x, b: 2) - attach(x, b: 1))^2 + (attach(y, b: 2) - attach(y, b: 1))^2) / (attach(t, b: 2) - attach(t, b: 1)) $
 
 == Kreisbewegung
 
@@ -92,23 +142,46 @@ Zeigen Sie, wie sich die Zentripetalbeschleunigung bei der gleichförmigen Kreis
 
 == Kugelkoordinaten
 
-Wie sind Kugelkoordinaten definiert? Fertigen Sie eine Skizze an und zeichnen Sie die relevanten Größen ein.
++ Wie sind Kugelkoordinaten definiert? Fertigen Sie eine Skizze an und zeichnen Sie die relevanten Größen ein.
++ Wie lauten die Umrechnungsformeln zwischen kartesischen Koordinaten und Kugelkoordinaten? 
++ Wie lautet die Formel für das Volumenelement in Kugelkoordinaten?
 
-Wie lauten die Umrechnungsformeln zwischen kartesischen Koordinaten und Kugelkoordinaten? 
+#line(length: 100%)
 
-Wie lautet die Formel für das Volumenelement in Kugelkoordinaten? 
+a) Der Ortsvektor $arrow(r)$ wird bestimmt durch seinen Betrag $r$ und die
+Winkel $theta$ und $phi$
+#image("assets/fragenkatalog/Kugelkoord.svg")
+
+b) 
+#table(
+  columns: 2,
+  align: horizon,
+  table.header(
+    [*Kartesische Koord.*],
+    [*Kugelkoord.*],
+  ),
+  [$ x = r * sin(theta) * cos(phi) $], [$ r = sqrt(x^2 + y^2 + z^2) $],
+  [$ y = r * sin(theta) * sin(phi) $], [$ theta = arccos(z/(sqrt(x^2 + y^2 + z^2))) $],
+  [$ x = r * cos(theta) $], [$ phi = arctan(y/x) $],
+)
+
+c) $ dif V = r^2 * sin(theta) dif r dif theta dif phi $
 
 == Zylinderkoordinaten
 
-Wie sind Zylinderkoordinaten definiert (Skizze)?
++ Wie sind Zylinderkoordinaten definiert (Skizze)?
++ Wie lauten die Formeln für die Umrechnung von kartesischen in Zylinderkoordinaten?
++ Wie lautet die Formel für das Volumenelement? 
 
-Wie lauten die Formeln für die Umrechnung von kartesischen in Zylinderkoordinaten?
+#line(length: 100%)
 
-Wie lautet die Formel für das Volumenelement? 
+a) TODO
 
 == Grundeinheiten SI-System
 
 Welche sind die Grundeinheiten des internationalen Einheitensystems?
+
+#line(length: 100%)
 
 - Länge: Meter ($m$)
 - Masse: Kilogramm ($\kg$)
@@ -122,6 +195,8 @@ Welche sind die Grundeinheiten des internationalen Einheitensystems?
 
 Wie sind die Grundeinheiten Meter, Kilogramm und Sekunde definiert? 
 
+#line(length: 100%)
+
 - Meter: Die Distanz, die Licht innerhalb von $1/299792458 s$ zurücklegt.
 - Kilogramm: Wurde 2019 mithilfe der Planck-Konstante $h = 6.2607015*10^(-34) (\kg*m^2)/s$ an den Meter und die Sekunde gebunden, d.h. $1 \kg = h/(6.2607015*10^(-34)) s/(m^2)$ (früher: Ur-Kilogramm in Paris)
 - Zeit: Die Sekunde ist die Dauer von 9192631770 Schwingungsperioden der Strahlung korrespondierend dem Übergang der zwei Hyperfeinniveaus des Grundzustandes von $attach("Cs", tl: 133)$.
@@ -130,12 +205,15 @@ Wie sind die Grundeinheiten Meter, Kilogramm und Sekunde definiert?
 
 Wie ist der Raumwinkel definiert? Wie groß ist Raumwinkel für eine Vollkugel? 
 
+#line(length: 100%)
+
 Die Einheit des Raumwinkels ist der "Steradiant"
 
 $ "Raumwinkel" = "Ausschnittsfläche auf der Einheitskugel" = ("Kallotenfläche" (m^2))/("Radius"^2 (m^2)) $
 $ Omega = S/(R^2) s r $
 
-Raumwinkel für eine Vollkugel: $(4*pi*R^2) / R^2 = 4*pi$ sr
+Raumwinkel für eine Vollkugel: 
+$ (4*pi*R^2) / R^2 = 4*pi "sr" $
 
 #image("assets/fragenkatalog/01_Kugelkalotte-Raumwinkel.svg")
 
@@ -143,15 +221,45 @@ Raumwinkel für eine Vollkugel: $(4*pi*R^2) / R^2 = 4*pi$ sr
 
 Wie ist der Raumwinkel definiert? Wie berechnen Sie den Raumwinkel für eine Halbkugel?
 
+#line(length: 100%)
+
 Definition siehe @raumwinkel_1.
 
-Raumwinkel für eine Halbkugel berechnen: $attach(Omega, b: "halb") = "Raumwinkel Vollkugel"/2 = (1/2) * (4*pi*R^2) / R^2 = (1/2) * 4*pi = 2*pi$ sr
+Raumwinkel für eine Halbkugel berechnen: 
+$ attach(Omega, b: "halb") = "Raumwinkel Vollkugel"/2 = (1/2) * (4*pi*R^2) / R^2 = (1/2) * 4*pi = 2*pi "sr" $ 
 
 == Definition von Geschwindigkeit, Impuls, Kraft, Arbeit und Leistung
 
-Definieren Sie die Größen Geschwindigkeit, Impuls, Kraft, Arbeit und Leistung. 
++ Definieren Sie die Größen Geschwindigkeit, Impuls, Kraft, Arbeit und Leistung. 
++ Zeigen Sie wie diese Größen zusammenhängen und geben Sie für jede Größe die entsprechenden Dimensionen bzw. Einheiten an.
 
-Zeigen Sie wie diese Größen zusammenhängen und geben Sie für jede Größe die entsprechenden Dimensionen bzw. Einheiten an.
+#line(length: 100%)
+
+a und b)
+#table(
+  columns: 5,
+  align: horizon,
+  inset: 8pt,
+  table.header(
+    [*Größe*],
+    [*Definition*],
+    [*Formel*],
+    [*SI-Einheit*],
+    [*Dimension*],
+  ),
+  [Geschwindigkeit $arrow(v)$], [Änderung des Ortes mit der Zeit], [$arrow(v) = (dif arrow(r))/(dif t)$], [$m/s$], [$L*T^(-1)$],
+  [Impuls $arrow(p)$], [Produkt aus Masse und Geschwindigkeit], [$arrow(p) = m * arrow(v)$], [$(\kg*m)/s$], [$M*L*T^(-1)$],
+  [Kraft $arrow(F)$], [Änderung des Impulses über Zeit], [$arrow(F) = (dif arrow(p))/(dif t)$], [$N = (\kg*m)/s^2$], [$M*L*T^(-2)$],
+  [Arbeit $W$], [Übertragene Energie, wenn eine Kraft entlang einem Weg wirkt], [$W = integral arrow(F)*dif arrow(r)$], [$J = (\kg*m^2)/s^2$], [$M*L^2*T^(-2)$],
+  [Leistung $P$], [Verrichtete Arbeit pro Zeitspanne], [$P = (dif W)/(dif t)$], [$W = (\kg*m^2)/s^3$], [$M*L^2*T^(-3)$],
+)
+
+b) 
+$ "Ort" - "Ableitung nach Zeit" arrow "Geschwindigkeit" $
+$ "Geschwindigkeit" - "Multiplikation mit Masse m" arrow "Impuls" $
+$ "Impuls" - "Ableitung nach Zeit" arrow "Kraft" $
+$ "Kraft" - "Kraft-Weg-Integral" arrow "Arbeit" $
+$ "Arbeit" - "Ableitung nach Zeit" arrow "Leistung" $
 
 == Punktmasse im Fall
 
@@ -166,9 +274,22 @@ Ein Körper der Masse m fällt aus einer Höhe H auf den Boden.
 
 == Definition Kraft
 
-Wie ist Kraft definiert?
++ Wie ist Kraft definiert?
++ Welche Dimension hat Kraft und wie hängt sie mit den Grundeinheiten zusammen? 
 
-Welche Dimension hat Kraft und wie hängt sie mit den Grundeinheiten zusammen? 
+#line(length: 100%)
+
+a) Es gibt zwei (äquivalente) Definitionen:
+
+Durch Masse und Beschleunigung (bei konstanter Masse):
+$ arrow(F) = m * arrow(a) $
+
+Durch Impulsänderung:
+$ arrow(F) = (dif arrow(p))/(dif t) $
+
+b) $ [F] = [m] * [a] = M * L/T^2 = M * L * T^(-2) $
+
+Im SI-Einheitensystem: $M*L*T^(-2) arrow 1 (\kg*m)/s^2 = 1 "Newton"$, d.h. $1N$ beschleunigt $1\kg$ um $1m/s^2$
 
 == Kräfte
 
@@ -179,9 +300,14 @@ Welche Dimension hat Kraft und wie hängt sie mit den Grundeinheiten zusammen?
 
 == Kraftfelder
 
-Welche Bedingungen muss ein konservatives Kraftfeld erfüllen?
++ Welche Bedingungen muss ein konservatives Kraftfeld erfüllen?
++ Was ergibt sich daraus für die potentielle und kinetische Energie; Geben Sie Beispiele für konservative und nichtkonservative Felder an. 
 
-Was ergibt sich daraus für die potentielle und kinetische Energie; Geben Sie Beispiele für konservative und nichtkonservative Felder an. 
+#line(length: 100%)
+
+a) In einem konservativen Kraftfeld ist in jedem Raumpunkt $P$ die Summe aus potentieller und kinetischer Energie eines Massenpunktes konstant. Diese konstante Summe heißt die mechanische Gesamtenergie $E$. Die Gesamtenergie $E$ bleibt bei konservativen Kräften erhalten (konserviert).
+
+b) In einem konservativen Kraftfeld kann die Bewegung eines Körpers von $attach(P, b: 1)$ zu $attach(P, b: 2)$ mit dem Energiesatz der Mechanik beschrieben werden: $attach(E, b: "pot")(attach(P, b: 0)) + attach(E, b: "kin")(attach(P, b: 0)) = attach(E, b: "pot")(attach(P, b: 1)) + attach(E, b: "kin")(attach(P, b: 1)) = E$
 
 == Kraft, Feldstärke, Potential und pot. Energie
 
@@ -253,6 +379,10 @@ Eine Masse $m$ hänge an einer Feder (Federkonstante $D$).
 + Man zeige, dass bei Auslenkung der Masse nach unten, die aufgewandte Arbeit wegunabhängig ist.
 + Welchen Einfluss hat die Schwerkraft auf das Ergebnis?
 
+#line(length: 100%)
+
+TODO bruh
+
 == Gravitationsfeld ausgedehnter Körper
 
 Skizzieren Sie die Herleitung der Gravitationsfeldstärke im Falle einer Hohl- und einer Vollkugel. Skizzen und Formeln.
@@ -286,9 +416,9 @@ TODO: VO 23.10.
 
 == Drehimpuls eines Teilchens
 
-Ein Teilchen mit der Masse m bewegt sich mit der Geschwindigkeit $v$ in $x$-Richtung auf einer Geraden im Abstand $b$ vom Ursprung $O$. Es ist $d\A$ die Fläche, die der Ortsvektor $r$ des Teilchens in der Zeit $d\t$ überstreicht. 
+Ein Teilchen mit der Masse m bewegt sich mit der Geschwindigkeit $v$ in $x$-Richtung auf einer Geraden im Abstand $b$ vom Ursprung $O$. Es ist $dif A$ die Fläche, die der Ortsvektor $r$ des Teilchens in der Zeit $dif t$ überstreicht. 
 
-Zeigen sie, dass $(d\A)/(d\t)$ konstant ist und dass gilt: $(d\A)/(d\t) = L/(2m)$, wobei $L$ der Betrag des Drehimpulses des Teilchens bezüglich des Ursprunges ist. Welcher Erhaltungssatz ergibt sich daraus?
+Zeigen sie, dass $(dif A)/(dif t)$ konstant ist und dass gilt: $(dif A)/(dif t) = L/(2m)$, wobei $L$ der Betrag des Drehimpulses des Teilchens bezüglich des Ursprunges ist. Welcher Erhaltungssatz ergibt sich daraus?
 
 #image("assets/fragenkatalog/dynamik_7.png")
 
@@ -309,7 +439,7 @@ Die maximale Steighöhe bei einem Geschoss, das normal zur Erdoberfläche nach o
 
 $ attach(r, b: "max") = R/(1-attach(v, b: 0)^2/2*g*R) $
 
-Für $attach(v, b: 0) arrow sqrt(2*g*R)$ wird $1 - attach(v, b: 0)^2 / (2*g*R) = 0 arrow.r.double attach(r, b: "max") arrow infinity$, d.h. Körper verlässt Gravitationsfeld der Erde
+Für $attach(v, b: 0) arrow sqrt(2*g*R)$ wird $1 - attach(v, b: 0)^2 / (2*g*R) = 0 arrow.double attach(r, b: "max") arrow infinity$, d.h. Körper verlässt Gravitationsfeld der Erde
 
 $ attach(v, b: 2) = sqrt(2*g*R) = sqrt(2* 9.81m/s^2 * 6.378 * 10^6m) tilde.equiv 11.2 (\km)/s $
 
@@ -329,7 +459,29 @@ Berechnen Sie den Schwerpunkt einer homogenen Halbkugel.
 
 == Schwerpunkt starrer Körper
 
-Wie ist der Schwerpunkt beim starren Körper allgemein definiert? Berechnen Sie den Schwerpunkt einer homogenen Halbkugel.
++ Wie ist der Schwerpunkt beim starren Körper allgemein definiert? 
++ Berechnen Sie den Schwerpunkt einer homogenen Halbkugel.
+
+#line(length: 100%)
+
+a) Die Koordinaten $attach(arrow(r), b: S)$ des Massenschwerpunktes $S$ eines Systems von Massen $Delta attach(m, b: i)$ mit den Ortsvektoren $attach(arrow(r), b: i)$ definiert durch den Ortsvektor
+
+$ attach(arrow(r), b: S) = (sum_(i=1)^N  attach(arrow(r), b: i) * Delta attach(m, b: i))/(sum_(i=1)^N Delta attach(m, b: i)) = 1/M * sum_(i=1)^N attach(arrow(r), b: i) * rho(attach(arrow(r), b: i)) * Delta attach(V, b: i) $
+
+Bei $N arrow infinity$ und $Delta V arrow 0$ wird $attach(arrow(r), b: S)$ zu:
+$ attach(arrow(r), b: S) = 1/M * attach(integral, b: V) arrow(r) dif m = 1/M * attach(integral, b: V) arrow(r) * rho(arrow(r)) dif V $
+
+Für homogene Körper ($rho = "const"$) folgt daraus:
+$ attach(arrow(r), b: S) = 1/V * attach(integral, b: V) arrow(r) dif V $
+
+b) Wenn der Mittelpunkt der Kugel im Nullpunkt ($x = y = z = 0$) liegt, folgt aus Symmetriegründen: $attach(x, b: S) = attach(y, b: S) = 0$. Bei homogener Dichte $rho$ erhält man für $attach(z, b: S)$:
+
+$ attach(z, b: S) = 1/M * attach(integral, b: V) z * rho dif V = 1/V * attach(integral, b: V) z  dif V $
+
+Mit $z = r * cos(theta)$ und $dif V = r^2 dif r * sin(theta) dif theta dif phi$ wird dies zu
+$ attach(z, b: S) = 1/V * attach(integral, t: 2pi, b: phi=0) attach(integral, t: pi / 2, b: theta=0) attach(integral, t: R, b: r=0) r^3 * cos(theta) * sin(theta) dif r dif theta dif phi = 3/8 * R $ 
+
+TODO: actually rechenweg? Demtröder skippt zu viel
 
 == Drehbewegung
 
