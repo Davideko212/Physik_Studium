@@ -1,10 +1,11 @@
 // David Koch - 12503857
 
+#set text(font: "New Computer Modern")
 #set heading(numbering: "1.1.1")
 #set enum(numbering: "a.1)")
 #set page(numbering: "1 / 1")
 #show image: img => {
-  align(center, scale(50%)[#img])
+  align(center, scale(50%, reflow: true)[#img])
 }
 
 #let title-page(title:[], subtitle:[], name:[], email:[], body) = {
@@ -109,17 +110,42 @@ Wie lautet die Formel für das Volumenelement?
 
 Welche sind die Grundeinheiten des internationalen Einheitensystems?
 
+- Länge: Meter ($m$)
+- Masse: Kilogramm ($\kg$)
+- Zeit: Sekunde ($s$)
+- Elektrische Stromstärke: Ampere ($A$)
+- Temperatur: Kelvin ($K$)
+- Stoffmenge: Mol ($\m\ol$)
+- Lichtstärke: Candela ($\cd$)
+
 == Definition von Meter, Kilogramm und Sekunde
 
 Wie sind die Grundeinheiten Meter, Kilogramm und Sekunde definiert? 
 
-== Raumwinkel (Teil 1)
+- Meter: Die Distanz, die Licht innerhalb von $1/299792458 s$ zurücklegt.
+- Kilogramm: Wurde 2019 mithilfe der Planck-Konstante $h = 6.2607015*10^(-34) (\kg*m^2)/s$ an den Meter und die Sekunde gebunden, d.h. $1 \kg = h/(6.2607015*10^(-34)) s/(m^2)$ (früher: Ur-Kilogramm in Paris)
+- Zeit: Die Sekunde ist die Dauer von 9192631770 Schwingungsperioden der Strahlung korrespondierend dem Übergang der zwei Hyperfeinniveaus des Grundzustandes von $attach("Cs", tl: 133)$.
+
+== Raumwinkel (Teil 1) <raumwinkel_1>
 
 Wie ist der Raumwinkel definiert? Wie groß ist Raumwinkel für eine Vollkugel? 
+
+Die Einheit des Raumwinkels ist der "Steradiant"
+
+$ "Raumwinkel" = "Ausschnittsfläche auf der Einheitskugel" = ("Kallotenfläche" (m^2))/("Radius"^2 (m^2)) $
+$ Omega = S/(R^2) s r $
+
+Raumwinkel für eine Vollkugel: $(4*pi*R^2) / R^2 = 4*pi$ sr
+
+#image("assets/fragenkatalog/01_Kugelkalotte-Raumwinkel.svg")
 
 == Raumwinkel (Teil 2)
 
 Wie ist der Raumwinkel definiert? Wie berechnen Sie den Raumwinkel für eine Halbkugel?
+
+Definition siehe @raumwinkel_1.
+
+Raumwinkel für eine Halbkugel berechnen: $attach(Omega, b: "halb") = "Raumwinkel Vollkugel"/2 = (1/2) * (4*pi*R^2) / R^2 = (1/2) * 4*pi = 2*pi$ sr
 
 == Definition von Geschwindigkeit, Impuls, Kraft, Arbeit und Leistung
 
@@ -242,6 +268,13 @@ Wie lautet das effektive Potential des Gravitationsfeldes (Skizze und Formeln)?
 == Planetenbewegung
 
 + Wie lauten die Keplergesetze?
+
+1. Die Planeten bewegen sich auf Ellipsen, in deren gemeinsamen Brennpunkt die Sonne steht.
+2. Der von der Sonne zum Planeten gezogene Radiusvektor überstreicht in gleichen Zeiten gleiche Flächen.
+3. Die Quadrate der Umlaufzeiten zweier Planeten verhalten sich wie die dritten Potenzen der großen Bahnachsen.
+
+TODO: VO 23.10.
+
 + Was folgt aus dem 1. und 2. Keplergesetz für den Drehimpuls? Erklären Sie das mittels einer Skizze.
 + Was versteht man unter Perihel und Aphel? Fertigen Sie eine Skizze an.
 
@@ -263,9 +296,26 @@ Zeigen sie, dass $(d\A)/(d\t)$ konstant ist und dass gilt: $(d\A)/(d\t) = L/(2m)
 
 Leiten Sie die 1. und 2. kosmische Geschwindigkeit her.
 
+1. kosmische Geschwindigkeit (Orbitalgeschwindigkeit):
+Man nehme an die Zentripetal- bzw. Zentrifugalkraft = Gravitation, d.h. die Erdrotation wird vernachlässigt.
+
+$ underbrace((m*v^2)/R, "Zentrifugalkraft") = underbrace((G*m*M)/R^2, "Gravitationskraft") $
+$ v^2 = (G*M)/R arrow attach(v, b: 1) = sqrt((G*M)/R) arrow sqrt(g*R) = sqrt(9.81m/s^2 * 6.378 * 10^6m) tilde.equiv 7.9 (\km)/s $  
+
+Mündliche Herleitung: Wenn die Zentrifugalkraft gleich der Gravitationskraft ist, fällt der Körper immer an der Erde "vorbei", was die 1. kosmische Geschwindigkeit beschreibt (stabiler, gleichmäßiger Orbit).
+
+2. kosmische Geschwindigkeit (Fluchtgeschwindigkeit):
+Die maximale Steighöhe bei einem Geschoss, das normal zur Erdoberfläche nach oben geschossen wird, kann folgend berechnet werden:
+
+$ attach(r, b: "max") = R/(1-attach(v, b: 0)^2/2*g*R) $
+
+Für $attach(v, b: 0) arrow sqrt(2*g*R)$ wird $1 - attach(v, b: 0)^2 / (2*g*R) = 0 arrow.r.double attach(r, b: "max") arrow infinity$, d.h. Körper verlässt Gravitationsfeld der Erde
+
+$ attach(v, b: 2) = sqrt(2*g*R) = sqrt(2* 9.81m/s^2 * 6.378 * 10^6m) tilde.equiv 11.2 (\km)/s $
+
 == Geschwindigkeit zum Verlassen des Erdschwerefeldes
 
-Leiten Sie aus dem Energiesatz die für einen Körper der Masse m erforderliche Anfangsgeschwindigkeit v ab, die er zum Verlassen des Erdschwerefeldes benötigt (Vernachlässigen Sie die Erdrotation).
+Leiten Sie aus dem Energiesatz die für einen Körper der Masse $m$ erforderliche Anfangsgeschwindigkeit $v$ ab, die er zum Verlassen des Erdschwerefeldes benötigt (Vernachlässigen Sie die Erdrotation).
 
 == Definition Kraft, Arbeit und Leistung
 
