@@ -130,15 +130,29 @@ d) $ arrow(v) = vec(attach(v, b: x), attach(v, b: y)) = vec((attach(x, b: 2) - a
 
 e) $ v = abs(arrow(v)) = sqrt(attach(v, b: x)^2 + attach(v, b: y)^2) = sqrt((attach(x, b: 2) - attach(x, b: 1))^2 + (attach(y, b: 2) - attach(y, b: 1))^2) / (attach(t, b: 2) - attach(t, b: 1)) $
 
-== Kreisbewegung
+== (Gleichförmige) Kreisbewegung
 
 + Wie lautet der Zusammenhang zwischen dem Vektor der Winkelgeschwindigkeit und der Tangentialgeschwindigkeit?
 + Wie lautet die Zentripetalbeschleunigung?
 + Fertigen Sie eine Skizze mit allen relevanten Größen.
 
-== Zentripetalbeschleunigung berechnen
+#line(length: 100%)
+
+a) Der Vektor der Winkelgeschwindigkeit steht senkrecht auf dem Mittelpunkt der Kreisbahn. Wenn dieser nun mit dem Ortsvektor ein Kreuzprodukt bildet, entsteht der Vektor der Tangentialgeschwindigkeit, denn dieser steht im Raum normal auf den Winkelgeschwindigkeits- als auch den Ortsvektor.
+$ arrow(v) = arrow(omega) times arrow(r) $
+b) siehe @zentripetalbeschleunigung
+c) TODO (selber machen probably, online ist alles trash)
+
+== Zentripetalbeschleunigung berechnen <zentripetalbeschleunigung>
 
 Zeigen Sie, wie sich die Zentripetalbeschleunigung bei der gleichförmigen Kreisbewegung berechnet. 
+
+#line(length: 100%)
+
+Die Beschleunigung $arrow(a)$ steht senkrecht auf der Geschwindigkeit $arrow(v)$. Der Vektor $(dif attach(hat(e), b: t))/(dif t)$ gibt an, mit welcher Winkelgeschwindigkeit sich die Tangente dreht. Da $attach(hat(e), b: t)$ immer senkrecht auf dem Radiusvektor steht, drehen sich beide Vektoren mit der gleichen Winkelgeschwindigkeit $omega = (dif phi)/(dif t)$, d.h. für den Betrag gilt: $abs((dif attach(hat(e), b: t)) / (dif t)) = omega$. Deshalb erhalten wir für die Beschleunigung
+
+$ arrow(a) = v * (dif attach(hat(e), b: t))/(dif t) = R * omega^2 * attach(hat(e), b: a) = -R * omega^2 * hat(r) $
+$ abs(a) = R * omega^2 $
 
 == Kugelkoordinaten
 
@@ -148,8 +162,7 @@ Zeigen Sie, wie sich die Zentripetalbeschleunigung bei der gleichförmigen Kreis
 
 #line(length: 100%)
 
-a) Der Ortsvektor $arrow(r)$ wird bestimmt durch seinen Betrag $r$ und die
-Winkel $theta$ und $phi$
+a) Der Ortsvektor $arrow(r)$ wird bestimmt durch seinen Betrag $r$ und die Winkel $theta$ und $phi$
 #image("assets/fragenkatalog/Kugelkoord.svg")
 
 b) 
@@ -162,7 +175,7 @@ b)
   ),
   [$ x = r * sin(theta) * cos(phi) $], [$ r = sqrt(x^2 + y^2 + z^2) $],
   [$ y = r * sin(theta) * sin(phi) $], [$ theta = arccos(z/(sqrt(x^2 + y^2 + z^2))) $],
-  [$ x = r * cos(theta) $], [$ phi = arctan(y/x) $],
+  [$ z = r * cos(theta) $], [$ phi = arctan(y/x) $],
 )
 
 c) $ dif V = r^2 * sin(theta) dif r dif theta dif phi $
@@ -175,7 +188,23 @@ c) $ dif V = r^2 * sin(theta) dif r dif theta dif phi $
 
 #line(length: 100%)
 
-a) TODO
+a) Der Ortsvektor $arrow(r)$ wird bestimmt durch den Radius $r$ (Projektion vom Ortsvektor in xy-Ebene), dem Winkel $phi$ und der Höhe $z$
+#image("assets/fragenkatalog/Zylinderkoord.svg")
+
+b) 
+#table(
+  columns: 2,
+  align: horizon,
+  table.header(
+    [*Kartesische Koord.*],
+    [*Zylinderkoord.*],
+  ),
+  [$ x = r * cos(phi) $], [$ r = sqrt(x^2 + y^2) $],
+  [$ y = r * sin(phi) $], [$ theta = arctan(x/y) $],
+  [$ z = z $], [$ z = z $],
+)
+
+c) $ dif V = r dif r dif phi dif z $
 
 == Grundeinheiten SI-System
 
@@ -331,9 +360,15 @@ Wie groß muss die Geschwindigkeit eines Wagens im höchsten Punkt (P) einer kre
 
 #image("assets/fragenkatalog/dynamik_2.png")
 
+#line(length: 100%)
+
+Der Wagen fällt nicht herunter, wenn im höchsten Punkt die Zentripetalkraft größer gleich der Schwerkraft ist, d.h.:
+$ (m*v^2)/R eq.gt m*g $
+$ v^2/(H/2) = g arrow.double v = sqrt((H/2)*g) = sqrt((20m/2)*9.81m/s^2) tilde.equiv 9.9m $
+
 == Rolle mit schiefer Ebene
 
-Die beiden Massen ($attach(m, b: 1) > attach(m, b: 2)$) sind mit einem masselosen Seil über eine masselose und reibungsfreie Rolle verbunden. Die Masse m1 soll sich reibungsfrei auf der schiefen Ebene bewegen.
+Die beiden Massen ($attach(m, b: 1) > attach(m, b: 2)$) sind mit einem masselosen Seil über eine masselose und reibungsfreie Rolle verbunden. Die Masse $attach(m, b: 1)$ soll sich reibungsfrei auf der schiefen Ebene bewegen.
 
 Berechnen sie die Beschleunigung und geben sie die Zugkraft im Seil an. 
 
@@ -346,6 +381,10 @@ Zwei Gewichte hängen an einem Seil, das über eine masselose und reibungsfreie 
 Berechnen Sie die Beschleunigung der Massen, während $attach(m, b: 1)$ absinkt. Verwenden Sie den Energiesatz zur Berechnung der Geschwindigkeit der beiden Massen, wenn $attach(m, b: 1)$ um die Strecke $h$ gesunken ist.
 
 #image("assets/fragenkatalog/dynamik_4.png")
+
+#line(length: 100%)
+
+TODO: VO 21.10.
 
 == Hohlzylinder auf schiefer Ebene
 
@@ -371,6 +410,23 @@ ausgehend von der Höhe $h$ hinab.
 + Diskutieren Sie die einzelnen Terme.
 + Wann ist der Energieerhaltungssatz der Mechanik anwendbar.
 + Wie lautet der Energieerhaltungssatz der Relativitätstheorie?
+
+#line(length: 100%)
+
+a) $ attach(E, b: "kin") + attach(E, b: "pot") = attach(E, b: "ges") = "const" $ (für ein konservatives Kraftfeld)
+
+b) 
+$attach(E, b: "kin") = 1/2*m*v^2 arrow$ die Energie eines bewegten Körpers mit Masse m und Geschwindigkeit v 
+$attach(E, b: "pot") = m*g*h arrow$ die "gespeicherte" Energie eines ruhenden Körpers mit Masse m in der Höhenposition h
+
+c) Wann er anwendbar ist:
+  - Es dürfen nur konservative Kräfte wirken, d.h. verrichtete Arbeit muss wegunabhängig sein.
+  - Wenn Reibung/Luftwiderstand und/oder andere Energieverluste auftreten und zur Umwandlung von $attach(E, b: "kin")$ in z.B. Wärmeenergie führen.
+  - Wenn dem System von außen keine Energie zugeführt wird.
+
+d) In der Relativitätstheorie werden Masse und Energie als äquivalent betrachtet (Masse als Form von Energie), d.h. $E = gamma * 1/sqrt(1-(v^2/c^2))$
+
+In einem abgeschlossenen System ist die Summe aller relativistischen Gesamtenergie aller Komponenten konstant.
 
 == Punktmasse an Feder
 
@@ -398,21 +454,28 @@ Wie lautet das effektive Potential des Gravitationsfeldes (Skizze und Formeln)?
 == Planetenbewegung
 
 + Wie lauten die Keplergesetze?
-
-1. Die Planeten bewegen sich auf Ellipsen, in deren gemeinsamen Brennpunkt die Sonne steht.
-2. Der von der Sonne zum Planeten gezogene Radiusvektor überstreicht in gleichen Zeiten gleiche Flächen.
-3. Die Quadrate der Umlaufzeiten zweier Planeten verhalten sich wie die dritten Potenzen der großen Bahnachsen.
-
-TODO: VO 23.10.
-
 + Was folgt aus dem 1. und 2. Keplergesetz für den Drehimpuls? Erklären Sie das mittels einer Skizze.
 + Was versteht man unter Perihel und Aphel? Fertigen Sie eine Skizze an.
+
+#line(length: 100%)
+
+a) 
+  1. Die Planeten bewegen sich auf Ellipsen, in deren gemeinsamen Brennpunkt die Sonne steht.
+  2. Der von der Sonne zum Planeten gezogene Radiusvektor überstreicht in gleichen Zeiten gleiche Flächen.
+  3. Die Quadrate der Umlaufzeiten zweier Planeten verhalten sich wie die dritten Potenzen der großen Bahnachsen.
+b)
+c)
+TODO: VO 23.10.
 
 == Raketengleichung
 
 + Welche Kräfte wirken?
 + Leite die Raketengleichung her.
 + Welche Geschwindigkeit hat die Rakete nach einer Brenndauer $T$, wenn die Anfangsgeschwindigkeit $attach(v, b: 0)$ ist.
+
+#line(length: 100%)
+
+TODO: VO 21.10.
 
 == Drehimpuls eines Teilchens
 
@@ -496,6 +559,10 @@ TODO: actually rechenweg? Demtröder skippt zu viel
 Wie groß ist die Kraft $F$, die nötig ist, um das Rad auf den Randstein zu heben?
 
 #image("assets/fragenkatalog/dynamik_8.png")
+
+#line(length: 100%)
+
+TODO: https://www.physikerboard.de/topic,50196,-fahrrad-ueber-bordsteinkante.html
 
 == Berechnung Trägheitsmoment eines Vollzylinders
 
