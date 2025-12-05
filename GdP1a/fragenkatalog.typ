@@ -105,7 +105,14 @@ $ y = -1/2*g*(x^2)/(attach(v, b: 0)^2 * cos^2(alpha)) + attach(v, b: 0) * sin(al
 
 Man diskutiere die allgemeine krummlinige Bewegung im Falle nicht konstanter Beschleunigung.
 
-???
+#line(length: 100%)
+
+Im allgemeinen Fall wird $v$ sich nach Betrag und Richtung ändern. Immer ist aber $v$ in jedem Bahnpunkt $P$ Tangente an die Bahnkurve. Die Beschleunigung a kann allerdings eine beliebige Richtung haben. Sie lässt sich jedoch immer zerlegen in eine Komponente tangential (Tangentialbeschleunigung $attach(a, b: t) = (dif v)/(dif t) * attach(hat(e), b: t)$) zur Bahnkurve und eine Komponente normal (Normalbeschleunigung $attach(a, b: n) = (dif attach(hat(e), b: t))/(dif t) * v$) zur Bahn, d.h. senkrecht auf der Bahntangente. Es gilt somit für die Beschleunigung
+$ arrow(a) = (dif arrow(v))/(dif t) = (dif v)/(dif t) * attach(hat(e), b: t) + (dif attach(hat(e), b: t))/(dif t) * v = attach(arrow(a), b: t) + attach(arrow(a), b: n) $
+
+Ist $attach(arrow(a), b: n) = arrow(0)$, so durchläuft der Massenpunkt eine Gerade. Für eine gekrümmte Bahn muss $attach(arrow(a), b: n) eq.not arrow(0)$ sein. Für $attach(arrow(a), b: t) = arrow(0)$ läuft der Massenpunkt mit konstantem Betrag der Geschwindigkeit auf einer Kurve, deren Verlauf durch an bestimmt wird. Im Beispiel des freien Falles war $attach(arrow(a), b: n) eq.triple arrow(0)$, und $attach(arrow(a), b: t) = "const"$, während bei der gleichförmigen Kreisbewegung $attach(arrow(a), b: t) eq.triple arrow(0)$ und $attach(arrow(a), b: n) = "const" eq.not arrow(0)$ galt.
+
+#image("assets/fragenkatalog/krummlinige_bewegung.png")
 
 == Gradlinig-gleichförmige Bewegung Punktmasse
 
@@ -119,12 +126,16 @@ Eine Masse m bewege sich gradlinig-gleichförmig vom Punkt P#sub("1")\($attach(x
 
 #line(length: 100%)
 
-a) TODO
+a) Eine Bewegung, bei der die Geschwindigkeit nach Betrag und Richtung konstant bleibt:
 
-b) 
-$ arrow(overline(v)) = (Delta arrow(r))/(Delta t) = (arrow(attach(r, b: 2)) - arrow(attach(r, b: 1)))/(attach(t, b: 2) - attach(t, b: 1)) $
+#image("assets/fragenkatalog/gradlinige_bewegung.png")
 
-c) $ arrow(v) = (Delta arrow(r))/(Delta t) "mit" Delta t arrow 0 = (dif arrow(r))/(dif t) $
+b) TODO
+$ (arrow(r)(t + Delta t) - arrow(r)(t))/(Delta t) = (Delta arrow(r))/(Delta t) = (arrow(attach(r, b: 2)) = arrow(overline(v)) $
+
+$ arrow(overline(v)) = (Delta arrow(r))/(Delta t) = (arrow(attach(r, b: 2)) - arrow(attach(r, b: 1)))/(attach(t, b: 2) - attach(t, b: 1)) = (arrow(r)(t + Delta t) - arrow(r)(t))/(Delta t) $
+
+c) $ arrow(v) = (Delta arrow(r))/(Delta t) "mit" Delta t arrow 0 = (dif arrow(r))/(dif t) = dot(r) $
 
 d) $ arrow(v) = vec(attach(v, b: x), attach(v, b: y)) = vec((attach(x, b: 2) - attach(x, b: 1))/(attach(t, b: 2) - attach(t, b: 1)), (attach(y, b: 2) - attach(y, b: 1))/(attach(t, b: 2) - attach(t, b: 1))) $
 
@@ -140,8 +151,10 @@ e) $ v = abs(arrow(v)) = sqrt(attach(v, b: x)^2 + attach(v, b: y)^2) = sqrt((att
 
 a) Der Vektor der Winkelgeschwindigkeit steht senkrecht auf dem Mittelpunkt der Kreisbahn. Wenn dieser nun mit dem Ortsvektor ein Kreuzprodukt bildet, entsteht der Vektor der Tangentialgeschwindigkeit, denn dieser steht im Raum normal auf den Winkelgeschwindigkeits- als auch den Ortsvektor.
 $ arrow(v) = arrow(omega) times arrow(r) $
+
 b) siehe @zentripetalbeschleunigung
-c) TODO (selber machen probably, online ist alles trash)
+
+c) #image("assets/fragenkatalog/kreisbewegung.png")
 
 == Zentripetalbeschleunigung berechnen <zentripetalbeschleunigung>
 
@@ -299,6 +312,17 @@ Ein Körper der Masse m fällt aus einer Höhe H auf den Boden.
 + Berechnen Sie die Aufprallgeschwindigkeit.
 + Zeichnen Sie Zeitdiagramme für den Ort, die Geschwindigkeit und die Beschleunigung.
 
+#line(length: 100%)
+
+a) Bewegungsgleichung des freien Falls (Bewegung mit konstanter Beschleunigung): $ dot.double(arrow(r))(t) = arrow(a) = "const" $
+$ z(t) = integral integral attach(a, b: z) arrow.double z(t) = -1/2*g*t^2 + H $
+
+b) $ attach(t, b: "fall") = sqrt((2h)/g) $
+
+c) $ attach(v, b: "fall") = sqrt(2h*g) $
+
+d) TODO
+
 = Dynamik
 
 == Definition Kraft
@@ -323,9 +347,37 @@ Im SI-Einheitensystem: $M*L*T^(-2) arrow 1 (\kg*m)/s^2 = 1 "Newton"$, d.h. $1N$ 
 == Kräfte
 
 + Was sind konservative Kräfte?
-+ Geben Sie Beispiele für konservative und nicht konservative Kräfte an?
++ Geben Sie Beispiele für konservative und nicht konservative Kräfte an.
 + Wie hängen Kraft, Feldstärke und Potential zusammen?
 + Untersuchen Sie, ob die Federkraft eine konservative Kraft ist.
+
+#line(length: 100%)
+
+a) Eine konservative Kraft ist eine Kraft, bei der die Arbeit, die beim Verschieben eines Objekts verrichtet wird, ausschließlich von der Anfangs- und Endposition abhängt und nicht vom zurückgelegten Weg. Das bedeutet, dass bei geschlossenen Wegen, bei denen man zum Ausgangspunkt zurückkehrt, keine Arbeit verrichtet wird.
+
+b)
+
+Konservative Kräfte: Gravitationskraft, Federkraft, elektrische Coulomb-Kraft
+
+Nicht konservative Kräfte: Reibungskraft, Luftwiderstand, Viskosität
+
+c) Demtröder sagt: Geht man in einem konservativen Kraftfeld vom Punkte $P$ um die infinitesimal kleine Strecke $Delta arrow(r)$ zum Punkte $P'$ (siehe Abbildung unten), so ändert sich die potentielle Energie $attach(E, b: p)(x,y,z) = attach(E, b: p)(P)$ um den Betrag
+
+$ Delta attach(E, b: p) = (partial attach(E, b: p))/(partial x) * Delta x + (partial attach(E, b: p))/(partial y) * Delta y + (partial attach(E, b: p))/(partial z) * Delta z $
+
+#image("assets/fragenkatalog/kraft_potential_zusammenhang.png")
+
+DeepSeek sagt: Der Zusammenhang wird durch die zentrale Beziehung $arrow(F) = - nabla attach(E, b: "pot")$ hergestellt. Oft führt man hilfsweise die Begriffe Feldstärke und Potential ein:
+- Feldstärke ($arrow(G)$): Dies ist die "Kraft pro Ladung". Für eine Probemasse $m$ im Gravitationsfeld ist die Feldstärke die Schwerebeschleunigung $arrow(g) = (attach(arrow(F), b: G))/m$.
+- Potential ($arrow(V)$): Dies ist die "potentielle Energie pro Ladung". Das Gravitationspotential ist $Phi = attach(E, b: "pot")/m$.
+
+Der fundamentale Zusammenhang lautet dann: Die Feldstärke ist der negative Gradient des Potentials, d.h.:
+$ arrow(G) = -nabla V $
+
+Daraus folgt die Beziehung für die Kraft:
+$ arrow(F) = m * arrow(G) = -m * nabla V = -nabla attach(E, b: "pot") $
+
+d) TODO
 
 == Kraftfelder
 
@@ -354,6 +406,17 @@ Wie groß sind die Kräfte $attach(F, b: 1)$ und $attach(F, b: 2)$, die die Mass
 
 #image("assets/fragenkatalog/dynamik_1.png")
 
+#line(length: 100%)
+
+#image("assets/fragenkatalog/kraefteparallelogramm.png")
+
+$ arrow(attach(F, b: S)) = arrow(attach(F, b: 1)) + arrow(attach(F, b: 2)) arrow.double vec(0, attach(F, b: "Sy")) = vec(attach(F, b: "1x"), 0) + vec(-attach(F, b: "1x"), attach(F, b: "Sy")) $
+
+$ attach(F, b: "Sy") = m * g $
+$ cos(alpha) = attach(F, b: "1x")/attach(F, b: "Sy") arrow.double attach(F, b: "1x") = cos(alpha) * attach(F, b: "Sy") = cos(alpha) * m * g $
+
+$ arrow(attach(F, b: S)) = arrow(attach(F, b: 1)) + arrow(attach(F, b: 2)) arrow.double vec(0, m*g) = vec(cos(alpha) * m * g, 0) + vec(-cos(alpha) * m * g, m*g) $
+
 == Loopingbahn
 
 Wie groß muss die Geschwindigkeit eines Wagens im höchsten Punkt (P) einer kreisförmigen Loopingbahn sein, damit der Wagen nicht herunterfällt? Alle Verluste (Reibung etc.) werden vernachlässigt (Erdbeschleunigung $g = 10m/s^2, H = 20m$)
@@ -373,6 +436,16 @@ Die beiden Massen ($attach(m, b: 1) > attach(m, b: 2)$) sind mit einem masselose
 Berechnen sie die Beschleunigung und geben sie die Zugkraft im Seil an. 
 
 #image("assets/fragenkatalog/dynamik_3.png")
+
+#line(length: 100%)
+
+#image("assets/fragenkatalog/rolle_schiefe_ebene.png")
+
+$ attach(F, b: G 1) = attach(m, b: 1) * g = attach(F, b: 1) + attach(F, b: 2) $
+$ attach(F, b: G 2) = attach(m, b: 2) * g $
+$ attach(F, b: 1) = attach(F, b: G 1) * $
+
+TODO
 
 == Massen mit Seil an Rolle
 
@@ -520,6 +593,20 @@ Welche Dimension haben diese Größen und wie hängen sie mit den Grundeinheiten
 
 Berechnen Sie den Schwerpunkt einer homogenen Halbkugel.
 
+#line(length: 100%)
+
+Man stelle sich die obere Hälfte einer Kugel mit dem Radius $R$ vor, dessen Mittelpunkt in der Mitte des kart. Koordinatensystems ist. Somit sind $attach(x, b: s) = attach(y, b: s) = 0$.
+
+$ attach(z, b: s) = rho/M * integral z dif V = 1/V * integral z dif V $
+Umformung auf Kugelkoordinaten:
+$ z = r * cos(theta) $
+$ dif V = r^2 * sin(theta) dif r dif theta dif phi $
+$ V = 2/3 * pi * R^3 $
+$ arrow.double attach(z, b: s) = 1/(2/3 * pi * R^3) * attach(integral, b: r=0, t: R) attach(integral, b: theta=0, t: pi/2) attach(integral, b: phi=0, t: 2*pi) r*cos(theta) * r^2 * sin(theta) dif r dif theta dif phi $
+$ = 1/(2/3 * pi * R^3) * attach(integral, b: r=0, t: R) r^3 * attach(integral, b: theta=0, t: pi/2) cos(theta) * sin(theta) * attach(integral, b: phi=0, t: 2*pi) 1 dif phi dif theta dif r $
+$ = 1/(2/3 * pi * R^3) * 2*pi * attach(integral, b: r=0, t: R) r^3 * attach(integral, b: theta=0, t: pi/2) cos(theta) * sin(theta) dif theta dif r $
+$ = 3* 1/R^3 * (sin^2(pi/2))/2 * attach(integral, b: r=0, t: R) r^3 dif r = 3 * 1/R^3 * 1^2/2 * R^4/4 = 3/8 * R $
+
 == Schwerpunkt starrer Körper
 
 + Wie ist der Schwerpunkt beim starren Körper allgemein definiert? 
@@ -544,8 +631,6 @@ $ attach(z, b: S) = 1/M * attach(integral, b: V) z * rho dif V = 1/V * attach(in
 Mit $z = r * cos(theta)$ und $dif V = r^2 dif r * sin(theta) dif theta dif phi$ wird dies zu
 $ attach(z, b: S) = 1/V * attach(integral, t: 2pi, b: phi=0) attach(integral, t: pi / 2, b: theta=0) attach(integral, t: R, b: r=0) r^3 * cos(theta) * sin(theta) dif r dif theta dif phi = 3/8 * R $ 
 
-TODO: actually rechenweg? Demtröder skippt zu viel
-
 == Drehbewegung
 
 + Definieren Sie die Begriffe Drehimpuls, Drehmoment, Trägheitsmoment und Rotationsenergie.
@@ -562,19 +647,41 @@ Wie groß ist die Kraft $F$, die nötig ist, um das Rad auf den Randstein zu heb
 
 #line(length: 100%)
 
-TODO: https://www.physikerboard.de/topic,50196,-fahrrad-ueber-bordsteinkante.html
+Man kann den Schwerpunkt des Rads als Punktmasse betrachten, die mit einem Hebelarm um den Drehpunkt $B$ gedreht wird. Die zu berechnende Kraft wirkt ausschließlich waagerecht, somit kann sie mittels den Winkelfunktionen im rechtwinkligen Dreieick und dem Gleichgewicht der Drehmomente berechnet werden:
 
-== Berechnung Trägheitsmoment eines Vollzylinders
+Abstand Radmitte senkrecht zur Kante ist $R - h$. Der Winkel eingespannt zwischen der Strecke von der Radmitte zum Punkt B und $R - h$ sei $phi$, wobei
+$ cos(phi) = (R-h)/R $
+$ sin(phi) = sqrt(1-cos^2(theta)) = sqrt(1-((R-h)/R)^2) = sqrt(1-(R^2-2*R*h+h^2)/R^2) = sqrt(2*R*h-h^2)/R $
+
+Für das Gleichgewicht der Momente um $B$ gilt (Drehmoment von $F$ nach oben = Drehmoment von $m*g$ nach unten):
+$ F * (R-h) = m*g * R * sin(theta) arrow.double F = m*g * sqrt(2*R*h-h^2)/(R-h) $
+
+== Berechnung Trägheitsmoment eines Vollzylinders <berechnung_traegheit_vollzylinder>
 
 Berechnen Sie das Trägheitsmoment eines Vollzylinders (Masse $M$, Radius $R$, Länge $L$) der im Normalabstand $a$ parallel zur Zylinderachse rotiert.
 
 #image("assets/fragenkatalog/dynamik_9.png")
 
-== Herleitung Trägheitsmoment eines Vollzylinders
+#line(length: 100%)
+
+Satz von Steiner: $attach(I, b: B) = attach(I, b: S) + a^2*M$
+
+Trägheitsmoment eines Vollzylinders (Herleitung siehe @herleitung_traegheit_vollzylinder): $1/2*M*R^2$
+
+$ arrow.double I = 1/2 * M * R^2 + a^2 * M = M * (R^2/2 + a^2) $
+
+== Herleitung Trägheitsmoment eines Vollzylinders <herleitung_traegheit_vollzylinder>
 
 Leiten Sie das Trägheitsmoment für einen Vollzylinder mit Radius $R$ und der Höhe $h$ ab,
 + wenn die Drehachse gleich der Zylinderachse ist und
 + wenn die Drehachse um die Distanz $a$ parallel zur Zylinderachse verschoben ist.
+
+#line(length: 100%)
+
+a) TODO
+
+b) Hier nur die Herleitung des Steinerschen Satzes, Rest siehe @berechnung_traegheit_vollzylinder:
+$ attach(I, b: B) = attach(integral, b: V) r^2 dif m = attach(integral, b: V) (attach(arrow(r), b: "mS") + arrow(a))^2 dif m = attach(integral, b: V) attach(r^2, b: "mS") dif m + 2 * arrow(a) * underbrace(attach(integral, b: V) attach(arrow(r), b: "mS") dif m, attach(I, b: S)) + a^2 * underbrace(attach(integral, b: V) dif m, "M") $
 
 == Trägheitsmoment
 
@@ -584,9 +691,15 @@ Leiten Sie das Trägheitsmoment für einen Vollzylinder mit Radius $R$ und der H
   + wenn die Drehachse durch den Schwerpunkt senkrecht auf die Verbindungsstange steht.
 Hinweis: das Trägheitsmoment einer Kugel ist $2/5 * m * R^2$
 
+#line(length: 100%)
+
+a) Das Trägheitsmoment $I$ ist ein Maß für die Massenverteilung in einem ausgedehnten Körper bezüglich einer Rotationsachse. Für geometrisch einfache Körper kann man $I$ leicht ausrechnen, für Körper mit komplizierten Formen muss man $I$ messen. Das Trägheitsmoment eines Körpers ist immer auf eine bestimmte Drehachse bezogen und hängt ab von der Lage dieser Achse im Körper.
+
+b) TODO
+
 == Allgemeine Eigenschaft Trägheitsmoment
 
-Welche Eigenschaft hat das Trägheitsmoment allgemein, bei beliebiger Drehachse?Welche Eigenschaft hat das Trägheitsmoment allgemein, bei beliebiger Drehachse?
+Welche Eigenschaft hat das Trägheitsmoment allgemein, bei beliebiger Drehachse?
 
 == Drehimpulserhaltung Pirouette
 
@@ -673,6 +786,40 @@ Diskutieren Sie die Lorentzkontraktion sowohl formelmäßig, als auch graphisch.
 + Was ist das Zwillingsparadoxon? Erklären Sie die Lösung unter Verwendung des Minkowski-Diagrammes.
 + Was ist eine Invariante?
 
+#line(length: 100%)
+
+a) Wir betrachten (wie in der Abbildung unten) einen Kasten der Länge L und der Masse M.
+#image("assets/fragenkatalog/emc_gedankenexperiment.png")
+Von der linken Wand soll zur Zeit $attach(t, b: 1) = 0$ ein Lichtblitz mit der Lichtenergie $E$ ausgesandt werden, der sich mit der Lichtgeschwindigkeit $c$ nach rechts bewegt. Dieser Lichtblitz hat nach experimentellen Ergebnissen der klassischen Physik den Impuls $p = E/c$. Wegen der Impulserhaltung erhält die linke Wand, und damit der ganze Kasten, zur Zeit $attach(t, b: 1) = 0$ den Rückstoßimpuls $p = -E/c$, der zur Bewegung des Kastens nach links mit der Geschwindigkeit
+
+$ v = -p/M = -E/(M*c) $
+
+führt. Für $v << c$ erreicht der Lichtblitz die rechte Wand des Kastens nach der Zeit $attach(t, b: 2) = L/c$, wird dort absorbiert und überträgt dabei den Impuls $p = +E/c$ auf den Kasten, der dadurch wieder zur Ruhe kommt. Während dieser Zeit hat sich der Kasten nach links um die Strecke $Delta x$ bewegt, wobei
+
+$ Delta x = -v * attach(t, b: 2) = (E*L)/(M*c^2) $
+
+Da aber der Schwerpunkt unseres abgeschlossenen Systems, der vor der Emission des Lichtblitzes in Ruhe war, immer in Ruhe bleiben muss (es wirken keine äußeren Kräfte!), muss durch den Transport der Lichtenergie $E$ auch ein Massentransport stattgefunden haben, der dafür sorgt, dass der Schwerpunkt des Systems sich nicht verändert, obwohl der Kasten sich nach links bewegt hat. Schreiben wir der Lichtenergie $E$ die Masse $m$ zu, so ergibt sich, dass die Masse $m$ um die Strecke $L$ nach rechts bewegt wurde, die Kastenmasse $M$ nach links um die Strecke $Delta x$. Damit der Schwerpunkt sich dabei nicht bewegt, muss gelten:
+
+$ m*L - M * Delta x = 0 arrow.double m = E/c^2 arrow.double E = m*c^2 $ 
+
+Nach dieser Überlegung entspricht jeder Masse $m$ die Energie $E=m*c^2$. Energie und Masse sind einander proportional!
+
+b) TODO: Demtröder S. 118, ist aber sehr viel
+
+c) Von zwei im gleichen System gleich gehenden Uhren bleibt eine in Ruhe, die andere wird auf eine Reise mitgenommen und schließlich wieder zum Ausgangspunkt zurückgebracht. Ein Vergleich beiderUhren zeigt, dass die bewegte Uhr nachgeht, d.h. eine kleinere Zeitspanne zwischen Abreise und Ankunft anzeigt als die ruhende Uhr. (Analog: Menschen/Zwillinge statt Uhren)
+
+Warum kann man dann beim Zwillingsparadoxon eindeutig sagen, dass A nach seiner Rückkehr jünger ist als B? Der entscheidende Punkt ist, dass A nicht in einem Inertialsystem sitzt. Selbst wenn er sich mit konstanter Geschwindigkeit von B fortbewegt, er also anfangs ein Inertialsystem benutzt, muss er bei Beginn der Rückreise auf ein anderes Inertialsystem umsteigen, das sich mit $-v$ gegen B hin bewegt. Dies zeigt, dass die Messungen von A und B nicht äquivalent sind.
+
+#image("assets/fragenkatalog/zwillingsparadoxon_minkowski.png")
+
+- A fliegt los von x D 0 zur Zeit t D t0 D 0, erreicht in vernachlässigbar kurzer Zeit seine Reisegeschwindigkeit v , bis er zur Zeit t1 D T=2 den Umkehrpunkt P1 D .xu; T=2/ erreicht.
+- Zur Zeit t1 D T=2 bremst er ab, wendet und beschleunigt wieder auf die Geschwindigkeit v2 D v . Dies soll alles in einer Zeit geschehen, die vernachlässigbar kurz gegen die Reisezeit T ist.
+- A fliegt mit v2 D v zurück und erreicht B in x D 0 nach dessen Uhr zur Zeit t2 D T.
+
+TODO
+
+d) TODO
+
 == Inertialsystem (again)
 
 Siehe @inertialsystem
@@ -754,15 +901,51 @@ Wie lautet die Wellengleichung einer ebenen harmonischen Welle. Erkläre die vor
 
 Siehe @wellengleichung_harmonisch
 
-== Dopplereffekt
+== Dopplereffekt <dopplereffekt>
 
 + Wie lauten die Gleichungen für die Frequenzverschiebung bei der Bewegung der Schallquelle, bzw. des Schallempfängers?
 + Was ändert sich bei Austausch der Schallquelle durch eine Lichtquelle?
 + Geben Sie Beispiele für das Auftreten des Dopplereffekts an.
 
+#line(length: 100%)
+
+$c$ ist die Phasengeschwindigkeit, d.h. Schallgeschwindigkeit in Luft, Lichtgeschwindigkeit im Vakuum, usw.
+
+a) Bewegung der Schallquelle (- wenn Näherung, + wenn Distanzierung): $ f' = f * c/(c minus.plus attach(v, b: Q)) $
+Bewegung des Empfängers (+ wenn Näherung, - wenn Distanzierung): $ f' = f * (c plus.minus attach(v, b: E))/c $
+
+b) Schall benötigt ein Medium (relativistisch irrelevant), Licht breitet sich im Vakuum unabhängig vom Bezugssystem aus, es gilt der relativistische Dopplereffekt mit $beta = v/c$:
+
+#table(
+  columns: 3,
+  align: horizon,
+  inset: 8pt,
+  table.header(
+    [],
+    [*Longitudinaler DE*],
+    [*Transversaler DE*],
+  ),
+  [*bei Distanzierung*], [$ f' = f * sqrt((1-beta)/(1+beta)) $], [$ f' = f * sqrt(1-beta^2) $],
+  [*bei Näherung*],  [$ f' = f * sqrt((1+beta)/(1-beta)) $], [$ f' = f * sqrt(1-beta^2) $],
+)
+
+c)
+- Akustisch: Vorbeifliegende Flugzeuge bzw. vorbeifahrende Rennwagen, Blaulicht-Sirene
+- Optisch: Rotverschiebung bei sich entfernenden Galaxien
+
 == Dopplereffekt Schall vs Licht
 
-Diskutieren Sie die verschiedenen Erscheinungen des Dopplereffekts für Schall und Licht. Diskutieren Sie die Unterschiede, geben Sie die verschiedenen Formeln an. Was passiert im Falle von Überschallgeschwindigkeit?
++ Diskutieren Sie die verschiedenen Erscheinungen des Dopplereffekts für Schall und Licht. 
++ Diskutieren Sie die Unterschiede, geben Sie die verschiedenen Formeln an. 
++ Was passiert im Falle von Überschallgeschwindigkeit?
+
+#line(length: 100%)
+
+a) siehe @dopplereffekt c)
+
+b) siehe @dopplereffekt a) und b)
+
+c) Beim Überschallflug wird der Doppler-Effekt extrem, da sich die Schallwellen vor z.B. einem Kampfjet zu einer kegelförmigen Schockwelle stauen, dem sogenannten Mach-Kegel. Die Schockwelle des Mach-Kegels ist erst hörbar, wenn der Kampfjet den Beobachter bereits passiert hat. Der Pilot selbst hört den Knall nicht, da er sich innerhalb des Kegels befindet. 
 
 == Wellengleichung allgemein
 
