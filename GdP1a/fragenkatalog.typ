@@ -858,9 +858,12 @@ Stellen Sie die Bewegungsgleichung eines mathematischen Pendels auf und leiten S
 
 == Schwebungen
 
-Wann entstehen Schwebungen. Formeln und Skizze.
++ Wann entstehen Schwebungen. Formeln und Skizze.
++ Erläutern Sie am Beispiel der Schwebung die Begriffe Phasen- und Gruppengeschwindigkeit.
 
-Erläutern Sie am Beispiel der Schwebung die Begriffe Phasen- und Gruppengeschwindigkeit.
+#line(length: 100%)
+
+a) BRNO MACHEN JA TODO
 
 == Überlagerung Schwingungen
 
@@ -885,6 +888,34 @@ Berechnen Sie $attach(E, b: "kin")(t), attach(E, b: "pot")(t)$ und den Mittelwer
 + Diskutieren Sie die möglichen Lösungen.
 + Was ist das logarithmische Dekrement?
 
+#line(length: 100%)
+
+a) Die eindimensionale Bewegungsgleichung für einen ungedämpften harmonischen Oszillator lautet $m * dot.double(x) = -D * x$ bzw. mit $attach(omega, b: 0)^2 = D/m arrow.double dot.double(x) + attach(omega, b: 0)^2*x = 0$. Wenn zu dieser die dämpfende Kraft $-b * dot(x)$ hinzukommt (wobei $b$ der Dämpfungskoeffizient ist), kommt man auf $m * dot.double(x) = -D * x - b * dot(x)$ bzw. mit $attach(omega, b: 0)^2 = D/m; 2*gamma = b/m arrow.double dot.double(x) + 2*gamma*dot(x) + attach(omega, b: 0)^2*x = 0$ 
+
+b) ??? TODO
+
+c) Die Gleichung ist eine homogene lineare DGL 2. Ordnung mit konstanten Koeffizienten, somit wird der Exponentialansatz gewählt:
+$ x(t) = c * e^(lambda*t) $
+
+Einsetzen in die DGL und für $lambda$ mittels pq-Formel lösen:
+$ lambda^2 + 2*gamma*lambda + attach(omega, b: 0)^2 = 0 $
+$ attach(lambda, b: "1,2") = -gamma plus.minus sqrt(gamma^2 - attach(omega, b: 0)^2) $
+
+Das ganze einsetzen in die homogene Lösungsformel einsetzen:
+$ x(t) = attach(c, b: 1) * e^(sqrt(gamma^2 - attach(omega, b: 0)^2)*t) + attach(c, b: 2) * e^(-sqrt(gamma^2 - attach(omega, b: 0)^2)*t) $
+
+ZEIGEN, DASS ES DIE BEWEGUNGSGLEICHUNG ERFÜLLT TODO
+
+d) TODO
+
+e) Zwei aufeinander folgende Maxima der gedämpften Schwingung haben das Amplitudenverhältnis
+$ (x(t + T))/x(t) = e^(-gamma*T) $
+
+Der natürliche Logarithmus des inversen Verhältnisses
+$ ln((x(t + T))/x(t)) = gamma*T = delta $
+
+heißt logarithmisches Dekrement $delta$. Dies ist ein Maß für das Dämpfungsverhalten einer freien Schwingung.
+
 == Erzwungene Schwingung
 
 + Wie lautet die Bewegungsgleichung und wie wird sie aufgestellt?
@@ -892,6 +923,17 @@ Berechnen Sie $attach(E, b: "kin")(t), attach(E, b: "pot")(t)$ und den Mittelwer
 + Wählen Sie einen Lösungsansatz und zeigen Sie, dass er die Bewegungsgleichung erfüllt.
 + Diskutieren Sie die Frequenzabhängigkeit von Amplitude und Phase im eingeschwungenen Zustand.
 + Wie kommt es zur Resonanzkatastrophe und wie kann man sie vermeiden?
+
+#line(length: 100%)
+
+a) Wenn eine periodisch wirkende Kraft $attach(F, b: a) = attach(F, b: 0) * cos(omega*t)$ auf eine harmonische Schwingung einwirkt, verändert sich die Bewegungsgleichung folgend:
+$ m * dot.double(x) = -D * x - b * dot(x) + attach(F, b: 0) * cos(omega*t) $ bzw. mit $attach(omega, b: 0)^2 = D/m; gamma = b/(2m); K = attach(F, b: 0)/m$ $ arrow.double dot.double(x) + 2*gamma*dot(x) + attach(omega, b: 0)^2*x = K * cos(omega*t) $ 
+
+(wenn keine Dämpfung stattfindet kann $b$ bzw. $gamma$ natürlich auf $0$ gesetzt werden)
+
+b) ??? TODO
+
+c) und der Rest auch TODO
 
 == Wellengleichung ebene harmonische Wellen <wellengleichung_harmonisch>
 
@@ -960,3 +1002,26 @@ Die eindimensionale Wellengleichung lautet $(delta^2u(x,t))/(delta\x^2) = 1/(att
 + In welchem Zusammenhang müssen die Kreisfrequenz $omega$ und die Wellenzahl $k$ stehen, damit der Ansatz $u(x,t) = A*sin(k*x)*sin(omega*t)$ die Wellengleichung erfüllt?
 + Wie nennt man den Zusammenhang zwischen $omega$ und $k$.
 + Welche Werte muss $k$ annehmen, damit die Randbedingungen erfüllt sind?
+
+#line(length: 100%)
+
+a) Für alle $t$ gilt:
+$ u(0, t) = 0 $
+$ u(L, t) = 0 $
+
+b) Ableitungen des Ansatzes berechnen:
+$ (delta^2u(x,t))/(delta\x^2) = -k^2 * A * sin(k*x) * sin(omega * t) $
+$ (delta^2u(x,t))/(delta\t^2) = -omega^2 * A * sin(k*x) * sin(omega * t) $
+
+Einsetzen in die eindimensionale Wellengleichung:
+$ -k^2 * A * sin(k*x) * sin(omega * t) = 1/(attach(v, b: P)^2) * (-omega^2 * A * sin(k*x) * sin(omega * t)) $
+$ arrow.double k^2 = omega^2/attach(v, b: P)^2 arrow.double omega = attach(v, b: P) * k $
+
+c) Ergebnis in b) ist die Dispersionsrelation für Licht im Vakuum $arrow$ "nicht dispersive Welle"
+
+d) Die erste Randbedingung $u(0,t) = 0$ ist immer erfüllt, da $A*sin(0)*sin(omega*t) = 0$
+
+Für die zweite Randbedingung $u(L,t) = 0$ muss $sin(k*L) = 0$ gelten, also $k*L = n * pi$, wobei $n in NN$. Somit muss $k$ folgende Werte annehmen: ${pi/L , (2*pi)/L, (3*pi)/L, ...} arrow.double attach(k, b: n) = (n*pi)/L$
+
+
+
