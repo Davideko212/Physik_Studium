@@ -321,7 +321,7 @@ b) $ attach(t, b: "fall") = sqrt((2h)/g) $
 
 c) $ attach(v, b: "fall") = sqrt(2h*g) $
 
-d) TODO
+d) #image("assets/fragenkatalog/freier_fall.png")
 
 = Dynamik
 
@@ -705,6 +705,12 @@ Welche Eigenschaft hat das Trägheitsmoment allgemein, bei beliebiger Drehachse?
 
 Erklären Sie an Hand der Drehimpulserhaltung das Prinzip der Pirouette.
 
+#line(length: 100%)
+
+Formel Drehimpuls: $arrow(L) = underbrace(J, "Trägheitsmom.") * underbrace(arrow(omega), "Winkelgeschw.")$ 
+
+Sind die Massen der Arme und Beine weit von der Drehachse, dann ist das Trägheitsmoment groß. Bringt man die Massen von Armen und Beinen näher zur Drehachse, so verringert sich das Trägheitsmoment. Da das Produkt aus Trägheitsmoment und Winkelgeschwindigkeit aber gleich bleiben muss (Drehimpulserhaltung), erhöht sich entsprechend die Winkelgeschwindigkeit, wenn sich das Trägheitsmoment verkleinert.
+
 == Präzession Kreisel
 
 Erläutern Sie den Begriff der Präzession beim Kreisel.
@@ -739,6 +745,10 @@ Was versteht man unter einem Inertialsystem? Wann müssen Scheinkräfte eingefü
 == Invariante Relativitätstheorie
 
 Welche Invariante gibt es in der Relativitätstheorie?
+
+#line(length: 100%)
+
+Die Größe $s^2 = (c*t)^2 - x^2 = (c*t')^2 - x'^2$ muss in allen Inertialsystemen gleich bleiben, da die Lichtgeschwindigkeit unabhängig vom gewählten Inertialsystem ist. Die Größe $s^2$ ist daher eine Invariante bei der Transformation von einem Inertialsystem $S$ auf ein anderes $S'$. 
 
 == Elastischer Stoß (Teil 1)
 
@@ -863,7 +873,20 @@ Stellen Sie die Bewegungsgleichung eines mathematischen Pendels auf und leiten S
 
 #line(length: 100%)
 
-a) BRNO MACHEN JA TODO
+a) Wenn zwei Schwingungen (leicht) verschiedener Frequenz mit gleicher Amplitude ($a=b$) überlagert werden, entsteht eine Schwingung dessen Amplitude periodisch zu- und abnimmt.
+
+$ attach(x, b: 1) = a * cos(omega*t) $
+$ attach(x, b: 2) = b * cos(omega*t) $
+
+Mit dem Additionstheorem $cos(alpha)+cos(beta) = 2*cos((alpha-beta)/2)*cos((alpha+beta)/2)$ kommt man auf die Überlagerungsschwingung von $attach(x, b: 1)$ und $attach(x, b: 2)$:
+$ x = 2*a * cos((attach(omega, b: 1) - attach(omega, b: 2))/2*t) * cos((attach(omega, b: 1) + attach(omega, b: 2))/2*t) $
+
+Als Schwebungsfrequenz bezeichnet man schließlich die Frequenz, mit der sich der Betrag der "Einhüllenden" Schwingung verändert. Für sie gilt
+$ attach(f, b: "Schwebung") = |attach(f, b: 1) - attach(f, b: 2)| $
+
+#image("assets/fragenkatalog/schwebung.png")
+
+b) TODO
 
 == Überlagerung Schwingungen
 
