@@ -4,6 +4,7 @@
 #set heading(numbering: "1.1.1")
 #set enum(numbering: "a.1)")
 #set page(numbering: "1 / 1")
+#show math.equation.where(block: false): box
 #show image: img => {
   align(center, scale(50%, reflow: true)[#img])
 }
@@ -713,9 +714,17 @@ Sind die Massen der Arme und Beine weit von der Drehachse, dann ist das Träghei
 
 == Präzession Kreisel
 
-Erläutern Sie den Begriff der Präzession beim Kreisel.
++ Erläutern Sie den Begriff der Präzession beim Kreisel.
++ Zeigen Sie wie die Präzessionsfrequenz bestimmt werden kann.
 
-Zeigen Sie wie die Präzessionsfrequenz bestimmt werden kann.
+#line(length: 100%)
+
+a) Wenn ein äußeres Drehmoment $arrow(D)$ auf den Kreisel wirkt, bleibt wegen $arrow(D) = (dif arrow(L))/(dif t)$ der Drehimpuls nicht mehr raumfest, sondern ändert seine Richtung und, je nach der Richtung von $arrow(D)$, auch seine Größe. Die Drehimpulsrichtung (und damit auch die Figurenachse des Kreises) dreht sich mit der Winkelgeschwindigkeit
+$ attach(omega, b: p) = (dif omega)/(dif t) = D/L $
+
+um eine Achse senkrecht zur Ebene von Drehmoment $arrow(D)$ und Drehimpuls $arrow(L)$, wobei $attach(omega, b: p) << omega$ angenommen wird. Diese Bewegung heißt Präzession.
+
+b) TODO
 
 == Drallsatz
 
@@ -725,12 +734,29 @@ Wie lautet der Drallsatz und was beschreibt er?
 
 Was sind die Gleichgewichtsbedingungen für den starren Körper?
 
+#line(length: 100%)
+
+Folgende zwei Bedingungen müssen erfüllt sein:
+
+- Kräfte- bzw. Translationsgleichgewicht: Die Summe aller äußeren Kräfte, die auf den Körper wirken, muss null sein: $sum arrow(F) = arrow(0)$ (d.h. keine Beschleunigung des Schwerpunkts)
+- Momenten- bzw. Rotationsgleichgewicht: Die Summe aller äußeren Momente bzgl. eines beliebigen Punktes muss null sein: $sum attach(arrow(M), b: O) = arrow(0)$ (d.h. keine Winkelbeschleunigung)
+
 = Bewegte Bezugssysteme (2)
 
-== Scheinkräfte (Teil 1)
+== Scheinkräfte (Teil 1) <scheinkraefte_1>
 
 + Diskutieren Sie den Begriff Scheinkraft am Beispiel der Corioliskraft.
 + Geben Sie Beispiele an, wo die Corioliskraft eine Rolle spielt.
+
+#line(length: 100%)
+
+a) Die Corioliskraft ist eine von der Geschwindigkeit des Körpers abhängige Scheinkraft. Trägheitskräfte (Scheinkräfte) müssen zur Beschreibung der Bewegung von Massenpunkten eingeführt werden, wenn diese Bewegungen in einem beschleunigt bewegten Bezugssystem dargestellt werden. Diese Trägheitskräfte spiegeln eigentlich nur die Beschleunigung des Bezugssystems wider. Sie treten nicht auf, wenn dieselben Vorgänge in einem Inertialsystem beschrieben werden. Anhand der Formel kann man sehen, dass die Corioliskraft von der Geschwindigkeit $v'$ des Körpers der Masse $m$ relativ zum beschleunigten Koordinatensystem abhängt:
+$ attach(F, b: c) = 2 * m * (arrow(v') times arrow(omega)) $
+
+b)
+- Foucaltsches Pendel (direkter Nachweis Erdrotation und Corioliskraft)
+- Zyklone/Tiefdruckgebiete in der Erdatmosphäre
+- Passatwinde
 
 == Scheinkräfte (Teil 2)
 
@@ -738,9 +764,34 @@ Was sind die Gleichgewichtsbedingungen für den starren Körper?
 + Erklären Sie die Funktion des Foucaultschen Pendels.
 + Zeigen Sie, dass die Oberfläche einer Flüssigkeit in einem rotierenden Gefäß die Form eines Rotationsparaboloids annimmt.
 
+#line(length: 100%)
+
+a) siehe @scheinkraefte_1 a), Beschleunigungsmesser kann man nun z.B. durch eine "federnd gelagerte seismische Masse" bauen. Diese wird bei der Beschleunigung des Gehäuses um die Masse herum aufgrund ihrer Trägheit im Inertialsystem in Ruhe bleiben wollen, d.h. sie wird relativ zum Gehäuse ausgelenkt. Diese Auslenkung kann nun mechanisch/elektrisch gemessen und als Beschleunigung ausgewertet werden.
+
+b) Ein Foucaultsches Pendel ist ein langes Pendel, das die Drehung der Erde um ihre Achse demonstriert, indem seine Schwingungsebene sich scheinbar langsam dreht, während in Wirklichkeit der Erdboden unter ihm wegbewegt, was die Trägheit der Schwingung zeigt.
+
+c) Wirkt nur die Schwerkraft, so bildet die Oberfläche der
+Flüssigkeit eine horizontale Ebene. Wenn zusätzlich das Gefäß rotiert, wirkt auf die Flüssigkeit die Zentrifugalkraft. Die Schwerkraft zeigt nach "unten", die Zentrifugalkraft nach "außen", somit gilt für die Steigung der Oberflächenschnittkurve
+$ tan(alpha) = (m*omega^2*r)/(m*g) = (omega^2*r)/g $
+
+Durch Integration folgt dann eine Paraboloidgleichung:
+$ z(r) = integral (omega^2*r)/g dif r = omega^2/(2*g) * r^2 + attach(z, b: 0) $
+
 == Inertialsystem <inertialsystem>
 
-Was versteht man unter einem Inertialsystem? Wann müssen Scheinkräfte eingeführt werden? Geben Sie Beispiele für Scheinkräfte an.
++ Was versteht man unter einem Inertialsystem? 
++ Wann müssen Scheinkräfte eingeführt werden? Geben Sie Beispiele für Scheinkräfte an.
+
+#line(length: 100%)
+
+a) Wenn sich zwei Bezugssysteme mit einer konstanten Geschwindigkeit $u$ von- bzw. zueinander bewegen, heißen sie Inertialsysteme.
+
+b) Scheinkräfte (Trägheitskräfte) müssen zur Beschreibung der Bewegung von Massenpunkten eingeführt werden, wenn diese Bewegungen in einem beschleunigt bewegten Bezugssystem dargestellt werden. Diese Trägheitskräfte spiegeln eigentlich nur die Beschleunigung des Bezugssystems wider. Sie treten nicht auf, wenn dieselben Vorgänge in einem Inertialsystem beschrieben werden.
+
+In rotierenden Bezugssystemen mit ruhendem Nullpunkt sind
+die Trägheitskräfte Zentrifugalkraft und Corioliskraft, in Syste-
+men mit zeitlich veränderlicher Geschwindigkeit des Koordina-
+tenursprungs treten weitere Trägheitskräfte auf.
 
 == Invariante Relativitätstheorie
 
@@ -750,10 +801,29 @@ Welche Invariante gibt es in der Relativitätstheorie?
 
 Die Größe $s^2 = (c*t)^2 - x^2 = (c*t')^2 - x'^2$ muss in allen Inertialsystemen gleich bleiben, da die Lichtgeschwindigkeit unabhängig vom gewählten Inertialsystem ist. Die Größe $s^2$ ist daher eine Invariante bei der Transformation von einem Inertialsystem $S$ auf ein anderes $S'$. 
 
-== Elastischer Stoß (Teil 1)
+== Elastischer Stoß (Teil 1) <elastischer_stoss_1>
 
 Eine Kugel ($attach(m, b: 1)$, $arrow(v)$) trifft elastisch und zentral auf eine ruhende zweite Masse $attach(m, b: 1) = attach(m, b: 2)$. Beschreiben Sie diesen Fall im
 Laborsystem, wie groß sind die Geschwindigkeiten nach dem Stoß; wie groß ist der Energieübertrag?
+
+#line(length: 100%)
+
+Beim Stoß gilt der Impulserhaltungssatz und der Energieerhaltungssatz. Bei einem elastischen Stoß geht keine kinetische Energie verloren, somit gilt $Delta E = 0$ für den Energieerhaltungssatz
+$ attach(E, b: "vor") = attach(E, b: "nach") + Delta E = attach(E, b: "nach") + 0 = attach(E, b: "nach") $
+
+Der Impulserhaltungssatz für den zentralen elastischen Stoß lautet
+$ attach(m, b: 1) * attach(v, b: 1) + attach(m, b: 2) * attach(v, b: 2) = attach(m, b: 1) * attach(v', b: 1) + attach(m, b: 2) * attach(v', b: 2) $
+
+und der Energieerhaltungssatz lautet
+$ 1/2 * attach(m, b: 1) * attach(v, b: 1)^2 + 1/2 * attach(m, b: 2) * attach(v, b: 2)^2 = 1/2 * attach(m, b: 1) * attach(v', b: 1)^2 + 1/2 * attach(m, b: 2) * attach(v', b: 2)^2 $
+
+Wenn man nun nach $attach(v', b: 1)$ und $attach(v', b: 2)$ auflöst und mit $attach(m, b: 1) = attach(m, b: 2) = m$ sowie $attach(v, b: 2) = 0$ rechnet, kommt man auf folgende Geschwindigkeitswerte:
+
+$ attach(v', b: 1) = (m * attach(v, b: 1) + m * (2 * attach(v, b: 2) - attach(v, b: 1)))/(2*m) arrow.double (m * attach(v, b: 1) + m * (- attach(v, b: 1)))/(2*m) = 0 $
+
+$ attach(v', b: 2) = (m * attach(v, b: 2) + m * (2 * attach(v, b: 1) - attach(v, b: 2)))/(2*m) arrow.double (m * 2 * attach(v, b: 1))/(2*m) = attach(v, b: 1) $
+
+Die erste Masse kommt nach dem Stoß zum kompletten Stillstand und überträgt die gesamte Geschwindigkeit an die zweite Masse, somit wird auch die gesamte kinetische Energie von einer Masse auf die andere übertragen.
 
 == Elastischer Stoß (Teil 2)
 
@@ -762,11 +832,25 @@ Eine Kugel mit Masse $attach(m, b: 1)$ bewege sich auf einer horizontalen Ebene 
 + Wie groß ist der Energieübertrag?
 + Was ist zu berücksichtigen, wenn die Ebene nicht horizontal ist?
 
+#line(length: 100%)
+
+a) siehe @elastischer_stoss_1
+
+b) siehe @elastischer_stoss_1
+
+c) TODO
+
 == Zusammenstoß Kugeln
 
 Zwei Kugeln unterschiedlicher Masse ($attach(m, b: 1)$, $attach(m, b: 2)$) und unterschiedlicher Geschwindigkeit ($attach(v, b: 1)$, $attach(v, b: 2)$) treffen unter einem Winkel $alpha$ aufeinander. 
 
 Beschreiben Sie die Bahn (Geschwindigkeiten und Richtungen) beider Kugeln nach dem Zusammenstoß.
+
+#line(length: 100%)
+
+(Ich nehme mal an, dass hier ein elastischer Stoß gemeint ist)
+
+ICH FINDE ZU DEM SCHEIß ABSOLUT KEINE BEISPIELE IM INTERNET?! DEMTRÖDER AUCH CONFUSING AF
 
 == Anfangsgeschwindigkeit durch Energie- und Impulssatz
 
@@ -774,7 +858,7 @@ Bestimmen Sie die Anfangsgeschwindigkeit einer Kugel mit der Masse $attach(m, b:
 
 == Minkowski-Diagramm
 
-Beschreiben Sie, wie man zum Minkowski Diagramm kommt. Erläutere Sie die Begriffe Lichtkegel und Weltlinie. Zeigen Sie die Längenkontraktion im Minkowski Diagramm.
+Beschreiben Sie, wie man zum Minkowski-Diagramm kommt. Erläutere Sie die Begriffe Lichtkegel und Weltlinie. Zeigen Sie die Längenkontraktion im Minkowski-Diagramm.
 
 == Relativitätstheorie (Teil 1)
 
@@ -788,6 +872,17 @@ Vergleichen Sie Galilei- und Lorentztransformation. Geben Sie die Formeln an und
 == Lorentzkontraktion
 
 Diskutieren Sie die Lorentzkontraktion sowohl formelmäßig, als auch graphisch.
+
+#line(length: 100%)
+
+Angenommen, ein Stab mit den Endpunkten $attach(P', b: 1)$ und $attach(P', b: 2)$ ruhe im System $S'$. Die Koordinaten $attach(x', b: 1)$ und $attach(x', b: 2)$ seines Anfangs- und Endpunktes durchlaufen dann im Laufe der Zeit $t'$ im $(x', c*t')$-Diagramm Weltlinien, welche Geraden parallel zur $c*t'$-Achse sind. Der Beobachter $O'$ misst zur Zeit $attach(t', b: 1)$ die Länge
+$ L' = overline(attach(P', b: 1) attach(P', b: 2)) = attach(x', b: 2) - attach(x', b: 1) $
+
+Für den Beobachter $O$ hingegen bewegt sich der Stab, verbunden mit dem System $S'$, mit der Geschwindigkeit $v$ in $x$-Richtung. Um die Stablänge $L$ zu bestimmen, muss $O$ die Endpunkte $attach(x, b: a)$ und $attach(x, b: e)$ gleichzeitig, d.h. bei gleichem $t = attach(t, b: 1)$ messen. Diese Endpunkte sind die Schnittpunkte $attach(P, b: 1) = attach(P', b: 1)$ und $attach(P, b: 2) eq.not attach(P', b: 2)$
+
+#image("assets/fragenkatalog/lorentzkontraktion_minkowski.png")
+
+TODO
 
 == Relativitätstheorie (Teil 2)
 
@@ -838,17 +933,24 @@ Siehe @inertialsystem
 
 Geben Sie Beispiele sowohl für die Lorentz- als auch für die Galileitransformation an.
 
+#line(length: 100%)
+
+Die Galileitransformation wird für die Umrechnung zwischen sich mit niedrigen Geschwindigkeiten ($v << c$) bewegenden Bezugssystemen verwendet, d.h. z.B:
+- Stehender Beobachter neben einer Zugstrecke beobachtet einen Punkt am/im Zug
+- Autofahrer fährt an einem Baum vorbei
+
+Bei der Lorentztransformation bewegt sich ein Bezugssystem mit einer sehr hohen Geschwindigkeit (nahe $c$), sodass relativistische Effekte auftreten. Beispiele wären:
+- Berechnung der veränderten Zeit und des Ortes eines sich schnell bewegenden Teilchens für einen ruhenden Beobachter
+- Gedankenexperimente wie das Zwillingsparadoxon oder das Garagenparadoxon rechentechnisch nachweisen
+
 = Schwingungen und Wellen (3)
 
 == Bewegungsgleichung Pendel
 
-Wie lautet die Bewegungsgleichung eines mathematischen Pendels? Wie wird sie aufgestellt?
-
-Was bedeuten die einzelnen Terme?
-
-Geben Sie einen möglichen Lösungsansatz an und zeigen Sie, dass er gültig ist.
-
-Welche Einschränkung wurde bei der Erstellung der Bewegungsgleichung angenommen?
++ Wie lautet die Bewegungsgleichung eines mathematischen Pendels? Wie wird sie aufgestellt?
++ Was bedeuten die einzelnen Terme?
++ Geben Sie einen möglichen Lösungsansatz an und zeigen Sie, dass er gültig ist.
++ Welche Einschränkung wurde bei der Erstellung der Bewegungsgleichung angenommen?
 
 == Physikalisches Pendel
 
