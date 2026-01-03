@@ -97,7 +97,7 @@ Einsetzen in $x(t)$:
 $ attach(x, b: A) = attach(v, b: 0) * cos(alpha) * (2 * attach(v, b: 0) * sin(alpha)) / g = (attach(v, b: 0)^2 * sin(2*alpha)) / g $
 
 Für die Bahnkurve folgt aus $x(t) = attach(v, b: x)*t$:
-$ x(t) = attach(v, b: 0) * cos(alpha) arrow.double t = x/(attach(v, b: 0) * cos(alpha)) $
+$ x(t) = attach(v, b: 0) * cos(alpha) * t arrow.double t = x/(attach(v, b: 0) * cos(alpha)) $
 
 Einsetzen in $y(t)$:
 $ y = -1/2*g*(x^2)/(attach(v, b: 0)^2 * cos^2(alpha)) + attach(v, b: 0) * sin(alpha) * x/(attach(v, b: 0) * cos(alpha)) = -g/(2*attach(v, b: 0)^2*cos^2(alpha)) * x^2 + x*tan(alpha) $
@@ -176,7 +176,7 @@ $ abs(a) = R * omega^2 $
 
 #line(length: 100%)
 
-a) Der Ortsvektor $arrow(r)$ wird bestimmt durch seinen Betrag $r$ und die Winkel $theta$ und $phi$
+a) Der Ortsvektor $arrow(r)$ wird bestimmt durch seinen Betrag $r$ und die Winkel $theta in [0, pi]$ und $phi in [0, 2pi)$
 #image("assets/fragenkatalog/Kugelkoord.svg")
 
 b) 
@@ -202,7 +202,7 @@ c) $ dif V = r^2 * sin(theta) dif r dif theta dif phi $
 
 #line(length: 100%)
 
-a) Der Ortsvektor $arrow(r)$ wird bestimmt durch den Radius $r$ (Projektion vom Ortsvektor in xy-Ebene), dem Winkel $phi$ und der Höhe $z$
+a) Der Ortsvektor $arrow(r)$ wird bestimmt durch den Radius $r$ (Projektion vom Ortsvektor in xy-Ebene), dem Winkel $phi in [0, 2pi)$ und der Höhe $z$
 #image("assets/fragenkatalog/Zylinderkoord.svg")
 
 b) 
@@ -293,7 +293,7 @@ a und b)
   [Geschwindigkeit $arrow(v)$], [Änderung des Ortes mit der Zeit], [$arrow(v) = (dif arrow(r))/(dif t)$], [$m/s$], [$L*T^(-1)$],
   [Impuls $arrow(p)$], [Produkt aus Masse und Geschwindigkeit], [$arrow(p) = m * arrow(v)$], [$(\kg*m)/s$], [$M*L*T^(-1)$],
   [Kraft $arrow(F)$], [Änderung des Impulses über Zeit], [$arrow(F) = (dif arrow(p))/(dif t)$], [$N = (\kg*m)/s^2$], [$M*L*T^(-2)$],
-  [Arbeit $W$], [Übertragene Energie, wenn eine Kraft entlang einem Weg wirkt], [$W = integral arrow(F)*dif arrow(r)$], [$J = (\kg*m^2)/s^2$], [$M*L^2*T^(-2)$],
+  [Arbeit $W$], [Übertragene Energie, wenn eine Kraft entlang einem Weg wirkt], [$W = integral arrow(F) dif arrow(r)$], [$J = (\kg*m^2)/s^2$], [$M*L^2*T^(-2)$],
   [Leistung $P$], [Verrichtete Arbeit pro Zeitspanne], [$P = (dif W)/(dif t)$], [$W = (\kg*m^2)/s^3$], [$M*L^2*T^(-3)$],
 )
 
@@ -369,8 +369,8 @@ $ Delta attach(E, b: p) = (partial attach(E, b: p))/(partial x) * Delta x + (par
 #image("assets/fragenkatalog/kraft_potential_zusammenhang.png")
 
 DeepSeek sagt: Der Zusammenhang wird durch die zentrale Beziehung $arrow(F) = - nabla attach(E, b: "pot")$ hergestellt. Oft führt man hilfsweise die Begriffe Feldstärke und Potential ein:
-- Feldstärke ($arrow(G)$): Dies ist die "Kraft pro Ladung". Für eine Probemasse $m$ im Gravitationsfeld ist die Feldstärke die Schwerebeschleunigung $arrow(g) = (attach(arrow(F), b: G))/m$.
-- Potential ($arrow(V)$): Dies ist die "potentielle Energie pro Ladung". Das Gravitationspotential ist $Phi = attach(E, b: "pot")/m$.
+- Feldstärke ($arrow(E)$): Dies ist die "Kraft pro Masse/Ladung". Für eine Probemasse $m$ im Gravitationsfeld ist die Feldstärke die Schwerebeschleunigung $arrow(g) = (attach(arrow(F), b: G))/m$.
+- Potential ($phi$): Dies ist die "potentielle Energie pro Masse/Ladung". Das Gravitationspotential ist $Phi = attach(E, b: "pot")/m$.
 
 Der fundamentale Zusammenhang lautet dann: Die Feldstärke ist der negative Gradient des Potentials, d.h.:
 $ arrow(G) = -nabla V $
@@ -378,7 +378,7 @@ $ arrow(G) = -nabla V $
 Daraus folgt die Beziehung für die Kraft:
 $ arrow(F) = m * arrow(G) = -m * nabla V = -nabla attach(E, b: "pot") $
 
-d) TODO
+d) Die Formel für die Federkraft lautet $attach(F, b: x) = -D * (x - attach(x, b: 0))$, es werden zur Berechnung der Kraft lediglich die Anfangspositions $attach(x, b: 0)$ und die Endposition $x$ genutzt, nicht der zurückgelegte Weg, somit ist die Federkraft konservativ.
 
 == Kraftfelder
 
@@ -393,13 +393,47 @@ b) In einem konservativen Kraftfeld kann die Bewegung eines Körpers von $attach
 
 == Kraft, Feldstärke, Potential und pot. Energie
 
-Erläutern Sie die Größen Kraft, Feldstärke, Potential und potentielle Energie. Wie hängen diese Größen zusammen?
++ Erläutern Sie die Größen Kraft, Feldstärke, Potential und potentielle Energie. Wie hängen diese Größen zusammen?
++ Für welche Art von Kräften macht die Definition der potentiellen Energie Sinn und für welche nicht? Geben Sie Beispiele an.
 
-Für welche Art von Kräften macht die Definition der potentiellen Energie Sinn und für welche nicht? Geben Sie Beispiele an.
+#line(length: 100%)
+
+a) 
+- Kraft $arrow(F)$ ist eine vektorielle Größe, die die Einwirkung auf einen Körper beschreibt, die dessen Bewegung oder Form ändern kann.
+- Feldstärke $arrow(E)$ ist eine vektorielle Größe, die die Kraft pro Einheit einer Eigenschaft des Probekörpers (z.B. Masse/Ladung) beschreibt.
+- Das Potential $phi$ ist eine skalare Größe, die die pot. Energie pro Einheit einer geeigneten Eigenschaft des Probekörpers (z.B. Masse/Ladung) beschreibt.
+- Potentielle Energie $attach(E, b: "pot")$ ist die Energie, die ein Körper aufgrund seiner Lage im Kraftfeld besitzt.
+
+Es bestehen folgende Zusammenhänge in konservativen Kraftfeldern (z.B. Gravitationsfeld):
+- Feldstärke und Kraft: $arrow(F) = m * arrow(g)$
+- Feldstärke und Potential: $arrow(E) = - gradient phi$
+- Potential und potenzielle Energie: $attach(E, b: "pot") = m * phi$
+- Potentielle Energie und Kraft: $arrow(F) = - gradient attach(E, b: "pot")$
+
+b) Die Definition einer pot. Energie ist nur sinnvoll für konservative Kraftfelder. (d.h. Arbeit zwischen zwei Punkten wegunabhängig)
+
+Sinnvolle Beispiele: Gravitationskraft, Elektrostratische Kraft, Elastische Kraft (Federkraft)
+
+Nicht sinnvolle Beispiele: Reibungskraft, geschwindigkeitsabhängige Kräfte (z.B. Strömungswiderstand)
 
 == Energie- und Impulssatz
 
-Geben sie den Energie- und Impulssatz im Schwerpunktsystem an; was versteht man unter der reduzierten Masse?
++ Geben sie den Energie- und Impulssatz im Schwerpunktsystem an 
++ Was versteht man unter der reduzierten Masse?
+
+#line(length: 100%)
+
+a) Ein Schwerpunktsystem ist ein Bezugssystem, in dem der Gesamtschwerpunkt zweier Körper ruht. Somit gilt der Impulssatz $arrow(attach(p, b: 1)) + arrow(attach(p, b: 2)) = 0$ (Gesamtimpuls immer null), als auch der Energiesatz
+
+$ E = 1/2 * attach(m, b: 1) * arrow(attach(v, b: 1))^2 + 1/2 * attach(m, b: 2) * arrow(attach(v, b: 2))^2 + V(r) $
+
+mit $r = |attach(r, b: 1) - attach(r, b: 2)|$. Wegen $arrow(attach(p, b: 1)) = -arrow(attach(p, b: 2)) eq.colon arrow(p)$ lässt sich dies umformen zu:
+
+$ E = arrow(p)^2/(2*mu) + V(r) $
+
+wobei $mu$ die reduzierte Masse ist (siehe b)) und $V(r)$ die pot. Energie der Wechselwirkung zwischen den beiden Körpern (abhängig vom Relativabstand $r$), z.B. Gravitationskraft
+
+b) Die reduzierte Masse $mu$ ist eine effektive Masse, die das Zweikörperproblem auf ein Einkörperproblem reduziert. Definition: $ mu = (attach(m, b: 1)*attach(m, b: 2))/(attach(m, b: 1) + attach(m, b: 2)) $
 
 == Kräfte schiefe Ecke
 
@@ -428,7 +462,7 @@ Wie groß muss die Geschwindigkeit eines Wagens im höchsten Punkt (P) einer kre
 
 Der Wagen fällt nicht herunter, wenn im höchsten Punkt die Zentripetalkraft größer gleich der Schwerkraft ist, d.h.:
 $ (m*v^2)/R eq.gt m*g $
-$ v^2/(H/2) = g arrow.double v = sqrt((H/2)*g) = sqrt((20m/2)*9.81m/s^2) tilde.equiv 9.9m $
+$ v^2/(H/2) = g arrow.double v = sqrt((H/2)*g) = sqrt((20m/2)*9.81m/s^2) tilde.equiv 9.9m/s $
 
 == Rolle mit schiefer Ebene
 
@@ -446,19 +480,37 @@ $ attach(F, b: G 1) = attach(m, b: 1) * g = attach(F, b: 1) + attach(F, b: 2) $
 $ attach(F, b: G 2) = attach(m, b: 2) * g $
 $ attach(F, b: 1) = attach(F, b: G 1) * $
 
-TODO
+TODO/
 
 == Massen mit Seil an Rolle
 
 Zwei Gewichte hängen an einem Seil, das über eine masselose und reibungsfreie Rolle läuft. Das Seil sei masselos, die Gewichte haben die Masse $attach(m, b: 1)$ und $attach(m, b: 2)$, wobei $attach(m, b: 1) > attach(m, b: 2)$ ist. Beide sind anfangs in Ruhe. 
 
-Berechnen Sie die Beschleunigung der Massen, während $attach(m, b: 1)$ absinkt. Verwenden Sie den Energiesatz zur Berechnung der Geschwindigkeit der beiden Massen, wenn $attach(m, b: 1)$ um die Strecke $h$ gesunken ist.
++ Berechnen Sie die Beschleunigung der Massen, während $attach(m, b: 1)$ absinkt. 
++ Verwenden Sie den Energiesatz zur Berechnung der Geschwindigkeit der beiden Massen, wenn $attach(m, b: 1)$ um die Strecke $h$ gesunken ist.
 
 #image("assets/fragenkatalog/dynamik_4.png")
 
 #line(length: 100%)
 
-TODO: VO 21.10.
+a) Wenn sich $attach(m, b: 1)$ um die Strecke $S$ nach unten bewegt, bewegt sich $attach(m, b: 2)$ um $S$ nach oben (weil Seillänge konstant). Da $sum arrow(F) = m * arrow(a)$ gilt, lässt sich somit sagen, dass
+$ S - attach(m, b: 1)*g = -attach(m, b: 1) * a $
+$ S - attach(m, b: 2)*g = attach(m, b: 2) * a $
+
+Nach $S$ umformen und gleichsetzen:
+$ attach(m, b: 2)*a + attach(m, b: 2)*g = attach(m, b: 1)*g - attach(m, b: 1) * a arrow.double a = g * (attach(m, b: 1) - attach(m, b: 2))/(attach(m, b: 1) + attach(m, b: 2)) $
+
+b) Zuerst muss das Nullniveau für die pot. Energie festgelegt werden (da beliebig wählbar), somit gilt $attach(y, b: 1) = attach(h, b: 0)$ und $attach(y, b: 2) = 0$. Wie in a) bereits angenommen bewegen sich $attach(m, b: 1)$ und $attach(m, b: 2)$ konstant (umgekehrt) zueinander um die Höhe $h$. Somit gilt am Anfang ($v = 0$):
+$ attach(E, b: 0) = attach(m, b: 1) * g * attach(h, b: 0) + attach(m, b: 2) * g * 0 = attach(m, b: 1) * g * attach(h, b: 0) $
+
+Nach der Auslenkung um $h$ gilt:
+$ E = 1/2 * attach(m, b: 1) * v^2 + 1/2 * attach(m, b: 2) * v^2 + attach(m, b: 1) * g * (attach(h, b: 0) - h) + attach(m, b: 2) * g * h $
+
+Laut Energieerhaltung ergibt sich:
+$ attach(m, b: 1) * g * attach(h, b: 0) = 1/2 * (attach(m, b: 1) + attach(m, b: 2))*v^2 + attach(m, b: 1) * g * attach(h, b: 0) - attach(m, b: 1)*g*h + attach(m, b: 2)*g*h $
+$ 0 = 1/2 * (attach(m, b: 1) + attach(m, b: 2))*v^2 - attach(m, b: 1)*g*h + attach(m, b: 2)*g*h $
+$ 1/2 * (attach(m, b: 1) + attach(m, b: 2))*v^2 = (attach(m, b: 1) - attach(m, b: 2))*g*h $
+$ v^2 = (2*(attach(m, b: 1) - attach(m, b: 2))*g*h)/(attach(m, b: 1) + attach(m, b: 2)) arrow.double v = sqrt((2*(attach(m, b: 1) - attach(m, b: 2))*g*h)/(attach(m, b: 1) + attach(m, b: 2))) $
 
 == Hohlzylinder auf schiefer Ebene
 
@@ -469,6 +521,17 @@ Ein Hohlzylinder (mit dem Trägheitsmoment $M*R^2$) rollt reibungsfrei eine schi
 
 #image("assets/fragenkatalog/dynamik_5.png")
 
+#line(length: 100%)
+
+a) Mit Energieerhaltung rechnen:
+$ attach(E, b: 0) = M * g * h $
+$ attach(E, b: "Ende") = underbrace(1/2*M*v^2, "kin. Energie") + underbrace(1/2*I*omega^2, "rot. Energie") = 1/2*M*v^2 * 1/2*(M*R^2)*(v^2/R^2) = 1/2*M*v^2 + 1/2*M*v^2 $
+$ attach(E, b: 0) = attach(E, b: "Ende") arrow.double M*g*h = M*v^2 arrow.double v^2 = g*h arrow.double v = sqrt(g*h) $
+
+b) Beim freien Fall gilt $v = sqrt(2*g*h)$, somit gilt das Verhältnis $attach(v, b: "Zyl") = 1/sqrt(2) * attach(v, b: "Fall") tilde.eq 0.707 * attach(v, b: "Fall") $
+
+Schlussfolgerung: Selbst wenn keine Reibung vorhanden ist, ist die Beschleuning bei der schiefen Ebene niedriger, u.a. wegen der Umwandlung von pot. Energie in Rotationsenergie. Wie viel Energie in Rotationsenergie "verloren" geht bestimmt das Trägheitsmoment $I$.
+
 == Vollzylinder auf schiefer Ebene
 
 Ein Vollzylinder (Masse $M$, Radius $R$, Trägheitsmoment $(M*R^2)/2$) rollt reibungsfrei die schiefe Ebene (Neigungswinkel $alpha$)
@@ -477,6 +540,17 @@ ausgehend von der Höhe $h$ hinab.
 + Was schließen sie aus dem Vergleich dieser Geschwindigkeit mit der des freien Falles?
 
 #image("assets/fragenkatalog/dynamik_6.png")
+
+#line(length: 100%)
+
+a) Mit Energieerhaltung rechnen:
+$ attach(E, b: 0) = M * g * h $
+$ attach(E, b: "Ende") = underbrace(1/2*M*v^2, "kin. Energie") + underbrace(1/2*I*omega^2, "rot. Energie") = 1/2*M*v^2 * 1/2*((M*R^2)/2)*(v^2/R^2) = 1/2*M*v^2 + 1/4*M*v^2 $
+$ attach(E, b: 0) = attach(E, b: "Ende") arrow.double M*g*h = 3/4*M*v^2 arrow.double v^2 = 4/3*g*h arrow.double v = sqrt(4/3*g*h) $
+
+b) Beim freien Fall gilt $v = sqrt(2*g*h)$, somit gilt das Verhältnis $attach(v, b: "Zyl") = sqrt(2/3) * attach(v, b: "Fall") tilde.eq 0.82 * attach(v, b: "Fall") $
+
+Schlussfolgerung: Selbst wenn keine Reibung vorhanden ist, ist die Beschleuning bei der schiefen Ebene niedriger, u.a. wegen der Umwandlung von pot. Energie in Rotationsenergie. Wie viel Energie in Rotationsenergie "verloren" geht bestimmt das Trägheitsmoment $I$.
 
 == Energie
 
@@ -490,8 +564,9 @@ ausgehend von der Höhe $h$ hinab.
 a) $ attach(E, b: "kin") + attach(E, b: "pot") = attach(E, b: "ges") = "const" $ (für ein konservatives Kraftfeld)
 
 b) 
-$attach(E, b: "kin") = 1/2*m*v^2 arrow$ die Energie eines bewegten Körpers mit Masse m und Geschwindigkeit v 
-$attach(E, b: "pot") = m*g*h arrow$ die "gespeicherte" Energie eines ruhenden Körpers mit Masse m in der Höhenposition h
+$attach(E, b: "kin") = 1/2*m*v^2 arrow$ die Energie eines bewegten Körpers mit Masse $m$ und Geschwindigkeit $v$ 
+
+$attach(E, b: "pot") = m*g*h arrow$ die "gespeicherte" Energie eines ruhenden Körpers mit Masse $m$ in der Höhenposition $h$
 
 c) Wann er anwendbar ist:
   - Es dürfen nur konservative Kräfte wirken, d.h. verrichtete Arbeit muss wegunabhängig sein.
@@ -516,6 +591,34 @@ TODO bruh
 == Gravitationsfeld ausgedehnter Körper
 
 Skizzieren Sie die Herleitung der Gravitationsfeldstärke im Falle einer Hohl- und einer Vollkugel. Skizzen und Formeln.
+
+#line(length: 100%)
+
+Beobachter bzw. Masse $m$ im Punkt P, Hohlkugel hat Radius $a$ mit Wanddicke $dif a << a$. Eine Kreisscheibe der Dicke $dif x$ schneidet aus der Kugelschale einen Kreisring der Breite $dif s = (dif x)/sin(theta)$ mit Durchmesser $2*y$ aus. Masse dieses Streifens ist bei hom. Dichte $rho$
+$ dif M = 2*pi*y*rho dif s dif a = 2*pi*a*rho dif x dif a "weil" y = a*sin(theta) $
+
+#image("assets/fragenkatalog/gravitation_hohlkugel.png")
+
+Alle Massenelemente $dif M$ dieses Streifens haben den gleichen Abstand $r$ vom Punkt $P$, also ist die pot. Energie einer kleinen Probemasse $m$ in $P$ im Gravitationsfeld, das durch $dif M$ erzeugt wird:
+$ dif attach(E, b: p) = -G * (m * dif M)/r $
+
+Den Beitrag der gesamten Kugelschale zum Gravitationsfeld in $P$ erhält man durch Integration über alle Massenelemente $dif M$ der Kugelschale, d.h. über alle Streifen $dif x$ von $x = -a$ bis $x = +a$: 
+$ attach(E, b: p) = -2 * pi * rho * G * m * a * dif a * attach(integral, t: +a, b: x=-a) (dif x)/r $
+
+Aus der Abbildung oben entnimmt man die Relation
+$ r^2 = y^2 + (R-x)^2 = y^2 + x^2 + R^2 - 2*R*x = a^2 + R^2 - 2*R*x $
+$ r dif r = -R dif x $
+
+Daraus ergibt sich dann: 
+$ attach(E, b: p) = (2*pi*rho*a dif a * m)/R * G * attach(integral, t: R-a, b: R+a) dif r = -G * (m*M)/R $
+weil $M = r*pi*a^2*rho dif a$ die Masse der Kugelschale ist.
+
+Die Gravitationskraft bzw. Gravitationsfeldstärke erhält man nun aus
+$ arrow(attach(F, b: G)) = - gradient attach(E, b: p) = - (dif attach(E, b: p))/(dif r)*hat(arrow(R)) $
+
+Im Inneren der Kugelschale herrscht kein Gravitationsfeld, weil die Beiträge der einzelnen Oberflächenelemente, die ja in verschiedenen Richtungen wirken, sich exakt aufheben.
+
+TODO VOLLKUGEL
 
 == Gravitationsfeld Herleitung pot. Energie
 
@@ -788,10 +891,7 @@ a) Wenn sich zwei Bezugssysteme mit einer konstanten Geschwindigkeit $u$ von- bz
 
 b) Scheinkräfte (Trägheitskräfte) müssen zur Beschreibung der Bewegung von Massenpunkten eingeführt werden, wenn diese Bewegungen in einem beschleunigt bewegten Bezugssystem dargestellt werden. Diese Trägheitskräfte spiegeln eigentlich nur die Beschleunigung des Bezugssystems wider. Sie treten nicht auf, wenn dieselben Vorgänge in einem Inertialsystem beschrieben werden.
 
-In rotierenden Bezugssystemen mit ruhendem Nullpunkt sind
-die Trägheitskräfte Zentrifugalkraft und Corioliskraft, in Syste-
-men mit zeitlich veränderlicher Geschwindigkeit des Koordina-
-tenursprungs treten weitere Trägheitskräfte auf.
+In rotierenden Bezugssystemen mit ruhendem Nullpunkt sind die Trägheitskräfte Zentrifugalkraft und Corioliskraft, in Systemen mit zeitlich veränderlicher Geschwindigkeit des Koordinatenursprungs treten weitere Trägheitskräfte auf.
 
 == Invariante Relativitätstheorie
 
@@ -913,13 +1013,13 @@ b) TODO: Demtröder S. 118, ist aber sehr viel
 
 c) Von zwei im gleichen System gleich gehenden Uhren bleibt eine in Ruhe, die andere wird auf eine Reise mitgenommen und schließlich wieder zum Ausgangspunkt zurückgebracht. Ein Vergleich beiderUhren zeigt, dass die bewegte Uhr nachgeht, d.h. eine kleinere Zeitspanne zwischen Abreise und Ankunft anzeigt als die ruhende Uhr. (Analog: Menschen/Zwillinge statt Uhren)
 
-Warum kann man dann beim Zwillingsparadoxon eindeutig sagen, dass A nach seiner Rückkehr jünger ist als B? Der entscheidende Punkt ist, dass A nicht in einem Inertialsystem sitzt. Selbst wenn er sich mit konstanter Geschwindigkeit von B fortbewegt, er also anfangs ein Inertialsystem benutzt, muss er bei Beginn der Rückreise auf ein anderes Inertialsystem umsteigen, das sich mit $-v$ gegen B hin bewegt. Dies zeigt, dass die Messungen von A und B nicht äquivalent sind.
+Warum kann man dann beim Zwillingsparadoxon eindeutig sagen, dass $A$ nach seiner Rückkehr jünger ist als $B$? Der entscheidende Punkt ist, dass $A$ nicht in einem Inertialsystem sitzt. Selbst wenn er sich mit konstanter Geschwindigkeit von $B$ fortbewegt, er also anfangs ein Inertialsystem benutzt, muss er bei Beginn der Rückreise auf ein anderes Inertialsystem umsteigen, das sich mit $-v$ gegen $B$ hin bewegt. Dies zeigt, dass die Messungen von $A$ und $B$ nicht äquivalent sind.
 
 #image("assets/fragenkatalog/zwillingsparadoxon_minkowski.png")
 
-- A fliegt los von x D 0 zur Zeit t D t0 D 0, erreicht in vernachlässigbar kurzer Zeit seine Reisegeschwindigkeit v , bis er zur Zeit t1 D T=2 den Umkehrpunkt P1 D .xu; T=2/ erreicht.
-- Zur Zeit t1 D T=2 bremst er ab, wendet und beschleunigt wieder auf die Geschwindigkeit v2 D v . Dies soll alles in einer Zeit geschehen, die vernachlässigbar kurz gegen die Reisezeit T ist.
-- A fliegt mit v2 D v zurück und erreicht B in x D 0 nach dessen Uhr zur Zeit t2 D T.
+- $A$ fliegt los von $x = 0$ zur Zeit $t = t' = 0$, erreicht in vernachlässigbar kurzer Zeit seine Reisegeschwindigkeit $v$, bis er zur Zeit $attach(t, b: 1) = T/2$ den Umkehrpunkt $attach(P, b: 1) = (attach(x, b: u), T/2)$ erreicht.
+- Zur Zeit $attach(t, b: 1) = T/2$ bremst er ab, wendet und beschleunigt wieder auf die Geschwindigkeit $attach(v, b: 2) = -v$. Dies soll alles in einer Zeit geschehen, die vernachlässigbar kurz gegen die Reisezeit $T$ ist.
+- $A$ fliegt mit $attach(v, b: 2) = -v$ zurück und erreicht $B$ in $x = 0$ nach dessen Uhr zur Zeit $attach(t, b: 2) = T$.
 
 TODO
 
@@ -952,13 +1052,55 @@ Bei der Lorentztransformation bewegt sich ein Bezugssystem mit einer sehr hohen 
 + Geben Sie einen möglichen Lösungsansatz an und zeigen Sie, dass er gültig ist.
 + Welche Einschränkung wurde bei der Erstellung der Bewegungsgleichung angenommen?
 
+#line(length: 100%)
+
+a) In ebenen Polarkoordinaten lautet die Bewegungsgleichung:
+$ m * g * sin(phi) = -m * L * dot.double(phi) $
+
+Um die Gleichung aufzustellen, muss man sich zuerst ein mathematisches Pendel der Länge $L$ mit der Punktmasse $m$ vorstellen, dass Anfangs mit einem Winkel von $phi$ ausgelenkt wird. Auf die Punktmasse wirkt die Schwerkraft $arrow(F) = m * arrow(g)$, wobei diese in $attach(F, b: t)$ und $attach(F, b: r)$ aufgeteilt werden kann.
+
+#image("assets/fragenkatalog/mathematisches_pendel.png")
+
+$ attach(F, b: t) = -m * g * sin(phi) $
+
+Die Tangentialbeschleunigung einer Kreisbewegung ist $attach(a, b: "tan") = L * dot.double(phi)$, somit kann $attach(F, b: t)$ auch folgend dargestellt werden:
+
+$ attach(F, b: t) = m * attach(a, b: "tan") = m * L * dot.double(phi) $
+
+Wenn man nun diese zwei Definitionen von $attach(F, b: t)$ gleichsetzt bekommt man die Bewegungsgleichung (mit vertauschten Vorzeichen).
+
+b) 
+- $m$ ist die Punktmasse die am Ende des Pendels "hängt"
+- $g$ ist die Erdbeschleunigung
+- $phi$ ist der max. Auslenkungswinkel, $dot.double(phi)$ somit die Winkelbeschleunigung 
+- $L$ ist die Länge des Pendel(faden)s
+
+c) Um die Pendelgleichung lösen zu können, muss die Näherung $sin(phi) tilde.equiv phi$ ("Linearisierung") durchgeführt werden. Somit wird die Gleichung zu
+$ m * g * phi = -m * L * dot.double(phi) $
+
+Die lineare DGL hat bei der Anfangsbedingung $phi(0) = 0$ die Lösung
+$ phi(t) = A * sin(sqrt(g/L)*t) $
+
+Um die Gültigkeit dieses Lösungansatzes zu zeigen, muss er einfach in die DGL eingesetzt werden, d.h. man erhält
+$ m * g * A * sin(sqrt(g/L)*t) = -m * L * A * -sin(sqrt(g/L)*t) * g/L $ 
+$ m * g * A * sin(sqrt(g/L)*t) = m * g * A * sin(sqrt(g/L)*t) $
+$ qed $
+
+d) Folgende Einschränkungen wurden bei der Erstellung der (linearisierten) Bewegungsgleichung angenommen:
+- Kleinwinkelnäherung ("Linearisierung") des Winkels $phi$, damit die DGL überhaupt losbar wird, d.h. Auslenkungswinkel darf nicht zu groß werden
+- Keine Reibung
+- Masseloser, undehnbarer faden
+- Punktmasse
+
 == Physikalisches Pendel
 
-+ Stellen sie die Schwingungsgleichung für ein physikalisches Pendel mit der Masse $m$ auf, wenn $I$ das Trägheitsmoment der Masse $m$ bezüglich des Drehpunktes ist. Der Abstand des Schwerpunktes sei $l$. Lösen sie die Differentialgleichung; wie groß ist die Schwingungsdauer?
+a) Stellen sie die Schwingungsgleichung für ein physikalisches Pendel mit der Masse $m$ auf, wenn $I$ das Trägheitsmoment der Masse $m$ bezüglich des Drehpunktes ist. Der Abstand des Schwerpunktes sei $l$. Lösen sie die Differentialgleichung; wie groß ist die Schwingungsdauer?
 
 #image("assets/fragenkatalog/wellen_1.png")
 
-+ Vereinfachen sie die Beziehung für ein mathematisches Pendel gleicher Länge; wie groß ist dann die Schwingungsdauer?
+b) Vereinfachen sie die Beziehung für ein mathematisches Pendel gleicher Länge; wie groß ist dann die Schwingungsdauer?
+
+#line(length: 100%)
 
 == Herleitung Schwingungsfrequenz physikalisches Pendel
 
@@ -1064,6 +1206,8 @@ c) und der Rest auch TODO
 
 Wie lautet die Wellengleichung einer ebenen harmonischen Welle. Erkläre die vorkommenden Größen. Gib eine mögliche Lösung an und beweise ihre Gültigkeit.
 
+Siehe @wellengleichung_allgemein (aber nur den Teil mit der eindimensionalen/ebenen harmonischen Welle)
+
 == Wellengleichung ebene harmonische Wellen (again)
 
 Siehe @wellengleichung_harmonisch
@@ -1114,15 +1258,45 @@ b) siehe @dopplereffekt a) und b)
 
 c) Beim Überschallflug wird der Doppler-Effekt extrem, da sich die Schallwellen vor z.B. einem Kampfjet zu einer kegelförmigen Schockwelle stauen, dem sogenannten Mach-Kegel. Die Schockwelle des Mach-Kegels ist erst hörbar, wenn der Kampfjet den Beobachter bereits passiert hat. Der Pilot selbst hört den Knall nicht, da er sich innerhalb des Kegels befindet. 
 
-== Wellengleichung allgemein
+== Wellengleichung allgemein <wellengleichung_allgemein>
 
-Wie lautet die Wellengleichung allgemein (Formel und Erklärung der vorkommenden Größen)? Wie lautet die Lösung für eine ebene Welle?
++ Wie lautet die Wellengleichung allgemein (Formel und Erklärung der vorkommenden Größen)? 
++ Wie lautet die Lösung für eine ebene Welle?
++ Zeigen Sie, dass diese Lösung die Wellengleichung erfüllt.
 
-Zeigen Sie, dass diese Lösung die Wellengleichung erfüllt.
+#line(length: 100%)
 
-== Stehende Wellen
+a) Die allgemeine Wellengleichung lautet $ nabla^2 xi(arrow(r),t) = 1/(attach(v, b: p)^2) * (delta^2xi(arrow(r),t))/(delta\t^2) $
+wobei $arrow(r)$ ein mehrdimensionaler Ortsvektor ist. Der Nabla-Operator bildet hierbei die Summe der partiellen zweiten Ableitungen des Raumes. Diese Wellengleichung lässt sich auf eine ebene Welle in nur eine Richtung reduzieren, mit dieser ist es einfacher zu rechnen:
 
-Die eindimensionale Wellengleichung lautet $(delta^2u(x,t))/(delta\x^2) = 1/(attach(v, b: p)^2) * (delta^2u(x,t))/(delta\t^2)$ mit der Phasengeschwindigkeit $attach(v, b: p)$.
+Die eindimensionale Wellengleichung (in $x$-Richtung) lautet 
+$ (delta^2xi(x,t))/(delta\x^2) = 1/(attach(v, b: p)^2) * (delta^2xi(x,t))/(delta\t^2) $
+
+Vorkommende Größen:
+- $xi(x,t)$ ist die wellende Größe (z.B. Druck, Auslenkung, ...)
+- $x$ ist der Ort (eindimensional, nicht vergessen! sonst Ortsvektor $arrow(r)$ mit $xi(arrow(r),t)$)
+- $t$ ist die Zeit
+- $attach(v, b: p)$ ist die Phasengeschwindigkeit im Medium
+TODO actual Terme
+
+Auf der linken Seite der Wellengleichung steht die zweite partielle Ableitung der Welle $xi(x,t)$ nach dem Ort, auf der rechten Seite die zweite partielle Ableitung nach der Zeit.
+
+b) Die reelle Lösung für eine ebene Welle in $x$-Richtung lautet: 
+$ xi(x,t) = A * sin(omega*t - k * x) $
+
+c) Zuerst die partiellen Ableitungen bilden:
+$ (delta xi(x,t))/(delta x) = -k * cos(omega*t - k * x) arrow.double (delta^2 xi(x,t))/(delta^2 x) = -k^2 * sin(omega*t - k * x) $
+$ (delta xi(x,t))/(delta t) = omega * cos(omega*t - k * x) arrow.double (delta^2 xi(x,t))/(delta^2 t) = -omega^2 * sin(omega*t - k * x) $
+
+Einsetzen in die Wellengleichung:
+$ -k^2 * sin(omega*t - k * x) = 1/(attach(v, b: p)^2) * -omega^2 * sin(omega*t - k * x) $
+$ -k^2 = (-omega^2)/(attach(v, b: p)^2) arrow.double omega = attach(v, b: p) * k $
+
+Wellengleichung erfüllt, da die Dispersionsrelation $omega = attach(v, b: p) * k$ rauskommt.
+
+== Stehende Wellen 
+
+Die eindimensionale Wellengleichung lautet $(delta^2xi(x,t))/(delta\x^2) = 1/(attach(v, b: p)^2) * (delta^2xi(x,t))/(delta\t^2)$ mit der Phasengeschwindigkeit $attach(v, b: p)$.
 + Wie lauten die Randbedingungen für eine beidseitig fest eingespannte Saite der Länge L.
 + In welchem Zusammenhang müssen die Kreisfrequenz $omega$ und die Wellenzahl $k$ stehen, damit der Ansatz $u(x,t) = A*sin(k*x)*sin(omega*t)$ die Wellengleichung erfüllt?
 + Wie nennt man den Zusammenhang zwischen $omega$ und $k$.
