@@ -5,6 +5,8 @@
 #set enum(numbering: "a.1)")
 #set page(numbering: "1 / 1")
 #show math.equation.where(block: false): box
+#show heading.where(level: 1): it => { pagebreak(weak: true); it }
+#show heading.where(level: 2): set block(above: 3em)
 #show image: img => {
   align(center, scale(50%, reflow: true)[#img])
 }
@@ -27,16 +29,17 @@
     #line(length: 100%, stroke: (thickness: 1pt))
     
     #align(left + horizon)[
-    Diese Ausarbeitung des Fragenkatalogs zu GdP1a dient in erster Linie der Vorbereitung auf die VO-Prüfung durch starres Auswendiglernen. *Fehler vorbehalten.*
+    Diese Ausarbeitung des Fragenkatalogs zu GdP1a dient in erster Linie der Vorbereitung auf die VO-Prüfung durch stures Auswendiglernen. *Fehler vorbehalten.*
 
     Verwendete Quellen / Ressourcen: 
-    - Vorlesungsfolien vom Eisenmenger
+    - Vorlesungsfolien von Prof. Eisenmenger
     - Demtröder
     - Persönliche Ausarbeitungen der Übungsaufgaben
     - LEIFIphysik
     - Wikipedia
     - Ausarbeitungen älterer Übungsaufgaben auf higgs.at
     - LLMs wie DeepSeek, ChatGPT 
+    - Physik Libre
     - Ein bisschen Fantasie
     ]
     #line(length: 100%, stroke: (thickness: 1pt))
@@ -177,7 +180,7 @@ $ abs(a) = R * omega^2 $
 #line(length: 100%)
 
 a) Der Ortsvektor $arrow(r)$ wird bestimmt durch seinen Betrag $r$ und die Winkel $theta in [0, pi]$ und $phi in [0, 2pi)$
-#image("assets/fragenkatalog/Kugelkoord.svg")
+#image("assets/fragenkatalog/Kugelkoord.svg", width: 70%)
 
 b) 
 #table(
@@ -203,7 +206,7 @@ c) $ dif V = r^2 * sin(theta) dif r dif theta dif phi $
 #line(length: 100%)
 
 a) Der Ortsvektor $arrow(r)$ wird bestimmt durch den Radius $r$ (Projektion vom Ortsvektor in xy-Ebene), dem Winkel $phi in [0, 2pi)$ und der Höhe $z$
-#image("assets/fragenkatalog/Zylinderkoord.svg")
+#image("assets/fragenkatalog/Zylinderkoord.svg", width: 65%)
 
 b) 
 #table(
@@ -258,7 +261,7 @@ $ Omega = S/(R^2) s r $
 Raumwinkel für eine Vollkugel: 
 $ (4*pi*R^2) / R^2 = 4*pi "sr" $
 
-#image("assets/fragenkatalog/01_Kugelkalotte-Raumwinkel.svg")
+#image("assets/fragenkatalog/01_Kugelkalotte-Raumwinkel.svg", width: 60%)
 
 == Raumwinkel (Teil 2)
 
@@ -271,7 +274,7 @@ Definition siehe @raumwinkel_1.
 Raumwinkel für eine Halbkugel berechnen: 
 $ attach(Omega, b: "halb") = "Raumwinkel Vollkugel"/2 = (1/2) * (4*pi*R^2) / R^2 = (1/2) * 4*pi = 2*pi "sr" $ 
 
-== Definition von Geschwindigkeit, Impuls, Kraft, Arbeit und Leistung
+== Definition von Geschwindigkeit, Impuls, Kraft, Arbeit und Leistung <definitionen_tabelle>
 
 + Definieren Sie die Größen Geschwindigkeit, Impuls, Kraft, Arbeit und Leistung. 
 + Zeigen Sie wie diese Größen zusammenhängen und geben Sie für jede Größe die entsprechenden Dimensionen bzw. Einheiten an.
@@ -478,9 +481,14 @@ Berechnen sie die Beschleunigung und geben sie die Zugkraft im Seil an.
 
 $ attach(F, b: G 1) = attach(m, b: 1) * g = attach(F, b: 1) + attach(F, b: 2) $
 $ attach(F, b: G 2) = attach(m, b: 2) * g $
-$ attach(F, b: 1) = attach(F, b: G 1) * $
+$ attach(F, b: 1) = attach(m, b: 1) * a = attach(F, b: G 1) * sin(alpha) - T $
+$ attach(F, b: 2) = attach(m, b: 2) * a = T - attach(F, b: G 2) $
 
-TODO/
+Zusammenaddieren und auf die Beschleunigung umformen:
+$ a * (attach(m, b: 1) + attach(m, b: 2)) = attach(F, b: G 1) * sin(alpha) - attach(F, b: G 2) arrow.double a = g*(attach(m, b: 1) * sin(alpha) - attach(m, b: 2))/(attach(m, b: 1) + attach(m, b: 2)) $
+
+Damit gilt nach $sum F = m * a$ für die Seilzugkraft
+$ T - attach(m, b: 2)*g = attach(m, b: 2)*a arrow.double T = attach(m, b: 2) * (g + a) $
 
 == Massen mit Seil an Rolle
 
@@ -586,7 +594,18 @@ Eine Masse $m$ hänge an einer Feder (Federkonstante $D$).
 
 #line(length: 100%)
 
-TODO bruh
+a) Die eindimensionale Bewegungsgleichung für die Punktmasse an einer Feder lautet
+$ m*a = -D*x arrow.double m*g + D*x = 0 arrow.double F(x) = m*g + D*x $
+(x nach oben positiv)
+
+Um aus der Kraft die Arbeit zu bekommen, muss diese über das Integral von Anfangsposition bis Endposition berechnet werden:
+$ W = attach(integral, t: attach(x, b: b), b: attach(x, b: a)) F(x) dif x = attach(integral, t: attach(x, b: b), b: attach(x, b: a)) (m*g + D*x) dif x = attach(vec(m*g*x + 1/2*D*x^2, delim: "["), t: attach(x, b: b), b: attach(x, b: a)) $
+
+Das Ergebnis hängt nur von $attach(x, b: a)$ und $attach(x, b: b)$ ab, nicht vom Weg $x(t)$ dazwischen. Somit ist $F(x)$ eine konservative Kraft, also ist $W(x)$ wegunabhängig.
+
+Alternativ: Die Federkraft ist konservativ (Potential $=1/2*D*x^2$) und die Schwerkraft ist konservativ (Potential $=m*g*x$) und da jede Linearkombination konservativer Kräfte auch konservativ ist, ist es $F(x)$ auch.
+
+b) Schwerkraft beeinflusst den Betrag der aufzuwendenden Arbeit, aber nicht die Wegunabhängigkeit.
 
 == Gravitationsfeld ausgedehnter Körper
 
@@ -614,19 +633,53 @@ $ attach(E, b: p) = (2*pi*rho*a dif a * m)/R * G * attach(integral, t: R-a, b: R
 weil $M = r*pi*a^2*rho dif a$ die Masse der Kugelschale ist.
 
 Die Gravitationskraft bzw. Gravitationsfeldstärke erhält man nun aus
-$ arrow(attach(F, b: G)) = - gradient attach(E, b: p) = - (dif attach(E, b: p))/(dif r)*hat(arrow(R)) $
+$ arrow(attach(F, b: G)) = - gradient attach(E, b: p) = - (dif attach(E, b: p))/(dif r)*hat(arrow(R)) = -G * (m*M)/R^2*hat(arrow(R)) arrow.double "zeigt radial auf die Oberfläche der Kugelschale" $
 
 Im Inneren der Kugelschale herrscht kein Gravitationsfeld, weil die Beiträge der einzelnen Oberflächenelemente, die ja in verschiedenen Richtungen wirken, sich exakt aufheben.
 
-TODO VOLLKUGEL
+#image("assets/fragenkatalog/gravitation_hohlkugel_2.png")
+
+Eine hom. Vollkugel mit dem Radius $attach(R, b: 0)$ können wir aus lauter konzentrischen Kugelschalen zusammensetzen. Ihre Masse ist
+$ M = attach(integral, t: attach(R, b: 0), b: a=0) rho * 4 * pi * a^2 dif a $
+
+Aus der gleichen Herleitung wie bei der Halbkugel ergibt sich für eine Masse $m$ außerhalb der Kugel folgende pot. Energie:
+$ attach(E, b: p) = -G * (4*pi)/R * rho * m * attach(integral, t: attach(R, b: 0), b: 0) a^2 dif a = -G * (4*pi)/(3*R) * attach(R, b: 0)^3 * rho * m = -G * (m*M)/R $
+
+Somit ist bei der Hohlkugel und der Vollkugel die Gravitationskraft für einen Punkt außerhalb des Kugelradius gleich. ACHTUNG: Im inneren der Vollkugel heben sich die Gravitationskräfte jedoch NICHT auf!
 
 == Gravitationsfeld Herleitung pot. Energie
 
 Leiten Sie aus der Arbeit im Gravitationsfeld durch eine entsprechende Nullpunktswahl die potentielle Energie her.
 
+#line(length: 100%)
+
+Für eine Körper der Masse $m$ im homogenen Gravitationsfeld (der Erde) gilt $attach(F, b: g) = -m*g$
+
+Die Arbeit, die man gegen die Gewichtskraft $attach(F, b: g)$ verrichten muss, um den Körper von $attach(h, b: 1)$ nach $attach(h, b: 2)$ zu heben ist
+$ W = attach(integral, t: attach(h, b: 2), b: attach(h, b: 1)) (-attach(F, b: g)) dif h = attach(integral, t: attach(h, b: 2), b: attach(h, b: 1)) m * g dif h = m*g*(attach(h, b: 2) - attach(h, b: 1)) $
+
+Diese Arbeit wird als Zunahme der pot. Energie gespeichert: $Delta attach(E, b: "pot") = W = m*g*(attach(h, b: 2) - attach(h, b: 1))$
+
+Wenn man nun $attach(h, b: 1)$ als Nullpunkt wählt, fällt dieser Term weg und es bleibt $attach(E, b: "pot") = m*g*h$.
+
 == Effektives Potential des Gravitationsfeldes
 
 Wie lautet das effektive Potential des Gravitationsfeldes (Skizze und Formeln)?
+
+#line(length: 100%)
+
+DISCLAIMER: $attach(E, b: p)$ steht für pot. Energie, $attach(E, t: "eff", b: "pot")$ für das effektive Potential (glaube ich...)
+
+$ attach(E, t: "tan", b: "kin") = 1/2 * m * r^2 * dot(phi)^2 = L^2/(2*m*r^2) = attach(E, b: z) "(wieso auch immer)" $
+$ attach(E, t: "eff", b: p) = attach(E, b: "p")(r) + attach(E, t: "tan", b: "kin") = attach(E, b: "p")(r) + L^2/(2*m*r^2) arrow.double "effektive pot. Energie" $
+$ attach(E, t: "eff", b: p)/m arrow.double "effektives Potential?" $
+
+insgesamt...
+$ attach(E, t: "eff", b: "pot") = underbrace(-G * (m*M)/r, "Radialpotential") + underbrace(L^2/(2*m*r^2), "Zentrifugalpotential") $
+
+#image("assets/fragenkatalog/effektives_potential.png")
+
+"Effektives Potential als Summe aus potentieller und Zentrifugalenergie und Radialteil der Bewegung eines Körpers im effektiven Potential für verschiedene Werte der Gesamtenergie E"
 
 == Planetenbewegung
 
@@ -636,13 +689,16 @@ Wie lautet das effektive Potential des Gravitationsfeldes (Skizze und Formeln)?
 
 #line(length: 100%)
 
-a) 
+a) #set enum(numbering: "1)") // pfusch
   1. Die Planeten bewegen sich auf Ellipsen, in deren gemeinsamen Brennpunkt die Sonne steht.
   2. Der von der Sonne zum Planeten gezogene Radiusvektor überstreicht in gleichen Zeiten gleiche Flächen.
   3. Die Quadrate der Umlaufzeiten zweier Planeten verhalten sich wie die dritten Potenzen der großen Bahnachsen.
-b)
-c)
-TODO: VO 23.10.
+#set enum(numbering: "a.1)")
+b) Das 2. Keplersche Gesetz sagt aus, dass der Drehimpulsbetrag zeitlich konstant ist. Aus dem 1. Keplerschen Gesetz folgt, dass auch seine Richtung konstant ist, weil sie immer senkrecht auf der Bahnebene steht.
+#image("assets/fragenkatalog/drehimpuls_kepler.png")
+
+c) Aphel und Perihel sind die extremsten Punkte auf einer elliptischen Umlaufbahn eines Körpers um die Sonne. Das Perihel ist der sonnennächste Punkt, während das Aphel der sonnenfernste Punkt ist.
+#image("assets/fragenkatalog/aphel_perihel.png")
 
 == Raketengleichung
 
@@ -652,15 +708,51 @@ TODO: VO 23.10.
 
 #line(length: 100%)
 
-TODO: VO 21.10.
+a) Die Schubkraft der ausströmenden Gase bewegt die Rakete nach "oben", während die Schwerkraft der Erde sie wieder runterzieht.
+
+b) Die Rakete wird kontinuierlich durch den Rückstoß der ausströmenden Treibgase beschleunigt. Sei $v'$ die Ausströmgeschwindigkeit der Gase relativ zur Erdoberfläche und $v$ die Geschwindigkeit der Rakete.
+
+Für den Gesamtimpuls (Rakete + Gase) gilt:
+$ arrow(p)(t + Delta t) = underbrace((m - Delta m)*(arrow(v) + Delta arrow(v)), "Impuls der Rakete") + underbrace(Delta m * arrow(v)', "Impuls der Gase") $
+
+In der Zeit $Delta t$ hat sich also der Impuls verändert um:
+$ Delta arrow(p) = arrow(p)(t + Delta t) - arrow(p)(t) = m * Delta arrow(v) + Delta m * (arrow(v)' - arrow(v)) - Delta m * Delta arrow(v) $
+
+Wenn nun alle Terme durch $Delta t$ und mit $Delta t arrow 0$ betrachtet werden, dann gilt
+$ (dif arrow(p))/(dif t) = underbrace(m * (dif arrow(v))/(dif t), "Impulszunahme Rakete") - underbrace(attach(arrow(v), b: "rel") * (dif m)/(dif t), "Schub der Gase") $
+
+c) Wenn man die Raketengleichung (DGL) aus b) mit den Integrationsgrenzen von $t=0$ bis $t=T$ löst, bekommt man
+$ v(T) = attach(v, b: 0) + attach(v, b: "rel") * ln(attach(m, b: 0)/(m(T))) $
+
+(bei Berücksichtigung von konst. Gravitationskraft einfach $-g * T$ hinzufügen)
 
 == Drehimpuls eines Teilchens
 
-Ein Teilchen mit der Masse m bewegt sich mit der Geschwindigkeit $v$ in $x$-Richtung auf einer Geraden im Abstand $b$ vom Ursprung $O$. Es ist $dif A$ die Fläche, die der Ortsvektor $r$ des Teilchens in der Zeit $dif t$ überstreicht. 
+Ein Teilchen mit der Masse $m$ bewegt sich mit der Geschwindigkeit $v$ in $x$-Richtung auf einer Geraden im Abstand $b$ vom Ursprung $O$. Es ist $dif A$ die Fläche, die der Ortsvektor $r$ des Teilchens in der Zeit $dif t$ überstreicht. 
 
 Zeigen sie, dass $(dif A)/(dif t)$ konstant ist und dass gilt: $(dif A)/(dif t) = L/(2m)$, wobei $L$ der Betrag des Drehimpulses des Teilchens bezüglich des Ursprunges ist. Welcher Erhaltungssatz ergibt sich daraus?
 
 #image("assets/fragenkatalog/dynamik_7.png")
+
+#line(length: 100%)
+
+Die Fläche lässt sich folgend mithilfe des Kreuzprodukts zwischen $arrow(attach(r, b: 1))$ und $arrow(attach(r, b: 2))$ berechnen:
+
+$ dif A = 1/2 * abs(arrow(attach(r, b: 1)) times arrow(attach(r, b: 2))) $
+
+Da sich das Teilchen nur in $x$-Richtung bewegt, ist $arrow(attach(r, b: 1)) = vec(attach(x, b: 1), b)$ und $arrow(attach(r, b: 2)) = vec(attach(x, b: 1) + v dif t, b)$
+
+$ dif A = 1/2 * abs(vec(attach(x, b: 1), b, 0) times vec(attach(x, b: 1) + v dif t, b, 0)) = 1/2 * abs(vec(b*0 - 0*b, 0*(attach(x, b: 1) + v dif t) - attach(x, b: 1)*0, attach(x, b: 1)*b - b*(attach(x, b: 1) + v dif t))) = 1/2 * sqrt((-b * v dif t)^2) = (b * v dif t)/2 $
+$ (dif A)/(dif t) = (b * v dif t)/(2 dif t) = 1/2 * b * v arrow.double "konstant" $
+
+Drehimpuls um $O$: $arrow(L) = arrow(attach(r, b: 1))(t) times arrow(p)$ 
+$ arrow(attach(r, b: 1)) times arrow(p) = abs(vec(attach(x, b: 1), b, 0) times vec(m*v, 0, 0)) = abs(vec(-b*m*v, 0, 0)) arrow.double L = m*b*v arrow.double b*v = L/m $
+
+Einsetzen in vorherige Gleichung mit $(dif A)/(dif t)$:
+$ (dif A)/(dif t) = 1/2 * b * v arrow.double (dif A)/(dif t) = 1/2 * L/m = L/(2*m) $
+$ qed $
+
+Erhaltungssatz: Da $(dif A)/(dif t) = L/(2*m)$ und $L$ zeitlich konstant gilt das 2te keplersche Gesetz (Flächensatz) und somit auch die Drehimpulserhaltung. 
 
 == Kosmische Geschwindigkeiten
 
@@ -687,11 +779,18 @@ $ attach(v, b: 2) = sqrt(2*g*R) = sqrt(2* 9.81m/s^2 * 6.378 * 10^6m) tilde.equiv
 
 Leiten Sie aus dem Energiesatz die für einen Körper der Masse $m$ erforderliche Anfangsgeschwindigkeit $v$ ab, die er zum Verlassen des Erdschwerefeldes benötigt (Vernachlässigen Sie die Erdrotation).
 
+#line(length: 100%)
+
+TODO
+
 == Definition Kraft, Arbeit und Leistung
 
-Wie sind Kraft, Arbeit und Leistung definiert?
++ Wie sind Kraft, Arbeit und Leistung definiert?
++ Welche Dimension haben diese Größen und wie hängen sie mit den Grundeinheiten zusammen?
 
-Welche Dimension haben diese Größen und wie hängen sie mit den Grundeinheiten zusammen?
+#line(length: 100%)
+
+Siehe @definitionen_tabelle
 
 == Schwerpunkt homogene Halbkugel
 
@@ -782,7 +881,17 @@ Leiten Sie das Trägheitsmoment für einen Vollzylinder mit Radius $R$ und der H
 
 #line(length: 100%)
 
-a) TODO
+a) Die Masse des Zylinder-Volumenelements ist
+$ dif m = rho dif V = rho * r dif r dif phi dif z $
+
+Die durch den Schwerpunkt verlaufende Symmetrieachse des Zylinders ist die $z$-Achse, somit müssen wir nur diese für das Trägheitsmoment errechnen. Für Rotation um die $z$-Achse ist der senkrechte Abstand der Masse $dif m$ von der Achse gleich $r$:
+$ attach(I, b: z) = attach(integral, b: V) r^2 dif m $
+$ attach(I, b: z) = attach(integral, t: h, b: z=0) attach(integral, t: 2pi, b: phi=0) attach(integral, t: R, b: r=0) r^3 * rho dif r dif phi dif z $
+$ attach(I, b: z) = rho * attach(integral, t: h, b: z=0) attach(integral, t: 2pi, b: phi=0) R^4/4 dif phi dif z = rho * attach(integral, t: h, b: z=0) R^4/4 * 2 * pi dif z = rho * R^4/2 * pi * h $
+
+Die Dichte kann nun mit der Gesamtmasse des Vollzylinders ersetzt werden:
+$ M = rho * V = rho * (pi*R^2*h) arrow.double rho = M/(pi*R^2*h) $
+$ attach(I, b: z) = rho * R^4/2 * pi * h = M/(pi*R^2*h) * R^4/2 * pi * h = 1/2*M*R^2 $
 
 b) Hier nur die Herleitung des Steinerschen Satzes, Rest siehe @berechnung_traegheit_vollzylinder:
 $ attach(I, b: B) = attach(integral, b: V) r^2 dif m = attach(integral, b: V) (attach(arrow(r), b: "mS") + arrow(a))^2 dif m = attach(integral, b: V) attach(r^2, b: "mS") dif m + 2 * arrow(a) * underbrace(attach(integral, b: V) attach(arrow(r), b: "mS") dif m, attach(I, b: S)) + a^2 * underbrace(attach(integral, b: V) dif m, "M") $
@@ -799,11 +908,23 @@ Hinweis: das Trägheitsmoment einer Kugel ist $2/5 * m * R^2$
 
 a) Das Trägheitsmoment $I$ ist ein Maß für die Massenverteilung in einem ausgedehnten Körper bezüglich einer Rotationsachse. Für geometrisch einfache Körper kann man $I$ leicht ausrechnen, für Körper mit komplizierten Formen muss man $I$ messen. Das Trägheitsmoment eines Körpers ist immer auf eine bestimmte Drehachse bezogen und hängt ab von der Lage dieser Achse im Körper.
 
-b) TODO
+b)
+
+1) Schwerpunkt ist in der Mitte der Stange, jedoch rotieren sich beide Kugeln weiterhin auch um ihre eigenen Schwerpunkte, somit kann das Trägheitsmoment einfach direkt verwendet werden ohne $l$ in Betracht zu ziehen:
+$ attach(I, b: parallel) = 2 * 2/5 * m * R^2 = 4/5 * m * R^2 $
+
+2) Schwerpunkt ist wieder in der Mitte der Stange, jede Kugel hat den Abstand $l/2$ von der Drehachse. Jetzt kommt der Steinersche Satz zum Einsatz: 
+$ attach(I, b: B) = attach(I, b: S) + a^2*M arrow.double attach(I, b: perp) = 2 * (2/5 * m * R^2 + (l/2)^2 * m) = 4/5 * m * R^2 + 1/2 * m * l^2 $
 
 == Allgemeine Eigenschaft Trägheitsmoment
 
 Welche Eigenschaft hat das Trägheitsmoment allgemein, bei beliebiger Drehachse?
+
+#line(length: 100%)
+
+(hier gibt es mehrere Möglichkeiten das zu beantworten, aber ich glaube es geht um den Satz von Steiner)
+
+Das Trägheitsmoment $attach(I, b: B)$ eines Körpers bei Rotation um eine beliebige Achse $B$ ist gleich dem Trägheitsmoment $attach(I, b: S)$ um eine zu $B$ parallele Achse durch den Schwerpunkt $S$ plus dem Trägheitsmoment der in $S$ vereinigten Gesamtmasse $M$ bezüglich $B$.
 
 == Drehimpulserhaltung Pirouette
 
@@ -822,16 +943,26 @@ Sind die Massen der Arme und Beine weit von der Drehachse, dann ist das Träghei
 
 #line(length: 100%)
 
-a) Wenn ein äußeres Drehmoment $arrow(D)$ auf den Kreisel wirkt, bleibt wegen $arrow(D) = (dif arrow(L))/(dif t)$ der Drehimpuls nicht mehr raumfest, sondern ändert seine Richtung und, je nach der Richtung von $arrow(D)$, auch seine Größe. Die Drehimpulsrichtung (und damit auch die Figurenachse des Kreises) dreht sich mit der Winkelgeschwindigkeit
+a) Wenn ein äußeres Drehmoment $arrow(D)$ auf den Kreisel wirkt, bleibt wegen $arrow(D) = (dif arrow(L))/(dif t)$ der Drehimpuls nicht mehr raumfest, sondern ändert seine Richtung und, je nach der Richtung von $arrow(D)$, auch seine Größe. Die Drehimpulsrichtung (und damit auch die Figurenachse des Kreises) dreht sich mit der Winkelgeschwindigkeit (Präzessionsfrequenz)
 $ attach(omega, b: p) = (dif omega)/(dif t) = D/L $
 
-um eine Achse senkrecht zur Ebene von Drehmoment $arrow(D)$ und Drehimpuls $arrow(L)$, wobei $attach(omega, b: p) << omega$ angenommen wird. Diese Bewegung heißt Präzession.
+um eine Achse senkrecht zur Ebene von Drehmoment $arrow(D)$ und Drehimpuls $arrow(L)$, wobei $attach(omega, b: p) << omega$ angenommen wird (weil sonst Nutation hinzukommt). Diese Bewegung heißt Präzession.
 
-b) TODO
+b) Formel für die Präzessionsfrequenz $attach(omega, b: p)$ ist bereits in a) gezeigt, wobei speziell für z.B. einen schweren sym. Kreisel der um den Winkel $theta$ geneigt ist folgendes gelten würde:
+
+Drehmoment durch Gewicht ist $M = m * g * attach(r, b: S) * sin(theta)$, wobei $attach(r, b: S)$ der Abstand vom Schwerpunkt bis zum Auflagepunkt ist und $theta$ der Winkel zwischen Figurenachse und Vertikaler. Der Drehimpuls um die Figurenachse wäre $L = attach(I, b: S) * attach(omega, b: S)$, und die Präzessionsfrequenz somit:
+$ attach(Omega, b: p) = (m * g * attach(r, b: S) * sin(theta))/(attach(I, b: S) * attach(omega, b: S)) $
 
 == Drallsatz
 
 Wie lautet der Drallsatz und was beschreibt er?
+
+#line(length: 100%)
+
+Zur Änderung des Drehimpulses (Dralles) eines Körpers muss ein Drehmoment an ihm aufgebracht werden. Mathematische Formulierung (bezogen auf den gleichen Punkt):
+$ arrow(M) = dot(arrow(L)) $
+
+Beispiel: Um ein Spielplatzkarussell in Drehung zu versetzen, muss man es anstoßen. Dabei bringt man ein Drehmoment auf, das den Drehimpuls des Karussells ändert (Drehimpuls war ursprünglich $0$). Die Drehimpulserhaltung sorgt dann dafür, dass das Karussell (idealerweise) seine Drehung beibehält. Z.B. Reibung verringert den Drehimpuls dann wieder.
 
 == Gleichgewichtsbedingungen starrer Körper
 
@@ -893,7 +1024,7 @@ b) Scheinkräfte (Trägheitskräfte) müssen zur Beschreibung der Bewegung von M
 
 In rotierenden Bezugssystemen mit ruhendem Nullpunkt sind die Trägheitskräfte Zentrifugalkraft und Corioliskraft, in Systemen mit zeitlich veränderlicher Geschwindigkeit des Koordinatenursprungs treten weitere Trägheitskräfte auf.
 
-== Invariante Relativitätstheorie
+== Invariante Relativitätstheorie <invariante>
 
 Welche Invariante gibt es in der Relativitätstheorie?
 
@@ -938,7 +1069,7 @@ a) siehe @elastischer_stoss_1
 
 b) siehe @elastischer_stoss_1
 
-c) TODO
+c) Durch die Neigung wirkt auf die Kugeln eine konstante (Erd)Beschleunigung Richtung "Boden"
 
 == Zusammenstoß Kugeln
 
@@ -956,20 +1087,72 @@ ICH FINDE ZU DEM SCHEIß ABSOLUT KEINE BEISPIELE IM INTERNET?! DEMTRÖDER AUCH C
 
 Bestimmen Sie die Anfangsgeschwindigkeit einer Kugel mit der Masse $attach(m, b: 1)$, die auf einen Holzblock der Masse $attach(m, b: 2)$ trifft und dort stecken bleibt. Der Holzblock hängt an einer masselosen Stange mit der Länge $L$ und wird nach dem Stoß um die Höhe $h$ angehoben. Verwenden Sie dazu Energie- und Impulssatz.
 
+#line(length: 100%)
+
+Kugel bleibt stecken, somit ist der Stoß völlig inelastisch. es gilt $attach(v, b: 1)' = attach(v, b: 2)' eq.colon v'$ im Impulserhaltungssatz und $Delta E > 0$ im Energieerhaltungssatz (kann bei dieser Aufgabe aber scheinbar einfach ignoriert werden). Holzblock steht am Anfang still, somit gilt $attach(v, b: 2) = 0$.
+
+$ attach(m, b: 1) * attach(v, b: 1) + attach(m, b: 2) * attach(v, b: 2) arrow.double attach(m, b: 1) * attach(v, b: 1) = v' * (attach(m, b: 1) + attach(m, b: 2)) $
+
+$ 1/2 * attach(m, b: 1) * attach(v, b: 1)^2 + 1/2 * attach(m, b: 2) * attach(v, b: 2)^2 arrow.double 1/2 * attach(m, b: 1) * attach(v, b: 1)^2 = 1/2 * v'^2 * (attach(m, b: 1) + attach(m, b: 2)) + Delta E $
+
+Zuerst muss $v'$ ermittelt werden:
+$ underbrace(1/2 * v'^2 * (attach(m, b: 1) + attach(m, b: 2)), "direkt nach Stoß (kin)") = underbrace((attach(m, b: 1) + attach(m, b: 2)) * g * h, "höchster Punkt (pot)") arrow.double v' = sqrt(2 * g * h) $
+
+Jetzt einfach in die Impulserhaltungsgleichung einsetzen und nach $attach(v, b: 1)$ auflösen:
+$ attach(m, b: 1) * attach(v, b: 1) = sqrt(2*g*h) * (attach(m, b: 1) + attach(m, b: 2)) arrow.double attach(v, b: 1) = sqrt(2*g*h) * (attach(m, b: 1) + attach(m, b: 2))/attach(m, b: 1) $
+
+
 == Minkowski-Diagramm
 
 Beschreiben Sie, wie man zum Minkowski-Diagramm kommt. Erläutere Sie die Begriffe Lichtkegel und Weltlinie. Zeigen Sie die Längenkontraktion im Minkowski-Diagramm.
 
+#line(length: 100%)
+
+Ereignisse können an einem dreidimensionalen Ort $(x,y,z)$ zur Zeit $t$ stattfindet. Wenn man nun der Einfachkeit halber nur eine Raumkoordinate betrachtet, z.B. $x$, kann die vierdimensionale Darstellung auf ein zweidimensionales Diagramm reduziert werden. Wenn nun die Zeitachse durch $c*t$ ersetzt wird um für beide Achsen dieselbe Dimension einer Länge zu erhalten, hat man ein Minkowski-Diagramm.
+
+Ein Lichtkegel ist im Minkowski-Diagramm stehts eine um $45°$ geneigte Linie, da sich Licht konstant pro $t$ mit Geschwindigkeit $c$ in $x$-Richtung ausbreitet. Weltlinien beschreiben die "Beobachtungswelten" von Punkten. Ein ruhender Punkt hat eine senkrechte Weltlinie, ein linear bewegender eine schräge (max. 45°, da nichts schneller als $c$). Wenn sich jetzt z.B. ein Lichtkegel mit einer Weltlinie schneidet, heißt das, dass zu diesem $t$ der Punkt den Lichtkegel wahrnimmt.
+
+#image("assets/fragenkatalog/minkowski_diagramm.png")
+
+Für die Längenkontraktion im Minkowski-Diagramm siehe @lorentzkontraktion
+
 == Relativitätstheorie (Teil 1)
 
-+ Diskutieren Sie Zeitdilatation und Längenkontraktion mit Hilfe der Minkowski Diagramme und geben sie ein anschauliches Beispiel für die Zeitdilatation an
++ Diskutieren Sie Zeitdilatation und Längenkontraktion mit Hilfe der Minkowski Diagramme und geben sie ein anschauliches Beispiel für die Zeitdilatation an.
 + Wie lauten die relativistischen Ausdrücke für Masse, Impuls und kinetische Energie?
+
+#line(length: 100%)
+
+a) Eine schwarze und eine blaue Uhr befinden sich zum Zeitpunkt $t = t' = 0$ im Ursprung und werden gleichzeitig gestartet. Beim Start der Uhren beginnen sie sich mit konstanter Geschwindigkeit voneinander zu entfernen.
+
+Begeben wir uns in das schwarze Inertialsystem. Wir suchen die Anzeige der blauen Uhr zum Zeitpunkt $t = 1s$ auf der schwarzen Uhr. Die Linie der Gleichzeitigkeit verläuft parallel zur $x$-Achse durch diesen Zeitpunkt (schwarz strichlierte Linie). Der Schnittpunkt mit der $c*t'$-Achse liefert einen Wert eindeutig unter $1s$ -- die Zeit im blauen Raumschiff vergeht aus der Sicht des schwarzen Bezugssystems langsamer.
+
+#image("assets/fragenkatalog/minkowski-diagram-time-dilation.svg", width: 75%)
+
+Für die Längenkontraktion im Minkowski-Diagramm siehe @lorentzkontraktion
 
 == Vergleich Galilei- und Lorentztransformation
 
 Vergleichen Sie Galilei- und Lorentztransformation. Geben Sie die Formeln an und fertigen Sie Skizzen an. Wann kann welche Transformation verwendet werden? Welche Konsequenzen ergeben sich?
 
-== Lorentzkontraktion
+#line(length: 100%)
+
+*Galilei-Transformation:* Zwei Inertialsysteme $S$ und $S'$, wobei $S'$ sich mit konstanter Geschwindigkeit $arrow(v)$ relativ zu $S$ bewegt. Wird verwendet wenn $v << c$.
+$ vec(x' = x - attach(v, b: x)*t, y' = y - attach(v, b: y)*t, z' = z - attach(v, b: z)*t, t' = t, delim: "{") arrow.double arrow(r)' = arrow(r) - arrow(v) * t $
+
+Dabei soll $t' = t$ bedeuten, dass beide Beobachter zur Zeitmessung gleichgehende Uhren benutzen!
+
+#image("assets/fragenkatalog/galilei_transformation.png")
+
+*Lorentztransformation:* Zwei Inertialsysteme $S$ und $S'$, wobei $S'$ sich mit konstanter Geschwindigkeit $arrow(v)$ relativ zu $S$ bewegt. Wird verwendet wenn $v << c$ nicht mehr gilt, da relativistische Effeke auftreten und diese beachtet werden müssen. Zur Vereinfachung des Beispiels wird bewegt sich $S'$ lediglich entlang der $x$-Achse (hat Demtröder so gemacht).
+
+$ underbrace(gamma = 1/sqrt(1 - v^2/c^2), "Lorentzfaktor") arrow.double vec(x' = gamma * (x - v * t), y' = y, z' = z, t' = gamma * (t' + (v * x')/c^2), delim: "{") $
+
+Die Lorentz-Transformationen haben gegenüber den Galilei-Transformationen als einzige zusätzliche Annahme die experimentell gefundene Unabhängigkeit der Lichtgeschwindigkeit vom Bezugssystem. Somit treten relative Zeitwahrnehmungen zwischen Bezugssystemen auf.
+
+#image("assets/fragenkatalog/lorentz_transformation.png")
+
+== Lorentzkontraktion <lorentzkontraktion>
 
 Diskutieren Sie die Lorentzkontraktion sowohl formelmäßig, als auch graphisch.
 
@@ -1023,7 +1206,7 @@ Warum kann man dann beim Zwillingsparadoxon eindeutig sagen, dass $A$ nach seine
 
 TODO
 
-d) TODO
+d) siehe @invariante
 
 == Inertialsystem (again)
 
@@ -1045,7 +1228,7 @@ Bei der Lorentztransformation bewegt sich ein Bezugssystem mit einer sehr hohen 
 
 = Schwingungen und Wellen (3)
 
-== Bewegungsgleichung Pendel
+== Bewegungsgleichung Pendel <pendel_basics>
 
 + Wie lautet die Bewegungsgleichung eines mathematischen Pendels? Wie wird sie aufgestellt?
 + Was bedeuten die einzelnen Terme?
@@ -1076,7 +1259,7 @@ b)
 - $L$ ist die Länge des Pendel(faden)s
 
 c) Um die Pendelgleichung lösen zu können, muss die Näherung $sin(phi) tilde.equiv phi$ ("Linearisierung") durchgeführt werden. Somit wird die Gleichung zu
-$ m * g * phi = -m * L * dot.double(phi) $
+$ m * g * phi = -m * L * dot.double(phi) arrow.double = dot.double(phi) + g/L * phi = 0 $
 
 Die lineare DGL hat bei der Anfangsbedingung $phi(0) = 0$ die Lösung
 $ phi(t) = A * sin(sqrt(g/L)*t) $
@@ -1092,7 +1275,7 @@ d) Folgende Einschränkungen wurden bei der Erstellung der (linearisierten) Bewe
 - Masseloser, undehnbarer faden
 - Punktmasse
 
-== Physikalisches Pendel
+== Physikalisches Pendel <phys_pendel>
 
 a) Stellen sie die Schwingungsgleichung für ein physikalisches Pendel mit der Masse $m$ auf, wenn $I$ das Trägheitsmoment der Masse $m$ bezüglich des Drehpunktes ist. Der Abstand des Schwerpunktes sei $l$. Lösen sie die Differentialgleichung; wie groß ist die Schwingungsdauer?
 
@@ -1102,13 +1285,41 @@ b) Vereinfachen sie die Beziehung für ein mathematisches Pendel gleicher Länge
 
 #line(length: 100%)
 
+a) Wie aus @pendel_basics bereits bekannt beträgt die tangentielle Kraft auf den Massepunkt $attach(F, b: t) = -m * g * sin(phi)$. Um nun auf das Drehmoment zu kommen einfach mit der Distanz zum Drehpunkt multiplizieren, d.h.
+$ M = -m * g * sin(phi) * l $
+
+Nach dem Drallsatz gilt $M = I * dot.double(phi)$, damit kann die Bewegungsgleichung aufgestellt werden:
+$ I * dot.double(phi) = -m * g * sin(phi) * l arrow.double dot.double(phi) + (m*g*l)/I * sin(phi) = 0 $
+
+Mithilfe von Linearisierung und der Erkenntnis, das die eindimensionale Bewegungsgleichung für einen ungedämpften harmonischen Oszillator $dot.double(x) + attach(omega, b: 0)^2*x = 0$ lautet (siehe @dampened_harm_osz für Herleitung und Lösung der DGL), haben wir die Frequenz
+$ attach(omega, b: 0) = sqrt((m*g*l)/I) $
+$ T = (2*pi)/attach(omega, b: 0) = 2*pi*sqrt(I/(m*g*l)) $
+
+b) Ein mathematisches Pendel (Massepunkt an masselosem Faden) der Länge l hat das Trägheitsmoment $I = m*l^2$, wenn man dieses in die Formel von zuvor einsetzt erhält man
+$ attach(T, b: "math") = 2*pi*sqrt((m*l^2)/(m*g*l)) = 2*pi*sqrt(l/g) $
+
 == Herleitung Schwingungsfrequenz physikalisches Pendel
 
 Leiten Sie die Formel für die Schwingungsfrequenz eines physikalischen Pendels her.
 
+#line(length: 100%)
+
+Für die Herleitung der Schwingungsdauer des physikalischen Pendels siehe @phys_pendel.
+
+$ T = 1/f arrow.double f = 1/T = 1/(2*pi*sqrt(I/(m*g*l))) = 1/(2*pi) * sqrt((m*g*l)/I) $
+
 == Herleitung Schwingungsperiode Pendel
 
 Stellen Sie die Bewegungsgleichung eines mathematischen Pendels auf und leiten Sie die Formel für die Schwingungsperiode her.
+
+#line(length: 100%)
+
+Wie aus @pendel_basics bereits bekannt ist die (linearisierte) Bewegungsgleichung für das mathematische Pendel folgende:
+$ dot.double(phi) + g/L * phi = 0$, somit gilt für die Frequenz
+$ attach(omega, b: 0) = sqrt(g/L) $
+
+Umformen um auf die Periodendauer zu kommen:
+$ T = (2*pi)/attach(omega, b: 0) = 2*pi*sqrt(L/g) $
 
 == Schwebungen
 
@@ -1119,8 +1330,8 @@ Stellen Sie die Bewegungsgleichung eines mathematischen Pendels auf und leiten S
 
 a) Wenn zwei Schwingungen (leicht) verschiedener Frequenz mit gleicher Amplitude ($a=b$) überlagert werden, entsteht eine Schwingung dessen Amplitude periodisch zu- und abnimmt.
 
-$ attach(x, b: 1) = a * cos(omega*t) $
-$ attach(x, b: 2) = b * cos(omega*t) $
+$ attach(x, b: 1) = a * cos(attach(omega, b: 1) * t) $
+$ attach(x, b: 2) = b * cos(attach(omega, b: 2) * t) = a * cos(attach(omega, b: 2) * t) $
 
 Mit dem Additionstheorem $cos(alpha)+cos(beta) = 2*cos((alpha-beta)/2)*cos((alpha+beta)/2)$ kommt man auf die Überlagerungsschwingung von $attach(x, b: 1)$ und $attach(x, b: 2)$:
 $ x = 2*a * cos((attach(omega, b: 1) - attach(omega, b: 2))/2*t) * cos((attach(omega, b: 1) + attach(omega, b: 2))/2*t) $
@@ -1130,24 +1341,75 @@ $ attach(f, b: "Schwebung") = |attach(f, b: 1) - attach(f, b: 2)| $
 
 #image("assets/fragenkatalog/schwebung.png")
 
-b) TODO
+b)
+- Phasengeschwindigkeit ist die Geschwindigkeit, mit der sich die Phase der schnell oszillierenden Trägerwelle ausbreitet.
+$ attach(v, b: p) = (attach(omega, b: 1) + attach(omega, b: 2))/2 $
+- Gruppengeschwindigkeit ist die Geschwindigkeit, mit der sich die Einhüllende (Modulation) bewegt.
+$ attach(v, b: g) = attach(omega, b: 1) - attach(omega, b: 2) $
 
 == Überlagerung Schwingungen
 
 Überlagern Sie 2 zueinander senkrecht stehende Schwingungen gleicher Frequenz aber unterschiedlicher Phase und Amplitude und diskutieren Sie das Ergebnis. Leiten Sie die Endformel her, fertigen Sie Skizzen an und beschreiben Sie mögliche Anwendungen.
 
-== Energiebilanz ungedämpfter harmonischer Oszillator
+#line(length: 100%)
+
+Zwei zueinander senkrechte Schwingung mit gleicher Frequenz $omega$, wobei deren relative Phasenverschiebung $phi$ ist:
+$ x = a * cos(omega * t) $
+$ y = b * cos(omega * t + phi) $
+
+Wenn man diese nun überlagert und sich das Ergebnis auf einem 2D-Diagramm anschaut, erhält man sogenannte Lissajous-Figuren. 
+
+#image("assets/fragenkatalog/lissajous.png")
+
+Um die Endformel herzuleiten, müssen die zwei Schwingungen in die Ellipsengleichung umgeformt werden:
+$ x/a = cos(omega * t) $
+$ y/b = cos(omega * t)*cos(phi) - sin(omega * t)*sin(phi) = x/a*cos(phi) - sin(omega * t)*sin(phi) $
+
+Umordnen ergibt:
+$ sin(omega * t) * sin(phi) = x/a*cos(phi) - y/b $
+$ cos(omega * t) * sin(phi) = x/a*sin(phi) $
+
+Elimination der Zeit durch Quadrieren und Addieren liefert:
+$ sin^2(phi) = x^2/a^2 + y^2/b^2 - (2*x*y)/(a*b) * cos(phi) $
+
+Dies kann umgeformt werden in die Ellipsengleichung für die Bahnkurve des schwingenden Massenpunktes in der $x$-$y$-Ebene deren Achsen schräg zur $x$- bzw. $y$-Achse liegen und deren Achsenabschnitte $attach(a, t: *) = a*sin(phi)$ und $attach(b, t: *) = b * sin(phi)$ von den Amplituden $a$ und $b$ sowie von der Phasenverschiebung $phi$ zwischen den Teilschwingungen abhängen:
+$ x^2/attach(a, t: *)^2 + y^2/attach(b, t: *)^2 - (2*x*y*cos(phi))/(attach(a, t: *)*attach(b, t: *)) = 1 $
+
+Ein Anwendungsbeispiel (der Überlagerung generell, nicht der Lissajous-Figuren) wäre z.B. die Quadraturamplitudenmodulation (QAM) aus der Nachrichtentechnik.
+
+== Energiebilanz ungedämpfter harmonischer Oszillator <energiebilanz_oszi>
 
 Geben sie die Energiebilanz beim ungedämpften harmonischen Oszillator mit der Ortsfunktion $x(t) = A*sin(omega*t + phi)$ an:
 
 Berechnen Sie $attach(E, b: "kin")(t), attach(E, b: "pot")(t)$ und den Mittelwert beider Energien; Zeigen Sie, dass Die Gesamtenergie konstant ist.
+
+#line(length: 100%)
+
+Die kinetische Energie des harmonischen Oszillators ist
+$ attach(E, b: "kin")(t) = 1/2*m*dot(x)^2 = 1/2*m*(omega*A*cos(omega*t))^2 = 1/2*m * omega^2 * A^2 * cos^2(omega*t) $
+
+Ihr Mittelwert über eine Schwingungsperiode $T$ ist
+$ overline(attach(E, b: "kin")) = 1/T * attach(integral, t: T, b: 0) 1/2*m*dot(x)^2 dif t = 1/4 * m * A^2 * omega^2 $
+
+Für die potentielle Energie erhalten wir
+$ attach(E, b: "pot")(t) = attach(integral, t: x, b: 0) F dif x = 1/2 * D *x^2 = 1/2 * D * A^2 * sin^2(omega*t) = 1/2 * m * omega^2 * A^2 * sin^2(omega*t) $
+
+mit dem Mittelwert
+$ overline(attach(E, b: "pot")) = 1/T * attach(integral, t: T, b: 0) 1/2 * D * x^2 dif t = 1/4 * m * A^2 * omega^2 $
+
+Die Summe von kinetischer und potentieller Energie ist zu jedem Zeitpunkt gleich der konstanten Gesamtenergie (laut Energiesatz). Die Mittelwert sind zudem gleich.
+$ attach(E, b: "kin")(t) + attach(E, b: "pot")(t) = 1/2 * m * omega^2 * A^2 * (cos^2(omega*t) + sin^2(omega*t)) = 1/2 * m * omega^2 * A^2 = E = "const" $
 
 == Energiebilanz harmonischer Oszillator
 
 + Ermitteln Sie kinetische und potentielle Energie zum Zeitpunkt $t$.
 + Ermitteln Sie den zeitliche Mittelwert der potentiellen und kinetischen Energie.
 
-== Gedämpfter harmonischer Oszillator
+#line(length: 100%)
+
+Siehe @energiebilanz_oszi
+
+== Gedämpfter harmonischer Oszillator <dampened_harm_osz>
 
 + Wie lautet die Bewegungsgleichung und wie wird sie aufgestellt?
 + Diskutieren Sie die einzelnen Terme.
