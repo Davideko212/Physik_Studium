@@ -1,6 +1,7 @@
 // David Koch - 12503857
 
 #set text(font: "New Computer Modern")
+#set text(lang: "de")
 #set heading(numbering: "1.1.1")
 #set enum(numbering: "a.1)")
 #set page(numbering: "1 / 1")
@@ -86,7 +87,7 @@ Bewegungsgleichung in $y$-Richtung: $y(t) = -1/2 * g * t^2 + attach(v, b: y) * t
 
 b)
 Am Scheitelpunkt ist $attach(v, b: y) = 0$:
-$ attach(v, b: 0) = (\dy)/(\dt)y(t) = -g*attach(t, b: S) + attach(v, b: 0) * sin(alpha) = 0 arrow.double attach(t, b: S) = (attach(v, b: 0) * sin(alpha))/g $
+$ attach(v, b: y) = (dif)/(dif t)y(t) = -g*attach(t, b: S) + attach(v, b: 0) * sin(alpha) = 0 arrow.double attach(t, b: S) = (attach(v, b: 0) * sin(alpha))/g $
 
 Einsetzen in $y(t)$:
 $ attach(y, b: S) = -1/2 * g * ((attach(v, b: 0) * sin(alpha))/g)^2 + attach(v, b: 0) * sin(alpha) * (attach(v, b: 0) * sin(alpha))/g $
@@ -134,16 +135,13 @@ a) Eine Bewegung, bei der die Geschwindigkeit nach Betrag und Richtung konstant 
 
 #image("assets/fragenkatalog/gradlinige_bewegung.png")
 
-b) TODO
-$ (arrow(r)(t + Delta t) - arrow(r)(t))/(Delta t) = (Delta arrow(r))/(Delta t) = (arrow(attach(r, b: 2)) = arrow(overline(v)) $
-
-$ arrow(overline(v)) = (Delta arrow(r))/(Delta t) = (arrow(attach(r, b: 2)) - arrow(attach(r, b: 1)))/(attach(t, b: 2) - attach(t, b: 1)) = (arrow(r)(t + Delta t) - arrow(r)(t))/(Delta t) $
+b) $ arrow(P_1 P_2)/((t + Delta t) - t) = (arrow(r)(t + Delta t) - arrow(r)(t))/(Delta t) = (Delta arrow(r))/(Delta t) = arrow(overline(v)) $
 
 c) $ arrow(v) = (Delta arrow(r))/(Delta t) "mit" Delta t arrow 0 = (dif arrow(r))/(dif t) = dot(r) $
 
-d) $ arrow(v) = vec(attach(v, b: x), attach(v, b: y)) = vec((attach(x, b: 2) - attach(x, b: 1))/(attach(t, b: 2) - attach(t, b: 1)), (attach(y, b: 2) - attach(y, b: 1))/(attach(t, b: 2) - attach(t, b: 1))) $
+d) $ arrow(v) = vec(attach(v, b: x), attach(v, b: y)) = vec(r_x dif / (dif t), r_y dif / (dif t)) $
 
-e) $ v = abs(arrow(v)) = sqrt(attach(v, b: x)^2 + attach(v, b: y)^2) = sqrt((attach(x, b: 2) - attach(x, b: 1))^2 + (attach(y, b: 2) - attach(y, b: 1))^2) / (attach(t, b: 2) - attach(t, b: 1)) $
+e) $ v = abs(arrow(v)) = sqrt(attach(v, b: x)^2 + attach(v, b: y)^2) = sqrt((r_x dif / (dif t))^2 + (r_y dif / (dif t))^2) $
 
 == (Gleichförmige) Kreisbewegung
 
@@ -217,7 +215,7 @@ b)
     [*Zylinderkoord.*],
   ),
   [$ x = r * cos(phi) $], [$ r = sqrt(x^2 + y^2) $],
-  [$ y = r * sin(phi) $], [$ theta = arctan(x/y) $],
+  [$ y = r * sin(phi) $], [$ phi = arctan(y/x) $],
   [$ z = z $], [$ z = z $],
 )
 
@@ -394,7 +392,9 @@ a) In einem konservativen Kraftfeld ist in jedem Raumpunkt $P$ die Summe aus pot
 
 b) In einem konservativen Kraftfeld kann die Bewegung eines Körpers von $attach(P, b: 1)$ zu $attach(P, b: 2)$ mit dem Energiesatz der Mechanik beschrieben werden: $attach(E, b: "pot")(attach(P, b: 0)) + attach(E, b: "kin")(attach(P, b: 0)) = attach(E, b: "pot")(attach(P, b: 1)) + attach(E, b: "kin")(attach(P, b: 1)) = E$
 
-== Kraft, Feldstärke, Potential und pot. Energie
+Für Beispiele siehe @kraftfeld_bsp_ref b).
+
+== Kraft, Feldstärke, Potential und pot. Energie <kraftfeld_bsp_ref>
 
 + Erläutern Sie die Größen Kraft, Feldstärke, Potential und potentielle Energie. Wie hängen diese Größen zusammen?
 + Für welche Art von Kräften macht die Definition der potentiellen Energie Sinn und für welche nicht? Geben Sie Beispiele an.
@@ -670,7 +670,7 @@ Wie lautet das effektive Potential des Gravitationsfeldes (Skizze und Formeln)?
 
 DISCLAIMER: $attach(E, b: p)$ steht für pot. Energie, $attach(E, t: "eff", b: "pot")$ für das effektive Potential (glaube ich...)
 
-$ attach(E, t: "tan", b: "kin") = 1/2 * m * r^2 * dot(phi)^2 = L^2/(2*m*r^2) = attach(E, b: z) "(wieso auch immer)" $
+$ attach(E, t: "tan", b: "kin") = 1/2 * m * r^2 * dot(phi)^2 = L^2/(2*m*r^2) = attach(E, b: z) "(wieso auch immer, siehe Skizze)" $
 $ attach(E, t: "eff", b: p) = attach(E, b: "p")(r) + attach(E, t: "tan", b: "kin") = attach(E, b: "p")(r) + L^2/(2*m*r^2) arrow.double "effektive pot. Energie" $
 $ attach(E, t: "eff", b: p)/m arrow.double "effektives Potential?" $
 
@@ -781,7 +781,15 @@ Leiten Sie aus dem Energiesatz die für einen Körper der Masse $m$ erforderlich
 
 #line(length: 100%)
 
-TODO
+$ E = 1/2*m*attach(v, b: 0)^2 - G*(M*m)/R = "konstant" $
+
+Wenn $r arrow 0$ und der Körper nicht mehr im Erdschwerefeld ist, gilt für ihn $E = 0$. Somit muss der obige Energiesatz gleich null gesetzt werden und nach $attach(v, b: 0)$ aufgelöst werden:
+$ 1/2*m*attach(v, b: 0)^2 - G*(M*m)/R = 0 $
+$ 1/2*m*attach(v, b: 0)^2 = G*(M*m)/R $
+$ attach(v, b: 0)^2 = 2*G*(M*m)/R arrow.double attach(v, b: 0) = sqrt(2*G*(M*m)/R) $
+
+An der Erdoberfläche gilt $g = (G*M)/R^2$, also $G*M = g*R^2$ einsetzen:
+$ attach(v, b: 0) = sqrt((2 * g * R^2)/R) = sqrt(2*g*R) = sqrt(2* 9.81m/s^2 * 6.378 * 10^6m) tilde.equiv 11.2 (\km)/s $
 
 == Definition Kraft, Arbeit und Leistung
 
@@ -841,6 +849,54 @@ $ attach(z, b: S) = 1/V * attach(integral, t: 2pi, b: phi=0) attach(integral, t:
 + Geben Sie die entsprechenden Dimensionen an.
 + Welche dieser Größen ist eine Erhaltungsgröße?
 + Stellen Sie diesen Größen die entsprechenden Größen der Translation gegenüber.
+
+#line(length: 100%)
+
+a)
+- Drehimpuls $arrow(L)$: Maß für die "Rotationsstärke" eines Körpers. Für Massepunkt $arrow(L) = arrow(r) times arrow(p)$ mit $arrow(p) = m*arrow(v)$. Für starren Körper gilt bei Rotation um die Hauptachse $arrow(L) = I * arrow(w)$
+- Drehmoment $arrow(M)$: Fähigkeit einer Kraft, eine Drehung zu verursachen: $arrow(M) = arrow(r) times arrow(F)$. Ändert den Drehimpuls: $arrow(M) = (dif arrow(L))/(dif t)$
+- Trägheitsmoment $I$: Maß für Trägheit bei Rotation: $I = attach(sum, b: i) m_i r_i^2$ (diskrete Massen) oder $I = integral r^2 dif m$ (kontinuierlich)
+- Rotationsenergie $E_"rot"$: Kinetische Energie aufgrund der Rotation: $E_"rot" = 1/2 * I * omega^2$
+
+b)
+$ "Drehimpuls" - "Ableitung nach Zeit" arrow "Drehmoment" $
+$ "Winkelgeschwindigkeit" - "Multiplikation mit Trägheitsmoment I" arrow "Drehimpuls" $
+$ "Rotationsenergie" arrow.double E_"rot" = 1/2 * I * omega^2 $
+$ "Arbeit bei Rotation" arrow.double W = integral arrow(M) dif arrow(phi) $
+
+c)
+#table(
+  columns: 3,
+  align: horizon,
+  inset: 8pt,
+  table.header(
+    [*Größe*],
+    [*SI-Einheit*],
+    [*Dimension*],
+  ),
+  [Drehimpuls $arrow(L)$], [$(\kg*m^2)/s$], [$M*L^2*T^(-1)$],
+  [Drehmoment $arrow(M)$], [$N*m$ (eig. $J$)], [$M*L^2*T^(-2)$],
+  [Trägheitsmoment $I$], [$\kg*m^2$], [$M*L^2$],
+  [Rotationsenergie $E_"rot"$], [$J$], [$M*L^2*T^(-2)$],
+)
+
+d) Der Drehimpuls $arrow(L)$ ist eine Erhaltungsgröße, wenn das äußere Drehmoment $arrow(M)_"ext" = 0$ ist.
+
+e) ("Zusammenhang" gilt bei fester Achse und Abstand $r$)
+#table(
+  columns: 3,
+  align: horizon,
+  inset: 8pt,
+  table.header(
+    [*Rotation*],
+    [*Translation*],
+    [*Zusammenhang*],
+  ),
+  [Drehimpuls $L = I * omega$], [Impuls $arrow(p) = m * arrow(v)$], [$L = r * p_perp$ (für Massepunkt)],
+  [Drehmoment $arrow(M)$], [Kraft $arrow(F)$], [$M = r * F_perp$],
+  [Trägheitsmoment $I$], [Masse $m$], [$I = m * r^2$ (Punktmasse)],
+  [Rotationsenergie $E_"rot" = 1/2 * I * omega^2$], [Kinetische Energie $E_"kin" = 1/2 * m * v^2$], [$nothing$],
+)
 
 == Rad auf Randstein
 
@@ -932,7 +988,7 @@ Erklären Sie an Hand der Drehimpulserhaltung das Prinzip der Pirouette.
 
 #line(length: 100%)
 
-Formel Drehimpuls: $arrow(L) = underbrace(J, "Trägheitsmom.") * underbrace(arrow(omega), "Winkelgeschw.")$ 
+Formel Drehimpuls: $arrow(L) = underbrace(I, "Trägheitsmom.") * underbrace(arrow(omega), "Winkelgeschw.")$ 
 
 Sind die Massen der Arme und Beine weit von der Drehachse, dann ist das Trägheitsmoment groß. Bringt man die Massen von Armen und Beinen näher zur Drehachse, so verringert sich das Trägheitsmoment. Da das Produkt aus Trägheitsmoment und Winkelgeschwindigkeit aber gleich bleiben muss (Drehimpulserhaltung), erhöht sich entsprechend die Winkelgeschwindigkeit, wenn sich das Trägheitsmoment verkleinert.
 
@@ -1081,7 +1137,15 @@ Beschreiben Sie die Bahn (Geschwindigkeiten und Richtungen) beider Kugeln nach d
 
 (Ich nehme mal an, dass hier ein elastischer Stoß gemeint ist)
 
-ICH FINDE ZU DEM SCHEIß ABSOLUT KEINE BEISPIELE IM INTERNET?! DEMTRÖDER AUCH CONFUSING AF
+Beim Stoß wirkt die Kraft nur entlang der Verbindungslinie der Kugelmittelpunkte im Stoßmoment (Stoßnormale), somit kann der Stoß auf ein 1D-Problem reduziert werden.
+
+Für jede Kugel gilt $arrow(v) = arrow(v)_n + arrow(v)_t$, wobei $v_(1,n) = v_1 * cos(alpha)$ bzw. $v_(1,t) = v_1 * sin(alpha)$ gilt und $arrow(v)_t$ unverändert bleibt ($arrow(v)'_(1,t) = arrow(v)_(1,t)$ bzw. $arrow(v)'_(2,t) = arrow(v)_(2,t)$). Für die Normalanteile gilt:
+$ arrow(v)'_(1,n) = (m_1 - m_2)/(m_1 + m_2) * arrow(v)_(1,n) + (2*m_2)/(m_1 + m_2) * arrow(v)_(2,n) $
+$ arrow(v)'_(2,n) = (2*m_1)/(m_1 + m_2) * arrow(v)_(1,n) + (m_2 - m_1)/(m_1 + m_2) * arrow(v)_(2,n) $
+
+Bezüglich der Bahnen: Beide Kugeln ändern ihre Richtung, die Ablenkung hängt von den Massen $m_1$ und $m_2$, dem Einfallswinkel $alpha$ und den Anfangsgeschwindigkeiten $v_1$ und $v_2$ ab. Ein paar Sonderfälle wären:
+- Wenn $m_1 = m_2$ dann tauschen die Kugeln einfach ihre Normalteile. 
+- Wenn $m_1 >> m_2$ wird Kugel 2 start abgelenkt, Kugel 1 bewegt sich kaum. (und vice versa)
 
 == Anfangsgeschwindigkeit durch Energie- und Impulssatz
 
@@ -1146,7 +1210,7 @@ Dabei soll $t' = t$ bedeuten, dass beide Beobachter zur Zeitmessung gleichgehend
 
 *Lorentztransformation:* Zwei Inertialsysteme $S$ und $S'$, wobei $S'$ sich mit konstanter Geschwindigkeit $arrow(v)$ relativ zu $S$ bewegt. Wird verwendet wenn $v << c$ nicht mehr gilt, da relativistische Effeke auftreten und diese beachtet werden müssen. Zur Vereinfachung des Beispiels wird bewegt sich $S'$ lediglich entlang der $x$-Achse (hat Demtröder so gemacht).
 
-$ underbrace(gamma = 1/sqrt(1 - v^2/c^2), "Lorentzfaktor") arrow.double vec(x' = gamma * (x - v * t), y' = y, z' = z, t' = gamma * (t' + (v * x')/c^2), delim: "{") $
+$ underbrace(gamma = 1/sqrt(1 - v^2/c^2), "Lorentzfaktor") arrow.double vec(x' = gamma * (x - v * t), y' = y, z' = z, t' = gamma * (t + (v * x')/c^2), delim: "{") $
 
 Die Lorentz-Transformationen haben gegenüber den Galilei-Transformationen als einzige zusätzliche Annahme die experimentell gefundene Unabhängigkeit der Lichtgeschwindigkeit vom Bezugssystem. Somit treten relative Zeitwahrnehmungen zwischen Bezugssystemen auf.
 
@@ -1161,11 +1225,15 @@ Diskutieren Sie die Lorentzkontraktion sowohl formelmäßig, als auch graphisch.
 Angenommen, ein Stab mit den Endpunkten $attach(P', b: 1)$ und $attach(P', b: 2)$ ruhe im System $S'$. Die Koordinaten $attach(x', b: 1)$ und $attach(x', b: 2)$ seines Anfangs- und Endpunktes durchlaufen dann im Laufe der Zeit $t'$ im $(x', c*t')$-Diagramm Weltlinien, welche Geraden parallel zur $c*t'$-Achse sind. Der Beobachter $O'$ misst zur Zeit $attach(t', b: 1)$ die Länge
 $ L' = overline(attach(P', b: 1) attach(P', b: 2)) = attach(x', b: 2) - attach(x', b: 1) $
 
-Für den Beobachter $O$ hingegen bewegt sich der Stab, verbunden mit dem System $S'$, mit der Geschwindigkeit $v$ in $x$-Richtung. Um die Stablänge $L$ zu bestimmen, muss $O$ die Endpunkte $attach(x, b: a)$ und $attach(x, b: e)$ gleichzeitig, d.h. bei gleichem $t = attach(t, b: 1)$ messen. Diese Endpunkte sind die Schnittpunkte $attach(P, b: 1) = attach(P', b: 1)$ und $attach(P, b: 2) eq.not attach(P', b: 2)$
+Für den Beobachter $O$ hingegen bewegt sich der Stab, verbunden mit dem System $S'$, mit der Geschwindigkeit $v$ in $x$-Richtung. Um die Stablänge $L$ zu bestimmen, muss $O$ die Endpunkte $attach(x, b: a)$ und $attach(x, b: e)$ gleichzeitig, d.h. bei gleichem $t = attach(t, b: 1)$ messen. Diese Endpunkte sind die Schnittpunkte $attach(P, b: 1) = attach(P', b: 1)$ und $attach(P, b: 2) eq.not attach(P', b: 2)$ der beiden Weltlinien $attach(x, b: 1)'(t)$ und $attach(x, b: 2)'(t)$ mit der Horizontalen $t = t_1$. Für $O$ ist deshalb die Länge
+$ L = overline(attach(P, b: 1) attach(P, b: 2)) = attach(x, b: 2) - attach(x, b: 1) $
+wobei $x_2$ und $x_1$ durch die senkrechte Projektion von $P_2$, $P_1$ auf die $x$-Achse $t = 0$ erhalten werden. Die Längen $L$ und $L'$ sind somit unterschiedlich, da aber die Skalenlänge in beiden Systemen verschieden ist, kann die Längenänderung nicht geometrisch aus dem Minkowski-Diagramm bestimmt werden, sondern man muss sie aus den Lorentz-Transformationen berechnen:
+
+$ attach(x, b: 1)' = gamma * (x_1 - v * t_1); space attach(x, b: 2)' = gamma * (x_2 - v * t_2) $
+$ arrow.double attach(x, b: 2)' - attach(x, b: 1)' = gamma*(x_2 - x_1) "für" t_1 = t_2 $
+$ arrow.double L' = gamma*L arrow.double L < L' "weil" gamma > 1 $
 
 #image("assets/fragenkatalog/lorentzkontraktion_minkowski.png")
-
-TODO
 
 == Relativitätstheorie (Teil 2)
 
@@ -1192,9 +1260,12 @@ $ m*L - M * Delta x = 0 arrow.double m = E/c^2 arrow.double E = m*c^2 $
 
 Nach dieser Überlegung entspricht jeder Masse $m$ die Energie $E=m*c^2$. Energie und Masse sind einander proportional!
 
-b) TODO: Demtröder S. 118, ist aber sehr viel
+b) Demtröder S. 118, ist aber sehr viel, hier nur eine TLDR weil diese Frage kann generell never ever zur Prüfung kommen wegen dem Umfang:
 
-c) Von zwei im gleichen System gleich gehenden Uhren bleibt eine in Ruhe, die andere wird auf eine Reise mitgenommen und schließlich wieder zum Ausgangspunkt zurückgebracht. Ein Vergleich beiderUhren zeigt, dass die bewegte Uhr nachgeht, d.h. eine kleinere Zeitspanne zwischen Abreise und Ankunft anzeigt als die ruhende Uhr. (Analog: Menschen/Zwillinge statt Uhren)
+Wenn ein streifender (elastischer) Stoß zwischen zwei Teilchen mit hoher Geschwindigkeit stattfindet und man versucht mit unterschiedlichen Inertialsystemen auf die Geschwindigkeiten der Teilchen nach dem Stoß mithilfe der Impulserhaltung zu kommen, kommt man auf die Formel
+$ m(v) = gamma * m_0 = m_0/(sqrt(1-v^2/c^2)) $
+
+c) Von zwei im gleichen System gleich gehenden Uhren bleibt eine in Ruhe, die andere wird auf eine Reise mitgenommen und schließlich wieder zum Ausgangspunkt zurückgebracht. Ein Vergleich beider Uhren zeigt, dass die bewegte Uhr nachgeht, d.h. eine kleinere Zeitspanne zwischen Abreise und Ankunft anzeigt als die ruhende Uhr. (Analog: Menschen/Zwillinge statt Uhren)
 
 Warum kann man dann beim Zwillingsparadoxon eindeutig sagen, dass $A$ nach seiner Rückkehr jünger ist als $B$? Der entscheidende Punkt ist, dass $A$ nicht in einem Inertialsystem sitzt. Selbst wenn er sich mit konstanter Geschwindigkeit von $B$ fortbewegt, er also anfangs ein Inertialsystem benutzt, muss er bei Beginn der Rückreise auf ein anderes Inertialsystem umsteigen, das sich mit $-v$ gegen $B$ hin bewegt. Dies zeigt, dass die Messungen von $A$ und $B$ nicht äquivalent sind.
 
@@ -1204,7 +1275,15 @@ Warum kann man dann beim Zwillingsparadoxon eindeutig sagen, dass $A$ nach seine
 - Zur Zeit $attach(t, b: 1) = T/2$ bremst er ab, wendet und beschleunigt wieder auf die Geschwindigkeit $attach(v, b: 2) = -v$. Dies soll alles in einer Zeit geschehen, die vernachlässigbar kurz gegen die Reisezeit $T$ ist.
 - $A$ fliegt mit $attach(v, b: 2) = -v$ zurück und erreicht $B$ in $x = 0$ nach dessen Uhr zur Zeit $attach(t, b: 2) = T$.
 
-TODO
+Während die Weltlinie von $B$ in die vertikale Gerade $x = 0$ ist, folgt $A$ der Geraden $x = v*t$, d.h. $c*t = (c/v)*x$ bis zum Umkehrpunkt $P_1(x_u, T/2)$ und von dort auf der Geraden $x = x_u - v*(t - T/2)$ bis zum Treffpunkt $P_2(0,T)$ mit $B$.
+
+Aus dem invarianten Wegelement (siehe d)) folgt nun, dass $A$ und $B$ unterschiedliche Reisezeiten haben. Für $B$ ist immer $dif x = 0$, sodass gilt:
+$ attach(integral, t: P_2, b: 0) dif s = c * attach(integral, t: T, b: 0) dif t = c*T $
+
+Für $A$ misst der ruhende Beobachter $B$ auf dem Wege $overline(O P_1)$: $dif x = v dif t$ und daher
+$ attach(integral, t: P_1, b: 0) dif s = sqrt(c^2 - v^2) * attach(integral, t: T/2, b: 0) dif t = (c*T)/(2*gamma) = (c*T')/2 $
+
+Und das gleiche für den Rückweg, somit gilt zusammenaddiert für die Reisezeit $T' = T/gamma < T$.
 
 d) siehe @invariante
 
@@ -1421,7 +1500,10 @@ Siehe @energiebilanz_oszi
 
 a) Die eindimensionale Bewegungsgleichung für einen ungedämpften harmonischen Oszillator lautet $m * dot.double(x) = -D * x$ bzw. mit $attach(omega, b: 0)^2 = D/m arrow.double dot.double(x) + attach(omega, b: 0)^2*x = 0$. Wenn zu dieser die dämpfende Kraft $-b * dot(x)$ hinzukommt (wobei $b$ der Dämpfungskoeffizient ist), kommt man auf $m * dot.double(x) = -D * x - b * dot(x)$ bzw. mit $attach(omega, b: 0)^2 = D/m; 2*gamma = b/m arrow.double dot.double(x) + 2*gamma*dot(x) + attach(omega, b: 0)^2*x = 0$ 
 
-b) ??? TODO
+b) Wenn man die allg. Bewegungsgleichung ohne Umformungen ($m*dot.double(x) + b*dot(x) + D*x = 0$) betrachtet:
+- $m*dot.double(x)$ ist der Trägheitsterm, er beschreibt den Widerstand gegen die Änderung der Bewegung (Beschleunigung).
+- $-b*dot(x)$ ist der Dämpfungsterm, er geht entgegengesetzt zur Geschwindigkeit und entzieht dem System Energie.
+- $D*x$ ist der Rückstellterm und versucht stets das System zur Ruhelage $x = 0$ zurückzubrigen.
 
 c) Die Gleichung ist eine homogene lineare DGL 2. Ordnung mit konstanten Koeffizienten, somit wird der Exponentialansatz gewählt:
 $ x(t) = c * e^(lambda*t) $
@@ -1430,15 +1512,39 @@ Einsetzen in die DGL und für $lambda$ mittels pq-Formel lösen:
 $ lambda^2 + 2*gamma*lambda + attach(omega, b: 0)^2 = 0 $
 $ attach(lambda, b: "1,2") = -gamma plus.minus sqrt(gamma^2 - attach(omega, b: 0)^2) $
 
-Das ganze einsetzen in die homogene Lösungsformel einsetzen:
-$ x(t) = attach(c, b: 1) * e^(sqrt(gamma^2 - attach(omega, b: 0)^2)*t) + attach(c, b: 2) * e^(-sqrt(gamma^2 - attach(omega, b: 0)^2)*t) $
+Das ganze eingesetzt in die homogene Lösungsformel lautet:
+$ x(t) = e^(-gamma*t) * (c_1 * e^(sqrt(gamma^2 - omega_0^2)*t) + c_2 * e^(-sqrt(gamma^2 - omega_0^2)*t)) $
 
-ZEIGEN, DASS ES DIE BEWEGUNGSGLEICHUNG ERFÜLLT TODO
+Zur Abkürzung kann man $Lambda = sqrt(gamma^2 - attach(omega, b: 0)^2)$ setzen und damit ableiten:
+$ x(t) = e^(-gamma*t) * (c_1 * e^(Lambda*t) + c_2 * e^(-Lambda*t)) = c_1 * e^((Lambda-gamma)*t) + c_2 * e^((-Lambda-gamma)*t) $
+$ dot(x)(t) = c_1 * (Lambda-gamma) * e^((Lambda-gamma)*t) + c_2 * (-Lambda-gamma) * e^((-Lambda-gamma)*t) $
+$ dot.double(x)(t) = c_1 * (Lambda-gamma)^2 * e^((Lambda-gamma)*t) + c_2 * (-Lambda-gamma)^2 * e^((-Lambda-gamma)*t) $
 
-d) TODO
+Nun können die Ableitungen in die Bewegungsgleichung eingesetzt werden, die Terme mit e werden jedoch nicht mitgenommen da diese alleine nie $= 0$ sein können, und somit für den Beweis nicht von Interesse sind.
+$ c_1 * (Lambda-gamma)^2 + c_2 * (-Lambda-gamma)^2 + 2*gamma * (c_1 * (Lambda-gamma) + c_2 * (-Lambda-gamma)) + omega_0^2 * (c_1 + c_2) = 0 $
+
+Umformung und Aufspaltung der Gleichung anhand der Koeffizienten $c_1$ und $c_2$:
+$ c_1 * ((Lambda-gamma)^2 + 2*gamma*(Lambda - gamma) + omega_0^2) = 0 $
+$ c_2 * ((-Lambda-gamma)^2 + 2*gamma*(-Lambda - gamma) + omega_0^2) = 0 $
+
+Diese Gleichungen sind identisch bis auf das Vorzeichen von $Lambda$, da dieses jedoch durch die binomische Formel sowieso quadriert und somit positiv wird, muss nur gezeigt werden, dass eine dieser Gleichungen stimmt da somit beide stimmen.
+$ c_1 * (Lambda^2 - 2*Lambda*gamma + gamma^2 + 2*gamma*Lambda - 2*gamma^2 + omega_0^2) = 0 $
+$ c_1 * (Lambda^2 - gamma^2 + omega_0^2) = 0 arrow.double "für" Lambda "einsetzen" arrow.double gamma^2 - omega_0^2 - gamma^2 + omega_0^2 = 0 $
+$ qed $
+
+d) Es gibt drei mögliche Lösungen:
+
+1) $gamma < omega_0$, d.h. schwache Dämpfung: eine Schwingung mit exponentiell abklingender Amplitude. Mit der Abkürzung $omega^2 = omega_0^2 - gamma^2$ wird $lambda_(1,2) = -gamma plus.minus sqrt(-omega^2) = -gamma + i*omega$ und die allg. Lösung ergibt sich zu
+$ x(t) = A * e^(-gamma*t) * cos(omega*t + phi) $
+
+2) $gamma > omega_0$, d.h. starke Dämpfung bzw. "Kriechfall": Langsame Annäherung an Ruhelage ohne Schwingung. Die Lösung der Bewegungsgleichung für diesen Fall ist einfach die allg. Lösung
+$ x(t) = e^(-gamma*t) * (c_1 * e^(sqrt(gamma^2 - omega_0^2)*t) + c_2 * e^(-sqrt(gamma^2 - omega_0^2)*t)) $
+
+3) $gamma = omega_0$, d.h. aperiodischer Grenzfall bzw. kritische Dämpfung: Ein schwingungsfähigen Systems, bei dem die Rückkehr zur Ruhelage schnellstmöglich und ohne Überschwingen (Richtungswechsel) erfolgt. Die allg. Lösung wird hierbei zu
+$ x(t) = (c_1*t + c_2)*e^(-gamma*t) $
 
 e) Zwei aufeinander folgende Maxima der gedämpften Schwingung haben das Amplitudenverhältnis
-$ (x(t + T))/x(t) = e^(-gamma*T) $
+$ (x(t + T))/x(t) = e^(-gamma*t) $
 
 Der natürliche Logarithmus des inversen Verhältnisses
 $ ln((x(t + T))/x(t)) = gamma*T = delta $
@@ -1460,13 +1566,40 @@ $ m * dot.double(x) = -D * x - b * dot(x) + attach(F, b: 0) * cos(omega*t) $ bzw
 
 (wenn keine Dämpfung stattfindet kann $b$ bzw. $gamma$ natürlich auf $0$ gesetzt werden)
 
-b) ??? TODO
+b) Wenn man die allg. Bewegungsgleichung ohne Umformungen ($m*dot.double(x) + b*dot(x) + D*x = F_0 * cos(omega*t)$) betrachtet:
+- $m*dot.double(x)$ ist der Trägheitsterm, er beschreibt den Widerstand gegen die Änderung der Bewegung (Beschleunigung).
+- $-b*dot(x)$ ist der Dämpfungsterm, er geht entgegengesetzt zur Geschwindigkeit und entzieht dem System Energie.
+- $D*x$ ist der Rückstellterm und versucht stets das System zur Ruhelage $x = 0$ zurückzubrigen.
+- $F_0 * cos(omega*t)$ ist der Antriebsterm, eine äußere Anregung die die Schwingung mit $omega$, nicht $omega_0$ zum schwingen "zwingt".
 
-c) und der Rest auch TODO
+c) Gleich wie bei @dampened_harm_osz, jedoch muss diesmal nicht nur die homogene Lösung sondern auch die partikuläre ermittelt werden. Für die partikuläre Lösung wird mit dem Ansatz $attach(x, b: p)(t) = A_2 * cos(omega*t + phi)$ gerechnet, dabei kommt auf die Lösung
+$ attach(x, b: p)(t) = K/sqrt((omega_0^2 - omega^2)^2 + (2*gamma*omega)^2) * cos(omega*t + phi) $ 
+$ x(t) = underbrace(e^(-gamma*t) * (c_1 * e^(sqrt(gamma^2 - omega_0^2)*t) + c_2 * e^(-sqrt(gamma^2 - omega_0^2)*t)), attach(x, b: h)(t)) + underbrace(K/sqrt((omega_0^2 - omega^2)^2 + (2*gamma*omega)^2) * cos(omega*t + phi), attach(x, b: p)(t)) $
+
+d) Wie man in der partikulären Lösung $attach(x, b: p)(t)$ sehen kann ist die Amplitude abhängig von der Frequenz der "Ursprungsschwingung" $omega_0$ und der äußeren Anregungsfrequenz $omega$. Was bei c) nicht erwähnt wird ist das die Phase auch von diesen Frequenzen abhängt:
+$ tan(phi) = (2*gamma*omega)/(omega_0^2 - omega^2) "mit" phi in [0,pi] $
+
+Das heißt:
+- $omega << omega_0$: Schwingung in Phase mit der Kraft, somit $phi tilde.equiv 0$ (Amplitude steigt an)
+- $omega = omega_0$: Geschwindigkeit in Phase mit der Kraft (max. Leistungszunahme), $phi = pi/2$
+- $omega >> omega_0$: Schwingung gegenphasig zur Kraft, $phi arrow pi$ (Amplitude fällt ab)
+
+e) Die Resonanzkatastrophe tritt auf, wenn ein schwingungsfähiges System ohne ausreichende Dämpfung mit einer Erregerfrequenz $omega$ nahe der Eigenfrequenz $omega_0$ angeregt wird.
+
+Für $omega tilde.equiv omega_0$ und sehr kleine Dämpfung $gamma << omega_0$ wird die eingeschwungene Amplitude zu
+$ attach(A, b: "max") = (F_0/m)/(2*gamma*omega_0) $
+(theoretisch $attach(A, b: "max") arrow infinity$ für $gamma arrow 0$)
+
+Vermeidung:
+- Dämpfung erhöhen
+- Eigenfrequenz $omega_0$ ändern (falls möglich)
+- Entkopplung der Anregerkraft
 
 == Wellengleichung ebene harmonische Wellen <wellengleichung_harmonisch>
 
 Wie lautet die Wellengleichung einer ebenen harmonischen Welle. Erkläre die vorkommenden Größen. Gib eine mögliche Lösung an und beweise ihre Gültigkeit.
+
+#line(length: 100%)
 
 Siehe @wellengleichung_allgemein (aber nur den Teil mit der eindimensionalen/ebenen harmonischen Welle)
 
@@ -1532,14 +1665,13 @@ a) Die allgemeine Wellengleichung lautet $ nabla^2 xi(arrow(r),t) = 1/(attach(v,
 wobei $arrow(r)$ ein mehrdimensionaler Ortsvektor ist. Der Nabla-Operator bildet hierbei die Summe der partiellen zweiten Ableitungen des Raumes. Diese Wellengleichung lässt sich auf eine ebene Welle in nur eine Richtung reduzieren, mit dieser ist es einfacher zu rechnen:
 
 Die eindimensionale Wellengleichung (in $x$-Richtung) lautet 
-$ (delta^2xi(x,t))/(delta\x^2) = 1/(attach(v, b: p)^2) * (delta^2xi(x,t))/(delta\t^2) $
+$ underbrace((delta^2xi(x,t))/(delta\x^2), "Rücktreibene Kraft") = 1/(attach(v, b: p)^2) * underbrace((delta^2xi(x,t))/(delta\t^2), "Beschleunigung der Auslenkung") $
 
 Vorkommende Größen:
 - $xi(x,t)$ ist die wellende Größe (z.B. Druck, Auslenkung, ...)
 - $x$ ist der Ort (eindimensional, nicht vergessen! sonst Ortsvektor $arrow(r)$ mit $xi(arrow(r),t)$)
 - $t$ ist die Zeit
 - $attach(v, b: p)$ ist die Phasengeschwindigkeit im Medium
-TODO actual Terme
 
 Auf der linken Seite der Wellengleichung steht die zweite partielle Ableitung der Welle $xi(x,t)$ nach dem Ort, auf der rechten Seite die zweite partielle Ableitung nach der Zeit.
 
