@@ -1,0 +1,1 @@
+Das Auffinden aller [[Eigenwert|Eigenwerte]] und [[Eigenvektor|Eigenvektoren]] wird als Eigenwertproblem bezeichnet.

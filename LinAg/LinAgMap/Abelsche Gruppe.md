@@ -1,0 +1,1 @@
+Synonym für [[Kommutative Gruppe]].

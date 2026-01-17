@@ -1,0 +1,3 @@
+Ist das [[Lineares Gleichungssystem|lineare Gleichungssystem]] $A\textbf{x} = \textbf{b}$ [[Lösbarkeit|lösbar]], aber nicht [[Eindeutige Lösbarkeit|eindeutig lösbar]], dann hat die allgemeine Lösung die Form $\textbf{x} = \textbf{x}_p + \textbf{x}_h$, wobei $\textbf{x}_p$ eine [[Partikuläre Lösung]] und $\textbf{x}_h \in$ [[Kern]] $A$ eine [[Homogene Lösung]] darstellen.
+
+TODO: lin abb stuff inkludieren von Seite 63

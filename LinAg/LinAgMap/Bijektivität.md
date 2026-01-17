@@ -1,0 +1,1 @@
+Wenn [[Injektivität]] und [[Surjektivität]] gelten, dann wird es auch [[Bijektivität]] genannt.

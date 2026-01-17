@@ -1,0 +1,1 @@
+Synonym für [[Orthogonale Matrix|orthogonale Matrizen]], diese haben nämlich geometrische Bezüge zu Drehungen und Spiegelungen.

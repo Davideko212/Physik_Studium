@@ -1,0 +1,218 @@
+{
+  "main": {
+    "id": "17da307f07d93843",
+    "type": "split",
+    "children": [
+      {
+        "id": "69f37d6794c749b6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dcdce16f68e675ae",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Abelsche Gruppe.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Abelsche Gruppe"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "cee51c87121e4046",
+    "type": "split",
+    "children": [
+      {
+        "id": "f80f84fe85441492",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "25fe82f07ab8cab9",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "7b9d981b9ec7a7c1",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "e77a0ebe2590b6b1",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "9def2dd31c86eaee",
+    "type": "split",
+    "children": [
+      {
+        "id": "54a20a993b0275cc",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0b0df660fc85da0c",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Abelsche Gruppe.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Abelsche Gruppe"
+            }
+          },
+          {
+            "id": "f173cf36dcd67e67",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Abelsche Gruppe.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Abelsche Gruppe"
+            }
+          },
+          {
+            "id": "cb5917154c8524f6",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "e2ceb70338ab0646",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "82ce1fd7dc264ad9",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Abelsche Gruppe.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Abelsche Gruppe"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "dcdce16f68e675ae",
+  "lastOpenFiles": [
+    "Kommutative Gruppe.md",
+    "Abelsche Gruppe.md",
+    "Bilinearform.md",
+    "Bild.md",
+    "Automorphismus.md",
+    "Basis.md",
+    "Monomorphismus.md",
+    "Hauptachsentransformation.md",
+    "Quadrik.md",
+    "Quadratische Form.md",
+    "Schiefsymmetrisch.md",
+    "Symmetrisch.md",
+    "Dreiecksmatrix.md",
+    "Jordan-Kästchen.md",
+    "Hauptvektor.md",
+    "Jordansche Normalform.md",
+    "Hauptraum.md",
+    "Ähnlichkeit.md",
+    "Symmetrische Matrix.md",
+    "Hermitische Matrix.md",
+    "Spektralzerlegung.md",
+    "Diagonalisierbarkeit.md",
+    "Algebraische Vielfachheit.md",
+    "Charakteristisches Polynom.md",
+    "Geometrische Vielfachheit.md",
+    "Diagonalmatrix.md",
+    "assets/Kommutatives_Diagramm.png",
+    "assets",
+    "Lösungen und Lösbarkeiten"
+  ]
+}

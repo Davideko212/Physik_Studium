@@ -1,0 +1,1 @@
+Ein [[Vektor]], der Teil einer [[Basis]] und [[Lineare Unabhängigkeit|linear unabhängig]] zu den anderen Basisvektoren ist.
