@@ -1,0 +1,1 @@
+Ein Endomorphismus ist ein [[Homomorphismus]], der eine [[Lineare Selbstabbildung|Selbstabbildung]] ist.

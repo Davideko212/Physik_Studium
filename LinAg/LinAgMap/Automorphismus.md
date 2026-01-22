@@ -1,0 +1,1 @@
+Ein Automorphismus ist ein [[Homomorphismus]], der [[Bijektivität|bijektiv]] und eine [[Lineare Selbstabbildung|Selbstabbildung]] ist.

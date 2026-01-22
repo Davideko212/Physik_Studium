@@ -1,0 +1,3 @@
+Sei $M \ne \emptyset$ eine [[Menge]]. Eine äußere Verknüpfung $\Diamond$ zweier Elemente $a \in \mathbb{K}, b \in M$ ist eine [[Abbildung]]
+$$\Diamond: \mathbb{K} \times M \rightarrow M, \space (a,b) \mapsto a \Diamond b$$
+Das Attribut "äußere" drückt aus, dass nur einer die Operanden als auch das Ergebnis der Verknüpfung Elemente derselben [[Menge]] sind, wobei der "linke" Operand aus einer anderen [[Menge]] bzw. aus einem anderen [[Körper]] stammt.

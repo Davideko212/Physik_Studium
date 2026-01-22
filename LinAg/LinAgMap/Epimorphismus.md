@@ -1,0 +1,1 @@
+Ein Epimorphismus ist ein [[Homomorphismus]], der [[Surjektivität|surjektiv]] ist.

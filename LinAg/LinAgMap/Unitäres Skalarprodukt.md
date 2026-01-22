@@ -1,0 +1,2 @@
+Das unitäre SKP ist das [[Kanonisches Skalarprodukt|kanonische Skalarprodukt]] auf $\mathbb{C}^n$. Es ist definiert durch die [[Abbildung]] $\langle.,.\rangle: \mathbb{R}^n \times \mathbb{R}^n \rightarrow \mathbb{R}$, gegeben durch
+$$\langle \textbf{v},\textbf{w} \rangle = \overline{v_{1}}w_{1} + \dots + \overline{v_{n}}w_{n} = \sum_{k=1}^n \overline{v_{k}}w_{k}$$

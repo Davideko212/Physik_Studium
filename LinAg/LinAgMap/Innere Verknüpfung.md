@@ -1,0 +1,2 @@
+Sei $M \ne \emptyset$ eine [[Menge]]. Eine innere Verknüpfung $\Diamond$ zweier Elemente $a, b \in M$ ist eine [[Abbildung]]
+$$\Diamond: M \times M \rightarrow M, \space (a,b) \mapsto a \Diamond b$$Das Attribut "innere" drückt aus, dass sowohl die Operanden als auch das Ergebnis der Verknüpfung Elemente derselben [[Menge]] sind. Diese Eigenschaft wird auch als [[Abgeschlossenheit]] bezeichnet.

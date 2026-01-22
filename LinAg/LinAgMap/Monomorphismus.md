@@ -1,0 +1,1 @@
+Ein Monomorphismus ist ein [[Homomorphismus]], der [[Injektivität|injektiv]] ist.

@@ -1,0 +1,1 @@
+Ein Isomorphismus ist ein [[Homomorphismus]], der [[Bijektivität|bijektiv]] ist.

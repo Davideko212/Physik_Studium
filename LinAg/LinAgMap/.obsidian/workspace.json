@@ -13,15 +13,166 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Abelsche Gruppe.md",
+                "file": "Gruppe.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Abelsche Gruppe"
+              "title": "Gruppe"
+            }
+          },
+          {
+            "id": "1614610bdf55aeac",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Einheitsmatrix.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Einheitsmatrix"
+            }
+          },
+          {
+            "id": "c71fd977efcb26b6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Dreiecksmatrix.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Dreiecksmatrix"
+            }
+          },
+          {
+            "id": "0ac0abc8c7862fb0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Transposition.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Transposition"
+            }
+          },
+          {
+            "id": "4803eacd9c5981e6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Sesquilinearform.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Sesquilinearform"
+            }
+          },
+          {
+            "id": "1c61d06a2fbaea07",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Semilinearität.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Semilinearität"
+            }
+          },
+          {
+            "id": "54ff08b35f77b38b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Konjugation.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Konjugation"
+            }
+          },
+          {
+            "id": "0dbc7a4a40e52b92",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Hermitesche Matrix.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Hermitesche Matrix"
+            }
+          },
+          {
+            "id": "53431fc36f0692bd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Kanonisches Skalarprodukt.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Kanonisches Skalarprodukt"
+            }
+          },
+          {
+            "id": "dd6970d649505b9e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Homomorphismus.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Homomorphismus"
+            }
+          },
+          {
+            "id": "038d1008544c73c3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Vollständige Induktion.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Vollständige Induktion"
+            }
+          },
+          {
+            "id": "5ebd8b5dd7253f29",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -94,7 +245,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Abelsche Gruppe.md",
+                "file": "Transposition.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +255,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Abelsche Gruppe"
+              "title": "Backlinks for Transposition"
             }
           },
           {
@@ -169,8 +320,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -183,34 +333,34 @@
       "bases:Create new base": false
     }
   },
-  "active": "dcdce16f68e675ae",
+  "active": "0ac0abc8c7862fb0",
   "lastOpenFiles": [
-    "Kommutative Gruppe.md",
-    "Abelsche Gruppe.md",
-    "Bilinearform.md",
-    "Bild.md",
-    "Automorphismus.md",
-    "Basis.md",
-    "Monomorphismus.md",
-    "Hauptachsentransformation.md",
-    "Quadrik.md",
-    "Quadratische Form.md",
-    "Schiefsymmetrisch.md",
-    "Symmetrisch.md",
     "Dreiecksmatrix.md",
-    "Jordan-Kästchen.md",
-    "Hauptvektor.md",
-    "Jordansche Normalform.md",
-    "Hauptraum.md",
-    "Ähnlichkeit.md",
-    "Symmetrische Matrix.md",
-    "Hermitische Matrix.md",
-    "Spektralzerlegung.md",
-    "Diagonalisierbarkeit.md",
-    "Algebraische Vielfachheit.md",
-    "Charakteristisches Polynom.md",
-    "Geometrische Vielfachheit.md",
+    "Quadratische Form.md",
     "Diagonalmatrix.md",
+    "Nullmatrix.md",
+    "Einheitsmatrix.md",
+    "Zeilenstufenform.md",
+    "Trivial.md",
+    "Sesquilinearform.md",
+    "Semilinearität.md",
+    "Selbstadjungiert.md",
+    "Regulär.md",
+    "Rang.md",
+    "Prähilbertraum.md",
+    "Matrizenraum.md",
+    "Menge.md",
+    "Monoid.md",
+    "Lineare Abbildung.md",
+    "Halbgruppe.md",
+    "Duale Basis.md",
+    "Dualraum.md",
+    "Drehmatrix.md",
+    "Skalarprodukt.md",
+    "Symmetrisch.md",
+    "Symmetrie.md",
+    "Multiplikation.md",
+    "Gruppe.md",
     "assets/Kommutatives_Diagramm.png",
     "assets",
     "Lösungen und Lösbarkeiten"
