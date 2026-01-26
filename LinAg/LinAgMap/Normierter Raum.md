@@ -1,0 +1,1 @@
+Ein [[Vektorraum]], der mit einer [[Norm]] ausgestattet ist.

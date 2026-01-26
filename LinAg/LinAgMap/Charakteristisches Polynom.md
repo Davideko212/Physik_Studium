@@ -3,7 +3,7 @@ $$p_{A}(\lambda) := \det(A - \lambda I_{n})$$
 das charakteristische [[Polynom]] der [[Matrix]] $A$. Die Vielfachheit der Nullstelle $\lambda$ im charakteristischen Polynom $p_A$ heißt die [[Algebraische Vielfachheit]] $n_\lambda$.
 
 Es gilt:
-- Das charakteristische Polynom $p_A$ ist ein [[Polynom]] vom [[Grad]] $n$ der Form
+- Das charakteristische Polynom $p_A$ ist ein [[Polynom]] vom [[Polynomgrad|Grad]] $n$ der Form
   $$p_{A}(\lambda) = \sum_{k=0}^n b_{k} \lambda^k$$
 - Die Koeffizienten des charakteristischen Polynoms $p_A$ erfüllen ((Referenz: [[Spur]]))
   $$ b_{0} = \det(A), \ \ \ b_{n-1} = (-1)^{n-1} \sum_{k=1}^n a_{kk} = (-1)^{n-1} \text{Spur}(A), \ \ \ b_{n} = (-1)^n $$

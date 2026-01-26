@@ -1,0 +1,1 @@
+Die Elemente eines [[Dualraum|Dualraums]] $\mathcal{V}^*$ von einem [[Vektorraum]] $\mathcal{V}$ werden Kovektoren genannt.

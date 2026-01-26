@@ -1,0 +1,1 @@
+Der Polynomgrad $n$ ist die höchste vorkommende Potenz der Variablen in einer Polynomfunktion. Er bestimmt grundlegende Eigenschaften wie das Verhalten im Unendlichen, die max. Anzahl der Nullstellen ($n$) sowie die max. Anzahl der Extrempunkte $(n-1)$.

@@ -92,31 +92,13 @@
             }
           },
           {
-            "id": "522bbee9b8800e47",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Algebraische Strukturen/Gruppe.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Gruppe"
-            }
-          },
-          {
             "id": "609a843922822e5c",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Algebraische Strukturen/Gruppe.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Gruppe"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           },
           {
@@ -137,10 +119,42 @@
             "id": "1866502b2da82836",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "Spur.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Spur"
+            }
+          },
+          {
+            "id": "318018f14486a53d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Hauptachsentransformation.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Hauptachsentransformation"
+            }
+          },
+          {
+            "id": "ab69b3282eb6430d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Hauptdiagonalelemente.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Hauptdiagonalelemente"
             }
           },
           {
@@ -247,26 +261,142 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Vollständige Induktion.md",
+                "file": "Hauptachsentransformation.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Vollständige Induktion"
+              "title": "Hauptachsentransformation"
+            }
+          },
+          {
+            "id": "cfb742e8e09ced5c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Normalform einer Quadrik.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Normalform einer Quadrik"
             }
           },
           {
             "id": "5ebd8b5dd7253f29",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Orthonormalbasis.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Orthonormalbasis"
+            }
+          },
+          {
+            "id": "6dbe28a3165e3876",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Parallelogramgleichung.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Parallelogramgleichung"
+            }
+          },
+          {
+            "id": "7eeedb860762e985",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Norm.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Norm"
+            }
+          },
+          {
+            "id": "a3e0d9b0ac534e29",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Elementare Umformung.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Elementare Umformung"
+            }
+          },
+          {
+            "id": "9e4fb92ef12b46f8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Determinante.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Determinante"
+            }
+          },
+          {
+            "id": "21edc855bf5cfdbe",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Kofaktor.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Kofaktor"
+            }
+          },
+          {
+            "id": "4d4e51a6db116498",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Entwicklungssatz von Laplace.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Entwicklungssatz von Laplace"
+            }
+          },
+          {
+            "id": "db33119b1951ded4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Matrixprodukt.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Matrixprodukt"
             }
           }
         ],
-        "currentTab": 9
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -299,7 +429,7 @@
               "type": "search",
               "state": {
                 "query": "",
-                "matchingCase": false,
+                "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
                 "extraContext": false,
@@ -425,34 +555,34 @@
       "bases:Create new base": false
     }
   },
-  "active": "1866502b2da82836",
+  "active": "609a843922822e5c",
   "lastOpenFiles": [
-    "Ähnlichkeit.md",
-    "Definitheit.md",
-    "Determinante.md",
-    "Defekt.md",
-    "Darstellungsmatrix.md",
-    "Charakteristisches Polynom.md",
-    "Bild.md",
-    "Bijektivität.md",
-    "Basisvektor.md",
-    "Basis.md",
-    "Äußere Verknüpfung.md",
-    "Abbildung.md",
-    "Abbildungsmatrix.md",
-    "Abgeschlossenheit.md",
-    "Addition.md",
-    "Additivität.md",
-    "Adjungiert.md",
-    "Adjungierte Abbildung.md",
-    "Adjungierte Matrix.md",
-    "Spur.md",
-    "Algebraische Vielfachheit.md",
-    "Hauptraum.md",
-    "Funktionenraum.md",
-    "Lineare Abbildung.md",
-    "Vektorraum.md",
+    "Direkte Summe.md",
+    "Distributivität.md",
+    "Dreiecksmatrix.md",
+    "Dreiecksungleichung.md",
+    "Duale Basis.md",
     "Dualraum.md",
+    "Durchschnitt.md",
+    "Entwicklungssatz von Laplace.md",
+    "Algebraische Strukturen/Gruppe.md",
+    "Semilinearität.md",
+    "Positivität.md",
+    "Polynom.md",
+    "Orthonormalbasis.md",
+    "Nullmatrix.md",
+    "Orthogonale Matrix.md",
+    "Orthogonales Komplement.md",
+    "Orthogonalität.md",
+    "Determinante.md",
+    "Kofaktor.md",
+    "Algebraisches Komplement.md",
+    "Kovektor.md",
+    "Inverse Matrix.md",
+    "Homomorphismen/Homomorphismus.md",
+    "Charakteristisches Polynom.md",
+    "Menge.md",
+    "Lösungen und Lösbarkeiten/Eindeutige Lösbarkeit.md",
     "Vektorräume",
     "Algebraische Strukturen",
     "Homomorphismen",

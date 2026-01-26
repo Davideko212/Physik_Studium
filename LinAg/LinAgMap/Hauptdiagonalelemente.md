@@ -1,0 +1,1 @@
+Bei einer [[Quadratische Matrix|quadratischen Matrix]] heißen die Einträge $a_{11}, a_{22}, \dots, a_{nn}$ Hauptdiagonalelemente.

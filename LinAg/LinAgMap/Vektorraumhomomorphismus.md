@@ -1,0 +1,1 @@
+Ein Synonym für eine [[Lineare Abbildung]] zwischen zwei [[Vektorraum|Vektorräumen]].

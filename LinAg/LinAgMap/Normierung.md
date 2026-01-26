@@ -1,0 +1,1 @@
+Sei $\textbf{v} \in \mathcal{V}$. Hat dieser [[Vektor]] eine [[Norm]] von eins, d.h. gilt für diesen [[Vektor]] $||\textbf{v}|| = 1$, so heißt der [[Vektor]] $\textbf{v}$ normiert.

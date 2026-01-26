@@ -1,0 +1,2 @@
+Die [[Dimension]] des [[Eigenraum|Eigenraums]] $E_\lambda$ wird auch die geometrische Vielfachheit des Eigenwerts $\lambda$ bezeichnet.
+$$g_{\lambda} := \dim(E_{\lambda}) = \dim(\text{Kern}(A - \lambda I_n))$$

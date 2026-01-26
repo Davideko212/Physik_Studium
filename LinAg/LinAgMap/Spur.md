@@ -1,0 +1,2 @@
+Die Spur einer [[Matrix]] ist die Summe ihrer [[Hauptdiagonalelemente]] und ist somit nur für [[Quadratische Matrix|quadratische Matrizen]] definiert.
+$$\text{Spur}(A) = \sum_{i=1}^n a_{ii} = a_{11} + a_{22} + \dots + a_{nn}$$

@@ -1,0 +1,2 @@
+Sei $\mathcal{V}$ ein [[Vektorraum]] mit einem [[Skalarprodukt]] $\langle . , . \rangle$ und seien $\textbf{x}, \textbf{y} \in \mathcal{V} \backslash \{\textbf{0}\}$. Das Winkelmaß des Winkels $\alpha = \sphericalangle (\textbf{x}, \textbf{y}) \in [0, \pi]$ ist gegeben durch
+$$\cos(\alpha) = \dfrac{\langle \textbf{x}, \textbf{y} \rangle}{||\textbf{x}|| \space ||\textbf{y}||}$$
