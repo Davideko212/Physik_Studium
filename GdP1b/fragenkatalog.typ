@@ -233,7 +233,9 @@ a) Siehe @hydrostatik_auftrieb (a)
 
 b) Siehe @hydro_presse (b)
 
-c)
+c) Wenn der Eisberg komplett eingetaucht ist, hat er folgende Auftriebskraft:
+$ F_A = rho_E * V_E * g =  $
+TODO
 
 == Hydrostatik
 
@@ -247,7 +249,11 @@ a) Siehe @hydrostatik_auftrieb (a)
 
 b) Siehe @hydro_presse (b)
 
-c)
+c) Da der hydrostatische Druck mit der Tiefe linear zunimmt und die Wand senkrecht steht, kann der Betrag von $arrow(F)$ mit folgendem Integral des Drucks über die Fläche berechnet werden:
+$ F = integral_0^h rho g y * l dif y = rho g l integral_0^h y dif y = rho g l * h^2/2 $
+$ F = 1000 * 9.81 * 1.2 * 0.5^2/2 tilde.eq 1471.5"N" $
+
+(Die Richtungskraft $arrow(F)$ kann dann durch die Multiplikation von $F$ mit dem Richtungsvektor der normal auf die Aquariumwand steht berechnet werden)
 
 == Auftrieb, Dichte und Schwimmen
 
@@ -259,7 +265,17 @@ c)
 
 a) Siehe @hydro_presse (c)
 
-b) c) TODO
+b) Damit ein Körper in Flüssigkeit schwimmt, muss die Auftriebskraft im Gleichgewicht mit der Schwerkraft sein, d.h. $F_A = F_G$:
+$ rho_L * V_"verdrängt" * g = rho_K * V_K * g $
+
+Da $V_K gt.eq V_"verdrängt"$, gilt für die Dichte $rho_K lt.eq rho_L$.
+
+c) Zuerst muss das Volumen des Floßes berechnet werden:
+$ V = A*d = 9"m"^2 * 0.1"m" = 0.9"m"^3 $
+
+Die max. Auftriebskraft wird erreicht, wenn das gesamte Floß im Wasser eingetaucht ist. Die für die Menschen verbleibende Tragfähigkeit berechnet sich dann durch den Abzug von der Eigenmasse des Floßes von dem durch die bei max. Auftriebskraft tragbare Gesamtmasse:
+$ m_M = rho_W * V - rho_H * V = 1000 * 0.9 - 600 * 0.9 = 360"kg" $
+$ n = floor (360"kg")/(70"kg") floor.r = 5 "Personen" $
 
 
 = Fluiddynamik

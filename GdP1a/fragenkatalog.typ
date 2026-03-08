@@ -34,7 +34,7 @@
 
     Verwendete Quellen / Ressourcen: 
     - Vorlesungsfolien von Prof. Eisenmenger
-    - Demtröder
+    - Demtröder (Experimentalphysik 1, 7. Auflage)
     - Persönliche Ausarbeitungen der Übungsaufgaben
     - LEIFIphysik
     - Wikipedia
@@ -325,7 +325,7 @@ c) $ attach(v, b: "fall") = sqrt(2h*g) $
 
 d) #image("assets/fragenkatalog/freier_fall.png")
 
-= Dynamik
+= Dynamik (4)
 
 == Definition Kraft
 
@@ -1016,7 +1016,7 @@ Wie lautet der Drallsatz und was beschreibt er?
 #line(length: 100%)
 
 Zur Änderung des Drehimpulses (Dralles) eines Körpers muss ein Drehmoment an ihm aufgebracht werden. Mathematische Formulierung (bezogen auf den gleichen Punkt):
-$ arrow(M) = dot(arrow(L)) $
+$ arrow(M) = dot(arrow(L)) = I * dot.double(phi) $
 
 Beispiel: Um ein Spielplatzkarussell in Drehung zu versetzen, muss man es anstoßen. Dabei bringt man ein Drehmoment auf, das den Drehimpuls des Karussells ändert (Drehimpuls war ursprünglich $0$). Die Drehimpulserhaltung sorgt dann dafür, dass das Karussell (idealerweise) seine Drehung beibehält. Z.B. Reibung verringert den Drehimpuls dann wieder.
 
@@ -1210,7 +1210,7 @@ Dabei soll $t' = t$ bedeuten, dass beide Beobachter zur Zeitmessung gleichgehend
 
 *Lorentztransformation:* Zwei Inertialsysteme $S$ und $S'$, wobei $S'$ sich mit konstanter Geschwindigkeit $arrow(v)$ relativ zu $S$ bewegt. Wird verwendet wenn $v << c$ nicht mehr gilt, da relativistische Effeke auftreten und diese beachtet werden müssen. Zur Vereinfachung des Beispiels wird bewegt sich $S'$ lediglich entlang der $x$-Achse (hat Demtröder so gemacht).
 
-$ underbrace(gamma = 1/sqrt(1 - v^2/c^2), "Lorentzfaktor") arrow.double vec(x' = gamma * (x - v * t), y' = y, z' = z, t' = gamma * (t + (v * x')/c^2), delim: "{") $
+$ underbrace(gamma = 1/sqrt(1 - v^2/c^2), "Lorentzfaktor") arrow.double vec(x' = gamma * (x - v * t), y' = y, z' = z, t' = gamma * (t - (v * x)/c^2), delim: "{") $
 
 Die Lorentz-Transformationen haben gegenüber den Galilei-Transformationen als einzige zusätzliche Annahme die experimentell gefundene Unabhängigkeit der Lichtgeschwindigkeit vom Bezugssystem. Somit treten relative Zeitwahrnehmungen zwischen Bezugssystemen auf.
 
