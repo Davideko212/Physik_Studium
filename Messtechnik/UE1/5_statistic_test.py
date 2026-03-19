@@ -2,11 +2,11 @@ import pandas as pd
 from scipy.stats import ttest_ind
 
 if __name__ == '__main__':
-    df = pd.read_csv('Legosteine_unbereinigt.tsv', sep='\t|;', header=0, index_col=False, engine="python")
+    df = pd.read_csv('Legosteine_bereinigt.tsv', sep='\t|;', header=0, index_col=False, engine="python")
     columns_for_ttest = []
 
     for colname in df.columns:
-        if "Gelber Stein" not in colname:
+        if "Roter Stein" not in colname:
             continue
         print(colname)
         columns_for_ttest.append(colname)
