@@ -10,7 +10,7 @@ if __name__ == '__main__':
     fig, ax = plt.subplots(figsize=(10, 6))
     colors = ["steelblue", "tomato"]
 
-    for color, colname in zip(colors, [c for c in df.columns if "Gelber Stein" in c]):
+    for color, colname in zip(colors, [c for c in df.columns if "Roter Stein" in c]):
         columns_for_ttest.append(colname)
         df[colname] = df[colname].str.replace(",", ".").astype(float)
 
