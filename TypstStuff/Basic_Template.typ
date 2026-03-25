@@ -1,5 +1,9 @@
 // stolen and adapted from https://typst.app/universe/package/hannes-thesis
 
+#import "@preview/codly:1.2.0": *
+#import "@preview/codly-languages:0.1.7": *
+#show: codly-init.with()
+
 #let text-normal = 10pt
 #let text-small = 9pt
 #let text-sub = 12pt
@@ -162,4 +166,46 @@
     pagebreak()
     bibliography
   }
+}
+
+#let code(caption: none, description: none, skips: none, body) = {
+  let nested() = {
+    codly(
+      header: description,
+      skips: skips,
+    )
+    body
+  }
+  return figure(
+    nested(),
+    caption: caption,
+    supplement: [Quellcode],
+    kind: "code",
+  )
+}
+
+#let code-file(
+  caption: none,
+  filename: none,
+  lang: none,
+  text: none,
+  range: none,
+  ranges: none,
+  skips: none,
+) = {
+  let nested() = {
+    codly(
+      header: filename,
+      ranges: ranges,
+      range: range,
+      skips: skips,
+    )
+    raw(text, block: true, lang: lang)
+  }
+return figure(
+    nested(),
+    caption: caption,
+    supplement: [Quellcode],
+    kind: "code",
+  )
 }
