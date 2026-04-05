@@ -897,6 +897,101 @@ a) Siehe @adia_prozess (a)
 
 b) c) TODO
 
+== Adiabatische Prozesse bei zweiatomigen Gasen
+
+Ein Mol $"N"_2$ wird, ausgehend von $V_1$ und $T_1$ adiabatisch und reversibel auf $V_2$ expandiert.
+
++ Wie ist ein adiabatischer Prozess definiert?
++ Berechnen Sie die Endtemperatur $T_2$ nach der Expansion.
++ Wie groß ist der Adiabatenindex? (Beim $"N"_2$ unterhalb $500 "K"$ darf man davon ausgehen, dass wohl die Rotation, nicht aber die Schwingungen angeregt werden)
+
+#line(length: 100%)
+
+a) Siehe @adia_prozess (a)
+
+b) c) TODO
+
+== Adiabatische Prozesse bei nichtlinearen Molekülen
+
+$n$ Mol $"SO"_2$ (Gas) werden, ausgehend von $V_1 = 40 "dm"^3$ und $T_1 = 300 "K"$ adiabatisch und reversibel auf $V_2 = 5 "dm"^3$ komprimiert.
+
++ Wie ist ein adiabatischer Prozess definiert?
++ Berechnen Sie die Endtemperatur $T_2$ nach der Expansion. Bei $"SO"_2$ unterhalb $600 "K"$ darf man davon ausgehen, dass wohl die Rotation, nicht aber die Schwingungen angeregt werden. Das $"SO"_2$ Molekül ist nicht linear. 
++ Wie groß ist der Adiabatenindex?
+
+#line(length: 100%)
+
+a) Siehe @adia_prozess (a)
+
+b) c) TODO
+
+== Adiabatische Zustandsänderung
+
++ Wie ist ein adiabatischer Prozess definiert?
++ Leiten Sie unter Verwendung des ersten Hauptsatzes und der allgemeinen Gasgleichung die Zustandsgleichung des idealen Gases während einer adiabatischen Zustandsänderung (die Adiabatengleichung) ab
++ Was versteht man unter dem Adiabatenindex?
+
+#line(length: 100%)
+
+a) Siehe @adia_prozess (a)
+
+b) c) TODO
+
+== Konstante innere Energie
+
++ Kann ein ideales Gas Wärme aufnehmen, ohne dass sich seine innere Energie ändert?
++ Falls ja, wie nennt man diesen Prozess?
++ Welche Prozessparameter würden sich bei diesem Prozesses ändern, wenn
+Teilchenaustausch nicht erlaubt ist?
+
+#line(length: 100%)
+
+TODO
+
+== Schmelzen, Verdampfen und Sieden
+
++ Mit welchem thermodynamischen Potential wird der Phasenübergang zwischenfest und flüssig (Schmelzen) und flüssig zu gasförmig (verdampfen) beschrieben. Wie lautet die Gleichgewichtsbedingung?
++ Welche Gleichung beschreibt diese beiden Übergänge. Erklären Sie die darin
+vorkommenden Größen. 
++ Warum hängt der Schmelzpunkt schwächer vom Druck ab als der Siedepunkt?
+
+#line(length: 100%)
+
+TODO
+
+== Phasendiagramme und Phasenübergänge
+
+Das feste $"CO"_2$ geht bei normalem Druck (1 atm) direkt in den gasförmigen Zustand über ohne sich vorher zu verflüssigen. Der Tripelpunkt von $"CO"_2$ liegt bei $T = 216.6 "K"$ und $p = 5.1 "atm"$.
+
++ Wie wird der direkte Phasenübergang vom festen zum gasförmigen Aggregatzustand bezeichnet?
++ Skizzieren Sie das $p-T$-Phasendiagramm von $"CO"_2$.
++ Welchen Phasenübergang versteht man unter Schmelzen?
++ Schlagen Sie anhand Ihres Phasendiagramms vor, wie man $"CO"_2$ schmelzen kann?
+
+#line(length: 100%)
+
+TODO
+
+== Phasendiagramme von Einkomponentensystemen
+
++ Skizzieren Sie das $p,T$-Diagramm einer Substanz, die nur aus einer Komponente besteht. Markieren Sie Koexistenzlinien und ausgezeichnete Punkte.
++ Was ist der kritische Punkt?
++ Zeichnen Sie das Phasendiagramm einer Substanz, die auf ihrer Schmelze schwimmt und einer Substanz, die in ihrer Schmelze untergeht.
+
+#line(length: 100%)
+
+TODO
+
+== Phasenregel
+
++ Welche Gleichgewichtsbeziehungen müssen für die Koexistenz von $p$ Phasen in einem System aus $q$ Komponenten erfüllt sein?
++ Leiten Sie aus diesen Gleichgewichtsbedingungen die Gibbs'sche Phasenregel für ein System aus $q$ Komponenten und $p$ Phasen her
++ Bei $T = 273.16 "K"$ und $p = 6 "mbar"$ koexistieren die drei Aggregatzustände des Wassers - Eis, flüssiges Wasser und Wasserdampf - nebeneinander (Tripelpunkt). Zeigen Sie anhand der Gibbs'schen Phasenregel, dass eine der drei Phasen bei einer Temperaturbzw. Druckänderung verschwindet.
+
+#line(length: 100%)
+
+TODO
+
 == Van-der-Waals Gas
 
 + Wie unterscheidet sich das Modell des Van-der-Waals Gases vom Modell des idealen Gases?
