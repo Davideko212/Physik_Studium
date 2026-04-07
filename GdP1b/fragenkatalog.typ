@@ -45,6 +45,7 @@
     - LLMs wie DeepSeek, ChatGPT 
     - Physik Libre
     - Hegewald & Peschke: Mess- und Prüftechnik
+    - TU München (Vorlesungsbetrieb Experimentalphysik)
     - Ein bisschen Fantasie
     ]
     #line(length: 100%, stroke: (thickness: 1pt))
@@ -82,7 +83,14 @@
 
 a) Die Verformung ideal elastischer Körper ist ein reversibler Prozess, bei dem das Material nach Entlastung sofort und vollständig in seine ursprüngliche Form zurückkehrt. Dabei gilt das Hookesche Gesetz, wonach Spannung und Dehnung proportional zueinander sind.
 
-b) 
+b) #image("assets/fragenkatalog/spannungs_dehnungs_diagramm.png")
+
+- Hooke'scher Bereich: Bereich der elastischen Verformung. Die Verformung ist reversibel und das Material nimmt in diesem Bereich bei Entlastung der Spannung immer seinen Ausgangszustand an.
+- Lüdersbereich (werkstoffspezifisch): Plastischer, irreversibler und inhomogener Verformungsbereich zwischen oberer und unterer Streckgrenze. Eine Versetzungsbewegung im Metall führt zu einer Zunahme der Dehnung bei relativ konstanter Spannung.
+- Gleichmaßdehnungsbereich: In diesem plastischen Verformungsbereich verformt sich die Probe über die parallele Länge gleichmäßig und irreversibel.
+- Einschnürungsbereich: Der Bereich beginnt, wenn sich die Probe lokal einschnürt und die Spannung dadurch nach dem Spannungsmaximum bis zum Probenbruch abnimmt. Je nach Werkstoff ist die Einschnürung unterschiedlich ausgeprägt.
+
+c) TODO
 
 == Spannungs-Dehnungsdiagramm
 
@@ -136,17 +144,26 @@ c) Eine Federwaage zeigt standardmäßig die Gewichtskraft $F_"G" = m * g$ an. D
 $ F = F_"G" - F_"A" = m*g - rho_"Fl" * V * g = m*g - rho_"Fl" * m/rho_"Ku" * g = m * g * (1 - rho_"Fl"/rho_"Ku") $
 $ F = 0.5"kg" * 9.81"m"/"s"^2 - (1 - (1.0 "g"/"cm"^3)/(9.0 "g"/"cm"^3)) tilde.equiv 4.36N $
 
-== Aggregatzustände
+== Aggregatzustände <aggregat>
 
 + Was versteht man unter einem Aggregatzustand und welche Aggregatzustände gibt es?
 + Was ist der wesentliche Unterschied zwischen einem kristallinen Festkörper und einer Flüssigkeit? Wie lässt sich ein kristalliner Festkörper beschreiben?
-+ Skizzieren Sie allgemein das Bindungspotential zwischen zwei Atomen im Abstand $r$. Wie können Sie mit Hilfe dieses Potentials die unterschiedlichen Aggregatzustände erklären
++ Skizzieren Sie allgemein das Bindungspotential zwischen zwei Atomen im Abstand $r$. Wie können Sie mit Hilfe dieses Potentials die unterschiedlichen Aggregatzustände erklären?
 
 #line(length: 100%)
 
-TODO
+a) Aggregatzustände sind fundamentale Erscheinungsformen von Materie, die sich jeweils sprunghaft in der Mobilität ihrer Atome und Moleküle sowie in der Stärke der Wechselwirkungen zwischen diesen unterscheiden. Die klassischen Aggregatzustände fest, flüssig und gasförmig.
 
-== Oberflächenenergie und Kapillarität
+b) Während sich die Teilchen in einem kristallinen Festkörper (fast) nicht bewegen können, sind sie in einer Flüssigkeit beweglich, reiben jedoch trotzdem konstant aneinander. Die Teilchen eines krisallinen Feststoffes sind in einer Art Gitterstruktur angeordnet und fest aneinander verankert. 
+
+c) #image("assets/fragenkatalog/atom_wechselwirkung_graph.png", width: 75%)
+
+- Fest: Das Bindungspotential ist hoch. Die Teilchen befinden sich in einem festen Gitter, bewegen sich kaum (Schwingungen) und sind dicht gepackt.
+- Flüssig: Die thermische Energie reicht aus, um die starre Gitterstruktur zu brechen, aber die Teilchen befinden sich noch immer in der Reichweite des Bindungspotentials (z.B. bei Wasserstoffbrückenbindungen). Sie haben keine feste Form, aber ein festes Volumen.
+- Gasförmig: Die kinetische Energie der Teilchen ist viel größer als das Bindungspotential, die Anziehungskräfte sind vernachlässigbar. Die Teilchen bewegen sich frei.
+
+
+== Oberflächenenergie und Kapillarität <oberflaechenenergie_kapillaritaet>
 
 + Begründen Sie, warum es an einer Flüssigkeitsoberfläche zum Auftreten der Oberflächenspannung $sigma$ kommt?
 + Berechnen Sie, für einen Randwinkel $phi$ an der Kontaktlinie Fest/Flüssig/Gas die Steighöhe $h$ einer Flüssigkeit (Dichte $rho$) in einer Röhre mit dem Radius $r$. Was passiert, wenn $phi$ größer als $90°$ wird?
@@ -154,17 +171,27 @@ TODO
 
 #line(length: 100%)
 
-TODO
+a) Während im Inneren einer Flüssigkeit die resultierende Kraft $arrow(F)_R$, die auf ein Molekül von allen anderen Molekülen seiner Umgebung ausgeübt wird, im zeitlichen Mittel Null ist (freie Verschiebbarkeit der Moleküle), gilt dies nicht mehr für ein Molekül an der Oberfläche, das nur von den Nachbarmolekülen innerhalb einer Halbkugel angezogen wird. Es bleibt deshalb eine resultierende, von Null verschiedene Anziehungskraft $arrow(F)_R$ übrig, die ins Innere der Flüssigkeit zeigt.
+
+#image("assets/fragenkatalog/oberflaechenspannung.png")
+
+Um ein Molekül aus dem Inneren an die Oberfläche zu bringen, muss deshalb gegen diese Kraft Arbeit geleistet werden. Ein Molekül an der Oberfläche hat eine um diesen Arbeitsbetrag höhere Energie als ein Molekül im Inneren. Zur Vergrößerung der Flüssigkeitsoberfläche um den Betrag $Delta A$ müssen Moleküle aus dem Inneren an die Oberfläche gebracht werden, wozu eine Energie $delta A$ aufgewendet werden muss. Den Quotienten $sigma = epsilon = (Delta W)/(Delta A)$ nennt man spezifische Oberflächenenergie ($epsilon$) bzw. Oberflächenspannung ($sigma$).
+
+b) TODO: Kapillardepression?
+
+c) TODO
 
 == Wechselwirkungspotential
 
 + Skizzieren Sie den Verlauf der potentiellen Energie $E_"pot"$ und der Kraft $arrow(F)$ zwischen zwei Atomen als Funktion des Abstandes $r$ (in einem Graph)
-+ Formulieren Sie das Hooke'sche Gesetz verbal und mit Hilfe eines mathematischen Ausdrucks. Definieren Sie die von Ihnen verwendeten Größen?
++ Formulieren Sie das Hooke'sche Gesetz verbal und mit Hilfe eines mathematischen Ausdrucks. Definieren Sie die von Ihnen verwendeten Größen.
 + In welchem Bereich von $E_"pot"$ und $arrow(F)$ ist das Hooke'sche Gesetz gültig.
 
 #line(length: 100%)
 
-TODO
+a) Siehe @aggregat (c)
+
+b) c) TODO
 
 == Hydrostatik und Auftrieb <hydro_presse>
 
@@ -194,11 +221,20 @@ D.h. wenn $rho_Z < rho_L$, dann schwimmt der Zylinder, im Gleichgewicht $rho_Z =
 
 + Welche Bedingung muss die Dichte $rho_K$ eines Körpers erfüllen, damit er in einer Flüssigkeit (Dichte $rho_L$) schwimmt?
 + Berechnen Sie den Volumsanteil eines Holzblocks (Dichte $rho_K = 730 "kg"*"m"^(-3)$), der über der Wasseroberfläche liegt, siehe Abbildung. Die Dichte von Wasser ist $rho_L = 1000 "kg"*"cm"^(-3)$, die Dichte von Luft kann vernachlässigt werden.
+  #image("assets/fragenkatalog/holzblock_wasser.svg")
 + Wie groß müsste die Dichte eines Materials sein, damit genau die Hälfte des Körpervolumens über der Wasseroberfläche liegt.
 
 #line(length: 100%)
 
-TODO
+a) Formel für die Auftriebskraft + Schwerkraft auf einen Zylinder: $F = pi r^2 * g * (rho_L * h_"eingetaucht" - rho_Z * h)$ (Herleitung siehe @hydro_presse (c))
+
+Damit der Körper/Zylinder schwimmt, muss die Auftriebskraft größer gleich der Schwerkraft sein. Das heißt, dass $rho_K lt.eq rho_L$ gelten muss.
+
+b) Der Holzblock "schwebt" im Wasser, d.h. Auftriebskraft und Schwerkraft sind im Gleichgewicht:
+$ F_"A" = F_"G" arrow.double rho_"L" * V_"verdrängt" * g = rho_K * V_K * g $
+$  rho_"L" * V_"verdrängt" = rho_K * V_K arrow.double V_"verdrängt"/V_K = rho_K/rho_L = (730 "kg"/"m"^3)/(1000 "kg"/"m"^3) = 0.73 arrow.double 1 - 0.73 = 0.27 arrow.double 27% $
+
+c) $ V_"verdrängt"/V_K = 0.5 = rho_K/rho_L arrow.double p_K = 0.5 * p_L = 0.5 * 1000 "kg"/"m"^3 = 500 "kg"/"m"^3 $
 
 == Oberflächenenergie
 
@@ -209,7 +245,9 @@ Begründen Sie Ihre Antworten für Punkte (b) und (c) nachvollziehbar.
 
 #line(length: 100%)
 
-TODO
+a) Siehe @oberflaechenenergie_kapillaritaet (a)
+
+b) c) TODO
 
 == Oberflächenenergie und Randwinkel
 
@@ -219,7 +257,9 @@ TODO
 
 #line(length: 100%)
 
-TODO
+a) Siehe @oberflaechenenergie_kapillaritaet (a)
+
+b) c) TODO
 
 == Auftrieb und Hydrostatik
 
@@ -234,7 +274,7 @@ a) Siehe @hydrostatik_auftrieb (a)
 b) Siehe @hydro_presse (b)
 
 c) Wenn der Eisberg komplett eingetaucht ist, hat er folgende Auftriebskraft:
-$ F_A = rho_E * V_E * g =  $
+$ F_A = rho_L * V_E * g =  $
 TODO
 
 == Hydrostatik
@@ -280,7 +320,7 @@ $ n = floor (360"kg")/(70"kg") floor.r = 5 "Personen" $
 
 = Fluiddynamik
 
-== Viskose Flüssigkeiten
+== Viskose Flüssigkeiten <viskose_fl>
 
 + Was versteht man unter Viskosität einer Flüssigkeit?
 + Berechnen Sie die Grenzgeschwindigkeit $v$ einer Kugel mit dem Radius $r$, welche in einer Viskosen Flüssigkeit (Viskosität $eta$) absinkt. Wie ist aufgrund dieser Beziehung die Viskosität bei bekanntem $v$ berechenbar?
@@ -292,7 +332,7 @@ a) Die Viskosität einer Flüssigkeit ist ein Maß für deren inneren Widerstand
 
 b) c) TODO
 
-== Bernoulli-Gleichung
+== Bernoulli-Gleichung <bernoulli>
 
 + Wie lautet die Bernoulli Gleichung?
 + Auf welchem Erhaltungssatz beruht sie?
@@ -361,7 +401,12 @@ TODO
 
 #line(length: 100%)
 
-TODO
+a) Siehe @bernoulli (a)
+
+b) Es gilt die Bernoulli-Gleichung $p_1 + 1/2 * rho * v_1^2 + rho * g * h_1 = p_2 + 1/2 * rho * v_2^2 + rho * g * h_2$ und es gilt ebenfalls die Kontinuitätsgleichung $S_1 * v_1 = S_2 * v_2$. Da die Röhre horizontal ist, gilt $h_1 = h_2$ und der dynamische Druck der Bernoulli-Gleichung kürzt sich:
+$ S_1 * v_1 = S_2 * v_2 = 2.8 "dm"^3/"s" hat(=) 2.8 * 10^(-3) "m"^3/"s" arrow.double v_1 = (S_2 * v_2)/S_1 $
+$ p_1 + 1/2 * rho * v_1^2 = p_2 + 1/2 * rho * v_2^2 arrow.double v_2 = sqrt((p_1 + 1/2 * rho * v_1^2 - p_2) * 2 / rho) arrow.double S_2 = (S_1 * v_1)/sqrt((p_1 + 1/2 * rho * v_1^2 - p_2) * 2 / rho)$
+$ arrow.double S_2 = (2.8 * 10^(-3) "m"^3/"s")/sqrt((150 * 10^3 "Pa" + 1/2 * 1000 "kg"/"m"^3 * ((2.8 * 10^(-3) "m"^3/"s") / (40 * 10^(-4) "m"^2))^2 - 140 * 10^3 "Pa") * 2/(1000 "kg"/"m"^3)) tilde.eq 6.15 * 10^(-4) "m"^2 $
 
 == Strömung in Viskosen Flüssigkeiten
 
@@ -371,7 +416,9 @@ TODO
 
 #line(length: 100%)
 
-TODO
+a) Siehe @viskose_fl
+
+b) c) TODO
 
 == Strömung in Röhren
 
@@ -418,7 +465,11 @@ TODO
 
 #line(length: 100%)
 
-TODO
+a) Siehe @bernoulli (a)
+
+b) Siehe @bernoulli (b)
+
+c) Die in den Trichter geleitete Druckluft hebt den Ball zunächst etwas, so dass die Luft zwischen Tischtennisball und Trichterwand nach oben strömt. In diesem schmalen Bereich strömt die Luft schnell und bewirkt einen kleinen seitlichen Druck auf den Tischtennisball. Oberhalb des Balls kann sich die Luft ausbreiten und bewegt sich somit langsamer. Es wirkt also von oben ein größerer Druck auf den Ball, welcher den Ball in den Trichter drückt. Je höher der Druck der Pressluft, desto stärker wird der Tischtennisball vom Trichter angesaugt.
 
 == Strömung und Aerodynamik
 
@@ -439,8 +490,19 @@ Wasser strömt mit $0,8 "m"/"s"$ durch ein Rohr mit dem Innendurchmesser von $10
 
 #line(length: 100%)
 
-TODO
+a) Die Formel für den Volumenstrom ist: $Q = A *v$
+$ A = (pi * d^2)/4 = (pi * 0.1^2)/4 tilde.eq 7.85 * 10^(-3) "m"^2 $
+$ Q = A * v = 7.85 * 10^(-3) * 0.8 tilde.eq 6.28 * 10^(-3) "m"^3/"s" eq.est 6.28 "L"/"s" $
 
+Um die Dauer zu berechnen, bis $4000 "dm"^3$ Wasser durchströmen, einfach das Volumen durch den Strom dividieren:
+$ t = V/Q = (4 * 10^(-3))/(6.28 * 10^(-3)) tilde.eq 637s $
+
+b) Kontinuitätsgleichung: $A_1 * v_1 = A_2 * v_2$
+$ arrow.double v_2 = A_1/A_2 * v_1 = ((pi * 0.1^2)/4)/((pi * 0.02^2)/4) * 0.8 = 0.1^2/0.02^2 * 0.8 tilde.eq 20 "m"/"s" $
+
+c) Die Änderung des statischen Drucks lässt sich mit der Bernoulli-Gleichung (ohne Höhendifferenz) berechnen:
+$ p_1 + 1/2 * rho * v_1^2 = p_2 + 1/2 * rho * v_2^2 $
+$ Delta p = p_2 - p_1 = 1/2 * rho * (v_1^2 - v_2^2) = 1/2 * 10^3 * (0.8^2 - 20^2) tilde.eq -199680 "Pa" tilde.eq -2 "bar" $
 
 = Gase und Thermodynamik
 
@@ -764,11 +826,15 @@ b) c) TODO
 
 == Molekülzahlen im idealen Gas
 
-+ Geben Sie die Verteilungsfunktionen für den Geschwindigkeitsbetrag in einem idealen Gas an und skizzieren Sie diese Verteilungsfunktion 
+a) Geben Sie die Verteilungsfunktionen für den Geschwindigkeitsbetrag in einem idealen Gas an und skizzieren Sie diese Verteilungsfunktion 
+
 Welche Molekülzahl ist größer:
-+ Die Zahl der Moleküle, die Geschwindigkeiten zwischen der Wahrscheinlichsten Geschwindigkeit $w_W$ und der mittleren Geschwindigkeit $overline(v)$ haben,
-oder
-+ die Zahl der Moleküle, deren Geschwindigkeiten zwischen der mittleren Geschwindigkeit $overline(v)$ und der Wurzel aus dem mittleren Geschwindigkeitsquadrat $sqrt(overline(v^2))$ liegen? (Begründen Sie Ihre Aussage mit Hilfe Ihrer Skizze aus (a) und erläutern Sie diese!)
+
+b) Die Zahl der Moleküle, die Geschwindigkeiten zwischen der Wahrscheinlichsten Geschwindigkeit $w_W$ und der mittleren Geschwindigkeit $overline(v)$ haben,
+
+oder 
+
+c) die Zahl der Moleküle, deren Geschwindigkeiten zwischen der mittleren Geschwindigkeit $overline(v)$ und der Wurzel aus dem mittleren Geschwindigkeitsquadrat $sqrt(overline(v^2))$ liegen? (Begründen Sie Ihre Aussage mit Hilfe Ihrer Skizze aus (a) und erläutern Sie diese!)
 
 #line(length: 100%)
 
@@ -777,12 +843,25 @@ TODO
 == Gasparameter
 
 + Wie lautet der Gleichverteilungssatz?
-+ Wie groß sind die molaren Wärmekapazitäten $C_V$ und $C_p$ von Stickstoff ($N_2$) bei hohen Temperaturen?
++ Wie groß sind die molaren Wärmekapazitäten $C_V$ und $C_p$ von Stickstoff ($"N"_2$) bei hohen Temperaturen?
 + Geben Sie die mikroskopische Interpretation der Temperatur und des Druckes eines idealen Gases an.
 
 #line(length: 100%)
 
-TODO
+a) Bei einem Gas, das genügend lange bei einer konstanten Temperatur $T$ gehalten wird, verteilt sich die Energie der einzelnen Atome oder Moleküle durch Stöße gleichmäßig auf alle Freiheitsgrade, sodass im Mittel jedes Teilchen die Energie $overline(E_"kin") = f * 1/2 * k_B * T $ hat, wenn $f$ die Zahl der ihm zur Verfügung stehenden Freiheitsgrade ist.
+
+b) 
+Molare Wärmekapazität bei konstantem Volumen: $C_V = 1/2 * f * R$
+
+Molare Wärmekapazität bei konstantem Druck: $C_p = C_V + R$
+
+Stickstoff besitzt bei hohen Temperaturen 7 Freiheitsgrade: 3 Translationsfreiheitsgrade (Bewegung im Raum), 2 Rotationsfreiheitsgrade und aufgrund der hohen Temperaturen auch 2 Schwingungsfreiheitgrade. Eingesetzt in die erste Formel:
+$ C_V = 1/2 * 7 * R = = 7/2 * 8.31446 tilde.eq 29.1 "J"/("mol" "K") $
+
+Da die molare Wärmekapazität bei konst. Druck von der bei konst. Volumen abhängt, kann einfach wieder in die Formel eingesetzt werden:
+$ C_p = 7/2 * R + R = 9/2 * 8.31446 tilde.eq 37.415 "J"/("mol" "K") $
+
+c) TODO
 
 == Radiometer
 
@@ -871,7 +950,21 @@ TODO
 
 #line(length: 100%)
 
-TODO
+a) Für das totale Differential von der freien Enthalpie $G$ gilt:
+$ dif G = dif U - T * dif S - S * dif T + p * dif V + V * dif p $
+Wenn man nun die Beziehung $dif U = T * dif S - p * dif V$ einsetzt:
+$ dif G = T * dif S - p * dif V - T * dif S - S * dif T + p * dif V + V * dif p = V * dif p - S * dif T $ 
+$ qed $
+
+b) $ dif G(T,p) = ((partial G) / (partial T))_p dif T + ((partial G) / (partial p))_T dif p $
+
+Wenn man nun das totale Differential mit der Fundamentalgleichung $dif G = V * dif p - S * dif T$ vergleicht, fällt auf, dass:
+$ ((partial G) / (partial T))_p dif T = -S arrow.double S = -((partial G) / (partial T))_p dif T $
+
+c) Wir nutzen das Ergebnis aus (b):
+$ S = -((partial G) / (partial T))_p dif T = -(a - c/T^2) = c/T^2 - a $
+
+Interpretation: Die Entropie fällt mit steigender Temperatur (wegen $1/T^2$) und geht gegen einen konstanten Grenzwert ($-a$).
 
 == Adiabatischer Prozess <adia_prozess>
 
@@ -895,7 +988,10 @@ b) c) TODO
 
 a) Siehe @adia_prozess (a)
 
-b) c) TODO
+b) Der Adiabatenexponent bzw. Adiabatenindex ist der Quotient von der molaren Wärmekapazität bei konst. Druck durch die molare Wärmekapazität bei konst. Volumen. Er hängt von den Freiheitsgraden der Gasmoleküle ab:
+$ kappa = C_p / C_V = (C_V + R)/(1/2 * f * R) = (f+2)/f $
+
+c) $ kappa = (f+2)/f = 1 + 2/f arrow.double f = 2/(kappa - 1) = 2/(1.33 - 1) = 6 $
 
 == Adiabatische Prozesse bei zweiatomigen Gasen
 
@@ -909,7 +1005,11 @@ Ein Mol $"N"_2$ wird, ausgehend von $V_1$ und $T_1$ adiabatisch und reversibel a
 
 a) Siehe @adia_prozess (a)
 
-b) c) TODO
+b) Für eine adiabatische, reversible Gasexpansion gilt $T * V^(kappa-1) = "const"$ und somit auch:
+$ T_2/T_1 = (V_1/V_2)^(kappa-1) arrow.double T_2 = T_1 * (V_1/V_2)^(kappa-1) $
+
+c) Unterhalb von $500 "K"$ hat $"N"_2$ 5 Freiheitsgrade: 3 durch Translation, 2 durch Rotation. Das heißt für den Adiabatenindex gilt:
+$ kappa = (f+2)/f = (5 + 2)/5 = 1.4 $
 
 == Adiabatische Prozesse bei nichtlinearen Molekülen
 
@@ -923,7 +1023,13 @@ $n$ Mol $"SO"_2$ (Gas) werden, ausgehend von $V_1 = 40 "dm"^3$ und $T_1 = 300 "K
 
 a) Siehe @adia_prozess (a)
 
-b) c) TODO
+b) Unterhalb von $600 "K"$ hat $"SO"_2$ 6 Freiheitsgrade: 3 durch Translation, 3 durch Rotation (weil nicht lineares Molekül!). Das heißt für den Adiabatenindex gilt:
+$ kappa = (f+2)/f = (6 + 2)/6 tilde.eq 1.333 $
+
+Für eine adiabatische, reversible Gasexpansion gilt $T * V^(kappa-1) = "const"$ und somit auch:
+$ T_2/T_1 = (V_1/V_2)^(kappa-1) arrow.double T_2 = T_1 * (V_1/V_2)^(kappa-1) = 300 "K" * ((40 "dm"^3)/(5 "dm"^3))^(1/3) = 300 "K" * root(3, 8) = 600 "K" $
+
+c) Siehe (b) (weil man kann doch nicht $T_2$ ohne $kappa$ berechnen?!)
 
 == Adiabatische Zustandsänderung
 
@@ -946,7 +1052,13 @@ Teilchenaustausch nicht erlaubt ist?
 
 #line(length: 100%)
 
-TODO
+a) Ja, denn für ein ideales Gas hängt die innere Energie nur von der Temperatur ab. Bleibt die Temperatur konstant, bleibt auch die innere Energie unverändert, selbst wenn Wärme zugeführt wird.
+
+Wenn Wärme zugeführt wird, aber die Temperatur gleich bleibt, dann wird die zugeführte Energie vollständig in Arbeit umgesetzt (z.B. Expansion des Gases).
+
+b) Isothermer Prozess (Temperatur bleibt konstant)
+
+c) Temperatur und innere Energie bleiben gleich, nur Volumen und Druck ändern sich.
 
 == Schmelzen, Verdampfen und Sieden
 
@@ -970,7 +1082,13 @@ Das feste $"CO"_2$ geht bei normalem Druck (1 atm) direkt in den gasförmigen Zu
 
 #line(length: 100%)
 
-TODO
+a) Sublimation
+
+b) #image("assets/fragenkatalog/phasendiagramm_co2.png")
+
+c) "Schmelzen" ist der Phasenübergang vom festen zum flüssigen Aggregatzustand.
+
+c) Um $"CO"_2$ schmelzen zu können, muss ein Mindestdruck von von $~5.18 "bar"$ erreicht werden (oberhalb des Tripelpunkts) und die Temperatur von $~330 "K"$ erhöht werden. Desto höher der Druck, desto höher muss die Temperatur sein, damit der flüssige Aggregatzustand erreicht wird.
 
 == Phasendiagramme von Einkomponentensystemen
 
