@@ -42,10 +42,10 @@
     - LEIFIphysik
     - Wikipedia
     - Ausarbeitungen älterer Übungsaufgaben auf higgs.at
-    - LLMs wie DeepSeek, ChatGPT 
+    - LLMs wie DeepSeek, ChatGPT, Claude
     - Physik Libre
-    - Hegewald & Peschke: Mess- und Prüftechnik
     - TU München (Vorlesungsbetrieb Experimentalphysik)
+    - ElectricalAcademia
     - Ein bisschen Fantasie
     ]
     #line(length: 100%, stroke: (thickness: 1pt))
@@ -95,7 +95,7 @@ Berechnen Sie das elektrische Feld und das Potential eines unendlich langen, hom
 
 #line(length: 100%)
 
-TODO
+TODO (Seite 11 & 12 Demtröder 2)
 
 === Elektrisches Feld eines Stabes entlang Symmetrieachse
 
@@ -115,7 +115,37 @@ Eine negative Ladung $-q$ ist homogen über das Volumen einer Kugel mit Radius $
 
 #line(length: 100%)
 
-TODO
+a) Fall $r > R$:
+$ Q/epsilon_0 = integral.cont_A arrow(E) dif arrow(A) = integral_0^(2pi) integral_0^pi underbrace(E(r) * arrow(e)_r, arrow(E)) * underbrace(r^2 * sin(theta) dif theta dif phi * arrow(e)_r, dif arrow(A)) $
+$ = E(r) * r^2 * integral_0^(2pi) integral_0^pi sin(theta) dif theta dif phi = E(r) * r^2 * integral_0^(2pi) -cos(pi) - (-cos(0)) dif phi $
+$ = E(r) * r^2 * integral_0^(2pi) (1+1) dif phi = E(r) * r^2 * 2 * 2pi arrow.double E_a (r) = Q/(epsilon_0 * r^2 * 4pi) $
+
+Fall $r lt.eq R$:
+$ E_i (r) = (Q_i (r))/(epsilon_0 * r^2 * 4pi) $
+
+$Q_i (r)$ anhand der Ladungsdichte ermitteln:
+$ rho = Q/V = Q/(4/3 * pi * R^3) arrow.double Q_i (r) = rho * V(r) = Q/(4/3 * pi * R^3) * 4/3 * pi * r^3 = Q/R^3 * r^3 $
+$ arrow.double E_i (r) = (Q/R^3 * r^3)/(epsilon_0 * r^2 * 4pi) = Q/(epsilon_0 * 4pi * R^3) * r $
+
+Für die negative (Punkt-)Ladung in der Mitte gilt:
+$ E_n (r) = 1/(4pi * epsilon_0) * Q/r^2 $
+
+Mit dem Superpositionsprinzip lassen sich die elektrischen Felder nun für jeweils innerhalb und außerhalb der Kugel zusammenaddieren/berechnen:
+
+Innerhalb der Kugel bzw. des Atoms:
+$ E(r) = E_i (r) + E_n (r) = Q/(epsilon_0 * 4pi * R^3) * r - 1/(4pi * epsilon_0) * Q/r^2 = Q/(epsilon_0 * 4pi) * (r/R^3 - 1/r^2) $
+
+Außerhalb der Kugel bzw. des Atoms:
+$ E(r) = E_a (r) + E_n (r) = Q/(epsilon_0 * r^2 * 4pi) - 1/(4pi * epsilon_0) * Q/r^2 = 0 $
+
+Um das Potential zu berechnen, muss lediglich über das elektrische Feld integriert werden:
+$ Phi(r) = - integral E(r) dif r = - integral_R^r q/(epsilon_0 * 4pi) * (r/R^3 - 1/r^2) dif r $
+$ = q/(epsilon_0 * 4pi) * (-1/r - r^2/2 * R^(-3) - (-1/R - R^2/2 * R^3)) = q/(epsilon_0 * 4pi) * (-1/r - r^2/(2*R^3) + 1/R + R/2) $
+$ = q/(epsilon_0 * 4pi) * (3/(2*R) - r^2/(2*R^3) - 1/r) $
+
+Das Potential ausserhalb der Kugel ist = 0, weil $- integral 0 dif r = 0$
+
+b) TODO
 
 === Kräfteüberlagerung Ladungen
 
@@ -131,19 +161,47 @@ Geben sie das Potential und das elektrische Feld im Mittelpunkt eines
 Kreises mit Radius $r$ an, wenn die Ladungen $Q$, $-2Q$, $2Q$ und $Q$ bei den
 Koordinaten $vec(r,0)$, $vec(0,r)$, $vec(-r,0)$ und $vec(0,-r)$ angeordnet sind.
 
-TODO: maybe bild einfügen?
+#image("assets/fragenkatalog/ladungsanordnung_kreis.svg")
 
 #line(length: 100%)
 
-TODO
+Durch das Superpositionsprinzip lässt sich das elektrische Feld im Punkt $arrow(r)$ mit folgender Formel darstellen:
+$ arrow(E)(arrow(r)) = Q_1/(4pi * epsilon_0) * (arrow(r) - arrow(r)_1)/(|arrow(r) - arrow(r)_1|^3) + Q_2/(4pi * epsilon_0) * (arrow(r) - arrow(r)_2)/(|arrow(r) - arrow(r)_2|^3) + ... $
+
+Einsetzen für $arrow(r) = vec(0,0)$ und die gegebenen Ladungen:
+$ arrow(E)(vec(0,0)) = 1/(4pi * epsilon_0) * (Q * vec(-r, 0)/(sqrt((-r)^2))^3 - 2Q * vec(0, -r)/(sqrt((-r)^2))^3 + 2Q * vec(r, 0)/(sqrt(r^2))^3 + Q * vec(0, r)/(sqrt(r^2))^3) $
+$ = Q/(4pi * epsilon_0) * 1/r^3 * (vec(-r,0) - 2*vec(0,-r) + 2*vec(r,0) + vec(0,r)) $
+$ = Q/(4pi * epsilon_0 * r^3) * vec(r, 3r) = Q/(4pi * epsilon_0 * r^2) * vec(1, 3) $
+
+Das Potential lässt sich sehr einfach mit folgender Formel errechnen, da alle Ladungen den gleichen Abstand $r$ zum Mittelpunkt haben:
+$ phi = 1/(4pi * epsilon_0) * sum Q_i/r arrow.double phi = 1/(4pi * epsilon_0 * r) * (Q - 2Q + 2Q + Q) = (2Q)/(4pi * epsilon_0 * r) $
 
 === Ladungsanordnung Quadrat
 
 In drei Ecken (A,B,C) eine Quadrats ABCD mit der Seitenlänge $a$ befinden sich drei gleiche Ladungen $+Q$. Finden Sie das elektrische Feld und das Potential im Punkt D sowie in der Mitte des Quadrats.
 
+#image("assets/fragenkatalog/ladungsanordnung_quadrat.svg")
+
 #line(length: 100%)
 
-TODO
+Durch das Superpositionsprinzip lässt sich das elektrische Feld im Punkt $arrow(r)$ mit folgender Formel darstellen:
+$ arrow(E)(arrow(r)) = Q_1/(4pi * epsilon_0) * (arrow(r) - arrow(r)_1)/(|arrow(r) - arrow(r)_1|^3) + Q_2/(4pi * epsilon_0) * (arrow(r) - arrow(r)_2)/(|arrow(r) - arrow(r)_2|^3) + ... $
+
+Zuerst berechne ich das elektrische Feld für die Ecke D im Punkt $arrow(r)_D = vec(-a/2, a/2)$:
+$ arrow(E)(vec(-a/2, a/2)) = 1/(4pi * epsilon_0) * (Q * (vec(0, a))/(sqrt(a^2))^3 + Q * (vec(-a, a))/(sqrt((-a)^2 + a^2))^3 + Q * (vec(-a, 0))/(sqrt((-a)^2))^3) $
+$ = Q/(4pi * epsilon_0) * (vec(-a, a)/a^3 + vec(-a, a)/(sqrt(2) * a)^3) = Q/(4pi * epsilon_0) * (vec(-1, 1)/a^2 + vec(-1, 1)/(sqrt(8) * a^2)) $
+$ = Q/(4pi * epsilon_0) * 1/a^2 * (vec(-1, 1) + vec(-1/sqrt(8), 1/sqrt(8))) = Q/(4pi * epsilon_0 * a^2) * vec(-1 - 1/sqrt(8), 1 + 1/sqrt(8)) $
+
+Das Potential im Punkt $arrow(r)_D = vec(-a/2, a/2)$ lässt sich sehr einfach mit folgender Formel errechnen:
+$ phi = 1/(4pi * epsilon_0) * sum Q_i/r arrow.double phi = 1/(4pi * epsilon_0) * (Q/a + Q/(sqrt(2) * a) + Q/a) = Q/(4pi * epsilon_0 * a) * (1 + 1/sqrt(2) + 1) $
+$ = Q/(4pi * epsilon_0 * a) * (2*sqrt(2) + 1)/sqrt(2) $
+
+Das gleiche kann man für den Mittelpunkt $arrow(r)_M = vec(0,0)$ wiederholen:
+$ arrow(E)(vec(0,0)) = Q/(4pi * epsilon_0) * ((vec(a/2, a/2))/(sqrt((a/2)^2 + (a/2)^2))^3 + (vec(-a/2, a/2))/(sqrt((-a/2)^2 + (a/2)^2))^3 + (vec(-a/2, -a/2))/(sqrt((a/2)^2 + (a/2)^2))^3) $
+$ = Q/(4pi * epsilon_0) * 1/((a/sqrt(2))^3) * vec(-a/2, a/2) = Q/(4pi * epsilon_0) * sqrt(8)/a^3 * vec(-a/2, a/2) = (sqrt(8) * Q)/(4pi * epsilon_0 * a^2) * vec(-1/2, 1/2) $
+
+Auch für das Potential:
+$ phi = 1/(4pi * epsilon_0) * sum Q_i/r arrow.double phi = 1/(4pi * epsilon_0) * (Q/(a/sqrt(2)) + Q/(a/sqrt(2)) + Q/(a/sqrt(2))) = Q/(4pi * epsilon_0 * a) * 3sqrt(2) $
 
 === Elektrisches Feld eines Rings
 
@@ -175,7 +233,17 @@ TODO
 
 #line(length: 100%)
 
-TODO
+a) Durch das Superpositionsprinzip lässt sich das elektrische Feld im Punkt $arrow(r)$ mit folgender Formel darstellen:
+$ arrow(E)(arrow(r)) = Q_1/(4pi * epsilon_0) * (arrow(r) - arrow(r)_1)/(|arrow(r) - arrow(r)_1|^3) + Q_2/(4pi * epsilon_0) * (arrow(r) - arrow(r)_2)/(|arrow(r) - arrow(r)_2|^3) + ... $
+
+Einfach die Werte aus der Angabe einsetzen:
+$ arrow(E)(vec(0,0)) = (2Q)/(4pi * epsilon_0) * (vec(-R,-2R))/(sqrt((-R)^2 + (-2R)^2))^3 + Q/(4pi * epsilon_0) * (vec(2R,-R))/(sqrt((2R)^2 + (-R)^2))^3 $
+$ = Q/(4pi * epsilon_0) * 1/((sqrt(5*R^2))^3) * (2*vec(-R,-2R) + vec(2R,-R)) = Q/(4pi * epsilon_0) * 1/(sqrt(125) * R^3) * vec(0, -5R) $
+$ = Q/(4pi * epsilon_0 * sqrt(125) * R^2) * vec(0, -5) $
+
+b) Für das Potential entlang der $x$-Achse kann entweder das elektrische Feld entlang der $x$-Achse ($arrow(E)(vec(x,0))$) integriert werden, oder es kann folgende einfach Formel genutzt werden (weil das Potential ein Skalar ist und Superpositionsprinzip):
+$ phi(vec(x,0)) = 1/(4pi * epsilon_0) * sum Q_i/r_i arrow.double phi = 1/(4pi * epsilon_0) * ((2Q)/(sqrt((x-R)^2 + (-2R)^2)) + Q/(sqrt((x+2R)^2 + (-R)^2))) = $
+$ Q/(4pi * epsilon_0) * (2/(sqrt(x^2 - 2R + 5R^2)) + 1/(sqrt(x^2 + 4R + 5R^2))) $
 
 === Ladungen eines Kondensatorenschaltkreises
 
@@ -185,7 +253,17 @@ Drei Kondensatoren sind angeordnet wie in der Abbildung. Das System ist an einer
 
 #line(length: 100%)
 
-TODO
+Für die Ladung an einem Kondensator gilt $Q = C * U$. Da in Serie geschaltene Kondensator die gleiche Ladung haben, sollte die Parallelschaltung zusammengefasst werden:
+$ C_23 = C_2 + C_3 = 2C + C = 3C $
+
+Für die gesamte Schaltung gilt somit:
+$ C_g = (C_1 * C_23)/(C_1 + C_23) = (3C * 3C)/(3C + 3C) = 3/2 C $
+$ q_g = C_g * U = 3/2C * U arrow.double q_1 = 3/2C * U $
+
+Um die Ladungen in den Zweigen des parallelen Abschnittes zu berechnen, muss der Spannungsabfall beim ersten Kondensator beachtet werden:
+$ U_1 = q_1/C_1 = (3/2C * U)/(3C) = U/2 arrow.double U_"par" = U - U_1 = U/2 $
+$ q_2 = C_2 * U_"par" = 2C * U/2 = C * U $
+$ q_3 = C_3 * U_"par" = C * U/2 = 1/2C * U $
 
 === Elektrostatisches Feld eines geladenen Rings
 
@@ -210,7 +288,34 @@ Gegeben sind zwei koaxiale, unendlich lange, dünnwandige und geladene Metallzyl
 
 #line(length: 100%)
 
-TODO
+a) Im Innenbereich ($r < R_1$) ist $E(r) = 0$, da bei der Anwendung vom Satz von Gaus in der Gausfläche keine Ladung eingeschlossen ist:
+$ integral.cont arrow(E) dif arrow(A) = E * 2pi * r * l = Q_"in"/epsilon_0 arrow.double E(r) = Q/(2pi * r * l * epsilon_0) = 0/(2pi * R_1 * l * epsilon_0) = 0 $
+
+Bei der Gausfläche ist nur die Mantelfläche des Zylinders ($2pi * r * l$) gefragt, weil das elektrische Feld des Zylinderkondensators senkrecht zu den Grund- und Deckflächen der zylindrischen Gaußfläche stehen und somit keinen Beitrag leisten.
+
+Das Potential ist im Innenbereich konstant und entspricht dem Potential entlang der Oberfläche des kleineren Zylinders. Das Potential lässt sich über die Integration des elektrischen Feldes von $r$ bis $R_2$ bekommen:
+$ Phi(r) = - integral_(R_2)^(r) E(r) dif r = - integral_(R_2)^(r) Q/(2pi * r * l * epsilon_0) dif r = -Q/(2pi * l * epsilon_0) integral_(R_2)^(r) 1/r dif r $
+$ -Q/(2pi * l * epsilon_0) * (ln(r) - ln(R_2)) = -Q/(2pi * l * epsilon_0) * ln(r/R_2) $
+
+Das Potential an der Oberfläche des kleineren Zylinders ist $Phi(R_1)$:
+$ Phi(R_1) = (3*q)/(2pi * l * epsilon_0) * ln(R_1/R_2) $
+
+b) Im Zwischenbereich ($R_1 < r < R_2$) lässt sich das Feld (erneut) mit dem Satz von Gauß berechnen:
+$ integral.cont arrow(E) dif arrow(A) = Q_"in"/epsilon_0 arrow.double E(r) = Q/(2pi * r * l * epsilon_0) $
+
+Da bei dieser Aufgabe eine Ladungsdichte [$C/m$] statt nur einer Ladung gegeben ist, muss dementsprechend gerechnet werden:
+$ Q = lambda/l arrow.double E(r) = (-3*q)/(2pi * r * epsilon_0) $
+
+Für das Potential die gleiche Formel wie bei a) verwenden:
+$ Phi(r) = (3*q)/(2pi * l * epsilon_0) * ln(r/R_2) $
+
+c) Im Außenbereich ($r > R_2$) rechnet man identisch wie im Zwischenbereich, nur, dass die Gesamtladung pro Länge nun $-3lambda + lambda = -2lambda$ beträgt:
+$ E(r) = (-2*q)/(2pi * r * epsilon_0) $
+
+Für das Potential die gleiche Formel wie bei a) verwenden, jedoch diesmal mit einer anderen Ladung:
+$ Phi(r) = (2*q)/(2pi * l * epsilon_0) * ln(r/R_2) = q/(pi * l * epsilon_0) * ln(r/R_2) $
+
+(Für die Zeichnung: Das Feld zeigt von außerhalb des größeren Zylinders radial nach innen zum kleineren Zylinder, wird stärker im Zwischenbereich, innerhalb des kleineren Zylinders ist nichts)
 
 === Kugelkondensator
 
@@ -223,7 +328,35 @@ Gegeben sind zwei konzentrische, dünnwandige und geladene Metallkugeln der Radi
 
 #line(length: 100%)
 
-TODO
+a) Im Innenbereich ($r < R_1$) ist $E(r) = 0$, da im Inneren einer Kugelschale das elektrische Feld null ist.
+
+Im Außenbereich ($r > R_2$) addieren sich die Ladungen der zwei Kugelschalen und es scheint so, als wäre es eine Punktladung im Mittelpunkt der Kugeln:
+$ Q_"in" = -2Q + Q = -Q arrow.double E(r) = -Q/(4 pi*epsilon_0 * r^2) $
+
+Im Zwischenbereich ($R_1 < r < R_2$) lässt sich das Feld mit dem Satz von Gauß berechnen:
+$ integral.cont arrow(E) dif arrow(A) = Q_"in"/epsilon_0 arrow.double E(r) * 4 pi r^2 = (-2Q)/epsilon_0 arrow.double E(r) = -Q/(2 pi * epsilon_0 * r^2) $
+
+(Für die Zeichnung: Das Feld zeigt von außerhalb der größeren Kugel radial nach innen zur kleineren Kugel, wird stärker im Zwischenbereich, innerhalb der kleineren Kugel ist nichts)
+
+b) Im Außenbereich ($r > R_2$):
+$ Phi(r) = -integral^r_infinity E(R) dif R = -integral^r_infinity -Q/(4 pi*epsilon_0 * R^2) dif R = Q/(4 pi*epsilon_0) * integral^r_infinity (dif R)/R^2 $
+$ Phi(r) = Q/(4 pi*epsilon_0) * lim(-1/r - 1/infinity) = -Q/(4 pi*epsilon_0*r) $
+
+Im Zwischenbereich ($R_1 < r < R_2$) setzt sich das Gesamtpotential aus dem Potential der äußeren Kugelschale und dem Potential zwischen der inneren und der äußeren Kugelschale zusammen:
+$ Phi(r) = underbrace(Phi(R_2), "Außenbereich") - integral^r_(R_2) E(R) dif R = -Q/(4 pi*epsilon_0*R_2) - integral^r_(R_2) -Q/(2 pi * epsilon_0 * R^2) dif R $
+$ = -Q/(4 pi*epsilon_0*R_2) + Q/(2 pi * epsilon_0) * integral^r_(R_2) (dif R)/R^2 = -Q/(4 pi*epsilon_0*R_2) + Q/(2 pi * epsilon_0) * (-1/r + 1/R_2) $
+$ = -Q/(4 pi*epsilon_0*R_2) - Q/(2 pi * epsilon_0 * r) + Q/(2 pi * epsilon_0 * R_2) = Q/(2 pi * epsilon_0) * (1/(2 * R_2) - 1/r) $
+
+Im Innenbereich ($r < R_1$) ist das Potential konstant. Es entspricht dem Potential an der Oberfläche der inneren Kugel:
+$ Phi(R_1) = Q/(2 pi * epsilon_0) * (1/(2 * R_2) - 1/R_1) $
+
+c) Die Kapazität lässt sich mit der Formel $Q = C*U$ ermitteln. Dafür muss aber zuerst $U$ bzw. $Delta Phi$ zwischen den Kugelschalen ermittelt werden.
+$ U = Delta Phi = Phi(R_1) - Phi(R_2) = Q/(2 pi * epsilon_0) * (1/(2 * R_2) - 1/R_1) - Q/(2 pi * epsilon_0) * (1/(2 * R_2) - 1/R_2) $
+$ = Q/(2 pi * epsilon_0) * (1/(2 * R_2) - 1/R_1 - 1/(2 * R_2) + 1/R_2) = Q/(2 pi * epsilon_0) * (R_1 - 2 * R_2 - R_1 + 2 * R_1)/(2*R_1*R_2) $
+$ = Q/(2 pi * epsilon_0) * (R_1 - R_2)/(R_1 * R_2) $
+
+Für $U$ einsetzen:
+$ C = Q/U = (|Q_"ein"|)/(|Delta Phi|) = (2Q)/(Q/(2 pi * epsilon_0) * (R_1 - R_2)/(R_1 * R_2)) = 4pi * epsilon_0 * (R_1 * R_2)/(R_2 - R_1) $
 
 === Elektrisches Feld einer unendlichen, homogenen Platte
 
@@ -255,12 +388,22 @@ TODO
 
 === Trivia zu elektrostatischen Feldern
 
-+ Welche Eigenschaften treffen auf elektrostatische Felder zu: konservativ quellenfrei, wirbelfrei? Wann können elektrische Felder ohne Ladungen existieren?
++ Welche Eigenschaften treffen auf elektrostatische Felder zu: konservativ, quellenfrei, wirbelfrei? Wann können elektrische Felder ohne Ladungen existieren?
 + Skizzieren Sie elektrischen Feldlinien und Äquipotenziallinien eines Plattenkondensators/elektrischen Dipols/Punktladung/geladenen Stabs, etc.
 
 #line(length: 100%)
 
-TODO
+a) Konservativ trifft zu, da $arrow(E) = - nabla phi$ gilt und somit das Wegintegral unabhängig vom Weg ist ($integral.cont arrow(E) dif arrow(s) = 0$), was die Chrakteristik eines konservativen Kraftfelds ist.
+
+Wirbelfrei trifft ebenfalls zu, da $nabla times arrow(E) = 0$ und somit keine Rotation im Feld existiert, d.h. die Feldlinien haben keine geschlossenen Schleifen.
+
+Wenn Ladungen im Feld vorhanden sind, ist es nicht quellenfrei ($nabla * arrow(E) = lambda/epsilon_0$). Ladungen sind Quellen/Senken des Feldes. Es kann jedoch sein, dass lokal keine Ladung vorhanden ist (z.B. bei Betrachtung des Feldes zwischen zwei Kondensatorplatten) und somit das Feld lokal quellenfrei ist ($nabla * arrow(E) = 0$).
+
+b)
+
+#image("assets/fragenkatalog/linien_kondensator.png")
+#image("assets/fragenkatalog/linien_dipol.png")
+#image("assets/fragenkatalog/linien_punktladung.png")
 
 === Isoliert hängende Metallkugeln
 
@@ -279,8 +422,7 @@ TODO
 
 === IDFK
 
-Warum ist ein statisches elektrisches Feld nicht in der Lage, ein geladenes Teilchen in einem stabilen
-Gleichgewicht zu halten?
+Warum ist ein statisches elektrisches Feld nicht in der Lage, ein geladenes Teilchen in einem stabilen Gleichgewicht zu halten?
 
 #line(length: 100%)
 
@@ -294,7 +436,11 @@ Beschreiben Sie das elektrische Feld und Potential im Inneren sowie an der Oberf
 
 #line(length: 100%)
 
-TODO
+Im Inneren eines Metall ist das elektrische Feld gleich null und das Potential somit konstant. Je nach der Form der Oberfläche ist das elektrische Feld dort unterschiedlich (z.B. Spitzeneffekt), es steht aber immer senkrecht zur Oberfläche. Das Potential ist entlang der Oberfläche wie im Inneren überall gleich.
+
+Wichtige Bemerkung: Es werden im Metall so viele Ladungen verschoben, dass im statischen Fall das Innere eines Leiters/Metalls feldfrei ist ($E_"ges" = E_"ext" + E_"int" = 0$). D.h. innerhalb des Metalls existiert quasi ein entgegengesetztes Feld, welches das äußere destruktiv ergänzt.
+
+#image("assets/fragenkatalog/feld_metall.png")
 
 === Elektrostatisches Potential und Energie eines Kondensators
 
@@ -302,7 +448,10 @@ Beschreiben Sie, wie die Änderung von Ladung/Spannung/Abstand/Dielektrikum den 
 
 #line(length: 100%)
 
-TODO
+- Ladung: Wird die Ladung erhöht, steigt bei konstanter Kapazität die Spannung gemäß $U = Q/C$ (und vice versa).
+- Spannung: Wird die Spannung erhöht, steigt bei konstanter Kapazität die Ladung gemäß $U = Q/C$ (und vice versa).
+- Abstand: Die Kapazität eines Plattenkondensators nimmt wegen $C = epsilon_0 * A/d$ beim Auseinanderziehen der Platten ab. Wenn die Ladung unverändert ist, muss wegen $U = Q/C$ die Spannung steigen. Wenn die Spannung fix bleibt, dann verringert sich die Ladung.
+- Dielektrikum: Durch Einbringen eines Dielektrikums steigt die Kapazität, d.h. es ist gemäß $C = epsilon_0 * epsilon_r * A/D$ mehr Ladung speicherbar. Wenn die Ladung unverändert ist, muss somit die Spannung sinken. Wenn die Spannung fix bleibt, dann steigt die Ladung.
 
 === Hohle Kugel mit Ladung im Mittelpunkt
 
@@ -310,7 +459,8 @@ In den Hohlraum einer leitenden Kugel mit der Ladung $Q$ wird in den Mittelpunkt
 
 #line(length: 100%)
 
-TODO
+$Q - q$, weil
+#image("assets/fragenkatalog/influenz_kugel.svg")
 
 === Faradaykäfig
 
@@ -318,7 +468,22 @@ Zeigen Sie, dass im Hohlraum umgeben von einem Metall (keine Kugel!) das elektri
 
 #line(length: 100%)
 
-TODO
+1) Geladener Leiter mit Hohlraum: Ladungen sitzen nur auf der Oberfläche
+
+2) Gauß'scher Satz für Fläche $S$: $integral arrow(E) dif arrow(A) = q/epsilon_0 = 0$, weil $E$ im Inneren eines Leiters $0$ ist, d.h. Summe der eingeschlossenen Ladung muss null sein
+
+3) Annahme: an der Innenseite befinden sich gleich viel positive wie negative Ladungen, d.h. $sum q = 0$, siehe oben
+
+4) Zwischen den positiven und negativen Ladungen gibt es ein elektrisches Feld
+
+5) Elektrostatisches Feld ist ein konservatives Kraftfeld: $integral arrow(E) dif arrow(s) = 0$ längs eines geschlossenen Weges
+
+6) Schleife G: $integral arrow(E)_"Leiter" dif arrow(s) + integral arrow(E)_"Hohlraum" dif arrow(s) eq.not 0$, weil $E_"Leiter" = 0$ und $E_"Hohlraum" eq.not 0$
+
+Lösung: Ladungen auf Außenseite so lange verschoben bis sie sich vollständig kompensieren, daher kann es im Hohlraum eines Leiters kein elektrisches Feld geben
+
+#image("assets/fragenkatalog/faraday_pustogow_masterpiece.png")
+(Diese wunderschöne Zeichnung kommt direkt von Pustogows Folien)
 
 === Spitzeneffekt
 
@@ -326,11 +491,15 @@ Zeigen Sie, dass an der Spitze eines geladenen Metallgegenstandes das elektrisch
 
 #line(length: 100%)
 
-TODO
+Eine Spitze kann als eine Halbkugel mit einem kleinen Radius beschrieben werden. Für das elektrische Feld (außerhalb) einer geladenen Kugel gilt:
+$ E(r) = 1/(4*pi*epsilon_0) * Q/r^2 $
+
+Die elektrische Feldstärke ist somit proportional zu $1/r^2$, was heißt, dass eine Halbkugel mit einem kleineren Radius (spitzere Spitze) eine quadratisch zunehmende Feldstärke hat.
+$ E prop 1/r^2 arrow.long_(r arrow 0) infinity  $
 
 === Minimierung/Maximierung der pot. Energie zweier Dipole
 
-Ein elektrischer Dipol mit $p_1||z$-Achse befindet sich im Koordinatenursprung. Ausgehend vom Coulomb Gesetz berechnen Sie die potentielle Energie eines zweiten Dipols $p_2$ an, der sich im (großen) Abstand auf der $x$-Achse befindet und beliebig ausgerichtet ist. Bei welcher Ausrichtung der Dipole zueinander ist die potentielle Energie minimal bzw. maximal?
+Ein elektrischer Dipol mit $p_1 parallel z$-Achse befindet sich im Koordinatenursprung. Ausgehend vom Coulomb Gesetz berechnen Sie die potentielle Energie eines zweiten Dipols $p_2$ an, der sich im (großen) Abstand auf der $x$-Achse befindet und beliebig ausgerichtet ist. Bei welcher Ausrichtung der Dipole zueinander ist die potentielle Energie minimal bzw. maximal?
 
 #line(length: 100%)
 
@@ -338,7 +507,7 @@ TODO
 
 === Elektrisches Potential eines Dipols entlang den Achsen
 
-Ein elektrischer Dipol mit $p||z$-Achse befindet sich im Koordinatenursprung. Ausgehend vom Coulomb Gesetz leiten Sie das elektrische Potenzial dieses Dipols entlang der:
+Ein elektrischer Dipol mit $p parallel z$-Achse befindet sich im Koordinatenursprung. Ausgehend vom Coulomb Gesetz leiten Sie das elektrische Potenzial dieses Dipols entlang der:
 + $X$-Achse
 + $Y$-Achse
 + $Z$-Achse
@@ -433,7 +602,8 @@ diese?
 
 #line(length: 100%)
 
-TODO
+- Knotenregel: Im Knoten werden keine Ladungen erzeugt oder vernichtet bzw. werden nicht gespeichert (Ladungserhaltung), d.h. die Summe aller zufließenden Ströme ist gleich der Summe aller abfließenden Ströme an einem Knoten ($sum I_"ein" = sum I_"aus"$ bzw. $sum I = 0$ wenn zufließend pos. und abfließend neg. ist)
+- Maschenregel: Längs einer geschlossenen Masche ist die Summe aller Quellspannungen plus der Summe aller Spannungsabfälle gleich Null ($sum U = 0$), weil das elektrische Feld ein konservatives Kraftfeld ist und somit die Arbeit längs eines geschlossenen Weges null ist.
 
 === Kontinuitätsgleichung für die Ladung
 
@@ -441,7 +611,19 @@ Wie lautet die Kontinuitätsgleichung für die Ladung in integraler Form? Leiten
 
 #line(length: 100%)
 
-TODO
+Kontinuitätsgleichung in integraler Form:
+$ integral.cont_(partial V) arrow(j) dif arrow(A) = - dif/(dif t) integral_V rho dif V $
+
+Die zeitliche Änderung der Gesamtladung im Volumen ist gleich dem negativen Stromfluss durch die Oberfläche (und vice versa).
+
+Herleitung der differentiellen Form (mit dem Satz von Gauss):
+$ integral.cont_(partial V) arrow(j) dif arrow(A) = integral_V (nabla * arrow(j)) dif V arrow.double integral_V (nabla * arrow(j)) dif V = - dif/(dif t) integral_V rho dif V = - integral_V (partial rho)/(partial t) dif V $
+$ integral_V ((partial rho)/(partial t) + nabla * arrow(j)) dif V = 0 $
+
+Da dies für jedes beliebige Volumen gelten muss, folgt:
+$ (partial rho)/(partial t) + nabla * arrow(j) = 0 $
+
+Wenn Ladung lokal abnimmt ($(partial rho)/(partial t) < 0$), dann fließt Strom heraus ($nabla * arrow(j) > 0$)
 
 === Herleitung des Ohm'schen Gesetzes
 
@@ -470,15 +652,45 @@ Gegeben ist folgende Widerstandskonfiguration. Erstellen Sie zunächst ein allge
 
 #line(length: 100%)
 
-TODO
+Die Annahmen gelten, weil wenn eine Schaltung unter Spiegelung identisch bleibt, sind die entsprechenden Ströme gleich.
 
-=== Strommessgerät als Voltmeter
+Das Gleichungssystem kann mithilfe der Kirchhoffschen Regeln erstellt werden:
+$
+"Knotenregel" arrow.double cases(
+  I_1 = I_2 + I_5,
+  I_4 = I_3 + I_5,
+)\
+"Maschenregel" arrow.double cases(
+  U_1 + U_5 - U_3 = 0,
+  U_2 - U_4 - U_5 = 0
+)
+$
+
+Mit dem Ohm'schen Gesetz $U = R * I$ lässt sich das Gleichungssystem der Spannungen auf Ströme umformen:
+$
+  I_1 + I_5 = 2 * I_3\
+  2 * I_2 = I_4 + I_5
+$
+
+Mit der Erkenntniss, dass $I_5 = I_1 - I_2$ und der Annahme, dass $I_2 = I_3$:
+$ I_1 + I_1 - I_2 = 2 * I_2 arrow.double 2 * I_1 = 3 * I_2 arrow.double I_1 = 3/2 * I_2 $
+
+Angenommen, dass an der linken Seite der Widerstandskonfiguration eine Spannung $U$ angebracht wird und die rechte Seite eine Spannung von $0$, kann die Spannung entlang des "oberen" Pfades errechnet werden:
+$ U = I_1 * R + I_2 * 2R = 3/2 * I_2 * R + I_2 * 2R = 7/2 * I_2 * R $
+
+Für den effektiven Gesamtwiderstand fehlt noch der Gesamtstrom, welcher beim Knoten ganz links anfällt:
+$ I = I_1 + I_3 = I_1 + I_2 = 3/2 * I_2 + I_2 = 5/2 * I_2 $
+$ arrow.double R_g = U/I = (7/2 * I_2 * R)/(5/2 * I_2) = 7/5 R $
+
+=== Strommessgerät als Voltmeter <strommessgeraet_als_voltmeter>
 
 Zeigen Sie, wie man ein Strommessgerät als Voltmeter verwenden kann.
 
 #line(length: 100%)
 
-TODO
+Da eine Spannung $U$ einen Strom $I = U/R$ durch einen Widerstand R bewirkt, können Strommessgeräte auch zur Spannungsmessung verwendet werden. Dazu wird ein Widerstand $R$ in Reihe mit dem Messwerk geschaltet (siehe Abb.), so dass der Strom $I = U/(R + R_i)$ im Messbereich der Anzeigeskala liegt. Als Voltmeter verwendete Strommessgeräte sollten einen möglichst großen Gesamtwiderstand $(R + R_i)$ haben, damit der Messstrom den Gesamtstrom im Schaltkreis möglichst wenig beeinflusst.
+
+#image("assets/fragenkatalog/strommessgeraet_als_voltmeter.png")
 
 === Spannungsmessgerät als Amperemeter
 
@@ -486,7 +698,7 @@ Zeigen Sie, wie man ein Spannungsmessgerät als Amperemeter verwenden kann.
 
 #line(length: 100%)
 
-TODO
+Wie bei @strommessgeraet_als_voltmeter, nur dass der Widerstand $R$ in Reihe mit dem Verbraucher, nicht dem Messwerk geschaltet werden muss (und das Messwerk parallel zu diesem Widerstand $R$). Als Amperemeter verwendete Spannungsmessgeräte solltenen einen möglichst kleinen Gesamtwiderstand haben.
 
 === Kreuzförmige Widerstandskonfiguration
 
@@ -496,7 +708,13 @@ Gegeben ist eine Kreuzförmige Widerstands- und Spannungskonfiguration wie abgeb
 
 #line(length: 100%)
 
-TODO
+Laut der Kirchhoffschen Knotenregel gilt in der Mitte $sum I = 0$, d.h. man kann die Ströme von der Mitte nach außen mit dem Ohmschen Gesetz aufschreiben und dann gemeinsam gleich null setzen:
+- nach links: $I_L = (U_X - 2U)/R$
+- nach rechts: $I_R = (U_X - (-2U))/(2R) = (U_X + 2U)/(2R)$
+- nach oben: $I_O = (U_X - (-U))/R = (U_X + U)/R$
+- nach unten: $I_U = (U_X - U)/(2R)$
+$ arrow.double (U_X - 2U)/R + (U_X + 2U)/(2R) + (U_X + U)/R + (U_X - U)/(2R) = 0 $
+$ U_X - 2U + U_X/2 + U + U_X + U + U_X/2 - U/2 = 0 arrow.double 3U_X - U/2 = 0 arrow.double U_X = U/6 $
 
 === Volt- und Amperemeter in einem Schaltkreis
 
@@ -506,7 +724,16 @@ Das Voltmeter im angegebenen Schaltkreis zeigt den Wert $U = 6"V"$. Welcher Stro
 
 #line(length: 100%)
 
-TODO
+Ein ideales Amperemeter hat einen Widerstand von $R = 0$, ein ideales Voltmeter $R = infinity$. Somit fließt der Gesamtstrom in diesem Schaltkreis über das Amperemeter.
+
+Hinter dem Amperemeter teilt sich der Strom auf, der linke Zweig hat einen Widerstand von $R_L = 1$ und der rechte hat einen Gesamtwiderstand von $R_"R" = 2 + 1 = 3$. Das Voltmeter ist parallel zum 2er-Widerstand des rechten Zweiges und misst somit die Spannung, die durch diesen Widerstand fließt. Da in einem Zweig der Strom jeweils gleich bleibt (seriell geschalten), kann somit der Strom des rechten Zweiges berechnet werden:
+$ I_R = (6"V")/(2Omega) = 3"A" $
+
+Nun kann die Gesamtspannung des rechten Zweiges und somit der Spannungsquelle berechnet werden:
+$ U_"ges" = I_R * R_R = 3 * 3 = 9"V" $
+
+Der Strom im linken Zweig ist somit $I_L = 9/1 = 9"A"$. Das Amperemeter misst den Gesamtstrom, der sich zwischen den zwei Zweigen aufteilt:
+$ I_"ges" = I_L + I_R = 3 + 9 = 12"A" $
 
 === Offenes Koaxialkabel
 
@@ -530,8 +757,7 @@ TODO
 
 === ???
 
-Geben Sie die Definition des Vektorpotentials. Wie kann man das Vektorpotential aus gegebenen
-Verteilung der Stromdichte berechnen? (Herleitung der Integralgleichung)
+Geben Sie die Definition des Vektorpotentials. Wie kann man das Vektorpotential aus gegebenen Verteilung der Stromdichte berechnen? (Herleitung der Integralgleichung)
 
 #line(length: 100%)
 
@@ -544,7 +770,20 @@ TODO
 
 #line(length: 100%)
 
-TODO
+a) Konservativ trifft nicht zu, denn es gilt $integral.cont arrow(B) dif arrow(s) eq.not 0$, weil $|B| = "konst" eq.not 0$ und $arrow(B) parallel dif arrow(s)$.
+
+Quellenfrei trifft zu, denn magnetische Feldlinien sind immer geschlossen, egal wie die Fläche gewählt wird, d.h. $integral.cont_A arrow(B) * dif arrow(A) eq.triple 0$. Mit dem Satz von Gauß lässt sich folgendes zeigen:
+$ integral.cont_A arrow(B) * dif arrow(A) = integral_V nabla * arrow(B) dif V eq.triple 0 arrow.double nabla * arrow(B) = 0 $
+
+Das magnetische Feld hat somit keine Quellen und Senken. Es zeigt auch, dass keine magnetischen Monopole existieren können.
+
+Wirbelfrei trifft nicht immer zu, denn laut dem Ampereschen Gesetz gilt $nabla times arrow(B) = mu_0 * arrow(j)$, d.h. außer in Gebieten ohne Stromdichte ($arrow(j) = 0$) ist das magnetische Feld nicht wirbelfrei. Z.B. gibt es bei Permanentmagneten keine Stromdichte, was dessen Magnetfeld theoretisch wirbelfrei machen würde (Strom fließt auf Elementarebene aufgrund von Elektronenspins aber trotzdem, also...)
+
+b) 
+
+#image("assets/fragenkatalog/magnet_spule.png")
+#image("assets/fragenkatalog/magned_gerader_leiter.png")
+#image("assets/fragenkatalog/magnet_leiterschleife.png")
 
 === Magnetfeld im Mittelpunkt einer Spule
 
@@ -554,7 +793,7 @@ Berechnen sie das Feld einer langen Spule mit N gleichmäßig aufgewickelten Win
 
 TODO
 
-=== Magnetfeld im Mittelpunkt einer quadratischen Stromschleife
+=== Magnetfeld im Mittelpunkt einer quadratischen Stromschleife <biot-savart-quadrat-1>
 
 Ausgehend vom Biot-Savartschen Gesetz finden Sie das magnetische Feld in der Mitte einer quadratischen (alternativ: dreieckigen) Stromschleife mit Strom $I$ und Kantenlänge $a$
 
@@ -562,7 +801,27 @@ Ausgehend vom Biot-Savartschen Gesetz finden Sie das magnetische Feld in der Mit
 
 #line(length: 100%)
 
-TODO
+Das Biot-Savart-Gesetz im Demtröder:
+$ arrow(B)(arrow(r)_1) = - mu_0/(4pi) * I * integral (hat(e)_12 times dif arrow(s))/r^2_12 = - mu_0/(4pi) * I * integral (dif arrow(s) times arrow(r)_12)/r^3_12 $
+
+Da das Magnetfeld im Mittelpunkt gefragt ist und die Stromschleife ein Quadrat ist, ist hohe Symmetrie gegeben. Somit muss nur einer der vier geraden Drahtabschnitte (z.B. Stromrichtung nach $+x$) ausgerechnet werden:
+$ dif arrow(s) = dif x * hat(x) $
+
+Für den Ortsvektor zum Mittelpunkt gilt:
+$ arrow(r) = vec(-x, -a/2, 0) arrow.double dif arrow(s) times arrow(r) = vec(dif x, 0, 0) times vec(-x, -a/2, 0) = vec(0, 0, -a/2 * dif x) $
+
+In das Biot-Savart-Gesetz einsetzen (für Magnetfeld in $z$-Richtung, da sonst alles in $arrow(r)$ null ist):
+$ B_Z = - mu_0/(4pi) * I * integral_(-a/2)^(a/2) (-a/2 * dif x)/(x^2 + (a/2)^2)^(3/2) = mu_0/(4pi) * I * a/2 * integral_(-a/2)^(a/2) 1/(x^2 + (a/2)^2)^(3/2) dif x $
+
+Mit $u = a/2$:
+$ integral 1/((x^2 + u^2)^(3/2)) dif x = x/(u^2 * sqrt(x^2 + u^2)) arrow.double B_Z = mu_0/(4pi) * I * a/2 * lr(x/((a/2)^2 * sqrt(x^2 + (a/2)^2))|)^(a/2)_(-a/2) $
+$ = mu_0/(4pi) * I * a/2 * ((a/2)/((a/2)^2 * sqrt((a/2)^2 + (a/2)^2)) - (-a/2)/((a/2)^2 * sqrt((-a/2)^2 + (a/2)^2))) $
+$ = mu_0/(4pi) * I * a/2 * a/(a^2/4 * (sqrt(2) * a)/4) = mu_0/(4pi) * I * a/2 * (4 * sqrt(2))/a^2 = (mu_0 * I * sqrt(2))/(2pi * a) $
+
+Da sich das Gesamtfeld in der Mitte symmetrisch aus den vier Seiten zusammensetzt, kann einfach mal $4$ multipliziert werden:
+$ arrow(B)(vec(0,0,0)) = 4 * vec(0, 0, (mu_0 * I * sqrt(2))/(2pi * a)) = vec(0, 0, (2 sqrt(2) * mu_0 * I)/(pi * a)) $
+
+TODO: "alternativ: dreieckig"
 
 === Magnetfeld im Mittelpunkt einer quadratischen Stromschleife (2)
 
@@ -570,7 +829,32 @@ Ausgehend vom Biot-Savartschen Gesetz finden Sie das magnetische Feld einer quad
 
 #line(length: 100%)
 
-TODO
+Das Biot-Savart-Gesetz im Demtröder:
+$ arrow(B)(arrow(r)_1) = - mu_0/(4pi) * I * integral (hat(e)_12 times dif arrow(s))/r^2_12 = - mu_0/(4pi) * I * integral (dif arrow(s) times arrow(r)_12)/r^3_12 $
+
+Da das Magnetfeld im Mittelpunkt gefragt ist und die Stromschleife ein Quadrat ist, ist hohe Symmetrie gegeben. Somit muss nur einer der vier geraden Drahtabschnitte (z.B. Stromrichtung nach $+x$) ausgerechnet werden:
+$ dif arrow(s) = dif x * hat(x) $
+
+Für den Ortsvektor zum Mittelpunkt gilt:
+$ arrow(r) = vec(-x, -a/2, z) arrow.double dif arrow(s) times arrow(r) = vec(dif x, 0, 0) times vec(-x, -a/2, z) = vec(0, -z * dif x, -a/2 * dif x) $
+
+In das Biot-Savart-Gesetz einsetzen (für Magnetfeld in $z$-Richtung, alles andere hebt sich aufgrund der Symmetrie auf):
+$ B_Z (z) = - mu_0/(4pi) * I * integral_(-a/2)^(a/2) (-a/2 * dif x)/(x^2 + (a/2)^2 + z^2)^(3/2) = mu_0/(4pi) * I * a/2 * integral_(-a/2)^(a/2) 1/(x^2 + (a/2)^2 + z^2)^(3/2) dif x $
+
+Mit $u^2 = (a/2)^2 + z^2$:
+$ integral 1/((x^2 + u^2)^(3/2)) dif x = x/(u^2 * sqrt(x^2 + u^2)) arrow.double B_Z (z) = mu_0/(4pi) * I * a/2 * lr(x/(((a/2)^2 + z^2) * sqrt(x^2 + (a/2)^2 + z^2))|)^(a/2)_(-a/2) $
+$ = mu_0/(4pi) * I * a/2 * ((a/2)/(((a/2)^2 + z^2) * sqrt((a/2)^2 + (a/2)^2 + z^2)) - (-a/2)/(((a/2)^2 + z^2) * sqrt((-a/2)^2 + (a/2)^2 + z^2))) $
+$ = mu_0/(4pi) * I * a/2 * a/((a^2/4 + z^2) * sqrt(a^2/2 + z^2)) = mu_0/(8pi) * I * a^2/((a^2/4 + z^2) * sqrt(a^2/2 + z^2)) $
+
+Da sich das Gesamtfeld in der Mitte symmetrisch aus den vier Seiten zusammensetzt, kann einfach mal $4$ multipliziert werden:
+$ B_Z (z) = 4 * mu_0/(8pi) * I * a^2/((a^2/4 + z^2) * sqrt(a^2/2 + z^2)) = mu_0/(2pi) * I * a^2/((a^2/4 + z^2) * sqrt(a^2/2 + z^2)) $
+
+Wenn wie in der Angabe $z >> a$ verlangt wird, vereinfacht sich die Formel wie folgt:
+$ B_Z (z) ~ mu_0/(2pi) * I * 1/((0 + z^2) * sqrt(0 + z^2)) arrow.double B_Z (z) ~ mu_0/(2pi) * I * 1/z^3 $
+
+Zwei physikalische Merkmale dieser Formel sind (mir ist nichts besseres eingefallen...):
+- Durch das Kreuzprodukt von der Stromrichtung $dif arrow(s)$ und dem Verbindungsvektor $arrow(r)$ steht das Magnetfeld immer senkrecht zu diesen zwei Vektoren (Rechte-Hand-Regel)
+- Der Beitrag eines Stromstücks wird mit wachsendem Abstand schnell kleiner ($dif B prop 1/r^2$)
 
 === Magnetfeld rotierender Koaxialzylinder
 
@@ -670,7 +954,17 @@ Zeigen Sie, dass die Lorenzkraft auf einen Stromleiter im Magnetfeld aus der Kra
 
 #line(length: 100%)
 
-TODO
+Die Vektorformel für die Lorentzkraft auf eine Einzelladung lautet $arrow(F) = q*(arrow(v) times arrow(B))$. Wenn sich das Teilchen nur senkrecht zum Magnetfeld bewegt, also $arrow(v) perp arrow(B)$ gilt, vereinfacht sich die Formel zu
+$ F = |q| * v * B $
+
+Ein Stromleiter beinhaltet eine Anzahl $N$ dieser Einzelladungen, die sich durch das Magnetfeld bewegen. $N$ lässt sich aus der Ladungsdichte $n$ und dem Volumen $V$ berechnen:
+$ N = n * V = n * A * L $
+
+Für die Geschwindigkeit der Ladungen im Leiter wird die durchschnittliche Geschwindigkeit, also die Driftgeschwindigkeit $v_D$ verwendet:
+$ v_D = I/(n * q * A) $
+
+Die Gesamtkraft aller Ladungen im Leiter ist also:
+$ F_"ges" = N * q * v_D * B = n * A * L * q * I/(n * q * A) * B = I * L * B $
 
 === Drehmoment magnetischer Dipol im Magnetfeld
 
@@ -769,7 +1063,23 @@ Beschreiben Sie die Funktionsweise eines Massenspektrometers (mit Formeln)
 
 #line(length: 100%)
 
-TODO
+Ein Massenspektrometter misst die Masse von Atomen/Molekülen. Die zu untersuchenden Moleküle werden dabei in die Gasphase überführt und ionisiert. Die Ionen werden anschließend durch ein elektrisches Feld beschleunigt und dem Analysator zugeführt, der sie nach ihrem Masse-zu-Ladung-Verhältnis "sortiert", beispielsweise räumlich in Teilstrahlen auftrennt.
+
+Für die Bewegung in elektrischen/magnetischen Feldern gilt die Coulomb- und Lorentzkraft:
+$ arrow(F) = q(underbrace(arrow(E), "Coulombkraft") + underbrace(arrow(v) times arrow(B), "Lorentzkraft")) $
+
+Ionen der Ladung $q$ und Masse $m$ werden durch eine Spannung $U$ beschleunigt, wobei sie danach alle die gleiche kinetische Energie, aber unterschiedliche Geschwindigkeiten haben:
+$ q * U = (m * v^2)/2 arrow.double v = sqrt((2 * q * U)/m) $
+
+Nach der Beschleunigung treten die Ionen senkrecht in ein homogenes Magnetfeld $B$ ein. Die Lorentzkraft wirkt als Zentripetalkraft:
+$ q * v * B = (m * v^2)/r arrow.double r = (m*v)/(q*B) $
+
+Setze $v$ aus der Beschleunigung ein:
+$ r = m/(q*B) * sqrt((2 * q * U)/m) = sqrt(2*U)/B * sqrt(m/e) $
+
+Die Moleküle können somit anhand ihres Radius $r$ auf dem Detektor unterschieden werden.
+
+#image("assets/fragenkatalog/massenspektrometer.png")
 
 === Magnetisierungskurven
 
@@ -910,7 +1220,20 @@ Beschreiben Sie die Funktionsweise eines unbelasteten Transformators
 
 #line(length: 100%)
 
-TODO
+Vorab: unbelasteter Transformator = im Sekundärkreis fließt kein Strom ($I_2 = 0$)
+
+Wird an der Primärspule $L_1$ des unbelasteten Transformators die Eingangsspannung $U_1 = U_0 * cos(omega t)$ angelegt, so wird in $L_1$ ein Strom $I_1$ fließen, der einen magnetischen Fluss $Phi_m$ erzeugt. Dieser bewirkt eine Induktionsspannung
+$ U_"ind" = -L_1 * (dif I_1)/(dif t) = -N_1 * (dif Phi_m)/(dif t) = -U_1 $
+
+welche der von außen angelegten Spannung $U_1$ entgegengesetzt gleich ist, da nach der Kirchhoff'schen Regel im geschlossenen Stromkreis gelten muss, dass $U_1 + U_"ind" = 0$. 
+
+Man kann hier den Ohm'schen Widerstand der Spule gegenüber ihrem induktiven Widerstand $omega * L_1$ vernachlässigen. Wenn der gesamte in $L_1$ erzeugte Fluss $Phi_m$ auch durch die Sekundärspule $L_2$ geht, wird dort folgende Spannung erzeugt:
+$ U_2 = -N_2 * (dif Phi_m)/(dif t) $
+
+Wegen $(dif Phi_m)/(dif t) = (U_1)/(N_1)$ folgt aus den Gleichungen zuvor:
+$ U_2/U_1 = - N_2/N_1 $
+
+Das Minuszeichen zeigt an, dass bei gleichsinniger Wicklung von Primär- und Sekundärspule die Sekundärspannung $U_2$ im unbelasteten Transformator gegenüber der Eingangsspannung $U_1$ um $180°$ phasenverschoben ist.
 
 === Stromnetz
 
@@ -926,12 +1249,31 @@ TODO
 === Komplexer Widerstand
 
 Leiten Sie die komplexen Widerstände her für:
-+ einen ideellen Kondensators
++ einen ideallen Kondensators
 + eine reelle Spule mit internem Ohm'schen Widerstand
 
 #line(length: 100%)
 
-TODO
+a) Aus der Gleichung $U = Q/C$ folgt durch zeitliche Differentiation
+$ (dif U)/(dif t) = 1/C * (dif Q)/(dif t) = 1/C * I $
+
+Mit $U_c = U_0 * cos(omega t)$ wird
+$ I = -omega * C * U_0 * sin(omega t) = omega * C * U_0 * cos(omega t + 90°) $
+
+Der Strom eilt der Spannung um $90°$ voraus. Der komplexe Widerstand der Kapazität $C$ ergibt sich daher mit $I_0 = omega * C * U_0$ zu
+$ Z = U/I = exp(-i * pi/2) * U_0/I_0 = -i * 1/(omega * C) = 1/(i * omega * C) $
+
+b) Eine reelle Spule (Induktivität ohne Verluste) mit internem ohmschen Widerstand lässt sich aus einer in Serie geschalteten idealen Induktivität $L$ und einem ohmschen Widerstand $R$ darstellen.
+
+Den komplexen Widerstand einer Spule lässt sich folgend herleiten:
+$ U_c + U_"ind" = 0 arrow.double U_0 * cos(omega t) = L * (dif I)/(dif t) $
+$ arrow.double I = U_0/L * integral cos(omega t) dif t = U_0/(omega * L) * sin(omega t) = U_0/(omega * L) * cos(omega t - 90 °) $
+
+Der Strom ist gegenüber der Spannung um $90°$ verzögert. Der komplexe Widerstand der Induktivität $L$ ergibt sich daher mit $I_0 = U_0/(omega * L)$ zu
+$ Z = U/I = 1/exp(-i * pi/2) * U_0/I_0 = i * omega * L $
+
+Mit einem ohmschen Widerstand in Serie ergibt sich die Gesamtimpedanz eine reelle Spule mit internem ohmschen Widerstand:
+$ Z = R + i * omega * L $
 
 === Leistung bei Phasenverschiebung
 
@@ -939,11 +1281,15 @@ Berechnen Sie die Leistung im Wechselstromkreis, wenn Strom und Spannung eine Ph
 
 #line(length: 100%)
 
-TODO
+Enthält der Wechselstromkreis Induktivitäten $L$ oder Kapazitäten $C$, so sind im allgemeinen Strom und Spannung nicht mehr in Phase. Es gilt dann:
+$ U = U_0 * cos(omega t), space space space I = I_0 * cos(omega t + phi) $
+
+Die mittlere Leistung ist nun
+$ overline(P)_"el" = (U_0 * I_0)/T * integral^T_0 cos(omega t) * cos(omega t + phi) dif t = (U_0 * I_0)/2 * cos(phi) $
 
 === Strommessung bei Kondensator
 
-Ein Kondensator $C$ ist an eine AC-Spannung $U(T) = U_0 * exp(i omega t)$ angeschlossen (Bild). Der Strom wird mithilfe des Strommessgeräts A (mit internem Widerstand $R$) gemessen.
+Ein Kondensator $C$ ist an eine AC-Spannung $U(t) = U_0 * exp(i omega t)$ angeschlossen (Bild). Der Strom wird mithilfe des Strommessgeräts A (mit internem Widerstand $R$) gemessen.
 + Welcher Effektivwert wird in diesem Experiment angezeigt?
 + In welchem Frequenzbereich ist dem Wert zu trauen?
 
@@ -951,7 +1297,16 @@ Ein Kondensator $C$ ist an eine AC-Spannung $U(T) = U_0 * exp(i omega t)$ angesc
 
 #line(length: 100%)
 
-TODO
+a) Der Kondensator und der interne Widerstand des Strommessgeräts sind in Serie geschalten, d.h. die Impedanzen können einfach addiert werden:
+$ Z = Z_C + Z_R = 1/(i * omega * C) + R arrow.double |Z| = sqrt((1/(omega * C))^2 + R^2) $
+
+Nun kann der Strom berechnet werden. $I_0$ ist nur der Scheitelwert, um den Effektivwert zu erhalten, muss durch $sqrt(2)$ dividiert werden:
+$ I_0 = U_0/(|Z|) arrow.double I_"eff" = I_0/sqrt(2) = (U_0/sqrt((1/(omega * C))^2 + R^2))/sqrt(2) = U_0/sqrt(2*((1/(omega * C))^2 + R^2)) $
+
+b) Der interne Widerstand $R$ des Amperemeters soll den Kondensator nicht beeinflussen:
+$ R << 1/(omega * C) arrow.double omega << 1/(R * C) $
+
+Das heißt um den internen Widerstand zu minimieren und den Kondensatorwiderstand zu maximieren muss eine niedrige Frequenz verwendet werden.
 
 === Serienschwingkreis
 
@@ -961,7 +1316,13 @@ Ein Serienschwingkreis wird mit Spannung $U(t) = U_1 * e^(i omega t) + U_2 * e^(
 
 #line(length: 100%)
 
-TODO
+Alle drei Komponenten sind in Serie geschalten, d.h. ihre Impedanzen können einfach addiert werden:
+$ Z = Z_R + Z_L + Z_C = R + i * omega * L + 1/(i * omega * C) $
+
+Der Strom ist in einer Serienschaltung zwar überall gleich, da die gegebene Spannung aber zwei Frequenzen enthält, müssen diese beide einzeln behandelt werden:
+$ I_1 = U_1/(R + i * omega * L + 1/(i * omega * C)) $
+$ I_2 = U_2/(R + i * (2 omega) * L + 1/(i * (2 omega) * C)) $
+$ arrow.double I(t) = I_1 * e^(i omega t) + I_2 * e^(i 2 omega t) = U_1/(R + i * omega * L + 1/(i * omega * C)) * e^(i omega t) + U_2/(R + i * (2 omega) * L + 1/(i * (2 omega) * C)) * e^(i 2 omega t) $
 
 === Wheatstonesche Brücke
 
@@ -973,7 +1334,16 @@ Eine Wheatstonesche Brücke wird aus 4 Elementen und einem idealen Voltmeter auf
 
 #line(length: 100%)
 
-TODO
+a) Die Wheatstone Brücke kann als Spannungsteiler angesehen werden, wobei der "obere" und der "untere" Pfad unterschiedliche Spannungen aufweisen:
+$ U_U = U * R_1/(i * omega * L_1 + R_1), space space space U_O = U * R_2/(i * omega * L_2 + R_2) $
+
+Der vom Voltmeter angezeigte (komplexe) Spannungsunterschied ist $U_O - U_U$, da der Pfeil nach oben zeigt (d.h. + oben, - unten):
+$ U_V = U_O - U_U = U_0 * exp(i omega t) * (R_2/(i * omega * L_2 + R_2) - R_1/(i * omega * L_1 + R_1)) $
+
+b)
+$ U_V = 0 arrow.double R_2/(i * omega * L_2 + R_2) = R_1/(i * omega * L_1 + R_1) $
+$ R_2 * (i * omega * L_1 + R_1) = R_1 * (i * omega * L_2 + R_2) $
+$  R_2 * i * omega * L_1 + R_2 * R_1 = R_1 * i * omega * L_2 + R_1 * R_2 arrow.double L_1/R_1 = L_2/R_2 $
 
 === Wheatstonesche Brücke (2)
 
@@ -985,15 +1355,40 @@ Eine Wheatstonesche Brücke wird aus 4 Elementen und einem idealen Voltmeter auf
 
 #line(length: 100%)
 
-TODO
+a) Die Wheatstone Brücke kann als Spannungsteiler angesehen werden, wobei der "obere" und der "untere" Pfad unterschiedliche Spannungen aufweisen:
+$ U_U = U * R/(i * omega * L + R), space space space U_O = U * 1/(i * omega * C)/(1/(i * omega * C) + R) = 1/(1 + i * omega * C * R) $
 
-=== Schwingungsgleichung Serienresonanzkreis
+Der vom Voltmeter angezeigte (komplexe) Spannungsunterschied ist $U_O - U_U$, da der Pfeil nach oben zeigt (d.h. + oben, - unten):
+$ U_V = U_O - U_U = U_0 * exp(i omega t) * (1/(1 + i * omega * C * R) - R/(i * omega * L + R)) $
+
+b) 
+$ U_V = 0 arrow.double 1/(1 + i * omega * C * R) = R/(i * omega * L + R) $
+$ i * omega * L + R = R * (1 + i * omega * C * R) = R + i * omega * C * R^2 arrow.double L = C * R^2 $
+
+=== Schwingungsgleichung Serienresonanzkreis <schwingungsgleichung_serienschwingkreis>
 
 Stellen sie die Schwingungsgleichung für den gedämpften Serienresonanzkreis mit $C$, $R$ und $L$ auf. Behandlung mit den Lösungen Kriechfall, aperiodischer Grenzfall und gedämpfte Schwingung.
 
 #line(length: 100%)
 
-TODO
+Im Serienresonanzkreis gilt für die Maschenspannung $U_L + U_R + U_C = 0$, mit $U_R = R * I$, $U_L = L * dot(I)$ und $I = C * dot(U)_C$ folgt:
+$ L * C * dot.double(U)_C + R * C * dot(U)_C + U_C = 0 $
+
+Division durch $L * C$ liefert die Schwingungsgleichung:
+$ dot.double(U)_C + underbrace(R/L, = 2 delta) dot(U)_C + underbrace(1/(L C), = omega_0^2) U_C = 0 $
+
+Mit dem Exponentialansatz $U_C (t) = A * e^(lambda t)$ ergibt sich die charakteristische Gleichung:
+$ lambda^2 + 2 delta lambda + omega_0^2 = 0 => lambda_(1,2) = -delta plus.minus sqrt(delta^2 - omega_0^2) $
+
+Im Kriechfall ($delta > omega_0$, d.h. $R > 2 * sqrt(L/C)$) kehrt das System ohne Oszillation langsam in die Ruhelage zurück. Der Wert unter der Wurzel ist positiv und somit existieren zwei reelle Lösungen, d.h. die allgemeine Lösung lautet folgend, wobei $gamma := sqrt(delta^2 - omega_o^2)$:
+$ U_C (t) = e^(-delta t) * (A_1 * e^(+gamma t) + A_2 * e^(-gamma t)) $
+
+Beim aperiodischen Grenzfall ($delta = omega_0$, d.h. $R = 2 * sqrt(L/C)$) kehrt das System schnellstmöglich ohne Überschwingungen in die Ruhelage zurück (schneller als Kriechfall). Der Wert unter der Wurzel ist gleich null, was zu einer inneren Resonanzt bzw. doppelten Nullstelle $lambda_(1,2) = -delta$ führt, daher lautet die allgemeine Lösung:
+$ U_C (t) = e^(-delta t) * (A_1 + A_2 * t) $
+
+Bei der gedämpften Schwingung ($delta < omega_0$, d.h. $R < 2 * sqrt(L/C)$) klingt die Amplitude exponentiell ab, die Schwingung bleibt jedoch erhalten. Der Wert unter der Wurzel ist negativ und somit existieren zwei komplex konjugierte Lösungen $lambda_(1,2) = -delta plus.minus i sqrt(omega_0^2 - delta^2)$, d.h. die allgemeine Lösung lautet folgend, wobei $omega := sqrt(omega_0^2 - delta^2)$:
+
+$ U_C (t) = e^(-delta t) * (A_1 * e^(+i omega t) + A_2 * e^(-i omega t)) = e^(-delta t) * (B_1 * cos(omega t) + B_2 * sin(omega t)) $
 
 === RLC-Serienschwingkreis
 
@@ -1009,15 +1404,28 @@ TODO
 === Gemischter RLC-Schwingkreis
 
 Ein gemischter RLC-Schwingkreis wird mit der Wechselspannung $U(t) = U_0 * exp(i omega t)$ angetrieben. Berechnen Sie:
-+ die Spannung am Kondensator UC(t)
-+ den Strom durch den Widerstand
++ die Spannung am Kondensator $U_C (t)$
++ den Strom durch den Widerstand $R$
 (Einschaltvorgang vernachlässigen, Berechnung mit komplexen Zahlen).
 
 #image("assets/fragenkatalog/gemischter_schwingkreis.png")
 
 #line(length: 100%)
 
-TODO
+a) Zuerst kann der Schwingkreis zu einem Serienschwingkreis gemacht werden, in dem die Impedanzen der Induktivität $L$ und des ohmschen Widerstands $R$ kombiniert werden:
+$ Z_L = i * omega * L, space space space Z_R = R $
+$ arrow.double Z_"ges" = Z_C + (Z_L * Z_R)/(Z_L + Z_R) = 1/(i * omega * C) + (i * omega * L * R)/(i * omega * L + R) $
+
+Es gilt:
+
+$ U_C/U = Z_C/Z_"ges" arrow.double U_C/(U_0 * exp(i omega t)) = (1/(i * omega * C))/(1/(i * omega * C) + (i * omega * L * R)/(i * omega * L + R)) $
+$ = 1/(1 + (i^2 * omega^2 * C * L * R)/(i*omega*L + R)) = 1/((i*omega*L + R)/(i*omega*L + R) - (omega^2 * C * L * R)/(i*omega*L + R)) = (i*omega*L + R)/(i*omega*L + R - omega^2 * C * L * R) $
+$ arrow.double U_C (t) = U_0 * exp(i omega t) * (i*omega*L + R)/(i*omega*L + R - omega^2 * C * L * R) $
+
+b) Die Spannung an der Parallelschaltung ist $U_P = U - U_C$, also:
+$ U_P = U_0 * exp(i omega t) * (1 - (i*omega*L + R)/(i*omega*L + R - omega^2 * C * L * R)) $
+$ = U_0 * exp(i omega t) * ((-omega^2 * C * L * R)/(i*omega*L + R - omega^2 * C * L * R)) $
+$ arrow.double I_R = U_P/R = U_0 * exp(i omega t) * ((-omega^2 * C * L)/(i*omega*L + R - omega^2 * C * L * R)) $
 
 === RLC-Serienschwingkreis (2)
 
@@ -1028,11 +1436,23 @@ $ I(t) = cases(0 "if" t<0, I_0 * t/tau "if" t gt.eq 0) $
 
 b) Der Schwingkreis wird nun mit der Wechselspannung $U(t) = U_0 * exp(i omega t)$ angetrieben. Berechnen Sie die Amplitude der Spannung an der Spule $U_L (t)$ (Einschaltvorgang vernachlässigen).
 
-#image("assets/fragenkatalog/serienschwingkreis_3.png")
-
 #line(length: 100%)
 
-TODO
+a) Die Gesamtspannung setzt sich aus den drei Teilspannungen zusammen:
+$ U(t) = U_R + U_L + U_C = R * I + L * dot(I) + 1/C * integral I dif t $
+$ U_R = R*I = (R*I_0*t)/tau $
+$ U_L = L*dot(I) = (L*I_0)/tau $
+$ U_C = 1/C * integral^t_0 (I_0 * T)/tau dif T = (I_0 * t^2)/(2 * C * tau) $
+$ arrow.double U(t gt.eq 0) = (R*I_0*t)/tau + (L*I_0)/tau + (I_0 * t^2)/(2 * C * tau) = I_0/tau * (L + R * t + t^2/(2*C)) $
+
+b) Da es sich um einen Serienschwingkreis handelt, ist der Strom überall gleich:
+$ I = U/Z_"ges" = (U_0 * exp(i omega t))/(R + i * omega * L + 1/(i * omega * C)) $
+
+Die Spulenspannung lässt sich mit $U_L = Z_L * I$ berechnen:
+$ U_L = (U_0 * exp(i omega t) * i * omega * L)/(R + i * omega * L + 1/(i * omega * C)) $
+
+Die Amplitude lässt sich mit $(|U_L|)/U_0$ berechnen:
+$ A_L = (|U_L|)/U_0 = |exp(i omega t)| * sqrt((omega * L)^2)/sqrt(R^2 + (omega * L + 1/(omega * C))^2) = (omega * L)/sqrt(R^2 + (omega * L + 1/(omega * C))^2) $
 
 === RL-Schwingkreis
 
@@ -1041,9 +1461,31 @@ TODO
   $ I(t) = cases(0 "if" t<0, I_0 "if" t gt.eq 0) $
 + Berechnen Sie die Amplitude sowie die relative Phase der Spannung $U(t)$ für den Wechselstrom $I(t) = I_0 * exp(i omega t)$ (Einschaltvorgang vernachlässigen)
 
+#image("assets/fragenkatalog/serienschwingkreis_3.png")
+
 #line(length: 100%)
 
-TODO
+a) Da $L$ und $R$ parallel geschaltet sind, liegt an ihnen dieselbe Spannung $U(t)$, d.h.:
+$ I(t) = I_R + I_L = U/R + 1/L * integral U dif T $
+
+Ableiten nach $t$ beseitigt das Integral:
+$ dot(U) + R/L * U = R * dot(I) $
+
+b) Für $t > 0$ gilt $dot(I) = 0$, die Gleichung wird also homogen:
+$ dot(U) + R/L * = 0 arrow.double U(t) = A * exp(-(R*t)/L) $
+
+Anfangsbedingung bei $t = 0^+$: Die Induktivität verhindert einen sprungförmigen Stromanstieg, daher fließt der gesamte Strom zunächst durch $R$:
+$ U(0^+) = I_0 * R arrow.double A = I_0 * R arrow.double U(t) = I_0 * R * exp(-(R*t)/L) $
+
+Die Spannung klingt mit der Zeit exponentiell ab, für $t arrow infinity$ übernimmt die Spule den gesamten Strom, d.h. $U arrow 0$.
+
+c) Zuerst kann der Schwingkreis zu einem Serienschwingkreis gemachwt werden, um die Berechnung der Spannung bzw. ihrer Amplitude $A = U_0/I_0$ zu vereinfachen:
+$ Z_"ges" = (Z_L * Z_R)/(Z_L + Z_R) = (i * omega * L * R)/(i * omega * L + R) $
+$ arrow.double U_0/I_0 = |Z_"ges"| = sqrt((omega * L * R)^2)/sqrt(R^2 + (omega * L)^2) = (omega * L * R)/(sqrt(R^2 + omega^2 * L^2)) $
+
+Für die relative Phase einfach den Imaginär- durch den Realteil von $Z_"ges"$ im Arcustangens rechnen:
+$ Z_"ges" = (i * omega * L * R)/(i * omega * L + R) * (i * omega * L - R)/(i * omega * L - R) = (-omega^2*L^2*R - i*omega*L*R^2)/(-omega^2*L^2 - R^2) $
+$ arrow.double phi = arctan(((-omega*L*R^2)/(-omega^2*L^2 - R^2))/((-omega^2*L^2*R)/(-omega^2*L^2 - R^2))) = arctan((omega * L * R^2)/(omega^2 * L^2 * R)) = arctan(R/(omega * L)) $
 
 === RL-Schwingkreis (2)
 
@@ -1081,14 +1523,20 @@ $ U(t) = cases(0 "if" t<0, U_0 "if" t gt.eq 0) $
 
 #line(length: 100%)
 
-TODO
+a) Die Gesamtspannung setzt aus den zwei Teilspannungen zusammen:
+$ U(t) = U_C + U_L = 1/C * integral I dif t + L * dot(I) $
+
+Um daraus die Differentialgleichung zu erhalten, einfach alles einmal differenziern. $U(t)$ wird in beiden Fällen ($0$ oder $U_0 = "konst"$) zu null.
+$ arrow.double L * dot.double(I) + 1/C * I = 0 $
+
+b) TODO
 
 === RC-Schwingkreis
 
 + Stellen Sie die Differentialgleichung für den abgebildeten RC Schwingkreis auf
 + Berechnen Sie den Einschaltvorgang $I(t gt.eq 0)$ für folgende Spannung:
   $ U(t) = cases(0 "if" t<0, U_0 "if" t gt.eq 0) $
-+ Berechnen Sie den Strom für die Wechselspannung $U(t) = U_0 * exp(i omega t)$ (Einschaltvorgangvernachlässigen)
++ Berechnen Sie den Strom für die Wechselspannung $U(t) = U_0 * exp(i omega t)$ (Einschaltvorgang vernachlässigen)
 
 #image("assets/fragenkatalog/rc_schwingkreis.png")
 
@@ -1138,20 +1586,30 @@ Wie funktionieren Hoch- und Tiefpassfilter? (RC, RL)
 
 #line(length: 100%)
 
-TODO
+Ein elektrischer Hochpass ist eine Schaltung, die hohe Frequenzen $omega$ praktisch ungedämpft durchlässt, tiefe Frequenzen aber unterdrückt. Eine mögliche Realisierungsmöglichkeit ist ein RC-Differenziator (siehe @rc_diff), ein Hochpass kann aber auch induktiv (mit einer Spule) realisiert werden. Da Spulen jedoch anfälliger auf Störsignale sind, wird meistens eine RC-Schaltung verwendet.
 
-=== RC-Integrator
+#image("assets/fragenkatalog/hochpass.png")
+
+Ein Tiefpass ist eine Schaltung, die nur niedrige Frequenzen $omega$ ungedämpft durchlässt, während hohe Frequenzen unterdrückt werden. Eine mögliche Realisierungsmöglichkeit ist ein RC-Integrator (siehe @rc_int), ein Tiefpass kann aber auch induktiv (mit einer Spule) realisiert werden. Da Spulen jedoch anfälliger auf Störsignale sind, wird meistens eine RC-Schaltung verwendet.
+
+#image("assets/fragenkatalog/tiefpass.png")
+
+=== RC-Integrator <rc_int>
 
 Wie funktioniert ein RC-Integrator?
 
 #line(length: 100%)
 
-TODO
+Ein RC-Integrator ist eine einfache elektronische Schaltung aus einem in Reihe geschalteten Widerstand und Kondensator, die als Tiefpassfilter fungiert, um die mathematische Integration eines Eingangssignals durchzuführen.
 
-=== RC-Differenziator
+#image("assets/fragenkatalog/rc_int.jpg", width: 70%)
+
+=== RC-Differenziator <rc_diff>
 
 Wie funktioniert ein RC-Differenziator?
 
 #line(length: 100%)
 
-TODO
+Ein RC-Differenzierer ist eine passive elektronische Schaltung, die aus einem in Reihe geschalteten Kondensator und einem Widerstand besteht und als Hochpassfilter fungiert. Er erzeugt eine Ausgangsspannung, die proportional zur zeitlichen Änderungsrate (der Ableitung) des Eingangssignals ist.
+
+#image("assets/fragenkatalog/rc_diff.jpg", width: 70%)
