@@ -550,7 +550,7 @@ Diskutieren sie die unterschiedlichen Energien von a) und b).
 
 TODO
 
-=== Beziehungen dielektrische Verschiebungsdichte und elektrisches Feld
+=== Beziehungen dielektrische Verschiebungsdichte und elektrisches Feld <brechung_efeld>
 
 + Aus welchen Beziehungen ergibt sich die Stetigkeit der Tangential- bzw. der Normalkomponenten von $arrow(D)$ und $arrow(E)$? (Schematische Zeichnung)
 + welche Komponenten sind stetig?
@@ -558,7 +558,31 @@ TODO
 
 #line(length: 100%)
 
-TODO
+a) Wir denken uns eine Integration $integral.cont arrow(E) dif arrow(s)$ entlang dem rechteckigen Weg ABCD wie in der Abbildung gezeigt. Die Dicke $d$ dieses Rechtecks sei vernachlässigbar klein, sodass praktisch nur noch der "Hinweg" AB im Vakuum und der "Rückweg" CD im Dielektrikum übrig bleiben. Wegen
+$ integral_A^B arrow(E)^"Vak"_parallel dif arrow(s)_1 + integral_C^D arrow(E)^"Diel"_parallel dif arrow(s)_2 = integral.cont arrow(E) dif arrow(s) = 0 $
+und $dif arrow(s)_1 = - dif arrow(s)_2$ folgt:
+$ arrow(E)^"Vak"_parallel = arrow(E)^"Diel"_parallel $
+
+#image("assets/fragenkatalog/dielektrikum_brechung_parallel.png")
+
+b)
+#table(
+  columns: 4,
+  align: horizon,
+  inset: 8pt,
+  table.header(
+    [*Feldgröße*],
+    [*Komponente*],
+    [*Stetig?*],
+    [*Bedingung*]
+  ),
+  [$arrow(E)$], [Tangential/Parallel], [Ja], [Immer],
+  [$arrow(E)$], [Normal], [Nein], [Sprung um $epsilon_1/epsilon_2$],
+  [$arrow(D)$], [Tangential/Parallel], [Nein], [Sprung um $epsilon_2/epsilon_1$],
+  [$arrow(D)$], [Normal], [Ja], [keine freien Flächenladungen]
+)
+
+c) Trifft der $arrow(E)$-Vektor unter dem Winkel $alpha$ aus dem ersten Material ($epsilon_1$) auf die Grenzfläche auf, so bildet er im zweiten Material ($epsilon_2$) einen Winkel $beta$ mit der Grenzflächennormalen, für den wegen $E^"Vak"_perp = $ TODO
 
 === Zylinderkondensator mit Dielektrikum
 
@@ -568,7 +592,25 @@ TODO
 
 #line(length: 100%)
 
-TODO
+a) Für die Kapazität eines Kondensators mit einem Dielektrikum gilt $C = epsilon * Q/U$. Um auf das Potential im Zwischenbereich ($R_1 < r < R_2$) zu kommen, lässt sich zuerst das elektrische Feld mit dem Satz von Gauß berechnen:
+$ integral.cont arrow(E) dif arrow(A) = Q_"in"/epsilon_0 arrow.double E(r) = Q/(2pi * r * l * epsilon_0) $
+
+Für das Potential kann das elektrische Feld integriert werden:
+$ U = Phi(r) = - integral_(R_2)^(R_1) E(r) dif r = - integral_(R_2)^(R_1) Q/(2pi * r * l * epsilon_0) dif r = -Q/(2pi * l * epsilon_0) integral_(R_2)^(R_1) 1/r dif r $
+$ -Q/(2pi * l * epsilon_0) * (ln(R_1) - ln(R_2)) = Q/(2pi * l * epsilon_0) * ln(R_2/R_1) $
+
+Eingesetzt in die Formel für die Kapazität:
+$ C = epsilon * Q/U = epsilon * Q/(Q/(2pi * l * epsilon_0) * ln(R_2/R_1)) = (2pi * l * epsilon * epsilon_0)/ln(R_2/R_1) $
+
+b) Die Energie wird durch langsames Aufladen von $q = 0$ auf $q = Q$ gewonnen jedes Ladungsinkrement $dif q$ muss gegen die bereits vorhandene Spannung $U=Q/C$ verschoben werden:
+$ dif W = U * dif q = q/C dif q $
+$ W = integral_0^Q q/C dif q = 1/C * Q^2/2 = Q^2/(2*C) $
+
+Mit $Q = C * U$ lässt sich das folgend umschreiben:
+$ W = Q^2/(2*C) = 1/2 * Q * U = 1/2 * C * U^2 $
+
+c) Aus der Sicht der Elektrostatik ist die dielektrischen Konstante eines Metalls unendlich groß, da im Inneren kein elektrisches Feld existiert.
+$ arrow(D) = epsilon * epsilon_0 * arrow(E) arrow.double epsilon = D/(epsilon_0 * E) = D/(epsilon_0 * 0) arrow infinity $
 
 === Elektrisches Feld eines unendlichen, dielektrischen Stabes
 
@@ -580,7 +622,7 @@ Ein unendlich langer dielektrischer Stab (Dielektrizitätskonstante $epsilon$) m
 
 #line(length: 100%)
 
-TODO
+a) 
 
 === Dielektrische Kugel mit eingebrachter Ladung
 
@@ -870,7 +912,11 @@ Ein Stab der Länge $L$ rotiert mit der Winkelgeschwindigkeit $omega$ um eines s
 
 #line(length: 100%)
 
-TODO
+Ein Ladungsträger im rotierenden Stab erfährt die Lorentzkraft $arrow(F) = q * (arrow(v) times arrow(B))$. Ein Stabelement $dif r$ im Abstand $r$ vom Drehpunkt bewegt sich mit der Bahngeschwindigkeit $v = omega * r$ senkrecht zum Stab, und da $arrow(B)$ senkrecht auf die Rotationsebene steht ist die Kraftkomponente entlang des Stabes somit $F_r = q * omega * r * B$. Das entspricht folgender induzierten Feldstärke pro Element:
+$ F_r/q dif r = omega * r * B dif r $
+
+Integriert über die Stablänge:
+$ U = integral^L_0 omega * r * B dif r = (omega * L^2 * B)/2 $
 
 === Magnetfeld einer kreisförmigen Leiterschleife
 
@@ -878,7 +924,26 @@ Berechnen sie das Magnetfeld einer kreisförmigen Leiterschleife mit dem Biot-Sa
 
 #line(length: 100%)
 
-TODO
+Das Biot-Savart-Gesetz im Demtröder:
+$ arrow(B)(arrow(r)_1) = - mu_0/(4pi) * I * integral (hat(e)_12 times dif arrow(s))/r^2_12 = - mu_0/(4pi) * I * integral (dif arrow(s) times arrow(r)_12)/r^3_12 $
+
+Liegt die Stromschleife in der $x,y$-Ebene, so hat nach dem Biot-Savart-Gesetz das Magnetfeld in der Schleifenebene nur eine $z$-Komponente, deren Betrag im Aufpunkt $P_1(x,y,0)$ wegen $|hat(e)_12 times dif arrow(s)| = sin(phi) dif s$ den Wert
+$ B_Z = mu_0/(4pi) * I * integral.cont sin(phi)/(r^2_12) dif s $
+hat. Im Mittelpunkt des Kreises ist $r_12 = R$ und $phi = pi/2$, sodass man dort erhält:
+$ B_Z = (mu_0 * I)/(2 * R) $
+
+Auf der Symmetrieachse erhalten wir aus dem Biot-Savart-Gesetz den Beitrag $dif arrow(B)$ des Wegelements $dif s$ zum Magnetfeld $arrow(B)$:
+$ dif arrow(B) = - mu_0/(4pi) * I * (arrow(r) times dif arrow(s))/r^3 $
+
+Bei der Integration über alle Wegelemente des Kreises mitteln sich die Komponenten $dif B_perp = dif B * sin(alpha)$ senkrecht zur Symmetrieachse zu null. Es bleibt nur die Parallelkomponente $dif B_parallel = dif B * cos(alpha)$, die bei der Integration wegen $|arrow(r) times dif arrow(s)| = R/cos(alpha) dif s$ ergibt:
+$ B_parallel = B_Z = integral abs(dif B_parallel) = integral abs(dif B) * cos(alpha) $
+
+Einsetzen von $dif arrow(B)$ liefert:
+$ B_Z (z) = (mu_0 * I)/(4pi * r^3) * integral.cont R * dif s = (mu_0 * I * R)/(4pi * r^3) * 2pi * R = (mu_0 * I * R^2)/(2 * (z^2 + R^2)^(3/2) $
+
+#image("assets/fragenkatalog/kreis_stromschleife.png")
+
+#image("assets/fragenkatalog/feldverlauf_kreis_stromschleife.png")
 
 === Magnetfeld zweier zueinander parallelen Stromleitungen
 
@@ -886,9 +951,19 @@ Zwei zueinander parallele unendlich lange Stromleitungen tragen gleichen Strom $
 + Berechnen Sie das magnetische Feld entlang der $x$-Achse $(x,0,0)$ und der $y$-Achse $(0,y,0)$
 + Berechnen Sie den ersten nicht-verschwindenden Term der Taylor-Entwicklung beider Formeln für $1/x,1/y << 1/d$
 
+#image("assets/fragenkatalog/parallele_stromleitungen.svg")
+
 #line(length: 100%)
 
-TODO
+a) Die Magnetfeldlinien um einen vom Strom $I$ durchflossenen Draht sind konzentrische Kreise, auf denen jeweils $abs(arrow(B) (arrow(r))) = "const"$ gilt, d.h.:
+$ integral.cont arrow(B) * dif arrow(s) = integral^(2pi)_0 r * B * dif phi = r * B(r) * 2pi = mu_0 * I arrow.double B(r) = (mu_0 * I)/(2pi * r) $
+
+Da der Strom in die gleiche Richtung fließt, sind die Magnetfelder im Mittelpunkt zwischen den Leitungen entgegengesetzt. Man kann sie mit Addition bzw. Subtraktion für die $x$-Achse zusammenfügen, wobei sie immer in Richtung von $hat(y)$ zeigen:
+$ arrow(B)(x) = (mu_0 * I)/(2pi * (d+x))*hat(y) - (mu_0 * I)/(2pi * (d-x))*hat(y) = (mu_0 * I)/(2pi) * (1/(d-x) - 1/(d+x))*hat(y) $
+$ = (mu_0 * I)/(2pi) * (d - x - d - x)/(d^2 - x^2)*hat(y) = -(mu_0 * I * x)/(pi * (d^2 - x^2))*hat(y) $
+
+Für die $y$-Achse gilt das gleiche, aber diesmal sind beide Leiter immer gleich weit entfernt. Es kommt auch noch eine $hat(x)$-Komponente hinzu:
+$ arrow(B)(y) = (mu_0 * I)/(2pi * sqrt(d^2+x^2))*vec(-y, -d, 0) + (mu_0 * I)/(2pi * sqrt(d^2+x^2))*vec(-y, +d, 0) = -(mu_0 * I * y)/(pi * sqrt(d^2+x^2))*hat(x) $
 
 === Kraft zwischen zwei zueinander parallelen Stromleitungen
 
@@ -896,7 +971,16 @@ Zwei zueinander parallele unendlich lange Stromleitungen tragen gleichen Strom $
 
 #line(length: 100%)
 
-TODO
+Die Kraft auf eine Ladung $dif q = rho * A * dif L$, die mit der Driftgeschwindigkeit $arrow(v)_D$ durch den Leiter 1 mit Querschnitt $A$ und Länge $dif L$ im Magnetfeld $arrow(B)$ des Leiters 2 fließt, ist die Lorentzkraft:
+$ dif arrow(F) = dif q * (arrow(v)_D times arrow(B)) = I_1 * (dif arrow(L) times arrow(B)) $
+
+Die Magnetfeldlinien um einen vom Strom $I$ durchflossenen Draht sind konzentrische Kreise, auf denen jeweils $abs(arrow(B) (arrow(r))) = "const"$ gilt, d.h.:
+$ integral.cont arrow(B) * dif arrow(s) = integral^(2pi)_0 r * B * dif phi = r * B(r) * 2pi = mu_0 * I arrow.double B(r) = (mu_0 * I)/(2pi * r) $
+
+Das Magnetfeld des Drahtes 2 ist somit
+$ arrow(B) = (mu_0 * I)/(2pi * r) * hat(e)_phi $
+wobei $hat(e)_phi$ der Einheitsvektor der Tangente an einen Kreis um den Draht ist. Bei parallelen Drähten in $z$-Richtung gilt: $arrow(B) perp arrow(v)_D$. Der Betrag pro Kraft pro Einheit Drahtlänge $L$ ist dann bei einem Abstand $r = d$ zwischen den Drähten folgender:
+$ F/L = I * (mu_0 * I)/(2pi * d) = (mu_0 * I^2)/(2pi * d) $
 
 === Magnetfeld eines langen Zylinders
 
@@ -944,7 +1028,22 @@ Berechnen Sie die Induktivität einer Doppelleitung (Abstand $d$, Radien $R$, St
 
 #line(length: 100%)
 
-TODO
+Die Magnetfeldlinien um einen vom Strom $I$ durchflossenen Draht sind konzentrische Kreise, auf denen jeweils $abs(arrow(B) (arrow(r))) = "const"$ gilt, d.h.:
+$ integral.cont arrow(B) * dif arrow(s) = integral^(2pi)_0 r * B * dif phi = r * B(r) * 2pi = mu_0 * I arrow.double B(r) = (mu_0 * I)/(2pi * r) $
+
+Wenn die Leitungen in $z$-Richtung laufen, liegt das magnetische Feld in der $x,y$-Ebene. Auf der Verbindungslinie zwischen den beiden Drähten, die wir als $x$-Achse wählen, gilt für den Betrag außerhalb der Drähte:
+$ B(x) = (mu_0 * I)/(2pi * (d/2 + x)) + (mu_0 * I)/(2pi * (d/2 - x)) = (mu_0 * I)/(2pi) * (1/(d/2 + x) + 1/(d/2 - x)) $
+
+Wenn das Magnetfeld im Inneren der Leitungen vernachlässigt wird (wie in der Angabe erlaubt), lässt sich der magnetische Fluss durch ein Stück der Doppelleitung mit der Länge $l$ durch die Fläche $A = d * l$ in der $x,z$-Ebene folgend berechnen:
+$ Phi = l * integral^(d/2 - R)_(-d/2 + R) (mu_0 * I)/(2pi) * (1/(d/2 + x) + 1/(d/2 - x)) dif x $
+$ = l * (mu_0 * I)/(2pi) * (integral^(d/2 - R)_(-d/2 + R) 1/(d/2 + x) dif x + integral^(d/2 - R)_(-d/2 + R) 1/(d/2 - x) dif x) $
+$ = l * (mu_0 * I)/(2pi) * (ln(abs(d/2 + d/2 - R)) - ln(abs(d/2 - d/2 + R)) - (ln(abs(d/2 - d/2 + R)) - ln(abs(d/2 + d/2 - R)))) $
+$ = l * (mu_0 * I)/(2pi) * (ln((d-R)^2) - ln(R^2)) = (mu_0 * I * l)/pi * (ln(d-R) - ln(R)) = (mu_0 * I * l)/pi * ln((d-R)/R) $
+
+Damit wird der Selbstinduktionskoeffizient
+$ L = Phi/l = (mu_0 * I)/pi * ln((d-R)/R) $
+
+Das Magnetfeld im Leiterinneren verschwindet genau dann, wenn der Strom ausschließlich auf der Oberfläche fließt (Oberflächenstrom). Das ist der Grenzfall des Skineffekts bei hohen Frequenzen.
 
 == Kraft auf bewegte Ladungen; Elektrodynamik bewegter Körper; Materie im Magnetfeld
 
@@ -980,11 +1079,13 @@ Zeigen Sie, dass die kinetische Energie eines Teilchens im Magnetfeld konstant b
 
 #line(length: 100%)
 
-TODO
+Die kinetische Energie eines Teilchens im Magnetfeld ist konstant, weil die Lorentzkraft immer senkrecht zum Geschwindigkeitsvektor des Teilchens steht, wodurch keine Arbeit am Teilchen verrichtet wird ($W = integral F * dif s = 0$).
 
-=== Brechungsgesetz Magnetfeld
+Für die Brechungsgesetze siehe @brechung_efeld und @brechung_mfeld
 
-Leiten sie das Brechungsgesetz für $arrow(b)$ und $arrow(H)$ an einer Grenzfläche von zwei Materialien mit $mu_1 > mu_2$ ab; welche Komponenten sind stetig und welche sind unstetig.? (Schematische Zeichnung) Wie lauten die analogen Beziehungen in der Elektrostatik?
+=== Brechungsgesetz Magnetfeld <brechung_mfeld>
+
+Leiten sie das Brechungsgesetz für $arrow(B)$ und $arrow(H)$ an einer Grenzfläche von zwei Materialien mit $mu_1 > mu_2$ ab; welche Komponenten sind stetig und welche sind unstetig.? (Schematische Zeichnung) Wie lauten die analogen Beziehungen in der Elektrostatik?
 
 #line(length: 100%)
 
@@ -1007,7 +1108,26 @@ TODO
 
 #line(length: 100%)
 
-TODO
+a) Auf das geladene Teilchen wirkt die Lorentzkraft $arrow(F) = q*(arrow(E) + arrow(v) times arrow(B))$:
+$ arrow(F) = m*arrow(a) = q*(arrow(E) + arrow(v) times arrow(B)) = q*(vec(0,0,E_0) + vec(v_x, v_y, v_z,) times vec(0,0,B_0)) = q*vec(v_y * B_0, -v_x * B_0, E_0) $
+
+Aufgeteilt auf die einzelnen Komponenten ergeben sich folgende Bewegungsgleichungen:
+$ dot(v)_x = q/m * v_y * B_0 $
+$ dot(v)_y = -q/m * v_x * B_0 $
+$ dot(v)_z = q/m * E_0 $
+
+b) Es gilt die Anfangsbedingung $arrow(v)(0) = (v_0,v_0,v_0)$. Leider sind die $x$- und $y$-Komponenten miteinander gekoppelt, was das Berechnen der Geschwindigkeiten erschwierigt. Es kann jedoch folgender komplexer Trick angewendet werden:
+$ w(t) = v_x (t) + i * v_y (t) $
+$ arrow.double dot(w) = dot(v)_x + i*dot(v)_y = q/m * v_y * B_0 - i * q/m * v_x * B_0 = -i * q/m * B_0 *underbrace((v_x + i*v_y), w(t)) $
+$ dot(w) = -i * q/m * B_0 * w arrow.double w(t) = w(0) * exp(-i * q/m * B_0 * t) $
+$ w(0) = v_0 + i * v_0 = v_0 * (1+i) $
+
+Zur Vereinfachung der Notation kann die Zyklotronfrequenz $omega = q/m * B_0$ verwendet werden. Nun für die einzelnen Geschwindigkeitskomponenten einfach mit $exp(-i * omega * t) = cos(omega * t) - i * sin(omega * t)$ ausmultiplizieren:
+$ w(t) = v_0 * (1+i) * (cos(omega t) - i * sin(omega t)) = v_0 * (underbrace((cos(omega t) + sin(omega t)), v_x (t)) - i*underbrace((cos(omega t) - sin(omega t)), v_y (t))) $
+
+Die $z$-Komponente der Geschwindigkeit ist entkoppelt und somit einfach durch Integration berechenbar:
+$ dot(v)_z = q/m * E_0 arrow.double v_z (t) = v_0 + q/m * E_0 * t $
+$ arrow.double arrow(v)(t) = vec(v_0*(cos(omega t) + sin(omega t)), v_0*(cos(omega t) - sin(omega t)), v_0 + q/m * E_0 * t) $
 
 === Bewegungsgleichungen geladenes Teilchen (2)
 
@@ -1017,7 +1137,38 @@ TODO
 
 #line(length: 100%)
 
-TODO
+a) Auf das geladene Teilchen wirkt die Lorentzkraft $arrow(F) = q*(arrow(E) + arrow(v) times arrow(B))$:
+$ arrow(F) = m*arrow(a) = q*(arrow(E) + arrow(v) times arrow(B)) = q*(vec(0,0,0) + vec(v_x, v_y, v_z,) times vec(0,B,B)) = q*vec(v_y * B - v_z * B, -v_x * B, v_x * B) $
+
+Aufgeteilt auf die einzelnen Komponenten ergeben sich folgende Bewegungsgleichungen:
+$ dot(v)_x = q/m * B * (v_y - v_z) $
+$ dot(v)_y = -q/m * v_x * B $
+$ dot(v)_z = q/m * v_x * B $
+
+b) Die einzelnen Geschwindigkeitskomponenten sind miteinander gekoppelt, was das Berechnen der Geschwindigkeiten erschwierigt. Es kann jedoch beobachtet werden, dass $dot(v)_y + dot(v)_z = 0$ gilt, also:
+$ v_y + v_z = C_1 = "const" $
+
+Die Entkopplung kann nun mittels $u := v_y - v_z$ durchgeführt werden:
+$ dot(u) = dot(v)_y - dot(v)_z = -q/m * v_x * B - q/m * v_x * B = -2 * q/m * v_x * B $
+
+Zusammen mit $dot(v)_x = q/m * B * u$ und zur Vereinfachung der Notation die Zyklotronfrequenz $omega = q/m * B_0$ ergibt die Differentiation folgendes:
+$ dot.double(v) = omega * dot(u) = -2 * omega^2 * v_x arrow.double dot.double(v)_x + 2 * omega^2 * v_x 0 = 0 $
+
+Die effektive Kreisfrequenz ist $tilde(omega) = sqrt(2) * omega$. Damit:
+$ v_x (t) = C_2 * cos(tilde(omega) t) + C_3 * sin(tilde(omega) t) $
+$ u = dot(v)_x/omega = 1/omega * dif/(dif t)(C_2 * cos(tilde(omega) t) + C_3 * sin(tilde(omega) t)) = sqrt(2)*(-C_2 * sin(tilde(omega) t) + C_3 * cos(tilde(omega) t)) $
+
+Mit $v_y = (C_1 + u)/2$ und $v_z = (C_1 - u)/2$:
+$ v_y (t) = C_1/2 + sqrt(2)/2 * (-C_2 * sin(tilde(omega) t) + C_3 * cos(tilde(omega) t)) $
+$ v_z (t) = C_1/2 - sqrt(2)/2 * (-C_2 * sin(tilde(omega) t) + C_3 * cos(tilde(omega) t)) $
+
+c) Es gilt die Anfangsbedingung $arrow(v)(0) = (0,0,v_0)$. Eingesetzt für die einzelnen Geschwindigkeitskomponenten ergibt sich folgendes:
+$ v_x (0) = C_2 * cos(0) + C_3 * sin(0) = v_0 arrow.double C_2 = v_0 $
+$ v_y (0) = C_1/2 + sqrt(2)/2 * (-C_2 * sin(0) + C_3 * cos(0)) = v_0 arrow.double C_1/2 + sqrt(2)/2 * C_3 = v_0 $
+$ v_z (0) = C_1/2 - sqrt(2)/2 * (-C_2 * sin(0) + C_3 * cos(0)) = v_0 arrow.double C_1/2 - sqrt(2)/2 * C_3 = v_0 $
+
+Wenn man nun $v_y (0)$ und $v_z (0)$ in einem Gleichungssystem zusammenaddiert, kommt man auf $C_1 = 0$ und durch das Einsetzen von $C_1$ auf $C_3 = 0$.
+$ arrow(v)(t) = vec(v_0 * cos(sqrt(2) omega t), -v_0/sqrt(2) * sin(sqrt(2) omega t), v_0/sqrt(2) * sin(sqrt(2) omega t)) $
 
 === Magnetfeld torusförmiger Eisenkern
 
@@ -1027,7 +1178,14 @@ Ein torusförmiger Eisenkern (magnetische Permeabilität $mu$) mit dem mittleren
 
 #line(length: 100%)
 
-TODO
+Amperesches Gesetz: Das Linienintegral des Magnetfelds entlang einer geschlossenen Kurve ist gleich der magnetischen Feldkonstante multipliziert mit dem eingeschlossenen Strom. Da es sich hier um eine Spule handelt, muss $N$ für die Windungszahl hinzumultipliziert werden:
+$ integral.cont arrow(B) dif arrow(l) = mu_0 * N * I arrow.double integral.cont arrow(H) dif arrow(s) = N * I $
+
+Wenn man das Linienintegral für die torusförmige Spule auflöst:
+$ H_"Kern" * pi * d + H_"Luft" * s = N * I arrow.double B_"Kern"/mu * pi * d + B_"Luft" * s = mu_0 * N * I $
+
+B bleibt an der Grenzfläche zwischen Eisenkern und Luftspalt stetig:
+$ B_"Luft" * ((pi * d)/mu + s) = mu_0 * N * I arrow.double B_"Luft" = (mu_0 * N * I)/((pi * d)/mu + s) $
 
 === Drehende Scheibe im Magnetfeld
 
@@ -1143,7 +1301,7 @@ Eine Drahtschleife umschließt eine Fläche, die senkrecht zu den Feldlinien ein
 
 #line(length: 100%)
 
-TODO
+TODO (Demtröder Aufgabe 4.1)
 
 === Rotierende quadratische Spule
 
@@ -1151,7 +1309,20 @@ In einem homogenen Magnetfeld $B$ befindet sich eine quadratische Spule der Seit
 
 #line(length: 100%)
 
-TODO
+Skizze (Seitenlänge $L$ mit $a$ ersetzen):
+#image("assets/fragenkatalog/rotierende_quad_spule.png")
+
+Der magnetische Fluss $Phi$, der beim Winkel $phi$ der Leiterschleife zum Magnetfeld $B$ durch eine Leiterschleife geht, lässt sich mit einem Flächenintegral berechnen:
+$ Phi = integral arrow(B) dif arrow(A) = B * A * cos(phi) $
+
+Zu einem bestimmten Zeitpunkt $t$ ist der Winkel $phi = omega * t$, d.h.:
+$ Phi(t) = B * A * cos(omega * t) $
+
+Die induzierte Spannung in einer Leiterschleife bzw. Spule mit $N$ Windungen ist laut Faradayschem Induktionsgesetz folgende:
+$ U(t) = -N * (dif Phi)/(dif t) = -N * B * A * omega * -sin(omega * t) = N * B * A * omega * sin(omega * t) $
+
+Mit dem Ohmschen Gesetz $U = R * I$ kommt man auf die Stromstärke:
+$ U(t) = R * I(t) arrow.double I(t) = U(t)/R = (N * B * A * omega * sin(omega * t))/R $
 
 === Bewegender Stab im Magnetfeld
 
@@ -1165,11 +1336,22 @@ TODO
 
 === Messung Störfeld
 
-Zur Messung eines von der Netzspannung (Frequenz $f = 50 "Hz"$) herrührenden Magnetischen Störfeldes befindet sich eine Spule der Fläche $A$ und Windungszahl $N$ an dem zu untersuchenden Ort. Durch Verändern der Orientierung der Spule im Raum findet man diejenige Richtung heraus, bei der die induzierte Wechselspannung ihren größten gemessenen Effektivwert $U_0$ hat. Welchen Wert hat die Amplitude der magnetischen Feldstärke $H_0$?
+Zur Messung eines von der Netzspannung (Frequenz $f = 50 "Hz"$) herführenden Magnetischen Störfeldes befindet sich eine Spule der Fläche $A$ und Windungszahl $N$ an dem zu untersuchenden Ort. Durch Verändern der Orientierung der Spule im Raum findet man diejenige Richtung heraus, bei der die induzierte Wechselspannung ihren größten gemessenen Effektivwert $U_0$ hat. Welchen Wert hat die Amplitude der magnetischen Feldstärke $H_0$?
 
 #line(length: 100%)
 
-TODO
+Der magnetische Fluss $Phi$, der beim Winkel $phi$ der Leiterschleife zum Magnetfeld $B$ durch eine Leiterschleife geht, lässt sich mit einem Flächenintegral berechnen:
+$ Phi = integral arrow(B) dif arrow(A) = B_0 * A * cos(2pi * f * t) $
+
+Die induzierte Spannung in einer Leiterschleife bzw. Spule mit $N$ Windungen ist laut Faradayschem Induktionsgesetz folgende:
+$ U(t) = -N * (dif Phi)/(dif t) = -N * B_0 * A * 2pi * f * -sin(2pi * f * t) $
+$ = N * B_0 * A * 2pi * f * sin(2pi * f * t) $
+
+Die induzierte Spannung ist maximal, wenn die Spulenfläche parallel zum Magnetischen Störfeld $B$ ausgerichtet ist. In diesem Fall ist die Spitzenamplitude und der gemessene Effektiwert folgender:
+$ U_"max" = N * B_0 * A * 2pi * f arrow.double U_0 = (N * B_0 * A * 2pi * f)/sqrt(2) $
+
+Mit $B_0 = mu_0 * H_0$ auflösen:
+$ B_0 = (U_0 * sqrt(2))/(2pi * f * N * A) arrow.double H_0 = (U_0 * sqrt(2))/(mu_0 * 2pi * f * N * A) $
 
 === Koaxiale Spulen
 
@@ -1244,7 +1426,23 @@ Das Minuszeichen zeigt an, dass bei gleichsinniger Wicklung von Primär- und Sek
 
 #line(length: 100%)
 
-TODO
+a) #image("assets/fragenkatalog/high-voltage-transmission-preview.svg", width: 90%)
+
+Laut $U_1/U_2 = N_1/N_2$ ist im linken Trafo die Spule des Kraftwerk-Netzes diejenige mit einer geringeren Windungszahl als die Spule des Hochspannungsnetzes. 
+$ (10000"V")/(380000"V") = N_1 / N_2 arrow.double N_2 > N_1 $
+
+Im rechten Trafo sind die Windungszahlen umgekehrt, da nun die Spule für das Hochspannungsnetz auf der anderen Seite ist.
+$ (380000"V")/(230"V") = N_1 / N_2 arrow.double N_1 > N_2 $
+
+b) Die Leistungsverluste sind umso kleiner je höher die Spannung ist:
+$ Delta P_"Leit" = Delta U_"Leit" * I = R_"Leit" * I^2 $
+$ P_"Über" = U_"Netz" * I $
+$ arrow.double (Delta P_"Leit")/P_"Über" = (R_"Leit" * I^2)/(U_"Netz" * I) = (R_"Leit")/(U_"Netz")^2 * P_"Über" prop 1/(U_"Netz")^2 * P_"Über" $
+
+c) TODO
+
+d) $ U_1/U_2 = N_1/N_2 arrow.double (220 "kV")/(220 "V") = 1000 $
+Die Primärspule (Hochspannungsseite) hat 1000-mal mehr Windungen als die Sekundärspule.
 
 === Komplexer Widerstand
 
