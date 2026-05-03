@@ -73,7 +73,7 @@
 
 = Festkörper und Hydrostatik
 
-== Verformung fester Körper
+== Verformung fester Körper <verformung_festkoerper>
 
 + Mit welchem Gesetz lässt sich die Verformung eines ideal elastischen Körpers beschreiben?
 + Skizzieren Sie allgemein ein Spannungs/Dehnungsdiagramm und beschreiben Sie die unterschiedlichen Bereiche der Verformung.
@@ -100,7 +100,18 @@ c) TODO
 
 #line(length: 100%)
 
-TODO
+a) Für Diagramm siehe @verformung_festkoerper
+
+Die Verformungsarbeit $dif W$, die nötig ist, um den Körper um $Delta epsilon$ zu dehnen, entspricht dem Flächenstreifen unter der $sigma(epsilon)$-Kurve:
+$ dif W = sigma(epsilon) * Delta epsilon $
+
+b) Ja, denn beim Be- und Entlasten folgen Belastungs- und Entlastungskurve unterschiedlichen Pfaden (Hysterese). Die beim Belasten zugeführte Energie ist größer als die beim Entlasten zurückgewonnene. Die Differenz wird als Wärme dissipiert.
+
+c) Um einen Quader mit Querschnitt $q$ und Länge $L$ um $Delta L$ zu dehnen, wird folgende Arbeit aufgewendet:
+$ W = integral^(Delta L)_0 F dif L = integral^(Delta L)_0 q * sigma dif L = integral^epsilon_0 q * sigma * L dif epsilon $
+
+Solange das Hookesche Gesetz gilt, ist $sigma = E * epsilon$, und man erhält für die elastische Energie eines um $Delta L$ verlängerten Körpers:
+$ W = integral^epsilon_0 q * E * epsilon * L dif epsilon = 1/2 * q * E * epsilon^2 * L  $
 
 == Verformung realer Festkörper
 
@@ -110,7 +121,9 @@ TODO
 
 #line(length: 100%)
 
-TODO
+a) Für Diagramm siehe @verformung_festkoerper
+
+b) c) TODO
 
 == Biegesteifigkeit
 
@@ -120,7 +133,11 @@ TODO
 
 #line(length: 100%)
 
-TODO
+a) Die Länge $L$ des Balkens, denn die Durchbiegung $s$ wächst mit $L^3$ und ist umgekehrt proportional zur dritten Potenz der Balkendicke $d$.
+
+b) Flächenträgheitsmoment des Balkenquerschnittes
+
+c) Die Durchbiegung des einseitig eingespannten Balkens ist größer, denn wie in a) bereits gesagt ist die Länge $L$ des Balkens vom befestigten Balkenende ausschlaggebend für die maximale Durchbiegung. Ein beidseitig befestigter Balken hat somit die max. Durchbiegung in der Mitte bei $L/2$, diese ist jedoch um einen Faktor $16$ kleiner als bei einseitiger Einspannung.
 
 == Hydrostatik und Auftrieb <hydrostatik_auftrieb>
 
@@ -330,7 +347,8 @@ $ n = floor (360"kg")/(70"kg") floor.r = 5 "Personen" $
 
 a) Die Viskosität einer Flüssigkeit ist ein Maß für deren inneren Widerstand gegen Fließen oder Scherung. Sie gibt an, wie stark benachbarte Flüssigkeitsschichten aneinander haften und sich relativ zueinander bewegen können. Je höher die Viskosität einer Flüssigkeit, desto zähflüssiger ist sie.
 
-b) c) TODO
+b) An der Grenzgeschwindigkeit $v$ heben sich alle Kräfte auf, d.h.:
+$ rho_K * 4/3 pi * r^3 * g - rho_F * 4/3 pi * r^3 * g -  $ TODO
 
 == Bernoulli-Gleichung <bernoulli>
 
@@ -361,7 +379,16 @@ $ Delta p = rho * g * Delta h arrow.double Delta h = (Delta p)/(rho * g) = (1/2 
 
 #line(length: 100%)
 
-a) TODO
+a) Die mathematische Form des Geschwindigkeitsprofils einer laminaren Strömung durch ein Rohr ist ein Rotationsparaboloid. Für die genaue Formel/Berechnung siehe Unterpunkt b).
+#figure(
+    grid(
+        columns: 2,
+        gutter: 3em,
+        align: horizon,
+        image("assets/fragenkatalog/geschwindigkeitsprofil_1.png", width: 90%),
+        image("assets/fragenkatalog/geschwindigkeitsprofil_2.png", width: 90%),
+    ),
+)
 
 b) Aus dem Geschwindigkeitsprofil kann entnommen werden, dass eine Druckdifferenz ($p_1 - p_2$) zwischen den Ebenen $z = 0$ und $z = L$ eines Kreiszylinders mit Radius $R$ eine stationäre Strömung aufrechterhalten wird. Aus Symmetriegründen kann die Strömungsgeschwindigkeit $v$ nur von der Entfernung $r$ von der Zylinderachse abhängen. Für einen koaxialen Teilzylinder mit Radius $r$ gilt, analog zu der Betrachtung im vorigen Abschnitt bei Gleichsetzung von Reibungskraft auf die Zylinderoberfläche und Nettodruckkraft auf die Stirnflächen:
 $ -eta * 2 r pi * L (dif v)/(dif r) = r^2 pi * (p_1 - p_2) $
