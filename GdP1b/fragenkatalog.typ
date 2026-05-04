@@ -371,7 +371,7 @@ Um die Höhendifferenz $h$ im U-Rohr zu bestimmen ist der Druckunterschied zwisc
 $ Delta p = p_1 - p_2 = 1/2 * rho_"W" * (v_2^2 - v_1^2) = 1/2 * rho_"W" * v_1^2 * ((S_1/S_2)^2 - 1) $
 $ Delta p = rho * g * Delta h arrow.double Delta h = (Delta p)/(rho * g) = (1/2 * rho_"W" * v_1^2 * ((S_1/S_2)^2 - 1))/(rho * g) $
 
-== Laminare Strömung
+== Laminare Strömung <laminare_stroemung>
 
 + Skizzieren und erklären Sie das Geschwindigkeitsprofil einer laminaren Strömung durch ein Rohr? Geben Sie dessen mathematische Form an.
 + Leiten Sie aus dem Geschwindigkeitsprofil das Gesetz von Hagen-Poiseuille her
@@ -445,9 +445,9 @@ $ arrow.double S_2 = (2.8 * 10^(-3) "m"^3/"s")/sqrt((150 * 10^3 "Pa" + 1/2 * 100
 
 a) Siehe @viskose_fl
 
-b) c) TODO
+b) c) Siehe @stroemung_in_roehren
 
-== Strömung in Röhren
+== Strömung in Röhren <stroemung_in_roehren>
 
 + Berechnen Sie des Geschwindigkeitsprofil in einer Röhre des Radius $R$ und der Länge $L$ bei gegebener Viskosität $eta$, und daraus die Stärke des Volumensstroms $I = (dif V)/(dif t)$. Der Druck am Rohranfang sei $p_1$, am Rohrende sei er $p_2$.
 + Wie hängt der Volumensstrom dieser Flüssigkeit von $R$ ab? Welche Konsequenzen kann diese Abhängigkeit haben?
@@ -455,7 +455,11 @@ b) c) TODO
 
 #line(length: 100%)
 
-TODO
+a) Siehe @laminare_stroemung (a) und (b)
+
+b) Der Volumensstrom hat eine Abhängigkeit von $R^4$, d.h. der Gesamtstrom kann sehr gut durch die Variation des Röhrendurchmessers reguliert werden, z.B. wie bei Adern und der Blutzirkulation.
+
+c) Bei Flüssigkeiten sinkt die Viskosität $eta$ mit steigender Temperatur, weil die intermolekularen Köhäsitionskräfte die den Widerstand verursachen durch die therm. Bewegung geschwächt werden. Da beim Volumensstrom die Viskosität $eta$ im Nenner ist, wird der Volumensstrom bei höherer Temperatur und somit niedriger Viskosität größer.
 
 == Strömung inkompressibler, reibungsfreier Flüssigkeiten
 
@@ -464,7 +468,20 @@ TODO
 
 #line(length: 100%)
 
-TODO
+a) Unter der Kontinuitätsgleichung versteht man, dass bei einer Strömung die gesamte Masse erhalten bleibt. Bei inkompressiblen Flüssigkeiten lässt sie sich folgend mathematisch herleiten:
+$ Delta m_1 = Delta m_2 arrow.double rho_1 * A_1 * v_1 * Delta t = rho_2 * A_2 * v_2 * Delta t $
+
+Für eine inkompressible Flüssigkeit bleibt die Dichte $rho$ immer gleich, d.h. es kürzt sich heraus, somit bleibt nur:
+$ I = dot(V) = A_1 * v_1 = A_2 * v_2 = "const" $
+
+Verengt sich ein Rohr, erhöht sich die Geschwindigkeit der Flüssigkeit (und vice versa).
+
+b) Mit der Kontinuitätsgleichung lässt sich folgende Relation aufstellen:
+$ underbrace(A_1 * v_1 + A_2 * v_2, "kleine Rohre gemeinsam") = underbrace(A * v, "großes Rohr") $
+$ pi * r_1^2 * v_1 + pi * r_2^2 * v_2 = pi * R^2 * v $
+
+Umformen auf $R$:
+$ R = sqrt((pi * r_1^2 * v_1 + pi * r_2^2 * v_2)/(pi * v)) = sqrt((r_1^2 * v_1 + r_2^2 * v_2)/v) $
 
 == Strömungsleitwerte
 
@@ -473,7 +490,22 @@ TODO
 
 #line(length: 100%)
 
-TODO
+a) Den Volumensstrom lässt sich mit dem Hagen-Poiseuille-Gesetz berechnen (Herleitung siehe @laminare_stroemung (b)):
+$ I = dot(V) = (pi * R^4)/(8 * eta * L) * Delta p = (pi * R^4)/(8 * eta * L) * (p_1 - p_2) $
+
+Der Strömungsleitwert ist folgend definiert:
+$ L := dot(V)/(Delta p) = dot(V)/(p_1 - p_2) = (pi * R^4)/(8 * eta * L) $
+
+b) Wenn das ursprüngliche Rohr den Radius $R$ mit der Querschnittsfläche $A_0 = pi * R^2$ hat, dann gilt für die $n = 10$ gleichen kleineren Rohre mit jeweils Länge $L$ und Radius $r$ folgendes:
+$ n * (pi * r^2) = pi * R^2 arrow.double n * r^2 = R^2 arrow.double r = R/sqrt(n) $
+
+Für den Strömungsleitwert eines der kleinen Rohre gilt somit:
+$ L_1 = (pi * r^4)/(8 * eta * L) = (pi * (R/sqrt(n))^4)/(8 * eta * L) = (pi * R^4)/(8 * eta * L * n^2) $
+
+Da nun im Nenner des Leitwerts $n^2$ steht und $n = 10$ ist, ist der Leitwert einer der kleinen Rohre ein Prozent von dem originalen Leitwert. Bei "Parallelschaltung" der Rohre addieren sich die Leitwerte, d.h.:
+$ L_"ges" = n * L_1 = 10 * (pi * R^4)/(8 * eta * L * 100) = 1/10 * (pi * R^4)/(8 * eta * L) $
+
+Für den Strömungswiderstand gilt $W = 1/L$, somit ist dieser verkehrt proportional zum Leitwert. Wenn der Leitwert ein Zehntel des ursprünglichen ist, ist steigt der Widerstand um ein Faktor $10$.
 
 == Bernoulli-Gleichung (again)
 
@@ -588,9 +620,17 @@ b) c) TODO
 + Welche Freiheitsgrade gibt es für ein molekulares Gas?
 + Interpretieren Sie mit Hilfe der molekularen Freiheitsgrade die Temperaturabhängigkeit der molaren spezifischen Wärme $C_V$ von Wasserstoff (siehe Abbildung)?
 
+#image("assets/fragenkatalog/spez_waerme_wasserstoff.png")
+
 #line(length: 100%)
 
-TODO
+a) Siehe @gasparameter (a)
+
+b) Ein molekulares Gas kann bis zu 7 Freiheitsgrade besitzen: 3 Translationsfreiheitsgrade (Bewegung im Raum), 2 Rotationsfreiheitsgrade (Rotation um die zwei Achsen senkrecht zur Bindungsachse) und bei hohen Temperaturen auch 2 Schwingungsfreiheitgrade.
+
+c) Wasserstoff hat bei jeder Temperatur mindestens 3 Freiheitsgrade, zwischen $100"K"$ und $200"K"$ gewinnt er graduell an zwei Rotationsfreiheitsgraden. Zwischen $1000"K"$ und $2000"K"$ gewinnt er zusätzlich noch zwei Schwingungsfreiheitgrade.
+
+Für die molare Wärmekapazität bei konst. Volument gilt $C_V = 1/2 * f * R$, d.h. mit höherer Temperatur und somit mehr Freiheitsgraden gewinnt Wasserstoff an molarer spezifischen Wärme $C_V$.
 
 == Maxwell-Boltzmann-Verteilung
 
@@ -710,7 +750,6 @@ b)
 })
 
 
-
 c) Die wahrscheinlichste Geschwindigkeit ist an der Maximum-Extremstelle der Verteilungsfunktion. Um diese zu erhalten, muss die Verteilungsfunktion zuerst abgeleitet werden:
 $ dif/(dif v) f(v) = dif/(dif v)((m/(2 pi k_B T))^(3/2) * 4 pi v^2 * e^(-(m*v^2)/(2 k_B T)))  $
 
@@ -747,7 +786,7 @@ $ f(arrow(v)) = (m/(2 pi k_B T))^(3/2) * exp(-(m*(v_x^2 + v_y^2 + v_z^2))/(2 k_B
 c) Durch Übergang zu Kugelkoordinaten im Geschwindigkeitsraum ($dif^3 v = 4 pi v^2 dif v$) ergibt sich:
 $ f(v) = (m/(2 pi k_B T))^(3/2) * 4 pi v^2 * e^(-(m*v^2)/(2 k_B T)) $
 
-d)
+d) TODO
 
 == Energien und Geschwindigkeiten im idealen Gas <energie_geschwindigkeit_ideales_gas>
 
@@ -837,19 +876,28 @@ $ f(E) = 2/sqrt(pi) * 1/(k_B T)^(3/2) * sqrt(E) * e^(-E/(k_B T)) $
     })
 })
 
-c) TODO
+c) Anteil der Teilchen mit $E_k > E_(k,0)$:
+$ N(E_k > E_(k,0))/N_"ges" = integral^infinity_E_(k,0) f(E_k) dif E_k $
+Dies kann in der Verteilung der kinetischen Energie als der Flächenanteil rechts von $E_(k,0)$ unterhalb der Kurve visualisiert werden.
+
+Die mittlere Geschwindigkeit $overline(v)$ dieser schnellen Teilchen, also denen mit $v > v_0$, wobei $1/2 * m * v_0^2 = E_(k,0)$ gilt, ist folgende:
+$ overline(v) = (integral^infinity_v_0 v * f(v) dif v)/(integral^infinity_v_0 f(v) dif v) $
+Das ist der gewichtete Mittelwert von $v$ über alle Teilchen, dir schneller als $v_0$ sind, dies kann visuell in der Geschwindigkeitsverteilung analog zur Energieverteilung als Fläche unter der Kurve ab $v_0$ visualisiert werden.
 
 == Molekülzahlen und charakteristische Geschwindigkeiten
 
 + Geben Sie die Verteilungsfunktionen für den Geschwindigkeitsbetrag in einem idealen Gas an und skizzieren Sie diese Verteilungsfunktion
-+ Wie groß ist der Anteil der Gasatome dieses Gases, deren Geschwindigkeit zwischen der wahrscheinlichsten Geschwindigkeit $w_W$ und der mittleren Geschwindigkeit $overline(v)$ liegt? (nur Ansatz und graphische Darstellung).
++ Wie groß ist der Anteil der Gasatome dieses Gases, deren Geschwindigkeit zwischen der wahrscheinlichsten Geschwindigkeit $v_W$ und der mittleren Geschwindigkeit $overline(v)$ liegt? (nur Ansatz und graphische Darstellung).
 + Wie groß ist die mittlere kinetische Energie $overline(E)$ dieses Anteils der Moleküle? (nur Ansatz)?
 
 #line(length: 100%)
 
 a) Siehe @energie_geschwindigkeit_ideales_gas (b)
 
-b) c) TODO
+b) Da $f(v)$ normiert ist, entspricht der gesuchte Anteil der Atome mit $v_W lt.eq v lt.eq overline(v)$ genau der Fläche unterhalb der Verteilung zwischen $v_W$ und $overline(v)$.
+
+c) Die mittlere kinetische Energie des Teilanteils ist der gewichtete Mittelwert von $E_k = 1/2 * m * v^2$ über genau jene Teilchen, die in $[v_W, overline(v)]$ liegen:
+$ overline(E) = (integral^overline(v)_v_W 1/2 * m * v^2 * f(v) dif v)/(integral^overline(v)_v_W f(v) dif v) $
 
 == Molekülzahlen im idealen Gas
 
@@ -867,7 +915,7 @@ c) die Zahl der Moleküle, deren Geschwindigkeiten zwischen der mittleren Geschw
 
 TODO
 
-== Gasparameter
+== Gasparameter <gasparameter>
 
 + Wie lautet der Gleichverteilungssatz?
 + Wie groß sind die molaren Wärmekapazitäten $C_V$ und $C_p$ von Stickstoff ($"N"_2$) bei hohen Temperaturen?
@@ -875,7 +923,7 @@ TODO
 
 #line(length: 100%)
 
-a) Bei einem Gas, das genügend lange bei einer konstanten Temperatur $T$ gehalten wird, verteilt sich die Energie der einzelnen Atome oder Moleküle durch Stöße gleichmäßig auf alle Freiheitsgrade, sodass im Mittel jedes Teilchen die Energie $overline(E_"kin") = f * 1/2 * k_B * T $ hat, wenn $f$ die Zahl der ihm zur Verfügung stehenden Freiheitsgrade ist.
+a) Bei einem Gas, das genügend lange bei einer konstanten Temperatur $T$ gehalten wird, verteilt sich die Energie der einzelnen Atome oder Moleküle durch Stöße gleichmäßig auf alle Freiheitsgrade, sodass im Mittel jedes Teilchen die Energie $overline(E_"kin") = f * 1/2 * k_B * T$ hat, wenn $f$ die Zahl der ihm zur Verfügung stehenden Freiheitsgrade ist.
 
 b) 
 Molare Wärmekapazität bei konstantem Volumen: $C_V = 1/2 * f * R$
@@ -888,7 +936,13 @@ $ C_V = 1/2 * 7 * R = = 7/2 * 8.31446 tilde.eq 29.1 "J"/("mol" "K") $
 Da die molare Wärmekapazität bei konst. Druck von der bei konst. Volumen abhängt, kann einfach wieder in die Formel eingesetzt werden:
 $ C_p = 7/2 * R + R = 9/2 * 8.31446 tilde.eq 37.415 "J"/("mol" "K") $
 
-c) TODO
+c) Die Temperatur ist ein Maß für die mittlere translatorische kin. Energie der Gasteilchen. Aus dem Gleichverteilungssatz von a) folgt für die Temperatur folgende Gleichung, wobei in diesem Fall $f = 3$ ist, weil für die kin. Energie nur die Translationsfreiheitsgrade relevant sind:
+$ overline(E_"kin") = f * 1/2 * k_B * T arrow.double T = (2 * overline(E_"kin"))/(3 * k_B) $
+Erhöht man die Temperatur, so steigt die mittlere Geschwindigkeit der Teilchen.
+
+Der Druck entsteht durch den ständigen Impulsübertrag der Teilchen auf die Behälterwand. Ein Teilchen mit Geschwindigkeit $v_x$ senkrecht zur Wand überträgt bei einem elastischen Stoß den Impuls $Delta p = 2 * m * v_x$. Summiert man über alle $N$ Teilchen und das Zeitintervall, in dem sie die Fläche $A$ treffen, ergibt sich:
+$ p = (N * m * overline(v^2))/(3*V) $
+Mit $1/2 * m * overline(v^2) = 3/2 * k_B * T$ folgt unmittelbar das ideale Gasgesetz $p*V = N * k_B * T$.
 
 == Radiometer
 
@@ -905,11 +959,24 @@ TODO
 
 + Was versteht man unter dem Stoßquerschnitt und der mittleren freien Weglänge in einem idealen Gas?
 + Wie hängen diese diesen beiden Größen zusammen?
-+ Berechnen Sie mittels des Äquipartitionstheorems die mittlere kinetische Energie der Translationsbewegung eines Moleküls des Sauerstoffgases ($O_2$) bei $27°C$ (Hinweis: Boltzmann-Konstante $k_B = 1,38 * 10^(-23) J/K$)
++ Berechnen Sie mittels des Äquipartitionstheorems die mittlere kinetische Energie der Translationsbewegung eines Moleküls des Sauerstoffgases ($O_2$) bei $27°C$ (Hinweis: Boltzmann-Konstante $k_B = 1.38 * 10^(-23) J/K$)
 
 #line(length: 100%)
 
-TODO
+a) Wenn Gasatome als kleine starre Kugeln mit Radius $r_i$ angenommen werden, gilt beim Stoß für den Abstand zwischen den Teilchen $r = r_1 + r_2$. Alle Teilchen deren Mittelpunkt um eine Fläche $sigma = pi * (r_1 + r_2)^2$ um den Mittelpunkt vom anderen Teilchen laufen, werden durch den Stoß aus ihrer geraden Bahhn abgelenkt. Diese Fläche $sigma$ heißt Stoßquerschnitt.
+
+#image("assets/fragenkatalog/stossquerschnitt.png")
+
+Die mittlere freie Weglänge $Lambda$ ist die durchschnittliche Strecke, die ein Gasteilchen zwischen zwei aufeinanderfolgenden Stößen zurücklegt. Sie wird folgend berechnet:
+$ Lambda = 1/(n * sigma) $
+
+b) Die mittlere freie Weglänge $Lambda$ ist umgekehrt proportional zum Stoßquerschnitt $sigma$ und der Teilchendichte $n$ laut $Lambda = 1/(n*sigma)$. Ein größerer Stoßquerschnitt (größere Teilchen) führt zu häufigeren Kollisionen, wodurch die durchschnittliche zurückgelegte Strecke ohne Stoß verkürzt wird.
+
+c) Das Äquipartitionstheorem bzw. der Gleichverteilungssatz lautet:
+$ overline(E_"kin") = f * 1/2 * k_B * T $
+
+Gefragt ist nur die Translationsbewegung, d.h. $f = 3$:
+$ overline(E_"kin") = 3 * 1/2 * 1.38 * 10^(-23) * (27 + 273.15) tilde.eq 6.21 * 10^(-21) "J" $
 
 == Stöße im idealen Gas
 
