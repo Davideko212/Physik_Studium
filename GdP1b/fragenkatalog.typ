@@ -46,6 +46,7 @@
     - Physik Libre
     - Hegewald & Peschke: Mess- und Prüftechnik
     - TU München (Vorlesungsbetrieb Experimentalphysik)
+    - Polymer Service GmbH Merseburg
     - Ein bisschen Fantasie
     ]
     #line(length: 100%, stroke: (thickness: 1pt))
@@ -90,7 +91,8 @@ b) #image("assets/fragenkatalog/spannungs_dehnungs_diagramm.png")
 - Gleichmaßdehnungsbereich: In diesem plastischen Verformungsbereich verformt sich die Probe über die parallele Länge gleichmäßig und irreversibel.
 - Einschnürungsbereich: Der Bereich beginnt, wenn sich die Probe lokal einschnürt und die Spannung dadurch nach dem Spannungsmaximum bis zum Probenbruch abnimmt. Je nach Werkstoff ist die Einschnürung unterschiedlich ausgeprägt.
 
-c) TODO
+c) Plastische Verformung bezeichnet die dauerhafte, irreversible Formänderung eines Festkörpers nach Krafteinwirkung, während die elastische Hysterese die zeitverzögerte Rückverformung beschreibt, bei der Energie als Wärme verloren geht.
+#image("assets/fragenkatalog/verformung.jpg", width: 85%)
 
 == Spannungs-Dehnungsdiagramm
 
@@ -123,7 +125,16 @@ $ W = integral^epsilon_0 q * E * epsilon * L dif epsilon = 1/2 * q * E * epsilon
 
 a) Für Diagramm siehe @verformung_festkoerper
 
-b) c) TODO
+b) Hooke'sches Gesetz mittels Elastizitätsmoduls ausgedrückt:
+$ sigma = E * epsilon $
+Vorkommende Größen:
+- Zugspannung $sigma$: Die Zugkraft pro Fläche, d.h. $sigma = F/A$
+- Elastizitätsmodul $E$: Dies ist die Proportionalitätskonstante zwischen verschiedenen Materialien. Bei Materialien mit großem Elastizitätsmodul E braucht man eine große Kraft, um eine vorgegebene relative Längenänderung zu erreichen. Körper mit großem $E$ zeigen also bei vorgegebener Kraft eine kleine Längenänderung.
+- relative Dehnung $epsilon$: Der Längenunterschied nach der Dehnung ausgedrückt als $epsilon = (Delta L)/L$
+
+c) Die elastische Hysterese beschreibt, dass bei der elastischen Verformung eines realen Festkörpers die Entlastungskurve nicht mit der Belastungskurve identisch ist, d.h. es entsteht eine Schleife im Spannungs-Dehnungs-Diagramm.
+
+#image("assets/fragenkatalog/elastische_hysterese.jpg")
 
 == Biegesteifigkeit
 
@@ -186,6 +197,8 @@ c) #image("assets/fragenkatalog/atom_wechselwirkung_graph.png", width: 75%)
 + Berechnen Sie, für einen Randwinkel $phi$ an der Kontaktlinie Fest/Flüssig/Gas die Steighöhe $h$ einer Flüssigkeit (Dichte $rho$) in einer Röhre mit dem Radius $r$. Was passiert, wenn $phi$ größer als $90°$ wird?
 + Ein keilförmiges Gefäß wird mit der in (b) gegebenen Flüssigkeit gefüllt. Zeigen Sie, dass das Oberflächenprofil der Flüssigkeit $prop 1/x$ ist, wenn $x$ der Abstand vom Öffnungspunkt des Keiles ist (siehe Bild)
 
+#image("assets/fragenkatalog/oberflaechenprofil_kapillaritaet.png")
+
 #line(length: 100%)
 
 a) Während im Inneren einer Flüssigkeit die resultierende Kraft $arrow(F)_R$, die auf ein Molekül von allen anderen Molekülen seiner Umgebung ausgeübt wird, im zeitlichen Mittel Null ist (freie Verschiebbarkeit der Moleküle), gilt dies nicht mehr für ein Molekül an der Oberfläche, das nur von den Nachbarmolekülen innerhalb einer Halbkugel angezogen wird. Es bleibt deshalb eine resultierende, von Null verschiedene Anziehungskraft $arrow(F)_R$ übrig, die ins Innere der Flüssigkeit zeigt.
@@ -194,7 +207,20 @@ a) Während im Inneren einer Flüssigkeit die resultierende Kraft $arrow(F)_R$, 
 
 Um ein Molekül aus dem Inneren an die Oberfläche zu bringen, muss deshalb gegen diese Kraft Arbeit geleistet werden. Ein Molekül an der Oberfläche hat eine um diesen Arbeitsbetrag höhere Energie als ein Molekül im Inneren. Zur Vergrößerung der Flüssigkeitsoberfläche um den Betrag $Delta A$ müssen Moleküle aus dem Inneren an die Oberfläche gebracht werden, wozu eine Energie $delta A$ aufgewendet werden muss. Den Quotienten $sigma = epsilon = (Delta W)/(Delta A)$ nennt man spezifische Oberflächenenergie ($epsilon$) bzw. Oberflächenspannung ($sigma$).
 
-b) TODO: Kapillardepression?
+b) An der Kontaktlinie wirkt die Oberflächenspannung $sigma$ entlang des Flüssigkeitsmeniskus. Die nach oben gerichtete Komponente der Zugkraft am Umfang der Röhre beträgt:
+$ F_"oben" = 2 * pi * r * sigma * cos(phi) $
+
+Das Gewicht der gehobenen Flüssigkeitssäule ist:
+$ F_"unten" = rho * g * h * pi * r^2 $
+
+Im Gleichgewicht gilt für die Höhe also:
+$ 2 * pi * r * sigma * cos(phi) = rho * g * h * pi * r^2 $
+$ 2 * sigma * cos(phi) = rho * g * h * r $
+$ h = (2*sigma*cos(phi))/(rho*g*r) $
+
+Bei $phi > 90°$ wölbt sich der Meniskus konvex, d.h. nach außen, d.h. die Flüssigkeit benetzt die Rohrwand schlecht. Die Flüssigkeit wird somit im Rohr abgesenkt.
+
+#image("assets/fragenkatalog/kapillardepression.png")
 
 c) TODO
 
@@ -208,7 +234,23 @@ c) TODO
 
 a) Siehe @aggregat (c)
 
-b) c) TODO
+b) Dehnt man einen Körper an einer seiner Flächen um eine bestimmte Länge, wirkt auf diese Fläche eine rücktreibende Kraft, welche den Körper in den Ursprungszustand zurückbringen möchte.
+
+Mathematisch formuliert:
+$ sigma = E * epsilon $
+Vorkommende Größen:
+- Zugspannung $sigma$: Die Zugkraft pro Fläche, d.h. $sigma = F/A$
+- Elastizitätsmodul $E$: Dies ist die Proportionalitätskonstante zwischen verschiedenen Materialien. Bei Materialien mit großem Elastizitätsmodul E braucht man eine große Kraft, um eine vorgegebene relative Längenänderung zu erreichen. Körper mit großem $E$ zeigen also bei vorgegebener Kraft eine kleine Längenänderung.
+- relative Dehnung $epsilon$: Der Längenunterschied nach der Dehnung ausgedrückt als $epsilon = (Delta L)/L$
+
+c) (eig. siehe Spannungs-Dehnungs-Diagramm)
+
+Das Gesetz gilt ausschließlich im linear-elastischen Bereich, d.h. dort, wo keine plastischen Verformungen auftreten und die Verformung vollständig reversibel ist. D.h. $arrow(F)$ muss für die Gültigkeit stets linear bleiben.
+
+Im gültigen Bereich ist die elastische Energiedichte (pro Volumen) exakt:
+$ w = 1/2 * E_"pot" * epsilon^2 = (sigma^2)/(2*E_"pot") $
+
+Das ist eine Parabel in $epsilon$ (analog zum Federpotential). Außerhalb des linearen Bereichs ist $w(epsilon)$ nicht mehr parabolisch und das Hookesche Gesetz nicht mehr gültig.
 
 == Hydrostatik und Auftrieb <hydro_presse>
 
@@ -260,23 +302,49 @@ c) $ V_"verdrängt"/V_K = 0.5 = rho_K/rho_L arrow.double p_K = 0.5 * p_L = 0.5 *
 + Was würde geschehen, wenn die Seifenblasen durch zwei gleiche aber verschieden aufgeblasene Luftballons ersetzt würden?
 Begründen Sie Ihre Antworten für Punkte (b) und (c) nachvollziehbar.
 
+#image("assets/fragenkatalog/oberflaechenenergie_seifenblasen.png")
+
 #line(length: 100%)
 
 a) Siehe @oberflaechenenergie_kapillaritaet (a)
 
-b) c) TODO
+b) Infolge der Oberflächenspannung versucht eine Seifenblase (die ja eine Flüssigkeitskugelschale ist) ihre Oberfläche zu verkleinern. Dadurch erhöht sich der Luftdruck im Inneren der Blase um den Betrag $Delta p$.
+
+Dadurch entsteht eine radial nach außen gerichtete Druckkraft $F_p = Delta p * A$. Gleichgewicht herrscht, wenn der Energiegewinn $epsilon * Delta A$ bei Verkleinern der Oberfläche $A$ durch Verminderung des Kugelradius um $Delta r$ gleich der gegen den Überdruck $Delta p$ geleisteten Arbeit $arrow(F)_p * Delta arrow(r) = Delta p * 4 pi * r^2 * Delta r$ ist.
+$ epsilon * 2 * 4 pi * (r^2 - (r - Delta r)^2) = Delta p * 4 pi * r^2 * Delta r $
+
+Vernachlässigt man den Term $(Delta r)^2$, so erhält man hieraus den Überdruck
+$ Delta p = (4 * epsilon)/r $
+der mit wachsendem Kugelradius sinkt. Der Druck ist also umgekehrt proportional zum Radius. D.h. bei einem Druckausgleichung durch die Öffnung des Ventil 3 schrumpft die kleine Blase, die große wächst.
+
+c) Luftballons verhalten sich grundlegend anders als Seifenblasen, weil die Gummihülle eine elastische Rückstellkraft leifert. Wenn beide Ballons normal aufgeblasen sind, hat der größere Ballon also den höheren Innendruck. Das führt dazu, dass bei Öffnung des Ventil 3 der große Ballon schrumpft und der kleine wächst.
 
 == Oberflächenenergie und Randwinkel
 
 + Wie ist Oberflächenenergie definiert und warum tritt sie auf?
-+ Berechnen Sie bei gegebenen Oberflächenenergien zwischen den Phasen fest (1), flüssig (2) und gasförmig (3), $rho_1,2$, $rho_1,3$, $rho_2,3$, den Randwinkel $phi$, den die Flüssigkeit mit der Festkörperoberfläche einschliesst. Welche Fälle können unterschieden werden?
++ Berechnen Sie bei gegebenen Oberflächenenergien zwischen den Phasen fest (1), flüssig (2) und gasförmig (3), $rho_(1,2)$, $rho_(1,3)$, $rho_(2,3)$, den Randwinkel $phi$, den die Flüssigkeit mit der Festkörperoberfläche einschliesst. Welche Fälle können unterschieden werden?
 + Gibt man einen Tropfen Öl auf eine Wasseroberfläche, so wird er zu einer dünnen Schicht auseinandergezogen. Warum?
 
 #line(length: 100%)
 
 a) Siehe @oberflaechenenergie_kapillaritaet (a)
 
-b) c) TODO
+b) An der Dreiphasenlinie (Kontaktlinie) greifen drei Oberflächenspannungen an. Im Gleichgewicht muss die horizontale Komponente der Kräfte verschwinden (Young-Gleichung):
+$ rho_(1,3) = rho_(1,2) + rho_(2,3) * cos(phi) arrow.double cos(phi) = (rho_(1,3) - rho_(1,2))/(rho_(2,3)) $
+Die Vertikalkomponente von $rho_(2,3) * sin(phi)$ wird vom Festkörper als elastische Verformung aufgenommen (vernachlässigbar).
+
+Fallunterscheidung:
+- Partielles Benetzen ($0° < phi < 90°$): $rho_(1,3) < rho_(1,2) arrow.double cos(phi) > 0$
+  \ Flüssigkleit breitet sich teilweise aus, z.B. Wasser auf leicht hydrophilen Oberflächen.
+- Starkes Benetzen ($90° < phi < 180°$): $rho_(1,3) < rho_(1,2) arrow.double cos(phi) < 0$
+  \ Flüssigkeit zieht sich zusammen (Kugelform), z.B. Wasser auf hydrophoben Oberflächen (Lotuseffekt).
+- Vollständiges Benetzen ($phi = 0°$): $rho_(1,3) gt.eq rho_(1,2) + rho_(2,3)$
+  \ Die Young-Gleichung liefert $cos gt.eq 1$, was geometrisch nicht lösbar ist. Die Flüssigkeit bildet einen makroskopisch dünnen Film, z.B. Tropfen Öl auf Wasser.
+
+c) Wenn man die Phasen Wasser (1), Öl (2) und Luft (3) in die Young-Gleichung einsetzt, erhält man folgenden Wert:
+$ cos(phi) = (rho_("Wasser/Luft") - rho_("Wasser/Öl"))/(rho_"Öl/Luft") = (72 - 10)/25 approx 2.48 > 1 $
+
+Da $cos(phi) > 1$ geometrisch unmöglich ist, liegt Fall 3 (vollständiges Benetzen) vor, d.h. das Öl spreitet zu einem dünnen Film.
 
 == Auftrieb und Hydrostatik
 
@@ -998,9 +1066,9 @@ Zuerst muss die Teilchendichte $n$ berechnet werden:
 $ n = N/V = 10^15/(10^(-3)"m"^3) = 10^18"m"^(-3) $
 
 Nun einfach alles in die Formel für die mittlere freie Weglänge einsetzen:
-$ lambda = 1/(sqrt(2) * 10^18"m"^(-3) * 5 * 10^(-19)"m"^2) = 1/(sqrt(2) * 0.5)"m" tilde.equiv 2.83m $
+$ lambda = 1/(sqrt(2) * 10^18"m"^(-3) * 5 * 10^(-19)"m"^2) = 1/(sqrt(2) * 0.5)"m" tilde.equiv 1.41m $
 
-c) TODO
+c) Da $lambda approx 1.41m >> L = 0.1m$ gilt, trifft ein Molekül um einiges öfter die Wand als andere Moleküle.
 
 == Mittlere kinetische Energie
 
@@ -1034,7 +1102,30 @@ TODO
 
 #line(length: 100%)
 
-TODO
+a) Diffusion ist der Nettotransport von Teilchen aus einem Raumgebiet höherer Konzentration in ein Gebiet niedrigerer Konzentration. Die Bewegung der Teilchen erfolgt durch einen Diffusionsstrom, d.h. ja, mit Diffusion ist eine Strömung verbunden.
+
+b) Bei einem Diffusionsstrom gilt für die gesamte mittlere Teilchenstromdichte in $x$-Richtung:
+$ j_x = -D * (dif n)/(dif x) $
+
+Für den allgemeinen Fall eines beliebigen Dichtegradienten lässt sich es auch vektoriell schreiben:
+$ arrow(j) = -D * arrow(nabla) n $
+
+Vorkommende Größen:
+- Teilchenstromdichte $j$: Der Diffusionsstrom, also die Anzahl der Teilchen die sich durch die Diffusion in eine Richtung (z.B. $x$) bewegen.
+- Diffusionskoeffizient $D$: Dies ist die Proportionalitätskonstante zwischen verschiedenen Materialien. Das Minuszeichen zeigt an, dass die Diffusion entgegen dem Gradienten (vom höheren zum niedrigeren) erfolgt.
+- Konzentrationsgradient $(dif n)/(dif x)$: Räumliche Änderung der Teilchenkonzentration $n$ über den Ort $x$.
+
+c) Kontinuitätsgleichung:
+$ (partial n)/(partial t) = -arrow(nabla) * arrow(j) $
+
+Einsetzen des ersten Fick'schen Gesetztes in die Kontinuitätsgleichung:
+$ (partial n)/(partial t) = -arrow(nabla) * (-D * arrow(nabla) n) = D * arrow(nabla) * arrow(nabla) * n $
+
+D.h. die 3D-Diffusionsgleichung (zweites Fick'sches Gesetz) ist somit:
+$ (partial n)/(partial t) = D * laplace n = D * ((partial^2 n)/(partial x^2) + (partial^2 n)/(partial y^2) + (partial^2 n)/(partial y^2)) $
+
+1D-Diffusionsgleichung (nur Gradient in $x$-Richtung):
+$ (partial n)/(partial t) = D * (partial^2 n)/(partial x^2) $
 
 == Freie Enthalpie
 
@@ -1072,7 +1163,7 @@ a) Adiabatische Prozesse liegen vor, wenn das System keine Wärmeenergie mit sei
 
 b) c) TODO
 
-== Adiabatische Prozesse und Freiheitsgrade
+== Adiabatische Prozesse und Freiheitsgrade <adia_prozesse_und_freiheitsgrade>
 
 + Wie ist ein adiabatischer Prozess definiert?
 + Wie ist der Adiabatenexponent $kappa$ eines idealen Gases definiert, und wovon hängt er ab?
@@ -1135,14 +1226,39 @@ c) Siehe (b) (weil man kann doch nicht $T_2$ ohne $kappa$ berechnen?!)
 
 a) Siehe @adia_prozess (a)
 
-b) c) TODO
+b) Der erste Hauptsatz der Thermodynamik lautet $dif U = dif Q - p * dif V$, für adiabatische Prozesse ($dif Q = 0$) ist er jedoch einfach
+$ dif U = -p * dif V $
+
+Die innere Energie eines idealen Gases hängt nur von der Temperatur ab:
+$ dif U = n * C_V * dif T $
+
+Gleichsetzen mit der Gleichung zuvor:
+$ n * C_V * dif T = -p * dif V $
+
+Aus der allgemeinen Gasgleichung $p * V = n * R * T$ folgt $p = n * R * T/V$. Setzt man dies in die obige Gleichung ein, so ergibt sich:
+$ n * C_V * dif T = -(n * R * T/V) * dif V $
+$ C_V * (dif T)/T = -R * (dif V)/V $
+
+Integration beider Seiten liefert:
+$ C_V * integral 1/T dif T = -R * integral 1/V dif V $
+$ C_V * ln(T) = -R * ln(V) + c arrow.double ln(T^(C_V) * V^R) = c $
+
+Mit $R = C_p - C_V$ folgt daraus
+$ T^(C_V) * V^(C_p - C_V) = c $
+
+Zieht man auf beiden Seiten die $C_V$-te Wurzel, so erhält man mit dem Adiabatenindex $kappa = C_p/C_V$ diese Gleichung in der Form:
+$ T * V^(kappa - 1) = c $
+
+Wegen $T = p * V/R$ lässt sich dies auch schreiben als
+$ p * V^kappa = "const" $
+
+c) Siehe @adia_prozesse_und_freiheitsgrade (b)
 
 == Konstante innere Energie
 
 + Kann ein ideales Gas Wärme aufnehmen, ohne dass sich seine innere Energie ändert?
 + Falls ja, wie nennt man diesen Prozess?
-+ Welche Prozessparameter würden sich bei diesem Prozesses ändern, wenn
-Teilchenaustausch nicht erlaubt ist?
++ Welche Prozessparameter würden sich bei diesem Prozesses ändern, wenn Teilchenaustausch nicht erlaubt ist?
 
 #line(length: 100%)
 
@@ -1157,8 +1273,7 @@ c) Temperatur und innere Energie bleiben gleich, nur Volumen und Druck ändern s
 == Schmelzen, Verdampfen und Sieden
 
 + Mit welchem thermodynamischen Potential wird der Phasenübergang zwischenfest und flüssig (Schmelzen) und flüssig zu gasförmig (verdampfen) beschrieben. Wie lautet die Gleichgewichtsbedingung?
-+ Welche Gleichung beschreibt diese beiden Übergänge. Erklären Sie die darin
-vorkommenden Größen. 
++ Welche Gleichung beschreibt diese beiden Übergänge. Erklären Sie die darin vorkommenden Größen. 
 + Warum hängt der Schmelzpunkt schwächer vom Druck ab als der Siedepunkt?
 
 #line(length: 100%)
