@@ -971,17 +971,19 @@ $ overline(E) = (integral^overline(v)_v_W 1/2 * m * v^2 * f(v) dif v)/(integral^
 
 a) Geben Sie die Verteilungsfunktionen für den Geschwindigkeitsbetrag in einem idealen Gas an und skizzieren Sie diese Verteilungsfunktion 
 
-Welche Molekülzahl ist größer:
+b) Welche Molekülzahl ist größer:
 
-b) Die Zahl der Moleküle, die Geschwindigkeiten zwischen der Wahrscheinlichsten Geschwindigkeit $w_W$ und der mittleren Geschwindigkeit $overline(v)$ haben,
+  1\. Die Zahl der Moleküle, die Geschwindigkeiten zwischen der Wahrscheinlichsten Geschwindigkeit $w_W$ und der mittleren Geschwindigkeit $overline(v)$ haben,
 
-oder 
+  oder 
 
-c) die Zahl der Moleküle, deren Geschwindigkeiten zwischen der mittleren Geschwindigkeit $overline(v)$ und der Wurzel aus dem mittleren Geschwindigkeitsquadrat $sqrt(overline(v^2))$ liegen? (Begründen Sie Ihre Aussage mit Hilfe Ihrer Skizze aus (a) und erläutern Sie diese!)
+  2\. die Zahl der Moleküle, deren Geschwindigkeiten zwischen der mittleren Geschwindigkeit $overline(v)$ und der Wurzel aus dem mittleren Geschwindigkeitsquadrat $sqrt(overline(v^2))$ liegen? (Begründen Sie Ihre Aussage mit Hilfe Ihrer Skizze aus (a) und erläutern Sie diese!)
 
 #line(length: 100%)
 
-TODO
+a) Siehe @energie_geschwindigkeit_ideales_gas (b)
+
+
 
 == Gasparameter <gasparameter>
 
@@ -1072,7 +1074,7 @@ c) Da $lambda approx 1.41m >> L = 0.1m$ gilt, trifft ein Molekül um einiges öf
 
 == Mittlere kinetische Energie
 
-In einem Behälter befindet sich Stickstoff unter einem Druck von $1.1 "MPa"$. Die Teilchenzahldichte beträgt $1020 "cm"^(-3)$.
+In einem Behälter befindet sich Stickstoff unter einem Druck von $1.1 "MPa"$. Die Teilchenzahldichte beträgt $10^20 "cm"^(-3)$.
 + Wie hoch ist die Temperatur des Gases?
 + Wie groß ist die mittlere kinetische Energie der Stickstoffmoleküle.
 + Wie ändert sich allgemein die mittlere kinetische Energie der Moleküle eines Gases, wenn der Druck bei gleichbleibendem Volumen verdoppelt wird?
@@ -1081,7 +1083,7 @@ In einem Behälter befindet sich Stickstoff unter einem Druck von $1.1 "MPa"$. D
 
 a) Allgemeine Gasgleichung umformen:
 $ p * V = N * k_B * T arrow.double p = N/V * k_B * T arrow.double T = p/(N/V * k_B) $
-$ T = (1.1 * 10^6)/(1020 * 10^6 * 1.38 * 10^(-23)) $
+$ T = (1.1 * 10^6)/(1020 * 10^6 * 1.38 * 10^(-23)) $ TODO
 
 == Druckunterschiede
 
@@ -1127,6 +1129,184 @@ $ (partial n)/(partial t) = D * laplace n = D * ((partial^2 n)/(partial x^2) + (
 1D-Diffusionsgleichung (nur Gradient in $x$-Richtung):
 $ (partial n)/(partial t) = D * (partial^2 n)/(partial x^2) $
 
+== 1. Hauptsatz der Thermodynamik
+
++ Geben Sie die Formulierung des 1. Hauptsatzes über das Äquivalenzprinzip von Thomson an.
++ Zeigen Sie mit Hilfe dieses Äquivalenzprinzips, dass es eine Zustandsfunktion $U$ gibt, deren Zunahme $dif U$ durch die Wärmezufuhr $dif'Q$ und die Verrichtung der Arbeit $dif'W$ am System zu erreichen ist. ($dif U = dif'Q + dif'W$)
+
+#line(length: 100%)
+
+TODO
+
+== 2. Hauptsatz der Thermodynamik
+
+Formulieren Sie den zweiten Hauptsatz der Thermodynamik durch drei verschiedene
+Aussagen
++ mittels des Begriffes des perpetuum mobile (Erläuterung!)
++ mittels des Begriffes des Wärmeflusses (Clausiussches Prinzip)
++ mittels des Begriffes der Entropie.
+Geben Sie Acht auf die Genauigkeit und Vollständigkeit der Formulierungen.
+
+#line(length: 100%)
+
+TODO
+
+== Wärmekapazitäten
+
++ Wie sind die molaren Wärmekapazitäten $C_V$ und $C_p$ definiert? Für welche elementaren thermodynamischen Prozesse sind sie relevant?
++ Eine bestimmte Menge Helium vergrößert bei konstantem Druck $p_0 = 2*10^5 "Pa"$ ihr Volumen vom Ausgangswert $V_0 = 3 "dm"^3$ auf den doppelten Wert. Berechnen Sie die dafür notwendige Wärmezufuhr (Hinweis: Helium als Edelgas ist einatomig).
+
+#line(length: 100%)
+
+TODO
+
+== Entropie
+
++ Formulieren Sie den 2. Hauptsatz der Thermodynamik mit Hilfe des Clausius'schen Prinzips
++ Zeigen Sie, ausgehend vom Clausiusschen Prinzip, dass die Entropie eines abgeschlossenen Systems bei einem Temperaturausgleich zwischen zwei Teilen mit den unterschiedlichen Temperaturen T_1 und T_2 zunimmt.
+
+#line(length: 100%)
+
+TODO
+
+== Prozesse und Arbeit im idealen Gas
+
++ Um welche Prozesse handelt es sich bei den beiden in der Abbildung eingezeichneten Teilschritten $1 arrow 2$ und $2 arrow 3$?
++ Berechnen Sie die Arbeit, die ein Mol eines idealen Gases im Prozess 1 → 3 (Summe aus $1 arrow 2$ und $2 arrow 3$) verrichtet.
+
+Hinweis: Beachten Sie das allgemeine Gasgesetz
+
+#image("assets/fragenkatalog/prozesse_arbeit_ideales_gas.png")
+
+#line(length: 100%)
+
+TODO
+
+== Arbeit und Entropie
+
++ Wie ist der Wirkungsgrad $eta$ einer Wärmekraftmaschine definiert?
++ Einer Dampfmaschine, deren heißes Reservoir (Boiler) die Temperatur $120°"C"$ und deren kaltes Reservoir (Kondensator) eine Temperatur von $50°"C"$ hat, wird $1000$ Joule Wärme zugeführt. Welche maximale mechanische Arbeit kann dabei verrichtet werden? Achten Sie darauf, welche Temperaturskale Sie verwenden.
++ Zwei massive Körper mit den Temperaturen $70°"C"$ bzw. $25°"C"$ (und den Entropien $S_1$ und $S_2$) wurden kurz in thermischen Kontakt gebracht. Wie ändert sich die Entropie des Gesamtsystems, wenn beim Kontakt $0.5 "J"$ Wärme übertragen wurde?
+
+#line(length: 100%)
+
+TODO
+
+== Reversible Prozesse
+
+Eine Wärmekraftmaschine mit dem Carnot-Wirkungsgrad entnehme pro Zyklus dem
+wärmeren Reservoir $100 "J"$ Wärme bei $400 "K"$, verrichte Arbeit und gebe dann Wärme bei $300 "K"$ an das kältere Reservoir ab. Berechnen Sie
++ den Carnot-Wirkungsgrad der Wärmekraftmaschine.
++ die verrichtete Arbeit.
++ die Entropieänderung jedes Reservoirs pro Zyklus, und zeigen Sie anhand dieser Daten, dass es sich um einen reversiblen Kreisprozess handelt.
+
+#line(length: 100%)
+
+TODO
+
+== Kreisprozesse <kreisprozesse>
+
+Skizzieren Sie die $p,V$- und $T,S$-Diagramme
++ des Carnot-Kreisprozesses
++ des Stirlingprozesses
+mit Angabe der Teilschritte.
+
+c) Wie kann man die Stirlingmaschine als Motor und als Kältemaschine betreiben?
+
+#line(length: 100%)
+
+TODO
+
+== Carnot-Prozess
+
+a) Diskutieren Sie die Schritte des Kreisprozesses nach Carnot für ein ideales Gas und tragen Sie diese in der Abbildung ein.
+
+#image("assets/fragenkatalog/carnot_prozess_raw.png")
+
+b) tragen Sie das Verhalten (die Änderung) der thermodynamischen Größen in die Tabelle ein! (z.B. "+" - positive Änderung, "-" - negative Änderung, "0" - ohne Änderung)
+
+#table(
+  columns: 5,
+  align: horizon,
+  inset: 8pt,
+  table.header(
+    [Größenänderung], [1-2], [2-3], [3-4], [4-1],
+  ),
+  [Temperatur, $Delta T$], [], [], [], [],
+  [Arbeit, $Delta W$], [], [], [], [],
+  [Wärmemenge, $Delta Q$], [], [], [], [],
+  [Innere Energie, $Delta U$], [], [], [], [],
+)
+\* Vorzeichenkonvention in der TD: Die vom System geleistete Arbeit, die vom System abgegebene Wärme sind negativ.
+
+c) Bei welchen Teilschritten des Carnot Prozesses spielen die molaren spezifischen Wärmen $C_V$ und $C_p$ eine Rolle? Zeigen Sie, dass für $1 "mol"$ eines idealen Gases $C_p - C_V = R$.
+
+#line(length: 100%)
+
+TODO
+
+== Teilschritte eines Kreizprozesses
+
+Ein ideales Gas durchläuft den in der Abbildung gezeigten Kreisprozess.
+
+#image("assets/fragenkatalog/teilschritte_kreisprozess.png")
+
++ Welche Prozesse sind die Teilschritte $1 arrow 2$, $2 arrow 3$, $3 arrow 4$, $4 arrow 1$?
++ Berechnen Sie die Arbeiten (Vorzeichen!) für die Teilprozesse $1 arrow 2$, $2 arrow 3$, $3 arrow 4$, $4 arrow 1$
++ Berechnen Sie die die pro Zyklus gewonnene Gesamtarbeit.
+
+#line(length: 100%)
+
+TODO
+
+== Arbeit im Kreisprozess
+
+Ein ideales Gas durchläuft den in der Abbildung gezeigten Kreisprozess.
+
+#image("assets/fragenkatalog/arbeit_kreisprozess.png")
+
++ Berechnen Sie die im Kreisprozess $1 arrow 2$, $2 arrow 3$, $3 arrow 4$, $4 arrow 1$ geleistete Arbeit.
++ Wird diese Arbeit vom Gas oder am Gas verrichtet?
++ Skizzieren Sie den Prozess in einem $T,S$-Diagramm (verwenden Sie dafür die Lösungen aus (b)).
+
+#line(length: 100%)
+
+TODO
+
+== Elementare Kreisprozesse
+
+Skizzieren Sie die $p,V$- und $T,S$-Diagramme
++ des Carnot-Kreisprozesses
++ des Stirlingprozesses
+mit Angabe der Teilschritte.
+
+c) Wie kann man die Stirlingmaschine als Motor und als Kältemaschine betreiben?
+
+#line(length: 100%)
+
+Siehe @kreisprozesse (Frage 1 zu 1 gleich)
+
+== Wärmepumpe
+
+Bei einer elektrischen Widerstandsheizung wird die gesamte elektrische Energie W zu $100%$ in Heizungswärme umgesetzt.
++ Warum kann man mit einer Wärmepumpe die elektrische Energie $W$ noch effizienter für die Raumheizung nutzen?
++ Stellen Sie die Energiebilanz auf, berechnen Sie den Wärmegewinn für eine Carnot-Wärmepumpe, die als Wärmekraftmaschine (also beim Betrieb in direkter Richtung) den Wirkungsgrad $eta$ hat.
++ Veranschaulichen Sie die Punkte (a) und (b) anhand einer Skizze.
+
+#line(length: 100%)
+
+TODO
+
+== Entropie
+
++ Wie ist die Entropie über den 2. Hauptsatz der Wärmelehre definiert?
++ Wie ist die absolute Entropie über die Wahrscheinlichkeit $W$ eines Mikrozustandes definiert? Erläutern Sie diese Definition anhand der Mischungsentropie eines verunreinigten Kristalls.
++ Bei einem Crash-Test stoße ein PKW der Masse $1500 "kg"$ und der Geschwindigkeit $100 "km"/"h"$ inelastisch auf eine Betonwand. Wie groß ist bei einer Lufttemperatur von $20°"C"$ die Entropieänderung des Universums?
+
+#line(length: 100%)
+
+TODO
+
 == Freie Enthalpie
 
 + Zeigen Die mithilfe der Definition der freien Enthalpie $G = U - T * S + p * V$ und der Beziehung $dif U = T * dif S - p * dif V$ die Gültigkeit der Fundamentalgleichung $dif G = V * dif p - S * dif T$
@@ -1151,6 +1331,19 @@ $ S = -((partial G) / (partial T))_p dif T = -(a - c/T^2) = c/T^2 - a $
 
 Interpretation: Die Entropie fällt mit steigender Temperatur (wegen $1/T^2$) und geht gegen einen konstanten Grenzwert ($-a$).
 
+== Thermodynamische Potentiale
+
++ Wie definiert man die freie Energie $F$ und die freie Enthalpie $G$?
++ Nennen Sie die natürlichen Variablen der freien Energie $F$ und der freien Enthalpie $G$.
++ Was besagt der Satz von Schwarz? Schreiben Sie die folgenden Maxwell-Relationen mithilfe des Satzes von Schwarz fertig:
+
+$ ((partial S) / (partial V))_T = $
+$ ((partial T) / (partial p))_S = $
+
+#line(length: 100%)
+
+TODO
+
 == Adiabatischer Prozess <adia_prozess>
 
 + Wie ist ein adiabatischer Prozess definiert?
@@ -1161,7 +1354,27 @@ Interpretation: Die Entropie fällt mit steigender Temperatur (wegen $1/T^2$) un
 
 a) Adiabatische Prozesse liegen vor, wenn das System keine Wärmeenergie mit seiner Umgebung austauscht ($dif Q = 0$).
 
-b) c) TODO
+b) Bei der isothermen Kompression bleibt $T$ konstant, d.h. mit dem idealen Gasgesetz $p * V = n * R * T$ folgt
+$ p prop 1/V $
+
+Wird das Volumen halbiert, so ergibt sich:
+$ p_2^"iso" = 2 * p_1$
+
+Bei der adiabatischen Kompression dagegen gilt $p * V^kappa = "const"$ mit $kappa = C_p/C_V$. Für ein ideales einatomiges Gas bei nicht allzu hohen Temperaturen gilt
+$ kappa = 5/3 $
+
+Damit:
+$ p_2^"adia" = p_1 * (V_1/V_2)^kappa = p_1 * (V_1/(V_1/2))^kappa arrow.double p_2^"adia" = p_1 * 2^(5/3) approx 3.17 * p_1 $
+
+Da $3.17 * p_1 > 2 * p_1$ ist der Enddruck bei der adiabatischen Kompression größer.
+
+c) Bei der isothermen Kompression bleibtdie Temperatur konstant, d.h. $T_2^"iso" = T_1$. Für die adiabatische Kompression dagegen gilt:
+$ T * V^(kappa-1) = "const" $
+
+Also:
+$ T_2^"adia" = T_1 * (V_1/V_2)^(kappa-1) = T_1 * (V_1/(V_1/2))^(5/3-1) = T_1 * 2^(2/3) approx 1.59 * T_1 $
+
+Die adiabatisch komprimierte Probe besitzt also die höhere Endtemperatur.
 
 == Adiabatische Prozesse und Freiheitsgrade <adia_prozesse_und_freiheitsgrade>
 
@@ -1278,9 +1491,30 @@ c) Temperatur und innere Energie bleiben gleich, nur Volumen und Druck ändern s
 
 #line(length: 100%)
 
-TODO
+a) Phasenübergänge bei konstantem Druck und konstanter Temperatur werden durch die Gibbs-Energie beschrieben:
+$ G = H - T * S $
 
-== Phasendiagramme und Phasenübergänge
+Dabei ist:
+- $G$: Gibb'sche freie Enthalpie
+- $H$: Enthalpie
+- $T$: Temperatur
+- $S$: Entropie
+
+Für ein Mehrphasensystem ist besonders das chemische Potential $mu = G/n$ entscheidend. Zwei Phasen befinden sich im Gleichgewicht, wenn ihre chemischen Potentiale gleich sind, d.h.
+$ mu_"fest" = mu_"flüssig" quad "bzw." quad mu_"flüssig" = mu_"gasförmig" $
+
+b) Die Druckabhängigkeit der Phasenübergänge wird durch die Clausius-Clapeyron-Gleichung beschrieben:
+$ Lambda = T * (dif p_s)/(dif T) * (V_D - V_"Fl") $
+
+Vorkommende Größen:
+- Verdampfungswärme $Lambda$: Die Verdampfungswärme pro Mol verdampfter Flüssigkeit
+- Absolute Temperatur $T$: Selbsterklärend
+- Steigung Phasengrenzlinie $(dif p_s)/(dif T)$: Die Steigung der Phasengrenzlinie $p_s (T)$
+- Differenz der Molvolumina in der Dampfphase bzw. der flüssigen Phase $(V_D - V_"Fl")$
+
+c) Beim Schmelzen besitzen Feststoff und Flüssigkeit ähnlich Dichten und damit ähnlich Volumina, d.h. der Schmelzpunkt ändert sich nur schwach mit dem Druck. Beim Übergang von Flüssigkeit zu Gas vergrößert sich das Volumen stark, dadurch reagiert der Siedepunkt deutlich stärker auf Druckänderungen.
+
+== Phasendiagramme und Phasenübergänge <phasendiagramm>
 
 Das feste $"CO"_2$ geht bei normalem Druck (1 atm) direkt in den gasförmigen Zustand über ohne sich vorher zu verflüssigen. Der Tripelpunkt von $"CO"_2$ liegt bei $T = 216.6 "K"$ und $p = 5.1 "atm"$.
 
@@ -1297,7 +1531,7 @@ b) #image("assets/fragenkatalog/phasendiagramm_co2.png")
 
 c) "Schmelzen" ist der Phasenübergang vom festen zum flüssigen Aggregatzustand.
 
-c) Um $"CO"_2$ schmelzen zu können, muss ein Mindestdruck von von $~5.18 "bar"$ erreicht werden (oberhalb des Tripelpunkts) und die Temperatur von $~330 "K"$ erhöht werden. Desto höher der Druck, desto höher muss die Temperatur sein, damit der flüssige Aggregatzustand erreicht wird.
+d) Um $"CO"_2$ schmelzen zu können, muss ein Mindestdruck von von $~5.18 "bar"$ erreicht werden (oberhalb des Tripelpunkts) und die Temperatur von $~330 "K"$ erhöht werden. Desto höher der Druck, desto höher muss die Temperatur sein, damit der flüssige Aggregatzustand erreicht wird.
 
 == Phasendiagramme von Einkomponentensystemen
 
@@ -1307,7 +1541,14 @@ c) Um $"CO"_2$ schmelzen zu können, muss ein Mindestdruck von von $~5.18 "bar"$
 
 #line(length: 100%)
 
-TODO
+a) Siehe @phasendiagramm (b)
+
+b) Ab dem kritischen Punkt verschwindet die Unterscheidung zwischen flüssiger und gasförmiger Phase. Es existiert nur noch eine homogene, überkritische Phase, die Eigenschaften von Gasen und Flüssigkeiten vereint.
+
+c) Es ist tatsächlich der Normalfall, dass eine Substanz in ihrer Schmelze untergeht. Das Phasendiagramm von $"CO"_2$ aus (a) zeigt somit diesen Fall bereits.
+
+Das Phasendiagramm einer Substanz, die auf ihrer Schmelze schwimmt, ist z.B. das von Wasser/$"H"_2"O"$ (Eis schwimmt auf Wasser):
+#image("assets/fragenkatalog/Phasendiagramm_Wasser.png")
 
 == Phasenregel
 
@@ -1317,7 +1558,32 @@ TODO
 
 #line(length: 100%)
 
-TODO
+a) Damit alle Phasen gleichzeitig im thermodynamischen Gleichgewicht sind:
+- Thermisches Gleichgewicht: Alle Phasen besitzen dieselbe Temperatur ($T_1 = T_2 = ... = T_p$)
+- Mechanisches Gleichgewicht: Alle Phasen besitzen denselben Druck ($p_1 = p_2 = ... = p_p$)
+- Chemisches Gleichgewicht: Für jede Komponente $i$ muss das chemische Potential in allen Phasen gleich sein ($mu_(i,1) = mu_(i,2) = ... = mu_(i,p)$ für $i = 1, ..., q$). Es gibt also für jede der $q$ Komponenten Gleichheitsbedingungen zwischen den $p$ Phasen.
+
+b) Für jede Phase muss die Temperatur $T$, der Druck $p$ und die Zusammensetzung angegeben werden. Die Zusammensetzung einer Phase mit $q$ Komponenten wird durch $q-1$ unabhängige Konzentrationen beschrieben, da folgendes gilt:
+$ sum^q_(i=1) x_i = 1 $
+
+Damit besitzt jede Phase $2 + (q-1) = q+1$ unabhängige Variablen. Für $p$ Phasen sind das somit $q * (p+1)$ Variablen insgesamt.
+
+Für die Nebenbedingungen, also die Gleichheitsbedingungenm ergeben sich folgende Anzahlen an Bedingungen:
+- Temperaturgleichheit: $p-1$ Bedingungen
+- Druckgleichheit: $p-1$ Bedingungen
+- Gleichheit der chemischen Potentiale: $p-1$ Bedingungen für $q$ Komponenten, d.h. $q * (p+1)$ Bedingungen
+
+Die Zahl der Freiheitsgrade ergibt sich aus:
+$ f = "Variablen" - "Bedingungen" $
+also
+$ f = p * (q+1) - ((p-1) + (p-1) + q * (p-1)) $
+Ausmultipliziert ergibt das die Gibb'sche Phasenregel:
+$ f = p * q + p - 2*p + 2 - q*p + q $
+$ f = q - p + 2 $
+
+c) Am Tripelpunkt koexistieren Eis, flüssiges Wasser und Wasserdampf, d.h. $p = 1$. Wasser ist ein Einkomponentensystemen, d.h. $q = 1$. Einsetzen in die Gibb'sche Phasenregel:
+$ f = q - p + 2 = 1 - 3 + 2 = 0 $
+Das Ergebnis von $f=0$ bedeutet, dass keine Freiheitsgrade existieren und somit Temperatur und Druck vollständig festgelegt sind.
 
 == Van-der-Waals Gas
 
