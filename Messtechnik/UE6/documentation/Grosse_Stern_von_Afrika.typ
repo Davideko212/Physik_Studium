@@ -31,7 +31,7 @@
 $ 1 "Kt" = 0.2 * 10^(-3) "kg" arrow.double 530.2 "Kt" = 530.2 * 0.2 * 10^(-3) "kg" = 106.04 * 10^(-3) "kg" $
 
 Das Ångström ist dagegen eine Maßeinheit der Länge, die exakt $0.1 "nm"$ entspricht, d.h.:
-$ 1 angstrom 10^(-10) "m"$.
+$ 1 angstrom = 10^(-10) "m" $.
 
 Um aus dem Gewicht des Diamanten auf das Volumen zu schließen, ist ebenfalls die Dichte benötigt. Die Dichte eines reinen Diamanten entspricht (laut Wikipedia #footnote[https://de.wikipedia.org/wiki/Diamant]) ca. $3.52 "g"/"cm"^3$.
 
