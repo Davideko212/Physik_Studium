@@ -83,7 +83,27 @@ Zeigen Sie, dass das Coulombgesetz aus dem Gauß'schem Gesetz hergeleitet werden
 
 #line(length: 100%)
 
-TODO
+a) Das Gaußsche Gesetz der Elektrostatik besagt, dass der elektrische Fluss durch eine geschlossene Oberfläche direkt proportional zu der von ihr eingeschlossenen elektrischen Ladung ist.
+
+$ Phi_"el" = integral.cont_A arrow(E) dif arrow(A) = integral_V(A) nabla dot arrow(E) dif V = Q/epsilon_0 $
+
+b) Das Coulomb Gesetz beschreibt die elektrische Kraft zwischen zwei (ruhenden) Punktladungen $q_1$ und $q_2$ im Abstand $r$:
+$ arrow(F) = 1/(4pi * epsilon_0) * (q_1 * q_2)/r^2 * hat(r) $
+
+Daraus lässt sich das elektrische Feld einer einzelnen Punktladung folgend definieren:
+$ arrow(E) = 1/(4pi * epsilon_0) * q/r^2 * hat(r) $
+
+Um nun vom CG auf das GG zu kommen, muss das von einem beliebigen 3D-Objekt ausgestrahlte elektrische Feld in einem Raumwinkel $dif Omega$ über alle dieser Raumwinkel integriert werden. Der Raumwinkel $dif Omega$ kann in Kugelkoordinaten folgend hergeleitet werden:
+$ dif V = r^2 * sin(theta) dif phi dif theta dif r $
+$ dif A = (dif V)/(dif r) = r^2 * sin(theta) dif phi dif theta = r^2 * dif Omega $
+$ arrow.double (dif A)/r^2 = dif Omega = sin(theta) dif phi dif theta $
+
+Das Gaußsche Gesetz erhältet man nun, wenn in die Formel für den elektrischen Fluss alles eingesetzt wird:
+$ dif Phi = arrow(E) dif arrow(A) = 1/(4pi * epsilon_0) * q/r^2 * hat(r) * dif arrow(A) = 1/(4pi * epsilon_0) * q/r^2 * hat(r) * dif A * cos(theta) = 1/(4pi * epsilon_0) * q * dif Omega $
+$ arrow.double Phi = integral dif Phi = 1/(4pi * epsilon_0) * q * integral dif Omega = 1/(4pi * epsilon_0) * q * 4pi = q/epsilon_0 $
+
+Bei mehreren Ladungen gilt das Superpositionsprinzip:
+$ epsilon_0 * Phi = sum_i epsilon_0 * Phi_i = sum_i q_i = Q $
 
 === Elektrisches Feld eines unendlichen, homogenen Stabes
 
@@ -95,7 +115,34 @@ Berechnen Sie das elektrische Feld und das Potential eines unendlich langen, hom
 
 #line(length: 100%)
 
-TODO (Seite 11 & 12 Demtröder 2)
+Die Gesamtladung des Stabes sei $Q$, somit ist die Ladung pro Längeneinheit $lambda = Q/L = pi * R^2 * rho$. Die elektrische Feldstärke ist aus Symmetriegründen in einem Punkt $P$ im Abstand $r$ von der Stabachse radial nach außen gerichtet.
+
+a) Für das elektrische Feld im Innenraum ($r lt.eq R$) gilt für die eingeschlossene Ladung $Q_"ein" = (lambda * L * pi * r^2)/(pi * R^2) = (lambda * L * r^2)/(R^2)$:
+$ Q_"ein"/epsilon_0 = (lambda * L * r^2)/(R^2)/epsilon_0 = integral.cont_A arrow(E) dif arrow(A) = E * 2pi * r * L $
+$ arrow.double arrow(E) = (lambda*L*r^2)/(epsilon_0 * R^2 * 2pi * r * L) = (lambda*arrow(r))/(epsilon_0 * R^2 * 2pi) = (pi * R^2 * rho * arrow(r))/(epsilon_0 * R^2 * 2pi) = (rho * arrow(r))/(epsilon_0 * 2) $
+
+Für das elektrische Potential bei $r lt.eq R$ ergibt sich:
+$ Phi(r) = - integral E(r) dif r = - integral_R^r (rho * r)/(epsilon_0 * 2) dif r = -(rho)/(epsilon_0 * 2) * integral_R^r r dif r $
+$ = -(rho)/(epsilon_0 * 2) * (r^2/2 - R^2/2) = (rho)/(epsilon_0 * 4) * (R^2 - r^2) $
+
+b) Für das elektrische Feld im Außenraum ($r gt R$) gilt:
+$ Q/epsilon_0 = (lambda*L)/epsilon_0 = integral.cont_A arrow(E) dif arrow(A) = E * 2pi * r * L $
+$ arrow.double arrow(E) = (lambda * L)/(epsilon_0 * 2pi * r * L) * hat(r) = (pi * R^2 * rho)/(epsilon_0 * 2pi * r) * hat(r) = (R^2 * rho)/(epsilon_0 * 2 * r) * hat(r) $
+
+Für das elektrische Potential bei $r gt R$ ergibt sich:
+$ Phi(r) = - integral E(r) dif r = - integral_R^r (R^2 * rho)/(epsilon_0 * 2 * r) dif r = -(R^2 * rho)/(epsilon_0 * 2) * integral_R^r 1/r dif r $
+$ = -(R^2 * rho)/(epsilon_0 * 2) * (ln(r) - ln(R)) = (R^2 * rho)/(epsilon_0 * 
+2) * (ln(R) - ln(r)) = (R^2 * rho)/(epsilon_0 * 2) * ln(R/r) $
+
+c) Das elektrische Feld nimmt innerhalb des Stabes ($0 lt.eq r lt.eq R$) linear zu, da eine homogene Volumenladungsdichte vorliegt. Danach (d.h. für $r gt.eq R$) nimmt es proportional zu $1/r$ ab.
+
+Das Potential ist in der Mitte des Stabes ($r = 0$) maximal und nimmt bis zur Oberfläche des Stabes ($r = R$) quadratisch ab, wobei das Potential an der Oberfläche gleich null ist. Für $r gt.eq R$ wird das Potential negativ, proportional zu $-ln(r)$.
+#image("assets/fragenkatalog/elek_feld_unendlicher_stab_graph.png")
+
+d) Für eine zylindrische Feldkonfiguration:
+- Es gibt eine Translationssymmetrie in $z$, d.h. $(partial E)/(partial z) = 0$
+- Es gibt eine Rotationssymmetrie in $z$, d.h. $(partial E)/(partial phi) = 0$
+Somit bleibt lediglich $(partial E)/(partial r)$ übrig, was zu der Folgerung $arrow(E) = E(r) * hat(r)$ führt.
 
 === Elektrisches Feld eines Stabes entlang Symmetrieachse
 
@@ -105,7 +152,17 @@ Ein dünner geladener Stab (Linienladungsdichte $lambda$ [$C/m$]) der Länge $2a
 
 #line(length: 100%)
 
-TODO
+Durch das Superpositionsprinzip lässt sich das elektrische Feld im Punkt $arrow(r)$ mit folgender Formel darstellen:
+$ arrow(E)(arrow(r)) = Q_1/(4pi * epsilon_0) * (arrow(r) - arrow(r)_1)/(|arrow(r) - arrow(r)_1|^3) + Q_2/(4pi * epsilon_0) * (arrow(r) - arrow(r)_2)/(|arrow(r) - arrow(r)_2|^3) + ... $
+
+Somit erzeugt ein Ladungselement bei der Position $(0, y)$ mit der Ladung $dif Q = lambda dif y$ im Punkt $P = (x, 0)$ folgendes Feld:
+$ dif arrow(E) = lambda * (dif y)/(4pi *  epsilon_0) * (vec(x,0) - vec(0,y))/(x^2 + y^2)^(3/2) $
+
+Uns interessiert nur das elektrische Feld entlang der $x$-Achse, d.h. es muss nur die $x$-Komponente von $dif arrow(E)$ betrachtet werden:
+$ dif E_x = lambda * (dif y)/(4pi *  epsilon_0) * x/(x^2 + y^2)^(3/2) $
+$ arrow.double E_x = integral^a_(-a) dif E_x = integral^a_(-a) lambda * (dif y)/(4pi *  epsilon_0) * x/(x^2 + y^2)^(3/2) = (lambda * x)/(4pi * epsilon_0) integral^a_(-a) 1/(x^2 + y^2)^(3/2) dif y $
+$ E_x = (lambda * x)/(4pi * epsilon_0) * [y/(x^2 sqrt(x^2 + y^2))]_(-a)^a = (lambda * x)/(4pi * epsilon_0) * (2* a)/(x^2 sqrt(x^2 + a^2)) = (lambda * a)/(2pi * epsilon_0 * x * sqrt(x^2 + a^2)) $
+$ arrow.double arrow(E)(x) = (lambda * a)/(2pi * epsilon_0 * x * sqrt(x^2 + a^2)) * hat(x) $
 
 === Thomsonsches Atommodell
 
@@ -153,7 +210,18 @@ Berechnen Sie die potentielle Energie von drei Ladungen $Q_1$, $Q_2$ und $Q_3$, 
 
 #line(length: 100%)
 
-TODO
+Die potentielle Energie des Systems ergibt sich als Summe der paarweisen Wechselwirkungsenergien:
+$ E_"pot" = W = W_12 + W_13 + W_23 = 1/(4pi * epsilon_0) * (Q_1 * Q_2)/r_12 + 1/(4pi * epsilon_0) * (Q_1 * Q_3)/r_13 + 1/(4pi * epsilon_0) * (Q_2 * Q_3)/r_23 $
+$ = 1/(4pi * epsilon_0) * (Q_1 * Q_2/r_12 + Q_1 * Q_3/r_13 + Q_2 * Q_3/r_23) $
+
+Dabei entspricht $W$ der Arbeit, die aufgewendet werden muss, um die drei Ladungen aus dem Unendlichen in die gegebene Konfiguration zu bringen.
+
+Die Gesamtkraft auf $Q_3$ ergibt sich durch Superposition der Coulomb-Kräfte von $Q_1$ und $Q_2$:
+$ arrow(F)_3 = arrow(F)_13 + arrow(F)_23 + ... =  Q_3/(4pi * epsilon_0) * sum (Q_i * (arrow(r)_3 - arrow(r)_i))/(|arrow(r)_3 - arrow(r)_i|^3) $
+$ arrow(F)_3 = Q_3/(4pi * epsilon_0) * (Q_1 * (arrow(r)_3 - arrow(r)_1))/(|arrow(r)_3 - arrow(r)_1|^3) + Q_3/(4pi * epsilon_0) * (Q_2 * (arrow(r)_3 - arrow(r)_2))/(|arrow(r)_3 - arrow(r)_2|^3) = Q_3/(4pi * epsilon_0) * (Q_1/r_13^2 * hat(r)_13 + Q_2/r_23^2 * hat(r)_23) $
+
+Die Gesamtkraft ergibt sich geometrisch als Vektorsumme:
+#image("assets/fragenkatalog/coulombkraft_ueberlagerung.svg")
 
 === Ladungsanordnung Kreis
 
@@ -212,7 +280,29 @@ Ein Ring aus dünnem Draht mit Radius $R$ ist homogen geladen mit Linienladung $
 
 #line(length: 100%)
 
-TODO
+a) Für ein Punkt $P$ auf der Symmetrieachse ($z$-Achse) heben sich die zu der Symmetrieachse senkrechte Komponenten auf, übrig bleibt nur die Komponente in $z$-Richtung. Die Gesamtladung des Stabes sei $Q$, somit ist die Ladung pro Längeneinheit $lambda = Q/L$. Für ein beliebig kleines Stück des Rings mit Ladung $dif Q$ lässt sich das elektrische Feld als das einer Punktladung annehmen, d.h. für das elektrische Feld entlang der $z$-Achse gilt:
+$ dif E_z = 1/(4pi * epsilon_0 * r^2) * dif Q * cos(theta) $
+
+Der Winkel $theta$ wird von der $z$-Achse und dem Richtungsvektor $arrow(r)$ vom Punkt $P$ zum kleinen Linienstück des Rings eingeschlossen, wobei $r$ mit dem Satz des Pythagoras als $r^2 = R^2 + z^2$ beschrieben werden kann, d.h.:
+$ dif E_z = 1/(4pi * epsilon_0 * r^2) * dif Q * z/r = 1/(4pi * epsilon_0) * (z * dif Q)/(R^2 + z^2)^(3/2) $
+$ arrow.double E_z = 1/(4pi * epsilon_0) * integral (z)/(R^2 + z^2)^(3/2) dif Q = 1/(4pi * epsilon_0) * (z)/(R^2 + z^2)^(3/2) * integral dif Q $
+$ arrow.double arrow(E)(z) = (z*Q)/(4pi * epsilon_0 * (R^2 + z^2)^(3/2)) = (z*lambda*L)/(4pi * epsilon_0 * (R^2 + z^2)^(3/2)) $
+
+b) Für eine zylindrische Feldkonfiguration:
+- Es gibt eine Spiegelsymmetrie entlang der $z$-Achse für gegenüberliegende Ladungen, d.h. $E_r = 0$
+- Es gibt eine Rotationssymmetrie entlang der $z$-Achse, d.h. $E_phi = 0$
+Diese Symmetrien zusammen rechtfertigen den Ansatz $arrow(E) = E_z (z) hat(z)$ auf der Symmetrieachse.
+
+c) Für $z >> R$ entwickelt man $E(z)$ in Potenzen von $1/z$:
+$ E(z) = (z * Q)/(4pi * epsilon_0 * (R^2 + z^2)^(3/2)) = Q/(4pi * epsilon_0 * z^2) * 1/(1 + R^2/z^2)^(3/2) $
+
+Mit der Taylorreihe $(1 + u)^(-3/2) = 1 - 3/2 u + 15/8 u^2 - ...$ für $|u| < 1$ und $u = R^2/z^2$:
+$ E(z) = Q/(4pi * epsilon_0) * 1/z^2 * (1 - 3/2 * R^2/z^2 + ...) $
+
+Die ersten zwei Terme der Entwicklung in $1/z$ lauten damit:
+$ E(z) approx Q/(4pi * epsilon_0) * (1/z)^2 - (3 * Q * R^2)/(8pi * epsilon_0) * (1/z)^4 + ... $
+
+Der führende Term $~ 1/z^2$ entspricht dem Feld einer Punktladung im Ursprung, was für $z >> R$ physikalisch zu erwarten ist, denn der Ring erscheint aus großer Entfernung wie eine Punktladung.
 
 === Zwei Ladungen als Dipol
 
@@ -220,11 +310,35 @@ Zwei Ladungen befinden sich auf der ($x,y$) Ebene: Erste Ladung $Q$, Koordinaten
 + Berechnen Sie das elektrische Feld entlang der x-Achse:
   + Graphisch (Amplitude und Richtung) 
   + Koordinatenweise
-b) Berechnen Sie das Potential dieses Dipols entlang der $y$-Achse in der Näherung $|y|>> a$. (Ersten von Null abweichenden Term in der Reihenentwicklung in $1/y$).
++ Berechnen Sie das Potential dieses Dipols entlang der $y$-Achse in der Näherung $|y|>> a$. (Ersten von Null abweichenden Term in der Reihenentwicklung in $1/y$).
 
 #line(length: 100%)
 
-TODO
+a) 1) So ca.
+#image("assets/fragenkatalog/ladungen_als_dipol.svg")
+
+2) Durch das Superpositionsprinzip lässt sich das elektrische Feld im Punkt $arrow(r)$ mit folgender Formel darstellen:
+$ arrow(E)(arrow(r)) = Q_1/(4pi * epsilon_0) * (arrow(r) - arrow(r)_1)/(|arrow(r) - arrow(r)_1|^3) + Q_2/(4pi * epsilon_0) * (arrow(r) - arrow(r)_2)/(|arrow(r) - arrow(r)_2|^3) + ... $
+$ arrow(E)(arrow(r)) = Q/(4pi * epsilon_0) * (arrow(r) - vec(0,a))/(|arrow(r) - vec(0,a)|^3) - Q/(4pi * epsilon_0) * (arrow(r) - vec(0,-a))/(|arrow(r) - vec(0,-a)|^3) $
+
+Für einzelne Punkte entlang der $x$-Achse gilt somit:
+$ arrow(E)(vec(x,0)) = Q/(4pi * epsilon_0) * vec(x,-a)/((sqrt(x^2 + a^2))^3) - Q/(4pi * epsilon_0) * vec(x,a)/((sqrt(x^2 + a^2))^3) $
+$ = Q/(4pi * epsilon_0 * (x^2 + a^2)^(3/2)) * vec(x - x, -a - a) = Q/(2pi * epsilon_0 * (x^2 + a^2)^(3/2)) * vec(0, -a) $
+
+b) Das Potential entlang der $y$-Achse ergibt sich durch Superposition der Potentiale beider Ladungen. Für einen Punkt $vec(0, y)$ mit $y > 0$ gilt:
+$ Phi(vec(0,y)) = Q/(4pi * epsilon_0) * 1/abs(y-a) - Q/(4pi * epsilon_0) * 1/abs(y+a) = Q/(4pi * epsilon_0) * (1/(y-a) - 1/(y+a)) $
+
+Für $|y| >> a$ entwickelt man die beiden Terme in $1/y$:
+$ 1/(y - a) = 1/y * 1/(1 - a/y) approx 1/y * (1 + a/y + a^2/y^2 + ...) $
+$ 1/(y + a) = 1/y * 1/(1 + a/y) approx 1/y * (1 - a/y + a^2/y^2 - ...) $
+
+Die Differenz liefert:
+$ 1/(y-a) - 1/(y+a) approx 1/y * (2 * a/y + ...) = (2*a)/y^2 + ... $
+
+Der konstante Term ($~1/y^0$) und der lineare Term ($~1/y$) heben sich auf. Der erste von Null abweichende Term ist somit:
+$ Phi(vec(0,y)) approx Q/(4pi * epsilon_0) * (2*a)/y^2 = (2 * Q * a)/(4pi * epsilon_0 * y^2) = p/(4pi * epsilon_0 * y^2) $
+
+wobei $p = 2 * Q * a$ das Dipolmoment bezeichnet. Das Potential fällt entlang der $y$-Achse (der Dipolachse) wie $~1/y^2$ ab, schneller als das $~1/y$-Potential einer einzelnen Punktladung.
 
 === Zwei Ladungen als Dipol (2)
 
@@ -277,7 +391,7 @@ Elektrostatisches Feld eines geladenen Rings (Flächenladungsdichte $sigma$; alt
 
 TODO
 
-=== Zylinderkondensator
+=== Zylinderkondensator <zylinderkondensator>
 
 Gegeben sind zwei koaxiale, unendlich lange, dünnwandige und geladene Metallzylinder der Radien $R_1$ (Ladungsdichte $-3 lambda$ [$C/m$]) und $R_2 > R_1$ (Ladungsdichte $+ lambda$ [$C/m$]). Berechnen Sie und zeichnen Sie das elektrische Feld und Potential dieser Ladungsverteilung im gesamten Raum
 + Innenbereich
@@ -364,13 +478,12 @@ Berechnen Sie (im Innenraum und im Außenraum)
 
 + das elektrische Feld
 + den Potentialverlauf
-
+  
   einer unendlich breiten, homogen geladenen Platte mit Dicke $d$ und Ladungsdichte $rho$ (Volumendichte):
-
 + Skizzieren Sie das Feld und das Potential
 + Diskutieren Sie die Symmetriebedingungen für die Feldkonfiguration
 
-TODO: bild & bessere formatierung
+#image("assets/fragenkatalog/elek_feld_platte.svg")
 
 #line(length: 100%)
 
@@ -418,7 +531,34 @@ b) Wie groß sind nun die einzelnen Ladungen und die jeweiligen Potentiale?
 
 #line(length: 100%)
 
-TODO
+a) Die isoliert aufgehängte Metallkugel kann als Kondensator mit der Kapazität $C=Q/U$ betrachtet werden. Um die Kapazität der Metallkugel zu berechnen, muss vom elektrischen Feld aus das Potential berechnet werden:
+$ E(r) = 1/(4pi * epsilon_0) * Q/r^2 $
+$ Phi(r) = - integral E(r) = - Q/(4pi * epsilon_0) * integral 1/r^2 = Q/(4pi * epsilon_0 * r) $
+
+Wenn die Potentialdifferenz zur Umgebung $U_0$ beträgt, gilt $Phi(R) = U_0$. Somit gilt für die Kapazität der Metallkugel
+$ C = Q/U = Q/(Q/(4pi * epsilon_0 * R)) = 4pi * epsilon_0 * R $
+
+Wenn man nun das Aufladen der Metallkugel auf die Potentialdifferenz $U_0$ allgemein betrachtet, braucht man folgende Ladung:
+$ Q = C * U = 4pi * epsilon_0 * R * U_0 $
+
+b) Die Kapazität der kleineren Kugel ist die Hälfte der größeren:
+$ C = Q/U = Q/(Q/(4pi * epsilon_0 * R/2)) = 4pi * epsilon_0 * R/2 $
+
+Wenn die beiden Kugeln verbunden werden, gleichen sich ihre Potentiale an ($Phi_1 = Phi_2$). Die Gesamtladung bleibt erhalten:
+$ Q_1 + Q_2 = Q = 4pi * epsilon_0 * R * U_0 $
+
+Bedingung gleicher Potentiale:
+$ Phi_1 = Phi_2 arrow.double Q_1/(4pi * epsilon_0 * R) = Q_2/(4pi * epsilon_0 * R/2) arrow.double Q_1/R = Q_2/(R/2) arrow.double Q_1 = 2 Q_2 $
+
+Einsetzen in die Ladungserhaltung:
+$ 2 * Q_2 + Q_2 = 4pi * epsilon_0 * R * U_0 arrow.double Q_2 = (4pi * epsilon_0 * R * U_0)/3 $
+$ Q_1 = 2 * Q_2 = (8pi * epsilon_0 * R * U_0)/3 $
+
+Somit sind die Potentiale der Kugel nach dem Verbinden folgende:
+$ Phi_1 = Q_1/(4pi * epsilon_0 * R) = ((8pi * epsilon_0 * R * U_0)/3)/(4pi * epsilon_0 * R) = (2 U_0)/3 $
+$ Phi_2 = Q_2/(4pi * epsilon_0 * R/2) = ((4pi * epsilon_0 * R * U_0)/3)/(4pi * epsilon_0 * R/2) = (2 U_0)/3 $
+
+Die Potentiale sind somit (wie zuvor erwähnt) aufgrund des Ladungsaustauschs zwischen den Kugeln bis zu einem Ladungsgleichgewicht gleich.
 
 === IDFK
 
@@ -426,7 +566,11 @@ Warum ist ein statisches elektrisches Feld nicht in der Lage, ein geladenes Teil
 
 #line(length: 100%)
 
-TODO
+Stabiles Gleichgewicht erfordert, dass das Potential an der Gleichgewichtsposition $arrow(r)_0$ ein lokales Minimum (für positive Ladung) besitzt, d.h.:
+$ (partial^2 Phi)/(partial x^2) + (partial^2 Phi)/(partial y^2) + (partial^2 Phi)/(partial z^2) > 0 $
+
+Im ladungsfreien Raum muss das elektrostatische Potential jedoch die Laplace-Gleichung erfüllen:
+$ Delta Phi = (partial^2 Phi)/(partial x^2) + (partial^2 Phi)/(partial y^2) + (partial^2 Phi)/(partial z^2) = 0 $
 
 == Poisson Gleichung; Multipole; Leiter im elektrischen Feld; Energie des elektrischen Feldes
 
@@ -514,7 +658,33 @@ Ein elektrischer Dipol mit $p parallel z$-Achse befindet sich im Koordinatenursp
 
 #line(length: 100%)
 
-TODO
+Ein elektrischer Dipol besteht aus zwei Ladungen $+q$ bei $z = +d/2$ und $-q$ bei $z = -d/2$, mit Dipolmoment $p = q * d parallel z$-Achse.
+
+Das Potential ergibt sich durch Superposition der beiden Punktladungen:
+$ Phi(r) = q/(4pi * epsilon_0) * (1/r_+ - 1/r_-) $
+
+wobei $r_+$ und $r_-$ die Abstände von $+q$ bzw. $-q$ zum Aufpunkt sind.
+
+a) Aufpunkt $P = (x, 0, 0)$
+
+$ r_+ = sqrt(x^2 + (d/2)^2), quad r_- = sqrt(x^2 + (d/2)^2) $
+
+Da beide Ladungen den gleichen Abstand zum Aufpunkt haben:
+$ r_+ = r_- arrow.double Phi(x, 0, 0) = q/(4pi epsilon_0) * (1/r_+ - 1/r_-) = 0 $
+
+Das Potential verschwindet auf der gesamten $x$-Achse, d.h. sie liegt in der Äquatorialebene des Dipols.
+
+b) Aufpunkt $P = (0, y, 0)$
+
+Aus Symmetriegründen gilt dasselbe wie auf der $x$-Achse:
+$ r_+ = sqrt(y^2 + (d/2)^2) = r_- arrow.double Phi(0,y,0) = 0 $
+
+c) Aufpunkt $P = (0, 0, z)$ mit $z > 0$
+
+$ r_+ = abs(z - d/2), quad r_- = abs(z + d/2) $
+
+$ Phi(0,0,z) = q/(4pi * epsilon_0) * (1/(z - d/2) - 1/(z + d/2)) = q/(4pi * epsilon_0) * ((z + d/2) - (z - d/2))/((z - d/2)(z + d/2)) = q/(4pi * epsilon_0) * d/(z^2 - d^2/4) $
+$ = p / (4pi * epsilon_0 * (z^2 - d^2/4)) $
 
 == Dielektrika; Atomare Grundlagen; Elektrostatik in der Natur und Technik
 
@@ -524,7 +694,18 @@ Ein realer Plattenkondensator (dielektrische Konstante des Dielektrikums $epsilo
 
 #line(length: 100%)
 
-TODO
+Ein realer Plattenkondensator wird durch das Dielektrikum modelliert als idealer Kondensator $C$ parallel zu einem Widerstand $R$ (Rest-Widerstand des Dielektrikums).
+
+Nach dem Trennen von der Batterie entlädt sich der Kondensator über seinen eigenen Rest-Widerstand. Die Spannung folgt dem bekannten Exponentialgesetz:
+$ U(t) = U_0 * exp(-t/(R * C)) $
+
+Mit der Bedingung $U(tau) = U_0/2$:
+$ U_0/2 = U_0 * exp(-tau/(R * C)) arrow.double 1/2 = exp(-tau/(R * C)) $
+$ ln(2) = tau/(R * C) arrow.double R = tau/(C * ln(2)) $
+wobei für $C$ bei einem Plattenkondensator $C = epsilon * epsilon_0 * A/d$ gilt. Somit gilt für den Rest-Widerstand:
+
+$ R = tau/(epsilon * epsilon_0 * A/d * ln(2)) = tau/(epsilon * epsilon_0 * ln(2)) * d/A = rho_s * d/A $
+wobei $rho_s$ der gesuchte spezifische Widerstand ist.
 
 === Herleitung Formel Parallel- und Serien-Schaltung von Kondensatoren
 
@@ -532,11 +713,17 @@ Leiten Sie explizit die Formel für die Parallel- und Serien-Schaltung von Konde
 
 #line(length: 100%)
 
-TODO
+Schaltet man mehrere Kondensatoren parallel, so herrscht an allen Kondensatoren dieselbe Spannung (sonst würde Ladung fließen, bis die Spannungen ausgeglichen sind). Die Ladungen addieren sich, sodass nach $Q = C*U$ auch für die Kapazitäten gilt:
+$ C = sum_i C_i $
+
+Die Kapazität von hintereinander geschalteten Kondensatoren lässt sich aus der Relation $U = integral arrow(E) dif s$ erkennen. Bei gleicher Feldstärke $arrow(E)$ in den Kondensatoren wird beim Hintereinanderschalten die Spannung größer. Bei gleicher Gesamtladung $Q$ muss dann gelten:
+$ U = sum_i U_i = sum_i Q/C_i = Q * C arrow.double 1/C = sum_i 1/C_i $
+
+Alternativ kann man die Formeln auch mithilfe der Formel $C = epsilon_0 * A/d$ herleiten: Bei der Parallelschaltung addiert man die Flächen, bei der Reihenschaltung die Abstände.
 
 === Parallel geschaltete Kondensatoren, einer mit Dielektrikum
 
-Die parallel geschalteten Kondensatoren werden von der Batterie getrennt und in einen Kondensator wird ein Dielektrikum mit $epsilon = 3$ eingebracht (ohne Luftspalt).
+Zwei parallel geschalteten Kondensatoren werden von der Batterie getrennt und in einen Kondensator ($C_2$) wird ein Dielektrikum mit $epsilon = 3$ eingebracht (ohne Luftspalt).
 + Bestimmen sie 
   + die Spannung an den beiden Kondensatoren,
   + die Ladung auf jedem Kondensator und 
@@ -548,7 +735,31 @@ Diskutieren sie die unterschiedlichen Energien von a) und b).
 
 #line(length: 100%)
 
-TODO
+a) 1) Bei parallel geschalteten Komponenten bleibt die Spannung gleich, d.h. $U = U_(C 1) = U_(C 2)$.
+
+2) Für die Ladung eines Kondensators gilt $Q = C * U$, wobei sich $C$ durch das Einbringen eines Dielektrikums verändert:
+$ C_1 = epsilon_0 * A/d, quad C_2 = epsilon * epsilon_0 * A/d = 3 * epsilon_0 * A/d = 3 * C_1 $
+
+Bevor die Batterie getrennt worden ist und ohne Dielektrikum $C_1 = C_2 = C$ galt, war die Gesamtladung
+$ Q_"ges" = Q_1 + Q_2 = C_1 * U_0 + C_2 ' * U_0 = 2 * C * U_0 $
+
+Da die Kondensatoren parallel geschaltet sind, liegt an beiden die gleiche Spannung $U$:
+$ Q_1 = C_1 * U = C * U, quad Q_2 = C_2 ' * U = 3 * C_1 * U = 3 * C * U $
+$ arrow.double C * U + 3C * U = 2 * C * U_0 arrow.double U = U_0/2 = 5"V" $
+$ arrow.double Q_1 = C * U_0/2, quad Q_2 = 3 * C * U_0/2 $
+
+3) Die Gesamtenergie lässt sich mit der Formel $W = 1/2 * C * U^2$ berechnen (Herleitung siehe @zylinderkondensator_dielektrikum (b)):
+$ W = 1/2 * (C_1 + C_2 ') * U^2 = 1/2 * 4 * C * (U_0/2)^2 = C * U_0^2/2 = 1/2 * C * 100 "J" $
+
+b) 1) Wenn die $10"V"$-Batterie angeschlossen bleibt, währen das Dielektrikum eingebracht wird, bleibt die Spannung konstant bei $U_0 = U = 10"V"$. D.h. für die Ladungen gilt jetzt:
+$ Q_1 = C_1 * U_0 = C * U_0, quad Q_2 = C_2 ' * U_0 = 3 * C_1 * U_0 = 3 * C * U_0 $
+
+2) Die Gesamtenergie hat sich auch verändert:
+$ W = 1/2 * C * U_0^2 + 1/2 * 3 * C * U_0^2 = 2 * C * U_0^2 = 2 * C * 100 "J" $
+
+Bei Fall (a) nimmt die Gesamtenergie ab, denn die fehlende Energie wird als mechanische Arbeit freigesetzt. Das Dielektrikum wird vom elektrischen Feld aktiv hineingezogen.
+
+Bei Fall (b) nimmt die Gesamtenergie zu, weil die "unendliche" Quelle, also die Batterie, die Kondensatoren wie bei Fall (a) auflädt, bis ihre Kapazität vollständig gefüllt ist. Da sich die Kapazität durch das Einbringen des Dielektrikums vergrößert hat, hat sich jetzt auch die Gesamtenergie vergrößert.
 
 === Beziehungen dielektrische Verschiebungsdichte und elektrisches Feld <brechung_efeld>
 
@@ -582,9 +793,13 @@ b)
   [$arrow(D)$], [Normal], [Ja], [keine freien Flächenladungen]
 )
 
-c) Trifft der $arrow(E)$-Vektor unter dem Winkel $alpha$ aus dem ersten Material ($epsilon_1$) auf die Grenzfläche auf, so bildet er im zweiten Material ($epsilon_2$) einen Winkel $beta$ mit der Grenzflächennormalen, für den wegen $E^"Vak"_perp = $ TODO
+c) Trifft der $arrow(E)$-Vektor unter dem Winkel $alpha$ aus dem ersten Material ($epsilon_1$) auf die Grenzfläche auf, so bildet er im zweiten Material ($epsilon_2$) einen Winkel $beta$ mit der Grenzflächennormalen, für den wegen $epsilon_1 * E^"Vak"_perp = epsilon_2 * E^"Diel"_perp $ gilt:
+$ tan(beta) = epsilon_1 * (E^"Diel"_parallel)/(E^"Diel"_perp) = epsilon_2 * (E^"Vak"_parallel)/(E^"Vak"_perp) = epsilon_2/epsilon_1 * tan(alpha) arrow.double tan(alpha)/tan(beta) = epsilon_1/epsilon_2 $
 
-=== Zylinderkondensator mit Dielektrikum
+Daraus ergibt sich mit $arrow(D) = epsilon * epsilon_0 * arrow(E)$:
+$ arrow(D)^"Vak"_parallel = epsilon_1/epsilon_2 * arrow(D)^"Diel"_parallel $
+
+=== Zylinderkondensator mit Dielektrikum <zylinderkondensator_dielektrikum>
 
 + Berechnen Sie die Kapazität eines Zylinderkondensators mit dem Innenradius $R_1$ und Außenradius $R_2$. Der Kondensator ist vollständig mit einem Dielektrikum ausgefüllt (dielektrische Konstante $epsilon$).
 + Leiten Sie die Formel für die Energie dieses Kondensators als Funktion von $Q$ (Ladung) und $U$ (Spannung)
@@ -622,7 +837,7 @@ Ein unendlich langer dielektrischer Stab (Dielektrizitätskonstante $epsilon$) m
 
 #line(length: 100%)
 
-a) 
+TODO
 
 === Dielektrische Kugel mit eingebrachter Ladung
 
@@ -630,7 +845,19 @@ In der Mitte einer dielektrischen Kugel (Radius $R_0$, diel. Konstante $epsilon$
 
 #line(length: 100%)
 
-TODO
+Da die freie Ladung $Q$ im Zentrum liegt und das System Kugelsymmetrie besitzt, gilt für die dielektrische Verschiebung:
+$ integral.cont arrow(D) dif arrow(A) = Q_"frei" arrow.double D(r) * 4pi * r^2 = Q arrow.double arrow(D) = Q/(4pi * r^2) * hat(r) $
+
+Mit $arrow(D) = epsilon * epsilon_0 * arrow(E)$ im Inneren bzw. $arrow(D) = epsilon_0 * arrow(E)$ außen gilt somit für das elektrische Feld im Innenraum ($r < R_0$):
+$ arrow(E)(r) = 1/(epsilon * epsilon_0) * Q/(4pi * r^2) * hat(r) $
+
+Im Außenraum ($r > R_0$) fehlt einfach die dielektrische Konstante $epsilon$:
+$ arrow(E)(r) = 1/(epsilon_0) * Q/(4pi * r^2) * hat(r) $
+
+D.h. das Feld springt an der Grenzfläche $r = R_0$ um den Faktor $epsilon$.
+
+Um das Potential zu berechnen, muss die Bedingung $Phi(infinity) = 0$ angenommen werden. Im Innenraum gilt somit: TODO
+$ Phi(r) = -integral_infinity^r E(r) dif r' = -(1/(epsilon * epsilon_0) * -Q/(4pi * r) - 1/(epsilon * epsilon_0) * -Q/(4pi * infinity)) = -(1/(epsilon * epsilon_0) * -Q/(4pi * r) + 0) $
 
 
 = Strom
@@ -673,18 +900,64 @@ Berechnen Sie die Leitfähigkeit eines Metalls mit mittlerer freier Weglänge $t
 
 #line(length: 100%)
 
-TODO
+Unter dem Einfluss des elektrischen Feldes $E$ erfahren Ladungsträger mit der Ladung $q$ und der Masse $m$ eine zusätzliche Kraft
+$ arrow(F) = q * arrow(E) $
+welche zu einer Beschleunigung $arrow(a) = arrow(F)/m$ führt. Während der Zeit $tau_s = tau/overline(v)$ nach dem letzten Stoß erhalten sie daher eine Zusatzgeschwindigkeit
+$ Delta arrow(v) = a * tau_s = F/m * tau/overline(v) $
+die aber im Allgemeinen sehr kleine ist gegenüber ihrer Geschwindigkeit $arrow(v)$ und auch klein ist gegen die Änderung $Delta arrow(v)_i = arrow(v)_i - arrow(v)_(i-1)$ beim $i$-ten Stoß. Mit der mittleren Zeit $chevron.l tau_s chevron.r$ nach dem letzten Stoß (= halbe mittlere Zeit zwischen zwei Stößen) erhält man dann die mittlere Zusatzgeschwindigkeit $chevron.l Delta v chevron.r = (F/m) * chevron.l tau_s chevron.r$. Ohne äußeres Feld ist $chevron.l Delta arrow(v) chevron.r = arrow(0)$.
+
+Diese mittlere Zusatzgeschwindigkeit
+$ arrow(v)_D = chevron.l Delta arrow(v) chevron.r $
+heißt Driftgeschwindigkeit. Sie führt bei positiven Ladungen zu einem Ladungstransport in Feldrichtung (bei negativen Ladungen entgegengesetzt zur Feldrichtung) mit einer Stromdichte
+$ j = n * q * arrow(v)_D = rho_"el" * arrow(v)_D $
+
+Aus den obigen Formeln erhält man mit $arrow(F) = q * arrow(E)$ und $arrow(v)_D = chevron.l Delta arrow(v) chevron.r$:
+$ j = (n * q^2 * tau/overline(v))/m * arrow(E) = sigma_"el" * arrow(E) $
+wobei $sigma_"el"$ die elektrische Leitfähigkeit ist.
 
 === Gesamtwiderstand von geometrischen Widerstandsnetzwerken
 
 Bestimmen Sie den Gesamtwiderstand $R$ zwischen A und C (A und B) des Netzwerks aus
-Einzelwiderständen $R_0$. (Genauso für Induktivitäten $L_0$ / Kapazitäten $C_0$ oder andere Anordnungen: Isokaeder, Würfel, etc.)
+Einzelwiderständen $R_0$. (Genauso für Induktivitäten $L_0$ / Kapazitäten $C_0$ oder andere Anordnungen: Ikosaeder, Würfel, etc.)
 
-TODO: bilder?
+#grid(
+  columns: (auto, auto, auto),
+  rows: (10em),
+  align: center,
+  gutter: 6em,
+  image("assets/fragenkatalog/widerstandsnetzwerk_1.png"),
+  image("assets/fragenkatalog/widerstandsnetzwerk_2.png"),
+  image("assets/fragenkatalog/widerstandsnetzwerk_3.png"),
+)
 
 #line(length: 100%)
 
-TODO
+Für alle Aufgaben mit geometrischen Widerstandsnetzwerken ist es meist nützlich, die Stern-Dreieck-Transformation zu kennen:
+#image("assets/fragenkatalog/Stern-Dreieck-Transformation.png", width: 80%)
+
+Für die Dreieck-Stern-Transformation sind zur Bestimmung der Ersatzwiderstände folgende Berechnungen notwendig:
+$ R_a = (R_(a c) * R_(a b))/(R_(a c) + R_(a b) + R_(b c)), quad R_b = (R_(a b) * R_(b c))/(R_(a c) + R_(a b) + R_(b c)), quad R_c = (R_(a c) * R_(b c))/(R_(a c) + R_(a b) + R_(b c)) $
+
+Für die Stern-Dreieck-Transformation sind zur Bestimmung der Ersatzwiderstände folgende Berechnungen notwendig:
+$ R_(a c) = (R_a * R_b + R_b * R_c + R_c * R_a)/R_b, quad R_(a b) = (R_a * R_b + R_b * R_c + R_c * R_a)/R_c, $
+$ R_(b c) = (R_a * R_b + R_b * R_c + R_c * R_a)/R_a $
+
+Um den Gesamtwiderstand für das Gitter-Widerstandsnetzwerk (linke Abbildung) zwischen den Knoten A und B auszurechnen, kann die Spiegelsymmetrie entlang der horizontalen Mittellinie ausgenutzt werden. Es fließt kein Strom entlang der Mittelreihe, da alle Knoten dort auf gleichem Potential liegen, d.h. die Knoten können zu einem Knoten zusammengefasst werden. Somit zerfällt das Netzwerk in zwei identische Hälften, die abwechselnd durch das Zusammenfassen von seriellen/parallen Ecken zu einem Gesamtwiderstand zusammengefasst werden können:
+#image("assets/fragenkatalog/scuffed_widerstandsnetzwerk.png")
+
+Um im Gitter-Widerstandsnetzwerk den Gesamtwiderstand zwischen den Knoten A und C zu berechnen, kann die Dreieck-Stern-Transformation verwendet werden:
+#grid(
+  columns: (auto, auto),
+  rows: (11em),
+  align: center,
+  gutter: 6em,
+  image("assets/fragenkatalog/scuffed_widerstandsnetzwerk_2.jpg"),
+  image("assets/fragenkatalog/scuffed_widerstandsnetzwerk_3.jpg")
+)
+
+Mit der Spiegelsymmetrie von den Punkten D und E lässt sich wieder sagen, dass diese auf gleich Potential liegen und zwischen ihnen kein Strom fließt. Somit lassen sich D und E wieder zu einem Knoten in der Mitte zusammenfassen, anschließend kann wie oben das verbleibende Widerstandsnetzwerke mit einer Kombination von seriellen/parallelen Widerständen zu einem Gesamtwiderstand zusammenfassen.
+
+TODO Würfel und Ikosaeder (Nikolas)
 
 === Kirchhoffsche Regeln
 
@@ -780,30 +1053,61 @@ $ I_"ges" = I_L + I_R = 3 + 9 = 12"A" $
 === Offenes Koaxialkabel
 
 Ein offenes Koaxialkabel mit Durchmessern $R_1$/$R_2$ und Länge $L$ wird an die konstante Spannung $U$ angeschlossen. Berechnen Sie:
-+ die Menge der statischen Ladung, die sich im Kabel befindet (Dielektrizitätskonstante des Dielektrikum $epsilon$, Formeln aus Formelsammlung sind nicht erlaubt)
 
-  In diesem Experiment wird gleichzeitig ein (extrem geringer) Strom I gemessen. Berechnen Sie:
+a) die Menge der statischen Ladung, die sich im Kabel befindet (Dielektrizitätskonstante des Dielektrikum $epsilon$, Formeln aus Formelsammlung sind nicht erlaubt)
 
-+ Spezifischen Widerstand des Dielektrikums.
+In diesem Experiment wird gleichzeitig ein (extrem geringer) Strom I gemessen. Berechnen Sie:
+
+b) Spezifischen Widerstand des Dielektrikums.
 
 #image("assets/fragenkatalog/koaxialkabel.png")
 
 #line(length: 100%)
 
-TODO
+a) Im Zwischenbereich ($R_1 < r < R_2$) lässt sich das elektrische Feld mit dem Satz von Gauß berechnen:
+$ integral.cont arrow(E) dif arrow(A) = Q_"in"/epsilon arrow.double E(r) = Q/(2pi * r * l * epsilon) $
 
+Das Potential zwischen $R_1$ und $R_2$ lässt sich über die Integration des elektrischen Feldes bekommen:
+$ U = Phi = - integral_(R_2)^(R_1) E(r) dif r = - integral_(R_2)^(R_1) Q/(2pi * r * l * epsilon) dif r = -Q/(2pi * l * epsilon) integral_(R_2)^(R_1) 1/r dif r $
+$ -Q/(2pi * l * epsilon) * (ln(R_1) - ln(R_2)) = -Q/(2pi * l * epsilon) * ln(R_1/R_2) = Q/(2pi * l * epsilon) * ln(R_2/R_1) $
+
+Umgeformt auf die (statische) Ladung $Q$:
+$ U = Q/(2pi * l * epsilon) * ln(R_2/R_1) arrow.double Q = (U * 2pi * l * epsilon)/ln(R_2/R_1) $
+
+b) Der gemessene Strom $I$ ist ein Leckstrom durch das Dielektrikum von Innen- nach Außenleiter. Somit gilt für die Stromdichte im Dielektrikum:
+$ J(r) = E(r)/rho = (U/(r * ln(R_2/R_1)))/rho = U/(rho * r * ln(R_2/R_1)) $
+
+Der Gesamtstrom und somit der spezifische Innenwiderstand von innen nach außen (durch eine Zylinderfläche bei $R_1 < r < R_2$) ist somit:
+$ I = J(r) * 2pi * r * l = (U * 2pi * r * l)/(rho * r * ln(R_2/R_1)) = (U * 2pi * l)/(rho * ln(R_2/R_1)) arrow.double rho = (U * 2pi * l)/(I * ln(R_2/R_1)) $
 
 = Statische Magnetfelder
 
 == Magnetfeld, Fluss; Magnetfeld stationäre Ströme
 
-=== ???
+=== Vektorpotential
 
 Geben Sie die Definition des Vektorpotentials. Wie kann man das Vektorpotential aus gegebenen Verteilung der Stromdichte berechnen? (Herleitung der Integralgleichung)
 
 #line(length: 100%)
 
-TODO
+(Definition in Bezug auf Magnetfelder):
+
+Da $"div"(arrow(B)) = 0$ gilt, kann man eine vektorielle Feldgröße $arrow(A)(r)$ durch die Relation $arrow(B) = "rot"(arrow(A))$ definieren, die das Vektorpotential des Magnetfeldes $arrow(B)(arrow(r))$ heißt. Dadurch wird automatisch $"div"(arrow(B)) = 0$ erfüllt, weil immer gilt:
+$ "div"(arrow(B)) = nabla dot (nabla times A) = 0 $
+
+Durch die Definitionsgleichung $arrow(B) = "rot"(arrow(A))$ ist das Vektorpotential $arrow(A)(arrow(r))$ noch nicht völlig festgelegt, weil z.B. auch ein anderes Vektorpotential
+$ arrow(A)' = arrow(A) + "grad"(f) $
+mit einer beliebigen skalaren Ortsfunktion $f(arrow(r))$ wegen $"rot"("grad"(f)) = arrow(0)$ auch genügt, um die Gleichung zu erfüllen, d.h. es ergibt sich das gleiche Magnetfeld $arrow(B)$. Man muss daher noch eine Zusatzbedingung (Eichbedingung) an $arrow(A)$ stellen:
+$ "div"(arrow(A)) = 0 quad "(Coulomb-Eichung)" $
+
+Um das (magnetische) Vektorpotential aus einer gegebenen Verteilung der Stromdichte zu berechnen, braucht man folgende Relationen:
+$ "rot"(arrow(B)) = mu_0 * arrow(j), quad arrow(B) = "rot"(arrow(A)), quad nabla times (nabla times arrow(A)) = "grad"("div"(arrow(A))) - "div"("grad"(arrow(A))) $
+
+Einsetzen:
+$ nabla times arrow(B) = mu_0 * arrow(j) = "grad"("div"(arrow(A))) - "div"("grad"(arrow(A))) $
+
+Mit der Coulomb-Eichung ($"div"(arrow(A)) = 0$) und $"div"("grad"(arrow(A))) = Delta arrow(A)$ erhält man nun:
+$ mu_0 * arrow(j) = "grad"(0) - Delta arrow(A) arrow.double Delta arrow(A) = -mu_0 * arrow(j) $
 
 === Trivia zu magnetischen Feldern
 
@@ -833,7 +1137,10 @@ Berechnen sie das Feld einer langen Spule mit N gleichmäßig aufgewickelten Win
 
 #line(length: 100%)
 
-TODO
+Das Magnetfeld im Inneren der vom Strom $I$ durchflossenen Spule mit $N$ Windungen ist praktisch homogen und das im Außenraum ist demgegenüber vernachlässigbar klein, wenn der Durchmesser der Spule mit $n$ Windungen pro $m$ klein gegenüber ihrer Länge $L$ ist. Wir integrieren auf dem in der Abbildung unten gestrichelt eingezeichneten Wege. Da nur die Strecke im Inneren einen merklichen Beitrag liefert (auf den Strecken $overline(A C)$ und $overline(D B)$ ist $arrow(B) perp dif arrow(s)$, und außen kann der Integrationsweg beliebig weit von der Spule entfernt gewählt werden, wo B sehr klein wird), erhalten wir:
+$ integral.cont arrow(B) dif arrow(s) approx integral^A_B B dif s = B * L = N * mu_0 * I arrow.double B = (N * mu_0 * I)/L $
+
+#image("assets/fragenkatalog/magnetfeld_mittelpunkt_spule.png")
 
 === Magnetfeld im Mittelpunkt einer quadratischen Stromschleife <biot-savart-quadrat-1>
 
@@ -904,7 +1211,30 @@ Zwei lange koaxiale Aluminiumzylinder sind mit Potentialdifferenz $U$ aufgeladen
 
 #line(length: 100%)
 
-TODO
+Wenn der innere Zylinder den Radius $r_1$ und der äußere den Radius $r_2$ hat und beide die Länge $l$ haben, dann ist das Potential entlang der Oberfläche des inneren Zylinders
+$ Phi(r_1) = -Q/(2pi * l * epsilon_0) * ln(r_1/r_2) = Q/(2pi * l * epsilon_0) * ln(r_2/r_1) $
+(Herleitung der Formel siehe @zylinderkondensator)
+
+Für die Kapazität eines Kondensators gilt $Q = C * U arrow.double C = Q/U$:
+$ C = Q/Phi(r_1) = Q/(Q/(2pi * l * epsilon_0) * ln(r_2/r_1)) = (2pi * l * epsilon_0)/(ln(r_2/r_1)) $
+Die Kapazität pro Längeneinheit eines Koaxialkondensators beträgt somit:
+$ C/l = (2pi * epsilon_0)/ln(r_2/r_1) $
+
+Die Ladung pro Längeneinheit (Linienladungsdichte) bei Potentialdifferenz $U$ ist dann:
+$ lambda = C/l * U = (2pi * epsilon_0)/ln(r_2/r_1) * U $
+
+Die Flächenladungsdichte auf dem inneren Zylinder ($r_1$):
+$ sigma = lambda/(2pi * r_1) = ((2pi * epsilon_0)/ln(r_2/r_1) * U)/(2pi * r_1) = (epsilon_0 * U)/(r_1 * ln(r_2/r_1)) $
+
+Da die Ladung rotiert, kann diese als Flächenstromdichte aufgefasst werden. Der rotierende innere Zylinder trägt die Oberflächenladung $sigma$ mit Umfangsgeschwindigkeit $v = omega * r_1$. Dies entspricht einer Flächenstromdichte (Strom pro Längeneinheit in $z$-Richtung):
+$ J_s = sigma * v = sigma * omega * r_1 = (epsilon_0 * U * omega)/ln(r_2/r_1) $
+
+Der äußere Zylinder ruht, er trägt zwar Ladung $-sigma$, d.h. er erzeugt aber keinen Strom.
+
+Das Magnetfeld lässt sich für einen Zylinder sehr einfach mit der Flächenstromdichte $J_s$ berechnen. Die Ampere-Schleife schließt den Strom $J_s$ pro Längeneinheit ein, somit gilt $B = mu_0 * J_s$. Im Innenraum des kleinen Zylinders ($r < r_1$) ist das Magnetfeld somit homogen und axial:
+$ arrow(B) = mu_0 * J_s * hat(z) = (mu_0 * epsilon_0 * U * omega)/ln(r_2/r_1) * hat(z) $
+
+Zwischen den Zylindern ($r_1 < r < r_2$) gilt $arrow(B) = arrow(0)$, denn wenn die Zylinder wie laut Angabe "lang", also quasi unendlich lang sind, bleibt das Magnetfeld im Inneren des kleineren Zylinders "gefangen". Und weil der äußere Zylinder sich nicht dreht, induziert er kein extra Magnetfeld, wodurch außerhalb der zwei Zylinder ($r > r_2$) ebenfalls $arrow(B) = arrow(0)$ gilt.
 
 === Induzierte Spannung rotierender Stab im Magnetfeld
 
@@ -918,7 +1248,7 @@ $ F_r/q dif r = omega * r * B dif r $
 Integriert über die Stablänge:
 $ U = integral^L_0 omega * r * B dif r = (omega * L^2 * B)/2 $
 
-=== Magnetfeld einer kreisförmigen Leiterschleife
+=== Magnetfeld einer kreisförmigen Leiterschleife <mfeld_kreis_leiterschleife>
 
 Berechnen sie das Magnetfeld einer kreisförmigen Leiterschleife mit dem Biot-Savartschen Gesetz im Mittelpunkt der Leiterschleife und entlang einer Symmetrieachse ($z$-Achse); zeichnen sie schematisch den Feldverlauf.
 
@@ -990,7 +1320,27 @@ Ein langer magnetischer Zylinder (Symmetrieachse $z$, Permeabilität $mu$) träg
 
 #line(length: 100%)
 
-TODO
+Sei $R$ der Radius des Zylinders. Die Stromdichte $j(r) = alpha * r$ ist rotationssymmetrisch, daher gilt für die Feldstärke des Magnetfelds ebenfalls aus Symmetriegründen:
+$ arrow(H) = H(r) * hat(phi) $
+
+$arrow(H)$ lässt sich später mit dem Ampereschen Gesetz berechnen, zuerst muss jedoch noch der Strom $I(r)$ berechnet werden:
+$ I(r) = integral.cont arrow(H) dif arrow(l) = H(r) * 2pi r $
+
+Im Innenraum ($r < R$) gilt für den Strom und die magnetische Feldstärke:
+$ I(r) = integral_0^r j(r') * 2pi * r' dif r' = 2pi * alpha * integral_0^r r'^2 dif r' = 2pi * alpha * r^3/3 $
+$ arrow.double H(r) * 2pi * r = 2pi * alpha * r^3/3 arrow.double arrow(H) = (alpha * r^2)/3 * hat(phi) $
+
+Im Außenraum ($r > R$):
+$ I(r) = 2pi * alpha * integral_0^R r'^2 dif r' = 2pi * alpha * R^3/3 $
+$ arrow.double H(r) * 2pi * r = 2pi * alpha * R^3/3 arrow.double arrow(H) = (alpha * R^3)/(3 * r) * hat(phi) $
+
+Um von der Feldstärke $arrow(H)$ auf die Flussdichte $arrow(B)$ zu kommen, müssen $mu_0$ und $mu$ hinzumultipliziert werden, wobei im inneren des magnetischen Zylinders $mu_r = mu$ gilt (laut Angabe), außerhalb gilt $mu_r = 1$.
+
+Im Innenraum ($r < R$):
+$ arrow(B) = mu * mu_0 * (alpha * r^2)/3 * hat(phi) $
+
+Im Außenraum ($r > R$):
+$ arrow(B) = mu_0 * (alpha * R^3)/(3 * r) * hat(phi) $
 
 === Magnetfeld einer langen Spule
 
@@ -1000,7 +1350,7 @@ Eine lange Spule ist homogen zwischen Innenradius $R_i$ und Außenradius $R_a$ m
 
 #line(length: 100%)
 
-TODO
+(Ich nehme an, dass die Drähte horizontal/azimuthal verlaufen und daher das Feld wie bei allen anderen Spulenbeispielen axial ist, d.h. $arrow(B) = B(r) * hat(z)$) TODO
 
 === Magnetfeld antiparalleler Ströme in Zylinderschalen
 
@@ -1016,11 +1366,27 @@ TODO
 
 === Gegeninduktivität zweier runder Stromschleifen
 
-Berechnen Sie die Gegeninduktivität zweier runder Stromschleifen (Radien: $R_1$ und $R_2$) im großen Abstand ($z >> R_(1,2)$) voneinander. Beide Schleifen sind symmetrisch senkrecht zur z-Achse ausgerichtet
+Berechnen Sie die Gegeninduktivität zweier runder Stromschleifen (Radien: $R_1$ und $R_2$) im großen Abstand ($z >> R_(1,2)$) voneinander. Beide Schleifen sind symmetrisch senkrecht zur z-Achse ausgerichtet.
 
 #line(length: 100%)
 
-TODO
+Die Gegeninduktivität $M$ ist definiert über den magnetischen Fluss $Phi_2$, den ein Strom $I_1$ in Schleife 1 durch Schleife 2 erzeugt:
+$ M = Phi_2 / I_1 $
+
+Das Magnetfeld einer Stromschleife mit Radius $R$, Strom $I$ und im Ursprung zentriert ergibt sich aus dem Biot-Savart-Gesetz entlang der $z$-Achse zu (Herleitung siehe @mfeld_kreis_leiterschleife):
+$ B_Z (z) = (mu_0 * I * R^2)/(2 * (z^2 + R^2)^(3/2) $
+
+Für großen Abstand $z >> R_1$ vereinfacht sich der Nenner:
+$ (R_1^2 + z^2)^(3/2) = z^3 (1 + R_1^2/z^2)^(3/2) approx z^3 $
+
+Die Formel für das Magnetfeld lautet somit:
+$ B_Z (z) approx (mu_0 * I * R^2)/(2 * z^3) $
+
+Da $z >> R_2$, ist das Feld $B_Z$ über die Fläche von Schleife 2 näherungsweise konstant. Wenn die obige Formel für das Magnetfeld einer Leiterschleife auf die Schleife 1 mit Strom $I_1$ und Radius $R_1$ angewendet wird, beträgt der Fluss durch Schleife 2:
+$ Phi_2 = B_Z (z) * pi * R_2^2 = (mu_0 * I_1 * R_1^2)/(2 * z^3) * pi * R_2^2 = (mu_0 * pi * I_1 * R_1^2 * R_2^2)/(2 * z^3) $
+
+Eingesetzt in die Formel für die Gegeninduktivität ergibt das:
+$ M = Phi_2/I_1 = ((mu_0 * pi * I_1 * R_1^2 * R_2^2)/(2 * z^3))/I_1 = (mu_0 * pi * R_1^2 * R_2^2)/(2 * z^3) $
 
 === Induktivität einer Doppelleitung
 
@@ -1071,7 +1437,15 @@ Welches Drehmoment wirkt auf einen magnetischen Dipol (Stromschleife) im homogen
 
 #line(length: 100%)
 
-TODO
+Für einen magnetischen Dipol (Stromschleife) gilt das magnetische Dipolmoment $arrow(p)_m$:
+$ arrow(p)_m = I * arrow(A) $
+
+Bringt man eine solche stromdurchflossene Leiterschleife in ein äußeres Magnetfeld, so bewirken die auftretenden Lorentzkräfte ein Drehmoment auf den Dipol, das am Beispiel einer rechteckigen Spule (allgemein) berechnet werden kann.
+
+Auf die beiden gegenüberliegenden Leiterstücke $a$ der Rechteckschleife mit der Fläche $A = a*b$ wirkt die Lorentzkraft
+$ arrow(F) = a * I * (hat(e)_a times arrow(B)) $
+wobei $hat(e)_a$ ein Einheitsvektor in Richtung von $a$ ist und $I * hat(e)_a$ die technische Stromrichtung. Die Kraft auf die Leiterstücke $b$ wird durch die Aufhängung aufgefangen. Die Kraft $arrow(F)$ bewirkt somit folgendes Drehmoment:
+$ arrow(D) = 2 * b/2 * (hat(e)_b times arrow(F)) = a * b * I * (hat(e)_b times hat(e)_a) times arrow(B) = I * arrow(A) times arrow(B) = arrow(p)_m times arrow(B) $
 
 === Konstante kin. Energie Teilchen im Magnetfeld
 
@@ -1093,13 +1467,24 @@ TODO
 
 === Ladung fliegt durch Kondensator
 
-Eine Ladung $q$ fliegt horizontal in einen Kondensator der Breite $L$ und mit vertikalen elektrischen Feld (siehe Bild). Berechnen Sie die Auslenkung dieser Ladung nach beim Austritt aus dem Kondensator.
+Eine Ladung $q$ fliegt horizontal in einen Kondensator der Breite $L$ und mit vertikalen elektrischen Feld (siehe Bild). Berechnen Sie die Auslenkung dieser Ladung beim Austritt aus dem Kondensator.
 
 #image("assets/fragenkatalog/fliegende_ladung_kondensator.png")
 
 #line(length: 100%)
 
-TODO
+Innerhalb des Kondensators wirkt auf die Ladung folgende Kraft bzw. Beschleunigung:
+$ arrow(F) = m * arrow(a) = q * arrow(E) arrow.double arrow(a) = (q * arrow(E))/m $
+
+Die Beschleunigung wirkt nur in die vertikale Richtung, d.h. folgende Bewegungsgleichungen gelten bei einer Anfangsgeschwindigkeit von $arrow(v)_0 = vec(v_x,0)$:
+$ x(t) = v_x * t $ 
+$ y(t) = 1/2 * a * t^2 = 1/2 * (q * E)/m * t^2 $
+
+Die Zeit $T$, die die Ladung zum Durchqueren des Kondensators benötigt:
+$ L = v_x * T arrow.double T = L/v_0 $
+
+Eingesetzt in die Bewegungsgleichung $y(t)$:
+$ y(T) = 1/2 * (q * E)/m * T^2 = 1/2 * (q * E)/m * (L/v_0)^2 $
 
 === Bewegungsgleichungen geladenes Teilchen
 
@@ -1195,7 +1580,20 @@ Eine Aluminiumscheibe dreht sich im Magnetfeld ($arrow(B)$) mit Winkelgeschwindi
 
 #line(length: 100%)
 
-TODO
+Auf die Elektronen innerhalb der leitenden Aluminiumscheibe wirkt die Lorentzkraft:
+$ arrow(F) = q * (arrow(v) times arrow(B)) $
+
+Ein Elektron im Abstand $r$ von der Achse bewegt sich (tangential) mit folgender Geschwindigkeit, somit wirkt die Lorentzkraft radial:
+$ arrow(v) = omega * r * hat(phi) $
+$ arrow.double arrow(F) = -e * (omega * r * hat(phi) times B * hat(z)) = -e * omega * r * B * (hat(phi) times hat(z)) $
+$ = -e * omega * r * B * (-hat(r)) = e * omega * r * B * hat(r) $
+
+Durch die Bewegung der Elektronen entsteht ein Ladungsüberschuss, die negativen Ladungen sind am Rand, die positiven im Zentrum. Diese getrennten Ladungen bauen ein elektrisches Feld, das der Lorentzkraft entgegenwirkt. Im Gleichgewicht kompensiert das aufgebaute elektrische Feld die Lorentzkraft:
+$ q * arrow(E)_"eff" = -arrow(F) arrow.double -e * arrow(E)_"eff" = -e * omega * r * B * hat(r) $
+$ arrow.double E_"eff" (r) = omega * r * B $
+
+Nun kann die Spannung zwischen den zwei Kontakten berechnet werden:
+$ U = integral^(r_1)_(r_2) E_"eff" (r) dif r = integral^(r_1)_(r_2) omega * r * B dif r = omega * B * integral^(r_1)_(r_2) r dif r = 1/2 * omega * B * (r_1^2 - r_2^2) $
 
 === Magnetfeld eines langen rotierenden Zylinders
 
@@ -1205,6 +1603,12 @@ Ein langer homogen geladener Zylinder ($R$ - Radius, $rho$ - Ladungsdichte) dreh
 
 #line(length: 100%)
 
+Man betrachte eine dünne Zylinderschale bei Radius $r$ mit Dicke $dif r$. Die Ladung pro Längeneinheit dieser Schale beträgt:
+$ dif lambda = rho * 2pi * r * dif r $
+
+Die Umlaufzeit ist $T = (2pi)/omega$, damit ist der Strom pro Längeneinheit (Flächenstromdichte):
+$ dif K = (dif lambda) / T = (rho * 2pi * r * dif r * omega)/(2pi) = rho * omega * r * dif r $
+
 TODO
 
 === Halleffekt
@@ -1213,7 +1617,26 @@ Beschreiben Sie den Hall Effekt (schematische Zeichnung, Rechnung), welche mikro
 
 #line(length: 100%)
 
-TODO
+Schematische Zeichnung (aus den Folien):
+#image("assets/fragenkatalog/hall_effekt.png")
+
+Der Halleffekt ist, das wenn ein Leiter in einem Magnetfeld mit einem Strom durchflossen wird, quer zur Stromrichtung ein Spannungsabfall gemessen werden kann (Hallspannung).
+
+Dieser Spannungsabfall entsteht, weil das Magnetfeld durch die Lorentzkraft die Ladungsträger im Leiter ablenkt:
+$ F_"lor" = -q * v * B $
+
+Die Ladungsteiler häufen sich somit jeweils an beiden Seiten an (je nach Ladung). Diese getrennten Ladungen bauen ein elektrisches Feld, das der Lorentzkraft entgegenwirkt. Im Gleichgewicht kompensiert das aufgebaute elektrische Feld die Lorentzkraft:
+$ F_"lor" = F_"el" arrow.double -q * v * B = E * q $
+
+Wenn der Leiter nun eine Breite von $b$ hat, wird entsteht durch das elektrische Feld folgender Spannungsabfall:
+$ U_H = integral arrow(E) dif arrow(s) = E * b $
+
+Bei einer Ladungsträgergeschwindigkeit von $v = I/(A*n*q)$, wobei A der Probenquerschnitt ($b*d$), $n$ die Ladungsträgerdichte und $q$ die Ladung ist, lässt sich die Hallspannung folgend umformulieren:
+$ U_H = -(B*I)/(n*q*d) = -R_H * (B*I)/d $
+
+Hierbei ist $R_H = 1/(n*q)$ die materialabhängige Hall-Konstante.
+
+Mit dem Halleffekt können z.B. die Ladungsträgerdichte ermittelt und die Leitfähigkeit eines Halbleiters untersucht werden.
 
 === Funktionsweise Massenspektrometer
 
@@ -1677,7 +2100,7 @@ $ U(0^+) = I_0 * R arrow.double A = I_0 * R arrow.double U(t) = I_0 * R * exp(-(
 
 Die Spannung klingt mit der Zeit exponentiell ab, für $t arrow infinity$ übernimmt die Spule den gesamten Strom, d.h. $U arrow 0$.
 
-c) Zuerst kann der Schwingkreis zu einem Serienschwingkreis gemachwt werden, um die Berechnung der Spannung bzw. ihrer Amplitude $A = U_0/I_0$ zu vereinfachen:
+c) Zuerst kann der Schwingkreis zu einem Serienschwingkreis gemacht werden, um die Berechnung der Spannung bzw. ihrer Amplitude $A = U_0/I_0$ zu vereinfachen:
 $ Z_"ges" = (Z_L * Z_R)/(Z_L + Z_R) = (i * omega * L * R)/(i * omega * L + R) $
 $ arrow.double U_0/I_0 = |Z_"ges"| = sqrt((omega * L * R)^2)/sqrt(R^2 + (omega * L)^2) = (omega * L * R)/(sqrt(R^2 + omega^2 * L^2)) $
 
@@ -1687,11 +2110,11 @@ $ arrow.double phi = arctan(((-omega*L*R^2)/(-omega^2*L^2 - R^2))/((-omega^2*L^2
 
 === RL-Schwingkreis (2)
 
-+ Ein RL Schwingkreis wird eine lange Zeit an eine Stromquelle $I_0$ angeschlossen (Schalter an). Zum Zeitpunkt $t=0$ wird dieser von der Quelle getrennt (Schalter aus).
-+ Beschreiben Sie qualitativ die Ströme in R,L direkt vor ($t = 0-$) und direkt nach dem Ausschalten ($t = 0^+$).
+Ein RL Schwingkreis wird eine lange Zeit an eine Stromquelle $I_0$ angeschlossen (Schalter an). Zum Zeitpunkt $t=0$ wird dieser von der Quelle getrennt (Schalter aus).
++ Beschreiben Sie qualitativ die Ströme in R,L direkt vor ($t = 0^-$) und direkt nach dem Ausschalten ($t = 0^+$).
 + Stellen Sie die Zeitgleichung für die an der Spule gemessene Spannung $U_L (t>0)$ auf. (Herleitung!)
 + Finden Sie die Lösung dieser Gleichung unter Berücksichtigung der Anfangsbedingungen.
-+ Wie hoch ist die am Widerstand erzeugte Gesamtwärme für $t>0$ ?
++ Wie hoch ist die am Widerstand erzeugte Gesamtwärme für $t>0$?
 
 #image("assets/fragenkatalog/rl_schwingkreis.png")
 
@@ -1709,7 +2132,25 @@ Ein LC-Kreis wird lange Zeit mit konstanten Strom $I_0$ angetrieben (Schalter an
 
 #line(length: 100%)
 
-TODO
+a) Da der Kreis für eine "lange" Zeit mit einer Stromquelle versorgt wird, befindet er sich im Gleichgewicht, d.h. durch den Kondensator fließt kein Strom bzw. keine Spannung ($(dif U) / (dif t) = 0$) und die Spule trägt den gesamten Strom:
+$ U_C (0^+) = 0 $
+$ I_L (0^+) = I_0 $
+
+b) Nach dem Abschalten bilden $L$ und $C$ einen geschlossenen Schwingkreis. Die Maschenregel liefert:
+$ U_L + U_C = 0 arrow.double L * (dif I)/(dif t) + U_C = 0 $
+
+Mit $I = C * (dif U_C)/(dif t)$ folgt die Schwingungsgleichung:
+$ L * (dif)/(dif t)(C * (dif U_C)/(dif t)) + U_C = 0 arrow.double L * C * (dif^2 U_C)/(dif t^2) + U_C = 0 $
+$ arrow.double (dif^2 U_C)/(dif t^2) + underbrace(omega_0,1/sqrt(L * C))^2 U_C = 0 $
+
+Diese Schwingungsgleichung lässt sich nun mit einem Ansatz und den in a) ermittelten Anfangsbedingungen lösen:
+$ U_C (t) = A * cos(omega_0 * t) + B * sin(omega_0 * t) $
+
+Da $U_C (0^+) = 0$ gilt, muss $A=0$ sein. Aus $I_L (0^+) = I_0$ und $I = C * (dif U_C)/(dif t)$ folgt:
+$ I(0) = C * (dif U_C)/(dif t) = C * B * omega_0 * cos(omega_0 * t) = I_0 arrow.double B = I_0/(C * omega_0) = I_0/(C*1/sqrt(L * C)) = I_0 * sqrt(L/C) $
+
+Eingesetzt in den Ansatz:
+$ U_C (t) = I_0 * sqrt(L/C) * sin(omega_0 * t) $
 
 === LC-Schwingkreis (2)
 
@@ -1721,13 +2162,28 @@ $ U(t) = cases(0 "if" t<0, U_0 "if" t gt.eq 0) $
 
 #line(length: 100%)
 
-a) Die Gesamtspannung setzt aus den zwei Teilspannungen zusammen:
+a) Die Gesamtspannung setzt sich aus den zwei Teilspannungen zusammen:
 $ U(t) = U_C + U_L = 1/C * integral I dif t + L * dot(I) $
 
 Um daraus die Differentialgleichung zu erhalten, einfach alles einmal differenziern. $U(t)$ wird in beiden Fällen ($0$ oder $U_0 = "konst"$) zu null.
-$ arrow.double L * dot.double(I) + 1/C * I = 0 $
+$ arrow.double L * dot.double(I) + 1/C * I = 0 arrow.double dot.double(I) + underbrace(omega_0,1/sqrt(L*C))^2 * I = 0 $
 
-b) TODO
+b) Die DGL lässt sich mit dem allgemeinen Ansatz für eine Schwingungsgleichung lösen:
+$ I(t) = A * cos(omega_0 * t) + B * sin(omega_0 * t) $
+
+Für $t < 0$ war keine Spannung angelegt, der Kreis ist somit im Ruhezustand:
+$ I (0^-) = 0 $
+$ U_C (0^-) = 0 $
+
+Da der Strom durch eine Spule nicht springen kann:
+$ I(0^+) = 0 arrow.double A = 0 $
+
+Die Maschenregel bei $t = 0^+$ liefert:
+$ U_0 = U_L (0^+) + U_C (0^+) = L * dot(I)(0^+) + 0 arrow.double dot(I)(0^+) = U_0/L $
+$ dif/(dif t)I(0^+) = B * omega_0 * cos(omega_0 * 0) = U_0/L arrow.double B = U_0 * omega_0 * L = U_0 * 1/sqrt(L*C)*L = U_0 * sqrt(C/L) $
+
+Eingesetzt in den Ansatz:
+$ I(t) = U_0 * sqrt(C/L) * sin(omega_0 * t) $
 
 === RC-Schwingkreis
 
@@ -1740,7 +2196,13 @@ b) TODO
 
 #line(length: 100%)
 
-TODO
+a) Die Gesamtspannung setzt sich aus den zwei Teilspannungen zusammen:
+$ U(t) = U_C + U_R = 1/C * integral I dif t + R * I $
+
+Um daraus die Differentialgleichung zu erhalten, einfach alles einmal differenziern. $U(t)$ wird in beiden Fällen ($0$ oder $U_0 = "konst"$) zu null.
+$ arrow.double R * dot(I) + 1/C * I = 0 arrow.double dot(I) + 1/(C*R) * I = 0 $
+
+b) TODO
 
 === RC-Schwingkreis (2)
 
@@ -1770,13 +2232,24 @@ TODO
 
 === Gemischter RLC-Schwingkreis (2)
 
-Ein gemischter RLC-Schwingkreis (Bild) wird mit der Wechsel-Strom $I(t) = I_0 * exp(i omega t)$ getrieben. Berechnen Sie die Spannung am Widerstand $U_R (t)$. (Einschaltvorgang vernachlässigen, Berechnung mit komplexen Zahlen).
+Ein gemischter RLC-Schwingkreis (Bild) wird mit dem Wechsel-Strom $I(t) = I_0 * exp(i omega t)$ getrieben. Berechnen Sie die Spannung am Widerstand $U_R (t)$. (Einschaltvorgang vernachlässigen, Berechnung mit komplexen Zahlen).
 
 #image("assets/fragenkatalog/gemischter_schwingkreis_2.png")
 
 #line(length: 100%)
 
-TODO
+Da der Einschaltvorgang vernachlässigt werden kann, kann die Rechnung mit den Impedanzen der einzelnen Komponenten durchgeführt werden:
+$ Z_"ges" = (Z_L * (Z_C + Z_R))/(Z_L + (Z_C + Z_R)) = (i * omega * L * (1/(i * omega * C) + R))/(i * omega * L + (1/(i * omega * C) + R)) = (i * omega * L * (-i/(omega * C) + R))/(i * omega * L + (-i/( omega * C) + R)) $
+$ = (L/C + i * omega * L * R)/(R + i * (omega * L - 1/(omega * C))) $
+
+Die Spannung bleibt in den zwei Zweigen gleich, d.h. $U(t) = U_L (t) = U_(C R) (t)$
+$ U(t) = Z_"ges" * I(t) = (L/C + i * omega * L * R)/(R + i * (omega * L - 1/(omega * C))) * I_0 * e^(i omega t) $
+
+Da $U_R$ im Zweig mit $Z_C + Z_R$ liegt, muss für den Spannungsabfall zuerst der Strom durch diesen Zweig berechnet werden:
+$ I_(C R) = U(t)/(Z_C + Z_R) = (Z_"ges" * I(t))/(Z_C + Z_R) = (Z_L * (Z_C + Z_R))/((Z_L + Z_C + Z_R) * (Z_C + Z_R)) * I(t) = (Z_L)/(Z_L + Z_C + Z_R) * I(t) $
+
+Die Spannung am Widerstand ist damit:
+$ U_R (t) = R * I_(C R) = R * Z_L/(Z_L + Z_C + Z_R) * I(t) = (R * i * omega * L)/(R + i * (omega * L - 1/(omega * C))) * I_0 * e^(i omega t) $
 
 === Hoch- und Tiefpassfilter
 
