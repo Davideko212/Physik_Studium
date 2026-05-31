@@ -221,7 +221,7 @@ Berechnen Sie die potentielle Energie von drei Ladungen $Q_1$, $Q_2$ und $Q_3$, 
 
 Die potentielle Energie des Systems ergibt sich als Summe der paarweisen Wechselwirkungsenergien:
 $ E_"pot" = W = W_12 + W_13 + W_23 = 1/(4pi * epsilon_0) * (Q_1 * Q_2)/r_12 + 1/(4pi * epsilon_0) * (Q_1 * Q_3)/r_13 + 1/(4pi * epsilon_0) * (Q_2 * Q_3)/r_23 $
-$ = 1/(4pi * epsilon_0) * (Q_1 * Q_2/r_12 + Q_1 * Q_3/r_13 + Q_2 * Q_3/r_23) $
+$ = 1/(4pi * epsilon_0) * ((Q_1 * Q_2)/r_12 + (Q_1 * Q_3)/r_13 + (Q_2 * Q_3)/r_23) $
 
 Dabei entspricht $W$ der Arbeit, die aufgewendet werden muss, um die drei Ladungen aus dem Unendlichen in die gegebene Konfiguration zu bringen.
 
@@ -1333,7 +1333,7 @@ $ arrow(r) = vec(-x, -r, 0) arrow.double dif arrow(s) times arrow(r) = vec(dif x
 In das Biot-Savart-Gesetz einsetzen (für Magnetfeld in $z$-Richtung, da sonst alles in $arrow(r)$ null ist):
 $ B_Z = - mu_0/(4pi) * I * integral_(-a/2)^(a/2) (-r * dif x)/(x^2 + r^2)^(3/2) = mu_0/(4pi) * I * r * integral_(-a/2)^(a/2) 1/(x^2 + r^2)^(3/2) dif x $
 
-Mit $u = a/2$:
+Mit $u = r$:
 $ integral 1/((x^2 + u^2)^(3/2)) dif x = x/(u^2 * sqrt(x^2 + u^2)) arrow.double B_Z = mu_0/(4pi) * I * r * lr(x/(r^2 * sqrt(x^2 + r^2))|)^(a/2)_(-a/2) $
 $ = mu_0/(4pi) * I * r * ((a/2)/(r^2 * sqrt((a/2)^2 + r^2)) - (-a/2)/(r^2 * sqrt((-a/2)^2 + r^2))) $
 $ = mu_0/(4pi) * I * a/(sqrt(3)/6 * a * sqrt(a^2/4 + (sqrt(3)/6 * a)^2)) = mu_0/(4pi) * I/(sqrt(3)/6) * 1/sqrt(a^2/4 + (3*a^2)/36) = mu_0/(4pi) * I/(sqrt(3)/6) * 1/(sqrt(12/36) * a) $
@@ -1696,7 +1696,7 @@ table.header(
 [$arrow(H)$], [Tangential/Parallel], [Ja], [keine Oberflächenströme],
 [$arrow(H)$], [Normal], [Nein], [Sprung um $mu_2/mu_1$],
 [$arrow(B)$], [Tangential/Parallel], [Nein], [Sprung um $mu_1/mu_2$],
-[$arrow(B)$], [Normal], [Ja], [Immer wegen $div arrow(B)=0$]
+[$arrow(B)$], [Normal], [Ja], [Immer wegen $"div"(arrow(B))=0$]
 )
 
 Trifft der $arrow(H)$-Vektor unter dem Winkel $alpha$ aus dem ersten Material ($mu_1$) auf die Grenzfläche auf, so bildet er im zweiten Material ($mu_2$) einen Winkel $beta$ mit der Grenzflächennormalen, für den wegen $mu_1 * H_perp^1 = mu_2 * H_perp^2$ gilt:
